@@ -1,9 +1,41 @@
+body{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+
+body::after{
+    content: "";
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-color: rgba(70, 160, 255, 0.32);
+    opacity: 0.35;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
 img {
     height: 55px;
     width: 40px;
     float:left;
     margin-right: 15px;
     margin-left: 15px;
+    margin-top: 10px;
 }
 
 .bg {
@@ -14,9 +46,9 @@ img {
 .bg::after {
     content: "";
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-image: url("pictures/background.jpg");
     opacity: 0.35;
     top: 0;
     left: 0;
@@ -26,20 +58,13 @@ img {
     z-index: -1;
 }
 
-.page-header{
-    opacity: 1;
-}
-
-.container-fluid{
-    opacity: 1;
-}
-
 h3 {
     float:right;
 }
 
 h1 {
-    margin-bottom: 35px;
+    padding-top: 15px;
+    margin-bottom: 15px;
     font-weight: bold;
     color: #367cc6;
     text-indent: 15px;
@@ -49,8 +74,92 @@ li{
     font-weight: bold;
 }
 
+.col-sm-6 {
+    background-color: white;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 30%;
+    padding-right: 30%;
+    min-width: 100%;
 
-.forms{
-    background-color: rgba(45, 103, 165, 0.32);
+}
+
+.btn-lg{
+    background-color: #367cc6;
+}
+
+/*footer*/
+
+footer .container{
+    color: #2d67a5;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(214, 224, 235);
+    height: auto;
+    width: 59.6vw;
+}
+
+/*prihlaseni /////////////////////////////////////////////////////////////////////////////*/
+.dropbtn {
+    font-weight: bold;
+    background-color: transparent;
+    color: #2d67a5;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(70, 127, 217, 0.33);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #2d67a5;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    border-radius: 4px;
+    background-color: #d5dfea;
+}
+
+
+/* hladanie */
+.col-sm-8 {
+    background-color: white;
+    padding-bottom: 100px;
+    padding-top: 30px;
+    padding-left: 30%;
+    padding-right: 30%;
+    min-width: 100%;
+
+}
+
+#source_dropdown option{
+    display:none;
+}
+
+#source_dropdown option.label{
+    display:block;
 }
 
