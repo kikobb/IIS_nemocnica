@@ -9,7 +9,8 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 11111111111,
-            'doktor_id' => 1,
+            'uloha_id' => 1,
+            'typ_ulohy_id' => 1,
             'meno' => 'John',
             'priezvisko' => 'Terry',
             'adresa' => str_random(25),
@@ -21,7 +22,8 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 11111111112,
-            'sestra_id' => 1,
+            'uloha_id' => 1,
+            'typ_ulohy_id' => 2,
             'meno' => 'John',
             'priezvisko' => 'Terry',
             'adresa' => str_random(25),
@@ -33,7 +35,8 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 11111111113,
-            'pacient_id' => 1,
+            'uloha_id' => 1,
+            'typ_ulohy_id' => 3,
             'meno' => 'John',
             'priezvisko' => 'Terry',
             'adresa' => str_random(25),
@@ -45,7 +48,8 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 11111111114,
-            'prijemca_id' => 1,
+            'uloha_id' => 1,
+            'typ_ulohy_id' => 4,
             'meno' => 'John',
             'priezvisko' => 'Terry',
             'adresa' => str_random(25),

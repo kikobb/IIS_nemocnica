@@ -8,7 +8,8 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->delete();
 
         $item = array(
-            'osoba_id_rodne_cislo' => 11111111111,
+            'id' => 1,
+            'osoba_id_rodne_cislo' => 11111111114,
             'cislo_poistovne' => 24,
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );

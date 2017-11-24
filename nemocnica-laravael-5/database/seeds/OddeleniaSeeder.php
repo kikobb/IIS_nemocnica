@@ -8,6 +8,7 @@ class OddeleniaSeeder extends Seeder {
         DB::table('oddelenia')->delete();
 
         $item = array(
+            'id' => 1,
             'nazov' => "geriatria",
             'poschodie' => 0,
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')

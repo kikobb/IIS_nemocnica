@@ -8,6 +8,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->delete();
 
         $item = array(
+            'id' => 1,
             'doktor_id' => 1,
             'pacient_id' => 1,
             'prijemca_id' => 1,

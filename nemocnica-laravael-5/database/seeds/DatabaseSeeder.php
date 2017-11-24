@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Podane_liekySeeder::class);
         $this->call(PrijemcoviaSeeder::class);
         $this->call(VysetreniaSeeder::class);
+        $this->call(Typy_ulohSeeder::class);
+        $this->call(SestrySeeder::class);
 
     }
 }

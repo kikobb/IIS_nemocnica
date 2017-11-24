@@ -16,11 +16,9 @@ class CreateOsobyTable extends Migration
         Schema::create('osoby', function (Blueprint $table) {
             $table->bigInteger('id_rodne_cislo')->unsigned();
             $table->primary('id_rodne_cislo');  //treba nastavit primary lebo bigInt nieje implicitne PK
-            $table->unsignedInteger('doktor_id')->nullable($value = true);
-            $table->unsignedInteger('sestra_id')->nullable($value = true);
-            $table->unsignedInteger('pacient_id')->nullable($value = true);
-            $table->unsignedInteger('prijemca_id')->nullable($value = true);
-            //todo mozno pridaj nejaky priznak ze osoba uz ma svojho vlastnoka
+            $table->unsignedInteger('uloha_id');
+            $table->tinyInteger('typ_ulohy_id');   //na urcenie ktora relacia je platna
+            //^^^ odkaz do tabulky s pevne danymi 4 zapismi (riadkami) urcujucimi jeden druh ulohy
 
             $table->string('meno', 30);
             $table->string('priezvisko', 30);

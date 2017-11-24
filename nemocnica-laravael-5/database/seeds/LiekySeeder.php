@@ -8,6 +8,7 @@ class LiekySeeder extends Seeder {
         DB::table('lieky')->delete();
 
         $item = array(
+            'id' => 1,
             'nazov' => "robitusin",
             'ucinna_latka' => "bitusin",
             'kontraindikacia' => "(A v B) ^ (A` ^ B`)",

@@ -8,7 +8,8 @@ class PrijemcoviaSeeder extends Seeder {
         DB::table('prijemcovia')->delete();
 
         $item = array(
-            'osoba_id_rodne_cislo' => 11111111112,
+            'id' => 1,
+            'osoba_id_rodne_cislo' => 11111111113,
             'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );

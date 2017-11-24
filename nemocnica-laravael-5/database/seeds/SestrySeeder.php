@@ -2,21 +2,19 @@
 
 use Illuminate\Database\Seeder;
 
-class IzbySeeder extends Seeder {
+class SestrySeeder extends Seeder {
 
     public function run(){
-        DB::table('izby')->delete();
+        DB::table('sestry')->delete();
 
         $item = array(
             'id' => 1,
+            'osoba_id_rodne_cislo' => 11111111112,
             'oddelenie_id' => 1,
-            'typ' => "adsfa",
-            'kapacita' => 24,
-            'cislo' => 9,
+            'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
-
         );
 
-        DB::table('izby')->insert($item);
+        DB::table('sestry')->insert($item);
     }
 }

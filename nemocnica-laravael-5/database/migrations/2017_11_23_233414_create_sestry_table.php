@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSestraTable extends Migration
+class CreateSestryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateSestraTable extends Migration
     public function up()
     {
         Schema::create('sestry', function (Blueprint $table) {
-            $table->increments('id_sestra');
+            $table->increments('id');
             $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
-            $table->unsignedInteger('oddelenie');
+            $table->unsignedInteger('oddelenie_id');
 
             $table->string('cislo_uctu', 25);
             $table->timestamps();
