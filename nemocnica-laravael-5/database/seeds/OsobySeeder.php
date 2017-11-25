@@ -9,7 +9,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9857233342,
-            'prijemca_id' => 1,
+            'typ_ulohy_id' => 4,
             'meno' => 'Alfonz',
             'priezvisko' => 'Hrbaty',
             'mesto' => 'Zvolen',
@@ -23,7 +23,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9803090011,
-            'prijemca_id' => 2,
+            'typ_ulohy_id' => 4,
             'meno' => 'Adam',
             'priezvisko' => 'Kemény',
             'mesto' => 'Galanta',
@@ -37,7 +37,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 7953020009,
-            'prijemca_id' => 4,
+            'typ_ulohy_id' => 4,
             'meno' => 'Elena',
             'priezvisko' => 'Radosová',
             'mesto' => 'Dvory nad Žitavou',
@@ -51,7 +51,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9207234487,
-            'prijemca_id' => 5,
+            'typ_ulohy_id' => 4,
             'meno' => 'Jozef',
             'priezvisko' => 'Obertáš',
             'mesto' => 'Fáry',
@@ -64,8 +64,8 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
-            'id_rodne_cislo' => 9207234487,
-            'prijemca_id' => 1,
+            'id_rodne_cislo' => 9207234488,
+            'typ_ulohy_id' => 3,
             'meno' => 'Peter',
             'priezvisko' => 'Ujlaky',
             'mesto' => 'Banská Bystrica',
@@ -79,7 +79,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 6954090022,
-            'pacient_id' => 1,
+            'typ_ulohy_id' => 3,
             'meno' => 'Lukáš',
             'priezvisko' => 'Varga',
             'mesto' => 'Tvrdošovce',
@@ -93,7 +93,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9210115178,
-            'pacient_id' => 1,
+            'typ_ulohy_id' => 3,
             'meno' => 'Júlia',
             'priezvisko' => 'Valková',
             'mesto' => 'Martin',
@@ -106,8 +106,8 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
-            'id_rodne_cislo' => 6501115170,
-            'pacient_id' => 1,
+            'id_rodne_cislo' => 9405034419,
+            'typ_ulohy_id' => 3,
             'meno' => 'Adam',
             'priezvisko' => 'Kuvik',
             'mesto' => 'Klenovec',
@@ -121,7 +121,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 6501030569,
-            'pacient_id' => 1,
+            'typ_ulohy_id' => 3,
             'meno' => 'Hanna',
             'priezvisko' => 'Jeseniová',
             'mesto' => 'Mútne',
@@ -135,7 +135,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 8309120567,
-            'pacient_id' => 1,
+            'typ_ulohy_id' => 3,
             'meno' => 'Zuzana',
             'priezvisko' => 'Oravcová',
             'mesto' => 'Brezno',
@@ -148,14 +148,14 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
-            'id_rodne_cislo' => 9803090011,
-            'prijemca_id' => 1,
-            'meno' => 'Peter',
-            'priezvisko' => 'Pavlišinov',
-            'mesto' => 'Košice',
-            'PSC' => '04011',
-            'ulica_cislo' => 'Višková 14',
-            'datum_narodenia' => \Carbon\Carbon::parse('1994-05-03'),
+            'id_rodne_cislo' => 440326383,
+            'typ_ulohy_id' => 3,
+            'meno' => 'Katarína',
+            'priezvisko' => 'Ronáková',
+            'mesto' => 'Humenné',
+            'PSC' => '06601',
+            'ulica_cislo' => 'Sokolská 68',
+            'datum_narodenia' => \Carbon\Carbon::parse('1944-03-26'),
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
@@ -163,7 +163,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9755194768,
-            'sestra_id' => 1,
+            'typ_ulohy_id' => 2,
             'meno' => 'Ružena',
             'priezvisko' => 'Dobosiová',
             'mesto' => 'Lozorno',
@@ -177,7 +177,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9055163832,
-            'sestra_id' => 1,
+            'typ_ulohy_id' => 2,
             'meno' => 'Dobroslav',
             'priezvisko' => 'Galovič',
             'mesto' => 'Bratislava',
@@ -191,7 +191,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 6554124533,
-            'sestra_id' => 1,
+            'typ_ulohy_id' => 2,
             'meno' => 'Tomáš',
             'priezvisko' => 'Durčák',
             'mesto' => 'Bidovce',
@@ -205,7 +205,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 7353263863,
-            'sestra_id' => 1,
+            'typ_ulohy_id' => 2,
             'meno' => 'Petra',
             'priezvisko' => 'Eckerová',
             'mesto' => 'Bratislava',
@@ -218,22 +218,8 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
-            'id_rodne_cislo' => 440326383,
-            'sestra_id' => 1,
-            'meno' => 'Katarína',
-            'priezvisko' => 'Ronáková',
-            'mesto' => 'Humenné',
-            'PSC' => '06601',
-            'ulica_cislo' => 'Sokolská 68',
-            'datum_narodenia' => \Carbon\Carbon::parse('1944-03-26'),
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
-        );
-
-        DB::table('osoby')->insert($item);
-
-        $item = array(
             'id_rodne_cislo' => 9253266957,
-            'doktor_id' => 1,
+            'typ_ulohy_id' => 1,
             'meno' => 'Roman',
             'priezvisko' => 'Ember',
             'mesto' => 'Hrachovo',
@@ -247,7 +233,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 9003262708,
-            'doktor_id' => 1,
+            'typ_ulohy_id' => 1,
             'meno' => 'Gabriel',
             'priezvisko' => 'Polakovič',
             'mesto' => 'Veľký Rur',
@@ -261,7 +247,7 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 7853268577,
-            'doktor_id' => 1,
+            'typ_ulohy_id' => 1,
             'meno' => 'Filip',
             'priezvisko' => 'Daniš',
             'mesto' => 'Nové Zámky',
@@ -275,13 +261,27 @@ class OsobySeeder extends Seeder {
 
         $item = array(
             'id_rodne_cislo' => 6908085327,
-            'doktor_id' => 1,
+            'typ_ulohy_id' => 1,
             'meno' => 'Erika',
             'priezvisko' => 'Gálová',
             'mesto' => 'Horné Lefantovce',
             'PSC' => '95145',
             'ulica_cislo' => 'Janka Kráľa 97',
             'datum_narodenia' => \Carbon\Carbon::parse('1969-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('osoby')->insert($item);
+
+        $item = array(
+            'id_rodne_cislo' => 9803090012,
+            'typ_ulohy_id' => 1,
+            'meno' => 'Peter',
+            'priezvisko' => 'Pavlišinov',
+            'mesto' => 'Košice',
+            'PSC' => '04011',
+            'ulica_cislo' => 'Višková 14',
+            'datum_narodenia' => \Carbon\Carbon::parse('1994-05-03'),
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 

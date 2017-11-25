@@ -17,7 +17,7 @@ class CreatePacientiTable extends Migration
             $table->increments('id');
             $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
 
-            $table->unsignedSmallInteger('cislo_poistovne');
+            $table->string('cislo_poistovne', 10);
             $table->timestamps();
         });
     }

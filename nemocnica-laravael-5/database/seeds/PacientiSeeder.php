@@ -17,7 +17,7 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->insert($item);
 
         $item = array(
-            'id' => 1,
+            'id' => 2,
             'osoba_id_rodne_cislo' => 6954090022,
             'cislo_poistovne' => '6787DF76R7',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -26,7 +26,7 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->insert($item);
 
         $item = array(
-            'id' => 1,
+            'id' => 3,
             'osoba_id_rodne_cislo' => 6501030569,
             'cislo_poistovne' => '67DD76EERT',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -35,7 +35,7 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->insert($item);
 
         $item = array(
-            'id' => 1,
+            'id' => 4,
             'osoba_id_rodne_cislo' => 8309120567,
             'cislo_poistovne' => '687SDF7689',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -44,6 +44,7 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->insert($item);
 
         $item = array(
+            'id' => 5,
             'osoba_id_rodne_cislo' => 9405034419,
             'cislo_poistovne' => 'DSF87898SF',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -52,7 +53,17 @@ class PacientiSeeder extends Seeder {
         DB::table('pacienti')->insert($item);
 
         $item = array(
+            'id' => 6,
             'osoba_id_rodne_cislo' => 440326383,
+            'cislo_poistovne' => 'DGF87898SF',
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('pacienti')->insert($item);
+
+        $item = array(
+            'id' => 7,
+            'osoba_id_rodne_cislo' => 9207234488,
             'cislo_poistovne' => 'DGF87898SF',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );

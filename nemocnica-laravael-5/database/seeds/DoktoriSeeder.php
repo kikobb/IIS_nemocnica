@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DoktorySeeder extends Seeder {
+class DoktoriSeeder extends Seeder {
 
     public function run(){
         DB::table('doktori')->delete();
@@ -56,7 +56,7 @@ class DoktorySeeder extends Seeder {
 
         $item = array(
             'id' => 5,
-            'osoba_id_rodne_cislo' => 440326383,
+            'osoba_id_rodne_cislo' => 9803090012,
             'oddelenie_id' => 3,
             'cislo_uctu' => 4716160243534343,
             'uvazok' => 'polovicny',
