@@ -11,6 +11,8 @@
 |
 */
 
+use \Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +21,7 @@ Route::get('/tasks', function (){
     //$tasks = DB::table('tasks')->get();
     $tasks = App\Task::all();
 
-   return view('tasks.index', compact('tasks'));
+
 });
 
 Route::get('/tasks/{task}', function ($id){
@@ -31,6 +33,14 @@ Route::get('/tasks/{task}', function ($id){
     //$task = \App\Task::incomplete()->find($id);
 
     return view('tasks.show', compact('task'));
+});
+
+Route::post('/', function (Request $data){
+
+
+
+    return view('', $data);
+
 });
 
 
