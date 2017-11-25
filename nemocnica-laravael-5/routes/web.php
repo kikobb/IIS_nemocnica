@@ -50,4 +50,7 @@ Route::post('/', function (Request $data){
 });
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
