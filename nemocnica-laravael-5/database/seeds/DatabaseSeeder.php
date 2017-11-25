@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VysetreniaSeeder::class);
         $this->call(Typy_ulohSeeder::class);
         $this->call(SestrySeeder::class);
+        $this->call(UsersSeeder::class);
 
     }
 }
