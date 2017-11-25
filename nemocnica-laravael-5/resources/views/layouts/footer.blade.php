@@ -1,10 +1,4 @@
-/**
- * Created by PhpStorm.
- * User: lucka
- * Date: 25.11.2017
- * Time: 11:58
- */
-
+<!doctype html>
 <div class="container">
 
     <div class="col-md-3">

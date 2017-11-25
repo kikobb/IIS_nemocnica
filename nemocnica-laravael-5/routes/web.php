@@ -35,6 +35,12 @@ Route::get('/tasks/{task}', function ($id){
     return view('tasks.show', compact('task'));
 });
 
+Route::get('/login', function (){
+
+    return view('login');
+});
+
+
 Route::post('/', function (Request $data){
 
 

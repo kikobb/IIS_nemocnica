@@ -33,7 +33,7 @@ img {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("pictures/background.jpg");
+    background-image: url("../pictures/background.jpg");
     opacity: 0.35;
     top: 0;
     left: 0;
