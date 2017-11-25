@@ -18,6 +18,7 @@ class CreateOsobyTable extends Migration
             $table->primary('id_rodne_cislo');  //treba nastavit primary lebo bigInt nieje implicitne PK
             $table->tinyInteger('typ_ulohy_id');   //na urcenie ktora relacia je platna
             //^^^ odkaz do tabulky s pevne danymi 4 zapismi (riadkami) urcujucimi jeden druh ulohy
+            $table->integer('user_id');
 
             $table->string('meno', 30);
             $table->string('priezvisko', 30);

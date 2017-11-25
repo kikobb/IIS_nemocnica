@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function (){
+Route::get('/tasks', function   (){
     //$tasks = DB::table('tasks')->get();
     $tasks = App\Task::all();
 
@@ -45,3 +45,15 @@ Route::post('/', function (Request $data){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

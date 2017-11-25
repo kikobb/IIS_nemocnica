@@ -12,7 +12,7 @@ class Prijemca extends Model
         return $this->belongsTo('App\Osoba', 'osoba_id_rodne_cislo');
     }
 
-    public function pobyt(){
+    public function pobyty(){
         return $this->hasMany('App\Pobyt');
     }
 
