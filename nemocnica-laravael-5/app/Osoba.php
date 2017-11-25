@@ -28,18 +28,22 @@ class Osoba extends Model
     public function uloha(){
         switch ($this->typ_ulohy()->first()->getName()){
             case 'doktor':
-                return $this->hasMany('App\Doktor', 'osoba_id_rodne_cislo');
+                return $this->hasOne('App\Doktor', 'osoba_id_rodne_cislo');
                 break;
             case 'sestra':
-                return $this->hasMany('App\Sestra', 'osoba_id_rodne_cislo');
+                return $this->hasOne('App\Sestra', 'osoba_id_rodne_cislo');
                 break;
             case 'pacient':
-                return $this->hasMany('App\Pacient', 'osoba_id_rodne_cislo');
+                return $this->hasOne('App\Pacient', 'osoba_id_rodne_cislo');
                 break;
             case 'prijemca':
-                return $this->hasMany('App\Prijemca', 'osoba_id_rodne_cislo');
+                return $this->hasOne('App\Prijemca', 'osoba_id_rodne_cislo');
                 break;
         }
+    }
+
+    public function login_data(){
+        return $this->belongsTo('App\User', 'user_id');
     }
 
 
