@@ -8,6 +8,7 @@ class Podane_liekySeeder extends Seeder {
         DB::table('podane_lieky')->delete();
 
         $item = array(
+            'id' => 1,
             'liek_id' => 1,
             'vysetrenie_id' => 5,
             'davkovanie_cas' => "kazdych 12 hodin",

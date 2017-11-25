@@ -8,6 +8,7 @@ class LiekySeeder extends Seeder {
         DB::table('lieky')->delete();
 
         $item = array(
+            'id' => 1,
             'nazov' => "Chilliburner",
             'ucinna_latka' => "kapsaicín",
             'kontraindikacia' => "extremny ubytok hmotnosti pri minimalnom pohybe, riziko psychickej zavislosti",
@@ -17,6 +18,7 @@ class LiekySeeder extends Seeder {
         DB::table('lieky')->insert($item);
 
         $item = array(
+            'id' => 2,
             'nazov' => "Paralen",
             'ucinna_latka' => "Paracetamol",
             'kontraindikacia' => "kontraproduktivny",
@@ -26,6 +28,7 @@ class LiekySeeder extends Seeder {
         DB::table('lieky')->insert($item);
 
         $item = array(
+            'id' => 3,
             'nazov' => "C-ecko",
             'ucinna_latka' => "vitamin C",
             'kontraindikacia' => "kontraproduktivny",
@@ -35,6 +38,7 @@ class LiekySeeder extends Seeder {
         DB::table('lieky')->insert($item);
 
         $item = array(
+            'id' => 4,
             'nazov' => "Aderal",
             'ucinna_latka' => "amfetamin a dextroamfetamin",
             'kontraindikacia' => "nepravidelne busenie srdca, bolest brucha, chronicka nepsavost",
@@ -42,6 +46,5 @@ class LiekySeeder extends Seeder {
         );
 
         DB::table('lieky')->insert($item);
-
     }
 }

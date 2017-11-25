@@ -8,6 +8,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->delete();
 
         $item = array(
+            'id' => 1,
             'doktor_id' => 5,
             'pacient_id' => 4,
             'prijemca_id' => 5,
@@ -20,6 +21,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->insert($item);
 
         $item = array(
+            'id' => 2,
             'doktor_id' => 3,
             'pacient_id' => 2,
             'prijemca_id' => 1,
@@ -32,6 +34,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->insert($item);
 
         $item = array(
+            'id' => 3,
             'doktor_id' => 4,
             'pacient_id' => 4,
             'prijemca_id' => 4,
@@ -44,6 +47,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->insert($item);
 
         $item = array(
+            'id' => 4,
             'doktor_id' => 2,
             'pacient_id' => 3,
             'prijemca_id' => 1,
@@ -56,6 +60,7 @@ class PobytySeeder extends Seeder {
         DB::table('pobyty')->insert($item);
 
         $item = array(
+            'id' => 5,
             'doktor_id' => 2,
             'pacient_id' => 3,
             'prijemca_id' => 1,
@@ -66,6 +71,5 @@ class PobytySeeder extends Seeder {
         );
 
         DB::table('pobyty')->insert($item);
-
     }
 }

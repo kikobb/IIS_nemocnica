@@ -8,6 +8,7 @@ class IzbySeeder extends Seeder {
         DB::table('izby')->delete();
 
         $item = array(
+            'id' => 1,
             'oddelenie_id' => 1,
             'typ' => "muzi",
             'kapacita' => 4,

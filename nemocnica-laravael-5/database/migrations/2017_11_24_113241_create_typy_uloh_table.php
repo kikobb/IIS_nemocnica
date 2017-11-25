@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePacientiTable extends Migration
+class CreateTypyUlohTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePacientiTable extends Migration
      */
     public function up()
     {
-        Schema::create('pacienti', function (Blueprint $table) {
-            $table->increments('id');
-            $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
-
-            $table->string('cislo_poistovne', 10);
-            $table->timestamps();
+        Schema::create('typy_uloh', function (Blueprint $table) {
+            $table->tinyIncrements('id')->unsigned();
+            $table->string('nazov', 8);
         });
     }
 
@@ -29,6 +26,6 @@ class CreatePacientiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pacienti');
+        Schema::dropIfExists('typy_uloh');
     }
 }
