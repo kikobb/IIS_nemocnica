@@ -20,6 +20,10 @@ class Osoba extends Model
     //public $timestamps = false;
 
 
+    public static function remove($instance){
+        $instance->delete();
+    }
+
     public static function create($user_id, $fillers){
 
         $zapis = true;

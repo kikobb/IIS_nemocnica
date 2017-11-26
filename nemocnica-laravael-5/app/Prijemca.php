@@ -8,6 +8,10 @@ class Prijemca extends Model
 {
     protected $table = 'prijemcovia';
 
+    public static function remove($instance){
+        $instance->delete();
+    }
+
     public static function create($osoba_id, $fillers){
         $prijemca = new Prijemca();
 

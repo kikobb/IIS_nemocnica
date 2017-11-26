@@ -9,6 +9,10 @@ class Sestra extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'sestry';
 
+    public static function remove($instance){
+        $instance->delete();
+    }
+
     public static function create($osoba_id, $fillers){
         $sestra = new Sestra();
 

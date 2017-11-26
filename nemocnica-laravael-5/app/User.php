@@ -9,6 +9,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public static function remove($instance){
+        $instance->delete();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
