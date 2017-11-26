@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Registracia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,22 +17,18 @@
 
 
     <div class="col-sm-6 ">
-        <h2>Moje údaje</h2>
+        <h2>Úspešná registrácia</h2>
 
-        <div>
-            <div class="col-md-5">Meno</div>
-            <div class="col-md-6">$pacient->meno </div>
-        </div>
-
-        <div>
-            <div class="col-md-5">Priezvisko</div>
-            <div class="col-md-6">$pacient->priezvisko </div>
-        </div>
+        <a href="admin_registracia_zamestnanec" class="btn btn-info btn-lg">
+            <span type="submit" class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
+        </a>
 
 
-        </form>
+        <a href="home_admin" class="btn btn-info btn-lg">
+            <span type="submit" class="glyphicon glyphicon-home"></span> Domov
+        </a>
+
     </div>
-
 
 
 </div>

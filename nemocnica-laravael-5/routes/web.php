@@ -57,40 +57,51 @@ Route::get('/heslo', function (){
     return view('zabudnute_heslo');
 });
 
-Route::get('/adm_reg_zamestnanec', function (){
+Route::get('/admin_registracia_zamestnanec', function (){
 
     return view('admin_registracia_zamestnanec');
 });
 
-Route::get('/dok_hladanie', function (){
+Route::get('/doktor_hladanie', function (){
 
     return view('doktor_vyhladavanie');
 });
 
 
-Route::get('/pri_najdene', function (){
+Route::get('/prijemca_najdene', function (){
 
     return view('prijemca_najdene');
 });
 
-Route::get('/pac_home', function (){
+Route::get('/home_pacient', function (){
 
-    return view('pacient_home');
+    return view('home_pacient');
 });
 
-Route::get('/pri_najdene', function (){
+Route::get('/home_admin', function (){
+
+    return view('home_admin');
+});
+
+
+Route::get('/prijemca_najdene', function (){
 
     return view('prijemca_najdene');
 });
 
-Route::get('/ses_reg_pac', function (){
+Route::get('/sestra_registracia_pacient', function (){
 
     return view('sestra_registracia_pacient');
 });
 
-Route::get('/dok_upravit_profil', function (){
+Route::get('/doktor_upravit_profil', function (){
 
     return view('doktor_upravit_profil');
+});
+
+Route::get('/admin_uspesna_registracia_zamestnanca', function (){
+
+    return view('admin_uspesna_registracia_zamestnanca');
 });
 
 
