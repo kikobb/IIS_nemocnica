@@ -15,35 +15,35 @@ class RegController extends Controller
 {
     public static $current_view = 'admin_registracia_zamestnanec';
 
-    public function showRegistrationFormAdmin()
+    public function showAdmin()
     {
         //todo porob podobne funkcie aj na ine
         RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_zamestnanec');
     }
 
-    public function showRegistrationFormOddelenie()
+    public function showOddelenie()
     {
         //todo porob podobne funkcie aj na ine
 //        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_oddelenie');
     }
 
-    public function showRegistrationFormIzba()
+    public function showIzba()
     {
         //todo porob podobne funkcie aj na ine
 //        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_izba');
     }
 
-    public function showRegistrationFormLiek()
+    public function showLiek()
     {
         //todo porob podobne funkcie aj na ine
 //        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_liek');
     }
 
-    public function showRegistrationForm()
+    public function show()
     {
         //todo porob podobne funkcie aj na ine
         RegController::$current_view = 'auth.register';
@@ -58,11 +58,9 @@ class RegController extends Controller
 
     public function register(Request $request)
     {
-        if($this->validator($request->all())->fails()){
-            return view(RegController::$current_view, $request->all());//s datami naspat + co je zle
-        }
+        $request->validate($this->validator());
         $this->create($request->all());
-        return view('home');
+        return view('admin_uspesna_registracia_zamestnanca');
 
     }
 
@@ -81,30 +79,30 @@ class RegController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return array
      */
-    protected function validator(array $data)
+    protected function validator()
     {
         //todo modifikuj
-        return Validator::make($data, [
+        return [
+//            'name' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6', //|confirmed
 
             'name' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
             'pozicia' => 'required|string|max:8',
-            'rodne_cislo' => 'string|max:11',
-            'mesto' => 'string|max:40',
-            'psc' => 'string|max:5',
-            'ulica_cislo_domu' => 'string|max:40',
-            'stat' => 'string|max:40',
-            'datum_narodenia' => 'date|date_format:Y-m-d',
+            'rodne_cislo' => 'string|max:11|nullable',
+            'mesto' => 'string|max:40|nullable',
+            'psc' => 'string|max:5|nullable',
+            'ulica_cislo_domu' => 'string|max:40|nullable',
+            'stat' => 'string|max:40|nullable',
+            'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
 
             'uvazok' => 'required|string|max:10',
-            'cislo_uctu' => 'string|max:25',
-            'telefon' => 'string|max:13',
-
-        ]);
+            'cislo_uctu' => 'string|max:25|nullable',
+            'telefon' => 'string|max:13|nullable',
+        ];
 
     }
     /**

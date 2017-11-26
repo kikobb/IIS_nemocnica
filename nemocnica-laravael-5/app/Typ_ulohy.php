@@ -13,12 +13,13 @@ class Typ_ulohy extends Model
     public $timestamps = false;
 
     public static function findId($str){
-        foreach (self::all() as $item){
-            if ($item->getName() == $str){
-                return $item->id;
-            }
-        }
-        return self::all()->where('nazov', $str)->first()->id;
+//        foreach (self::all() as $item){
+//            if ($item->getName() == $str){
+//                return $item->id;
+//            }
+//        }
+        $pom = Typ_ulohy::where('nazov', $str)->first();
+        return $pom->id;
     }
 
     public function osoby(){

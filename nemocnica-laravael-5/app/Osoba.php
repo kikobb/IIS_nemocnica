@@ -14,8 +14,6 @@ class Osoba extends Model
     public $incrementing = false;
     protected $keyType = 'bigIteger';
     //toto hore ^^^^^ mozno netreba ak sa to berie ako int
-    //format datumtu a casu
-    protected $dateFormat = 'd.m.Y H:i:s';
     //pri odstraneni timestampu z tabuliek
     //public $timestamps = false;
 

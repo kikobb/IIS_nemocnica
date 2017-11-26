@@ -31,9 +31,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function osoba(){
+    public function osoba() {
         return $this->hasOne('App\Osoba');
     }
 
+//    public function isAdmin() {
+//        return;
+//    }
 
 }

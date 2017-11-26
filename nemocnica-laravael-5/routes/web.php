@@ -37,19 +37,21 @@ Route::get('/tasks/{task}', function ($id){
 
 
 //experiment
-Route::get('/registerr', 'RegController@showRegistrationFormAdmin');
+Route::get('/registerr', 'RegController@showAdmin')->name('user.register');
 
-Route::get('/regOddelenie', 'RegController@showRegistrationFormOddelenie');
+Route::get('/regOddelenie', 'RegController@showOddelenie');
 
-Route::get('/regIzba', 'RegController@showRegistrationFormIzba');
+Route::get('/regIzba', 'RegController@showIzba');
 
-Route::get('/regLiek', 'RegController@showRegistrationFormLiek');
+Route::get('/regLiek', 'RegController@showLiek');
 
 
 Route::post('/registerr', 'RegController@register');
+
 //Route::post('/registerr', function(){
 //    return view('login');
 //});
+//Route::resource('user', 'UserController');
 
 
 //moje pridane

@@ -15,11 +15,11 @@
 
      @include('layouts.header_admin')
 
-
+{{--    {{ dump($errors) }}--}}
     <div class="col-sm-6 ">
         <h2>Registrácia - zamestnanca</h2>
 
-        <form method="POST" action="/registerr" >
+        <form method="POST" action="{{ route('user.register') }}" >
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
