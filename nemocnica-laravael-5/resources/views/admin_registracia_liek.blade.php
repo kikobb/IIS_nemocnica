@@ -37,9 +37,7 @@
             </div>
 
 
-            <a href="#" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-user"></span> Registrovať
-            </a>
+            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
         </form>
     </div>
 

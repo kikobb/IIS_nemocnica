@@ -161,7 +161,7 @@
                 @endif
             </div>
 
-            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Submit</button>
+            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
         </form>
     </div>
 

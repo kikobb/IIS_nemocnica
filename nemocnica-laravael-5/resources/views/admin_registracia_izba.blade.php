@@ -44,21 +44,17 @@
             </div>
 
 
-            {{--nejako aby mi kiko poslal vsetky nazvy oddeleni--}}
             <div class="form-group">
                 <label for="cislo">Oddelenie:</label>
                 <select class="form-control" id="oddelenie" name="oddelenie" required>
-                    <option>Ženy</option>
-                    <option>Muži</option>
-                    <option>Deti-chlapci</option>
-                    <option>Deti-dievčatá</option>
+                    @foreach ($oddelenia as $oddelenie)
+                        <option>"$oddelenie->nazov"</option>
+                    @endforeach
                 </select>
             </div>
 
 
-            <a href="#" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-user"></span> Registrovať
-            </a>
+            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
         </form>
     </div>
 

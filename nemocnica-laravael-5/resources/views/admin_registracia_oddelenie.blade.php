@@ -25,17 +25,25 @@
             <div class="form-group">
                 <label for="nazov">Názov oddelenia:</label>
                 <input type="text" class="form-control" id="nazov" placeholder="Oddelenie" name="nazov" required>
+                @if ($errors->has('nazov'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('nazov') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="poschodie">Poschodie:</label>
                 <input type="number" class="form-control" id="poschodie" placeholder="1" name="poschodie">
+                @if ($errors->has('poschodie'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('poschodie') }}</strong>
+                    </span>
+                @endif
             </div>
 
 
-            <a href="#" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-user"></span> Registrovať
-            </a>
+            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
         </form>
     </div>
 
