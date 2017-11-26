@@ -18,7 +18,7 @@ class CreateLiekyTable extends Migration
 
             $table->string('nazov');
             $table->string('ucinna_latka', 50);
-            $table->string('kontraindikacia', 255);
+            $table->string('kontraindikacia', 255)->nullable();
             $table->timestamps();
         });
     }

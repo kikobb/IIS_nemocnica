@@ -15,7 +15,6 @@
 
     @include('layouts.header_admin')
 
-
     <div class="col-sm-6 ">
         <h2>Registrácia - lieku</h2>
 

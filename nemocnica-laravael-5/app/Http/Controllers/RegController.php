@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Doktor;
+use App\Oddelenie;
 use App\Osoba;
 use App\Pacient;
 use App\Prijemca;
@@ -13,41 +14,37 @@ use Illuminate\Http\Request;
 
 class RegController extends Controller
 {
-    public static $current_view = 'admin_registracia_zamestnanec';
+
 
     public function showAdmin()
     {
-        //todo porob podobne funkcie aj na ine
-        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_zamestnanec');
     }
 
     public function showOddelenie()
     {
-        //todo porob podobne funkcie aj na ine
-//        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_oddelenie');
     }
 
     public function showIzba()
     {
-        //todo porob podobne funkcie aj na ine
-//        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_izba');
     }
 
     public function showLiek()
     {
-        //todo porob podobne funkcie aj na ine
-//        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_liek');
     }
 
     public function show()
     {
-        //todo porob podobne funkcie aj na ine
-        RegController::$current_view = 'auth.register';
-        return view('auth.register');
+        return view('auth.register')->with([
+            'users' => User::all
+            (),
+            'arr' => [
+                'asd' => 'asfd'
+            ]
+        ]);
     }
 
     protected function redirectTo()
@@ -56,13 +53,31 @@ class RegController extends Controller
         return '/home';
     }
 
-    public function register(Request $request)
+    public function registerOsoba(Request $request)
     {
-        $request->validate($this->validator());
-        $this->create($request->all());
+        $request->validate($this->rulesOsoba());
+        $this->createOsoba($request->all());
         return view('admin_uspesna_registracia_zamestnanca');
 
     }
+
+    public function registerOddelenie(Request $request){
+        $request->validate($this->rulesOddelenie());
+        $this->createOddelenie($request->all());
+    }
+
+    public function registerIzba(Request $request){
+        $request->validate($this->rulesIzba());
+        $this->createIzba($request->all());
+    }
+
+    public function registerLiek(Request $request){
+        $request->validate($this->rulesLiek());
+    }
+
+//    public function filtruj(Request $request) {
+//        $request->current()->parameters();
+//    }
 
     /**
      * Create a new controller instance.
@@ -81,11 +96,9 @@ class RegController extends Controller
      * @param  array  $data
      * @return array
      */
-    protected function validator()
+    private function rulesOsoba()
     {
-        //todo modifikuj
         return [
-//            'name' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6', //|confirmed
 
@@ -105,13 +118,40 @@ class RegController extends Controller
         ];
 
     }
+
+    private function rulesOddelenie(){
+        return [
+            'nazov' => 'required|string|max:60',
+            'poschodie' => 'required|integer',
+        ];
+    }
+
+    private function rulesIzba(){
+        //typ, kapacita, cislo, oddelenie
+        return [
+            'typ' => 'required|string|max:20',
+            'kapacita' => 'required|integer|max:255',
+            'cislo' => 'integer|max:65000',
+            'oddelenie' => 'required|string|max:8',
+        ];
+    }
+
+    private function rulesLiek(){
+        return [
+            'nazov' => 'required|string',
+            'ucinna_latka' => 'required|string|max:50',
+            'konraindikacia' => 'nullable|string|max:255',
+        ];
+    }
+
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    private function createOsoba(array $data)
     {
         $user = User::create([
             'name' => $data['name'],
@@ -136,5 +176,17 @@ class RegController extends Controller
                 Prijemca::create($osoba_tmp->id, $data);
                 break;
         }
+    }
+
+    private function createOddelenie(array $data){
+        Oddelenie::create($data);
+    }
+
+    private function createIzba(array $data){
+
+    }
+
+    private function createLiek(array $data){
+
     }
 }

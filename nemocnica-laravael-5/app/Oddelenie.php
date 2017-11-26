@@ -9,6 +9,17 @@ class Oddelenie extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'oddelenia';
 
+    public static function create($fillers){
+        $oddelenie = new Oddelenie();
+        if (array_key_exists('nazov', $fillers)){
+            $oddelenie->nazov = $fillers['nazov'];
+        }
+        if (array_key_exists('poschodie', $fillers)){
+            $oddelenie->poschodie = $fillers['poschodie'];
+        }
+        $oddelenie->save();
+    }
+
     public function doktori(){
         return $this->hasMany('App\Doktor');
     }

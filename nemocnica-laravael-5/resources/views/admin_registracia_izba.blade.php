@@ -47,7 +47,7 @@
             {{--nejako aby mi kiko poslal vsetky nazvy oddeleni--}}
             <div class="form-group">
                 <label for="cislo">Oddelenie:</label>
-                <select class="form-control" id="typ" name="typ" required>
+                <select class="form-control" id="oddelenie" name="oddelenie" required>
                     <option>Ženy</option>
                     <option>Muži</option>
                     <option>Deti-chlapci</option>

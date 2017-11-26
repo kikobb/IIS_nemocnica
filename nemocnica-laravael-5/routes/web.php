@@ -46,7 +46,10 @@ Route::get('/regIzba', 'RegController@showIzba')->name('izbaReg');
 Route::get('/regLiek', 'RegController@showLiek')->name('liekReg');
 
 
-Route::post('/regAdmin', 'RegController@register');
+Route::post('/regAdmin', 'RegController@registerOsoba');
+Route::post('/regOddelenie', 'RegController@registerOddelenie');
+Route::post('/regIzba', 'RegController@registerIzba');
+Route::post('/regLiek', 'RegController@registerLiek');
 
 //Route::post('/registerr', function(){
 //    return view('login');
