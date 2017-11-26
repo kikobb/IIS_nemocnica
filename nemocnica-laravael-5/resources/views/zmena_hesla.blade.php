@@ -26,8 +26,8 @@
 
                 @if ($errors->has('email'))
                     <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
                 @endif
             </div>
 
@@ -38,8 +38,8 @@
 
                 @if ($errors->has('password'))
                     <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
             </div>
 
@@ -59,7 +59,6 @@
                     <button type="submit" class="btn btn-info btn-lg">
                         <span class="glyphicon glyphicon-save"></span> Zmeniť
                     </button>
-
                 </div>
             </div>
 

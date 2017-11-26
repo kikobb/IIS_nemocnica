@@ -19,7 +19,7 @@
     <div class="col-sm-6 ">
         <h2>Registrácia - izby</h2>
 
-        <form method="POST" action="{{ route('register') }}" >
+        <form method="POST" action="{{ route('izbaReg') }}" >
             {{ csrf_field() }}
 
 
@@ -35,12 +35,12 @@
 
             <div class="form-group">
                 <label for="kapacita">Kapacita:</label>
-                <input type="cislo" class="form-control" id="kapacita" placeholder="1" name="kapacita" required>
+                <input type="number" class="form-control" id="kapacita" placeholder="1" name="kapacita" required>
             </div>
 
             <div class="form-group">
                 <label for="cislo">Číslo:</label>
-                <input type="cislo" class="form-control" id="cislo" placeholder="1" name="cislo">
+                <input type="number" class="form-control" id="cislo" placeholder="1" name="cislo">
             </div>
 
 

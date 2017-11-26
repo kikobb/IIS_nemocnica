@@ -8,6 +8,10 @@
         <ul class="nav navbar-nav">
 
             <div class="dropdown">
+                <a href="home_admin"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
+            </div>
+
+            <div class="dropdown">
                 <a href="vyhladavanie_admin"><button class="dropbtn">Hľadať</button></a>
             </div>
 

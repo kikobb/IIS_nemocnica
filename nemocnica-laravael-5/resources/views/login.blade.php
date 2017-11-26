@@ -29,11 +29,10 @@
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email">Emailová adresa:</label>
                 <input type="email" class="form-control" id="email" placeholder=" Email" name="email"  value="{{ old('email') }}" required autofocus>
-
                 @if ($errors->has('email'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
                 @endif
             </div>
 
@@ -44,8 +43,8 @@
 
                 @if ($errors->has('password'))
                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
             </div>
 

@@ -19,7 +19,7 @@
     <div class="col-sm-6 ">
         <h2>Registrácia - oddelenia</h2>
 
-        <form method="POST" action="{{ route('register') }}" >
+        <form method="POST" action="{{ route('oddelenieReg') }}" >
             {{ csrf_field() }}
 
             <div class="form-group">

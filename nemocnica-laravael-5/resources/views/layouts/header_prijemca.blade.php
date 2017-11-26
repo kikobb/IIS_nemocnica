@@ -6,6 +6,11 @@
 
     <div class="container-fluid">
         <ul class="nav navbar-nav">
+
+            <div class="dropdown">
+                <a href="home_zamestnanec"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
+            </div>
+
             <div class="dropdown">
                 <a href="#"><button class="dropbtn">Hľadať</button></a>
             </div>

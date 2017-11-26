@@ -18,7 +18,7 @@
     <div class="col-sm-6 ">
         <h2>Registrácia - lieku</h2>
 
-        <form method="POST" action="{{ route('register') }}" >
+        <form method="POST" action="{{ route('liekReg') }}" >
             {{ csrf_field() }}
 
             <div class="form-group">
