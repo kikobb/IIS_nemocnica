@@ -13,46 +13,11 @@
 <body>
 <div class="container">
 
-    <div class="bg">
-        <div class="page-header">
-            <img src="/pictures/logo.png">
-            <h1>Nemocnica</h1>
-        </div>
-
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Hľadať</button></a>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropbtn">Registrovať</button>
-                    <div class="dropdown-content">
-                        <a href="#">Zamestnanca</a>
-                        <a href="#">Oddelenie</a>
-                        <a href="#">Liek</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Upraviť profil</button></a>
-                </div>
-
-
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            </ul>
-        </div>
-
-
-    </div>
+     @include('layouts.admin_header')
 
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - zamestnanca</h2>
+        <h2>Registrácia - pacienta</h2>
 
         <form method="POST" action="{{ route('register') }}" >
             {{ csrf_field() }}
@@ -82,7 +47,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Heslo" name="password" required>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                        strong>{{ $errors->first('password') }}</strong>
+                        <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
             </div>
@@ -98,8 +63,8 @@
             </div>
 
             <div class="form-group{{ $errors->has('rodne_cislo') ? ' has-error' : '' }}">
-                <label for="rodne_cislo">Email:</label>
-                <input type="number" class="form-control" id="rodne_cislo" placeholder="Rodné číslo" value="{{ old('rodne_cislo') }}" name="rodne_cislo" required>
+                <label for="rodne_cislo">Rodné číslo:</label>
+                <input type="text" class="form-control" id="rodne_cislo" placeholder="Rodné číslo" value="{{ old('rodne_cislo') }}" name="rodne_cislo" required>
                 @if ($errors->has('rodne_cislo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('rodne_cislo') }}</strong>
@@ -109,7 +74,7 @@
 
 
             <div class="form-group">
-                <label for="pozicia">Pozicia</label>
+                <label for="pozicia">Pozícia</label>
                 <select class="form-control" id="pozicia" name="pozicia" required>
                     <option>Doktor</option>
                     <option>Sestricka</option>
@@ -119,7 +84,7 @@
 
             <div class="form-group">
                 <label for="mesto">Mesto:</label>
-                <input type="text" class="form-control" id="pwd" placeholder=" Mesto" name="pwd">
+                <input type="text" class="form-control" id="mesto" placeholder=" Mesto" name="mesto">
             </div>
 
             <div class="form-group">
@@ -138,27 +103,27 @@
             </div>
 
             <div class="form-group">
-                <label for="datum_narodenia">Datum Narodenia:</label>
+                <label for="datum_narodenia">Dátum Narodenia:</label>
                 <input class="form-control" type="date" id="datum_narodenia" placeholder=" 12.12.1975" name="datum_narodenia">
             </div>
 
             <div class="form-group">
                 <label for="cislo_uctu">Číslo účtu:</label>
-                <input type="number" class="form-control" id="cislo_uctu" placeholder=" Čislo_uctu" name="cislo_uctu">
+                <input type="text" class="form-control" id="cislo_uctu" placeholder=" Čislo_uctu" name="cislo_uctu">
             </div>
 
             <div class="form-group">
-                <label for="uvazok">Uvazok</label>
+                <label for="uvazok">Úväzok</label>
                 <select class="form-control" id="uvazok" name="uvazok" required>
-                    <option>Plny</option>
-                    <option>Polovicny</option>
+                    <option>Plný</option>
+                    <option>Polovičný</option>
                     <option>Prax</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="telefon">Telefón:</label>
-                <input type="number" class="form-control" id="telefon" placeholder="+420955123456" name="telefon">
+                <input type="text" class="form-control" id="telefon" placeholder="+420955123456" name="telefon">
             </div>
 
             <a href="#" class="btn btn-info btn-lg">
