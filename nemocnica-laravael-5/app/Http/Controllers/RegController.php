@@ -11,8 +11,13 @@ use App\Pacient;
 use App\Prijemca;
 use App\Sestra;
 use App\User;
-use Illuminate\Validation\Validator;
+
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+
+use Illuminate\Support\Facades\Validator;
 
 class RegController extends Controller
 {
@@ -59,7 +64,7 @@ class RegController extends Controller
     {
         //$request->validate($this->validator());
 
-        $validator = Validator::make($request, $this->rulesOsoby());
+        $validator = Validator::make($request->all(), $this->rulesOsoby());
         if ($validator->fails()){
             $messages = $validator->messages();
             //$messages
