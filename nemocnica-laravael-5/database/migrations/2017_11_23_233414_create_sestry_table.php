@@ -16,7 +16,7 @@ class CreateSestryTable extends Migration
         Schema::create('sestry', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('osoba_id');
-            $table->unsignedInteger('oddelenie_id');
+            $table->unsignedInteger('oddelenie_id')->nullable();
 
             $table->string('cislo_uctu', 25)->nullable();
             $table->timestamps();

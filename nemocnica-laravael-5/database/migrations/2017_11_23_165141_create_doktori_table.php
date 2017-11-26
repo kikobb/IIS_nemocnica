@@ -17,7 +17,7 @@ class CreateDoktoriTable extends Migration
         Schema::create('doktori', function (Blueprint $table) {
             $table->increments('id');   //nenastavujem primary lebo increments je implicitne PK
             $table->unsignedInteger('osoba_id');
-            $table->unsignedInteger('oddelenie_id');
+            $table->unsignedInteger('oddelenie_id')->nullable();
 
             $table->string('uvazok', 10);
             $table->string('cislo_uctu', 25)->nullable();

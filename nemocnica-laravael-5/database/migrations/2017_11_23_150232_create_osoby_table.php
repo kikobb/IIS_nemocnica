@@ -23,8 +23,9 @@ class CreateOsobyTable extends Migration
             $table->string('priezvisko', 30);
             $table->string('rodne_cislo', 11)->nullable();
             $table->string('mesto', 40)->nullable();
-            $table->string('PSC', 5)->nullable();
+            $table->string('psc', 5)->nullable();
             $table->string('ulica_cislo', 40)->nullable();
+            $table->string('stat', 20)->nullable();
             $table->date('datum_narodenia')->nullable();
             $table->timestamps();
         });

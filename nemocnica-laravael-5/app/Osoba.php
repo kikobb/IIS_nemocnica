@@ -20,6 +20,44 @@ class Osoba extends Model
     //public $timestamps = false;
 
 
+    public static function create($user_id, $fillers){
+
+        $zapis = true;
+
+        $osoba = new Osoba();
+        $osoba->user_id = $user_id;
+        if (array_key_exists('pozicia', $fillers)){
+            $osoba->typ_ulohy_id = Typ_ulohy::findId($fillers['pozicia']);
+        }
+        if (array_key_exists('name', $fillers)){
+            $osoba->meno = $fillers['name'];
+        }
+        if (array_key_exists('priezvisko', $fillers)){
+            $osoba->priezvisko = $fillers['priezvisko'];
+        }
+
+        if (array_key_exists('rodne_cislo', $fillers)){
+            $osoba->rodne_cislo = $fillers['rodne_cislo'];
+        }
+        if (array_key_exists('mesto', $fillers)){
+            $osoba->mesto = $fillers['mesto'];
+        }
+        if (array_key_exists('psc', $fillers)){
+            $osoba->psc = $fillers['psc'];
+        }
+        if (array_key_exists('ulica_cislo_domu', $fillers)){
+            $osoba->ulica_cislo = $fillers['ulica_cislo_domu'];
+        }
+        if (array_key_exists('stat', $fillers)){
+            $osoba->stat = $fillers['stat'];
+        }
+        if (array_key_exists('datum_narodenia', $fillers)){
+            $osoba->datum_narodenia = $fillers['datum_narodenia'];
+        }
+
+        $osoba->save();
+    }
+
     public function typ_ulohy()
     {
         return $this->belongsTo(Typ_ulohy::class, 'typ_ulohy_id');

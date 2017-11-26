@@ -35,10 +35,13 @@ Route::get('/tasks/{task}', function ($id){
     return view('tasks.show', compact('task'));
 });
 
-Route::get('/register', function (){
 
-    return view('register');
-});
+//experiment
+Route::get('/registerr', 'RegController@showRegistrationFormAdmin');
+
+Route::post('/registerr', 'RegController@register');
+
+
 
 //moje pridane
 
