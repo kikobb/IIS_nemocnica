@@ -8,8 +8,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->delete();
 
         $item = array(
+            'id' => 1,
             'user_id' => 1,
-            'id_rodne_cislo' => 9857233342,
+            'rodne_cislo' => '9857233342',
             'typ_ulohy_id' => 4,
             'meno' => 'Alfonz',
             'priezvisko' => 'Hrbaty',
@@ -23,8 +24,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 2,
             'user_id' => 2,
-            'id_rodne_cislo' => 9803090011,
+            'rodne_cislo' => '9803090011',
             'typ_ulohy_id' => 4,
             'meno' => 'Adam',
             'priezvisko' => 'Kemény',
@@ -38,8 +40,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 3,
             'user_id' => 3,
-            'id_rodne_cislo' => 7953020009,
+            'rodne_cislo' => '7953020009',
             'typ_ulohy_id' => 4,
             'meno' => 'Elena',
             'priezvisko' => 'Radosová',
@@ -53,8 +56,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 4,
             'user_id' => 4,
-            'id_rodne_cislo' => 9207234487,
+            'rodne_cislo' => '9207234487',
             'typ_ulohy_id' => 4,
             'meno' => 'Jozef',
             'priezvisko' => 'Obertáš',
@@ -68,8 +72,25 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 5,
+            'user_id' => 21,
+            'rodne_cislo' => '9207234488',
+            'typ_ulohy_id' => 4,
+            'meno' => 'Lukáš',
+            'priezvisko' => 'Obertáš',
+            'mesto' => 'Fáry',
+            'PSC' => '90843',
+            'ulica_cislo' => 'Nábrežná 96',
+            'datum_narodenia' => \Carbon\Carbon::parse('1962-05-06'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('osoby')->insert($item);
+
+        $item = array(
+            'id' => 6,
             'user_id' => 5,
-            'id_rodne_cislo' => 9207234488,
+            'rodne_cislo' => '9207234488',
             'typ_ulohy_id' => 3,
             'meno' => 'Peter',
             'priezvisko' => 'Ujlaky',
@@ -83,8 +104,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 7,
             'user_id' => 6,
-            'id_rodne_cislo' => 6954090022,
+            'rodne_cislo' => '6954090022',
             'typ_ulohy_id' => 3,
             'meno' => 'Lukáš',
             'priezvisko' => 'Varga',
@@ -98,8 +120,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 8,
             'user_id' => 7,
-            'id_rodne_cislo' => 9210115178,
+            'rodne_cislo' => '9210115178',
             'typ_ulohy_id' => 3,
             'meno' => 'Júlia',
             'priezvisko' => 'Valková',
@@ -113,8 +136,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 9,
             'user_id' => 8,
-            'id_rodne_cislo' => 9405034419,
+            'rodne_cislo' => '9405034419',
             'typ_ulohy_id' => 3,
             'meno' => 'Adam',
             'priezvisko' => 'Kuvik',
@@ -128,8 +152,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 10,
             'user_id' => 9,
-            'id_rodne_cislo' => 6501030569,
+            'rodne_cislo' => '6501030569',
             'typ_ulohy_id' => 3,
             'meno' => 'Hanna',
             'priezvisko' => 'Jeseniová',
@@ -143,8 +168,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 11,
             'user_id' => 10,
-            'id_rodne_cislo' => 8309120567,
+            'rodne_cislo' => '8309120567',
             'typ_ulohy_id' => 3,
             'meno' => 'Zuzana',
             'priezvisko' => 'Oravcová',
@@ -158,8 +184,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 12,
             'user_id' => 11,
-            'id_rodne_cislo' => 440326383,
+            'rodne_cislo' => '440326383',
             'typ_ulohy_id' => 3,
             'meno' => 'Katarína',
             'priezvisko' => 'Ronáková',
@@ -173,8 +200,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 13,
             'user_id' => 12,
-            'id_rodne_cislo' => 9755194768,
+            'rodne_cislo' => '9755194768',
             'typ_ulohy_id' => 2,
             'meno' => 'Ružena',
             'priezvisko' => 'Dobosiová',
@@ -188,8 +216,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 14,
             'user_id' => 13,
-            'id_rodne_cislo' => 9055163832,
+            'rodne_cislo' => '9055163832',
             'typ_ulohy_id' => 2,
             'meno' => 'Dobroslav',
             'priezvisko' => 'Galovič',
@@ -203,8 +232,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 15,
             'user_id' => 14,
-            'id_rodne_cislo' => 6554124533,
+            'rodne_cislo' => '6554124533',
             'typ_ulohy_id' => 2,
             'meno' => 'Tomáš',
             'priezvisko' => 'Durčák',
@@ -218,8 +248,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 16,
             'user_id' => 15,
-            'id_rodne_cislo' => 7353263863,
+            'rodne_cislo' => '7353263863',
             'typ_ulohy_id' => 2,
             'meno' => 'Petra',
             'priezvisko' => 'Eckerová',
@@ -233,8 +264,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 17,
             'user_id' => 16,
-            'id_rodne_cislo' => 9253266957,
+            'rodne_cislo' => '9253266957',
             'typ_ulohy_id' => 1,
             'meno' => 'Roman',
             'priezvisko' => 'Ember',
@@ -248,8 +280,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 18,
             'user_id' => 17,
-            'id_rodne_cislo' => 9003262708,
+            'rodne_cislo' => '9003262708',
             'typ_ulohy_id' => 1,
             'meno' => 'Gabriel',
             'priezvisko' => 'Polakovič',
@@ -263,8 +296,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 19,
             'user_id' => 18,
-            'id_rodne_cislo' => 7853268577,
+            'rodne_cislo' => '7853268577',
             'typ_ulohy_id' => 1,
             'meno' => 'Filip',
             'priezvisko' => 'Daniš',
@@ -278,8 +312,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 20,
             'user_id' => 19,
-            'id_rodne_cislo' => 6908085327,
+            'rodne_cislo' => '6908085327',
             'typ_ulohy_id' => 1,
             'meno' => 'Erika',
             'priezvisko' => 'Gálová',
@@ -293,8 +328,9 @@ class OsobySeeder extends Seeder {
         DB::table('osoby')->insert($item);
 
         $item = array(
+            'id' => 21,
             'user_id' => 20,
-            'id_rodne_cislo' => 9803090012,
+            'rodne_cislo' => '9803090012',
             'typ_ulohy_id' => 1,
             'meno' => 'Peter',
             'priezvisko' => 'Pavlišinov',

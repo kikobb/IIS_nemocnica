@@ -9,11 +9,11 @@ class Prijemca extends Model
     protected $table = 'prijemcovia';
 
     public function osoba(){
-        return $this->belongsTo('App\Osoba', 'osoba_id_rodne_cislo');
+        return $this->belongsTo(Osoba::class, 'osoba_id');
     }
 
     public function pobyty(){
-        return $this->hasMany('App\Pobyt');
+        return $this->hasMany(Pobyt::class);
     }
 
 }

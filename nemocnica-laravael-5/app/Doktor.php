@@ -11,19 +11,19 @@ class Doktor extends Model
     protected $table = 'doktori';
 
     public function osoba(){
-        return $this->belongsTo('App\Osoba', 'osoba_id_rodne_cislo');
+        return $this->belongsTo(Osoba::class, 'osoba_id');
     }
 
     public function vysetrenia(){
-        return $this->hasMany('App\Vysetrenie');
+        return $this->hasMany(Vysetrenie::class);
     }
 
     public function oddelenie(){
-        return $this->belongsTo('App\Oddelenie');
+        return $this->belongsTo(Oddelenie::class);
     }
 
     public function pobyty(){
-        return $this->hasMany('App\Pobyt');
+        return $this->hasMany(Pobyt::class);
     }
 
 }

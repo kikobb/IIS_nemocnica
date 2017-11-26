@@ -9,7 +9,7 @@ class DoktoriSeeder extends Seeder {
 
         $item = array(
             'id' => 1,
-            'osoba_id_rodne_cislo' => 6908085327,
+            'osoba_id' => 17,
             'oddelenie_id' => 3,
             'cislo_uctu' => 459800000015939,
             'uvazok' => 'plny',
@@ -21,7 +21,7 @@ class DoktoriSeeder extends Seeder {
 
         $item = array(
             'id' => 2,
-            'osoba_id_rodne_cislo' => 7853268577,
+            'osoba_id' => 18,
             'oddelenie_id' => 5,
             'cislo_uctu' => 373949910930046,
             'uvazok' => 'polovicny',
@@ -33,7 +33,7 @@ class DoktoriSeeder extends Seeder {
 
         $item = array(
             'id' => 3,
-            'osoba_id_rodne_cislo' => 9003262708,
+            'osoba_id' => 19,
             'oddelenie_id' => 7,
             'cislo_uctu' => 6011709166851386,
             'uvazok' => 'plny',
@@ -44,7 +44,7 @@ class DoktoriSeeder extends Seeder {
         DB::table('doktori')->insert($item);
         $item = array(
             'id' => 4,
-            'osoba_id_rodne_cislo' => 9253266957,
+            'osoba_id' => 20,
             'oddelenie_id' => 4,
             'cislo_uctu' => 5242122934843441,
             'uvazok' => 'prax',
@@ -56,7 +56,7 @@ class DoktoriSeeder extends Seeder {
 
         $item = array(
             'id' => 5,
-            'osoba_id_rodne_cislo' => 9803090012,
+            'osoba_id' => 21,
             'oddelenie_id' => 3,
             'cislo_uctu' => 4716160243534343,
             'uvazok' => 'polovicny',

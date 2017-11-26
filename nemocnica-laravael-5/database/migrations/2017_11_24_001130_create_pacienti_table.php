@@ -15,9 +15,9 @@ class CreatePacientiTable extends Migration
     {
         Schema::create('pacienti', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
+            $table->unsignedInteger('osoba_id');
 
-            $table->string('cislo_poistovne', 10);
+            $table->string('cislo_poistovne', 10)->nullable();
             $table->timestamps();
         });
     }

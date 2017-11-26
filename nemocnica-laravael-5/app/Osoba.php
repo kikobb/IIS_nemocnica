@@ -22,28 +22,28 @@ class Osoba extends Model
 
     public function typ_ulohy()
     {
-        return $this->belongsTo('App\Typ_ulohy', 'typ_ulohy_id');
+        return $this->belongsTo(Typ_ulohy::class, 'typ_ulohy_id');
     }
 
     public function uloha(){
         switch ($this->typ_ulohy()->first()->getName()){
             case 'doktor':
-                return $this->hasOne('App\Doktor', 'osoba_id_rodne_cislo');
+                return $this->hasOne(Doktor::class, 'osoba_id');
                 break;
             case 'sestra':
-                return $this->hasOne('App\Sestra', 'osoba_id_rodne_cislo');
+                return $this->hasOne(Sestra::class, 'osoba_id');
                 break;
             case 'pacient':
-                return $this->hasOne('App\Pacient', 'osoba_id_rodne_cislo');
+                return $this->hasOne(Pacient::class, 'osoba_id');
                 break;
             case 'prijemca':
-                return $this->hasOne('App\Prijemca', 'osoba_id_rodne_cislo');
+                return $this->hasOne(Prijemca::class, 'osoba_id');
                 break;
         }
     }
 
     public function login_data(){
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 

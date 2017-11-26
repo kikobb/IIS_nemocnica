@@ -15,9 +15,9 @@ class CreatePrijemcoviaTable extends Migration
     {
         Schema::create('prijemcovia', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
+            $table->unsignedInteger('osoba_id');
 
-            $table->string('cislo_uctu', 25);
+            $table->string('cislo_uctu', 25)->nullable();
             $table->timestamps();
         });
     }

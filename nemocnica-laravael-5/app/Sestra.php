@@ -10,11 +10,11 @@ class Sestra extends Model
     protected $table = 'sestry';
 
     public function osoba(){
-        return $this->belongsTo('App\Osoba', 'osoba_id_rodne_cislo');
+        return $this->belongsTo(Osoba::class, 'osoba_id');
     }
 
     public function oddelenie(){
-        return $this->belongsTo('App\Oddelenie');
+        return $this->belongsTo(Oddelenie::class);
     }
 
 }

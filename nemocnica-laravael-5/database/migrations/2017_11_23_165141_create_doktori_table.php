@@ -16,12 +16,12 @@ class CreateDoktoriTable extends Migration
     {
         Schema::create('doktori', function (Blueprint $table) {
             $table->increments('id');   //nenastavujem primary lebo increments je implicitne PK
-            $table->bigInteger('osoba_id_rodne_cislo')->unsigned();
+            $table->unsignedInteger('osoba_id');
             $table->unsignedInteger('oddelenie_id');
 
-            $table->string('cislo_uctu', 25);
             $table->string('uvazok', 10);
-            $table->string('telefon', 13);
+            $table->string('cislo_uctu', 25)->nullable();
+            $table->string('telefon', 13)->nullable();
             $table->timestamps();
         });
 

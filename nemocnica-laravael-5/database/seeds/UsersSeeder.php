@@ -203,6 +203,16 @@ class UsersSeeder extends Seeder {
             'password' => bcrypt($cislo)
         );
 
+        $cislo++;
+
+        DB::table('users')->insert($item);
+
+        $item = array(
+            'id' => $cislo,
+            'email' => $cislo.'@email.com',
+            'password' => bcrypt($cislo)
+        );
+
         //$cislo++;
 
         DB::table('users')->insert($item);

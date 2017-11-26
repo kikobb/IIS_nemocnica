@@ -9,7 +9,7 @@ class SestrySeeder extends Seeder {
 
         $item = array(
             'id' => 1,
-            'osoba_id_rodne_cislo' => 9755194768,
+            'osoba_id' => 13,
             'oddelenie_id' => 1,
             'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -19,7 +19,7 @@ class SestrySeeder extends Seeder {
 
         $item = array(
             'id' => 2,
-            'osoba_id_rodne_cislo' => 9055163832,
+            'osoba_id' => 14,
             'oddelenie_id' => 2,
             'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -29,7 +29,7 @@ class SestrySeeder extends Seeder {
 
         $item = array(
             'id' => 3,
-            'osoba_id_rodne_cislo' => 6554124533,
+            'osoba_id' => 15,
             'oddelenie_id' => 3,
             'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
@@ -39,7 +39,7 @@ class SestrySeeder extends Seeder {
 
         $item = array(
             'id' => 4,
-            'osoba_id_rodne_cislo' => 7353263863,
+            'osoba_id' => 16,
             'oddelenie_id' => 4,
             'cislo_uctu' => "54352352351235",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
