@@ -14,10 +14,10 @@
             <div class="dropdown">
                 <button class="dropbtn">Registrovať</button>
                 <div class="dropdown-content">
-                    <a href="registerr">Zamestnanca</a>
-                    <a href="regOddelenie">Oddelenie</a>
-                    <a href="regIzba">Izba</a>
-                    <a href="regLiek">Liek</a>
+                    <a href="zamestnanecReg">Zamestnanca</a>
+                    <a href="oddelenieReg">Oddelenie</a>
+                    <a href="izbaReg">Izba</a>
+                    <a href="liekReg">Liek</a>
                 </div>
             </div>
 

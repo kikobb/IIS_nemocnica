@@ -19,7 +19,7 @@
     <div class="col-sm-6 ">
         <h2>Registrácia - zamestnanca</h2>
 
-        <form method="POST" action="{{ route('adminReg') }}" >
+        <form method="POST" action="{{ route('zamestnanecReg') }}" >
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -35,9 +35,9 @@
             <div class="form-group{{ $errors->has('priezvisko') ? ' has-error' : '' }}">
                 <label for="priezvisko">Priezvisko:</label>
                 <input type="text" class="form-control" id="priezvisko" placeholder="Priezvisko" value="{{ ((isset($priezvisko) ) ? $priezvisko : old('priezvisko')) }}" name="priezvisko" required autofocus>
-                @if ($errors->has('name'))
+                @if ($errors->has('priezvisko'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
+                        <strong>{{ $errors->first('priezvisko') }}</strong>
                     </span>
                 @endif
             </div>
@@ -85,31 +85,61 @@
             <div class="form-group">
                 <label for="mesto">Mesto:</label>
                 <input type="text" class="form-control" id="mesto" placeholder=" Mesto" value="{{((isset($mesto) ) ? $mesto :  '' )}}" name="mesto">
+                @if ($errors->has('mesto'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('mesto') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="psc">PSČ:</label>
                 <input type="text" class="form-control" id="psc" placeholder=" PSC" value="{{((isset($psc) ) ? $psc :  '' )}}" name="psc">
+                @if ($errors->has('psc'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('psc') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="ulica_cislo_domu">Ulica a číslo domu:</label>
                 <input type="text" class="form-control" id="ulica_cislo_domu" placeholder=" Ulica a číslo domu" value="{{((isset($ulica_cislo_domu) ) ? $ulica_cislo_domu :  '' )}}" name="ulica_cislo_domu">
+                @if ($errors->has('ulica_cislo_domu'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('ulica_cislo_domu') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="stat">Štát:</label>
                 <input type="text" class="form-control" id="stat" placeholder=" Krajina" value="{{((isset($stat) ) ? $stat :  '' )}}"  name="stat">
+                @if ($errors->has('stat'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('stat') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="datum_narodenia">Dátum Narodenia:</label>
                 <input class="form-control" type="date" id="datum_narodenia" value="{{((isset($datum_narodenia) ) ? $datum_narodenia :  '' )}}" name="datum_narodenia">
+                @if ($errors->has('datum_narodenia'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('datum_narodenia') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="cislo_uctu">Číslo účtu:</label>
                 <input type="text" class="form-control" id="cislo_uctu" placeholder=" Čislo_uctu" value="{{((isset($cislo_uctu) ) ? $cislo_uctu :  '' )}}" name="cislo_uctu">
+                @if ($errors->has('cislo_uctu'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cislo_uctu') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
@@ -124,12 +154,14 @@
             <div class="form-group">
                 <label for="telefon">Telefón:</label>
                 <input type="text" class="form-control" id="telefon" placeholder="+420955123456" value="{{((isset($telefon) ) ? $telefon :  '' )}}" name="telefon">
+                @if ($errors->has('telefon'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('telefon') }}</strong>
+                    </span>
+                @endif
             </div>
 
-            <!--<a href="#" class="btn btn-info btn-lg">
-                <span type="submit" class="glyphicon glyphicon-user"></span> Registrovať
-            </a>-->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Submit</button>
         </form>
     </div>
 
