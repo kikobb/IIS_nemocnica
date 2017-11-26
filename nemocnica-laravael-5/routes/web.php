@@ -37,14 +37,15 @@ Route::get('/tasks/{task}', function ($id){
 
 
 //experiment
-Route::get('/zamestnanecReg', 'RegController@showZamestnanec')->name('zamestnanecReg');
+//Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/zamestnanecReg', 'RegController@showZamestnanec')->name('zamestnanecReg');
 
-Route::get('/oddelenieReg', 'RegController@showOddelenie')->name('oddelenieReg');
+    Route::get('/oddelenieReg', 'RegController@showOddelenie')->name('oddelenieReg');
 
-Route::get('/izbaReg', 'RegController@showIzba')->name('izbaReg');
+    Route::get('/izbaReg', 'RegController@showIzba')->name('izbaReg');
 
-Route::get('/liekReg', 'RegController@showLiek')->name('liekReg');
-
+    Route::get('/liekReg', 'RegController@showLiek')->name('liekReg');
+//});
 
 Route::post('/zamestnanecReg', 'RegController@regOsoba');
 Route::post('/oddelenieReg', 'RegController@regOddelenie');
@@ -58,6 +59,13 @@ Route::post('/liekReg', 'RegController@regLiek');
 
 
 //moje pridane
+
+Route::get('/', function (){
+
+    return view('login');
+
+});
+
 
 Route::get('/login1', function (){
 
@@ -129,12 +137,6 @@ Route::get('/admin_uspesna_registracia_zamestnanca', function (){
     return view('admin_uspesna_registracia_zamestnanca');
 });
 
-
-Route::post('/', function (Request $data){
-
-    return view('', $data);
-
-});
 
 
 Auth::routes();
