@@ -24,7 +24,7 @@
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name">Meno:</label>
-                <input type="text" class="form-control" id="name" placeholder="Meno" value="{{ old('name') }}" name="name" required autofocus>
+                <input type="text" class="form-control" id="name" placeholder="Meno" value="{{ ((isset($name) ) ? $name : old('name')) }}" name="name" required autofocus>
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>

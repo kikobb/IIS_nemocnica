@@ -13,15 +13,19 @@ use Illuminate\Http\Request;
 
 class RegController extends Controller
 {
+    public static $current_view = 'admin_registracia_zamestnanec';
+
     public function showRegistrationFormAdmin()
     {
         //todo porob podobne funkcie aj na ine
+        RegController::$current_view = 'admin_registracia_zamestnanec';
         return view('admin_registracia_zamestnanec');
     }
 
     public function showRegistrationForm()
     {
         //todo porob podobne funkcie aj na ine
+        RegController::$current_view = 'auth.register';
         return view('auth.register');
     }
 
@@ -34,7 +38,7 @@ class RegController extends Controller
     public function register(Request $request)
     {
         if($this->validator($request->all())->fails()){
-            return view('auth.register');//s datami naspat + co je zle
+            return view(RegController::$current_view, $request->all());//s datami naspat + co je zle
         }
         $this->create($request->all());
         return view('home');

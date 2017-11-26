@@ -39,10 +39,10 @@ Route::get('/tasks/{task}', function ($id){
 //experiment
 Route::get('/registerr', 'RegController@showRegistrationFormAdmin');
 
-//Route::post('/registerr', 'RegController@register');
-Route::post('/registerr', function(){
-    return view('login');
-});
+Route::post('/registerr', 'RegController@register');
+//Route::post('/registerr', function(){
+//    return view('login');
+//});
 
 
 //moje pridane
