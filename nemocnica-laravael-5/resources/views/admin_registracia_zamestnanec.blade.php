@@ -19,7 +19,7 @@
     <div class="col-sm-6 ">
         <h2>Registrácia - zamestnanca</h2>
 
-        <form method="POST" action="{{ route('user.register') }}" >
+        <form method="POST" action="{{ route('adminReg') }}" >
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
