@@ -17,69 +17,12 @@
 <body>
 <div class="container">
 
-    <div class="bg">
-        <div class="page-header">
-            <img src="/pictures/logo.png">
-            <h1>Nemocnica</h1>
-        </div>
-
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Hľadať</button></a>
-                </div>
-
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Pridať pobyt</button></a>
-                </div>
-
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Pridať pacienta</button></a>
-                </div>
-
-                <div class="dropdown">
-                    <a href="#"><button class="dropbtn">Upraviť profil</button></a>
-                </div>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            </ul>
-
-
-        </div>
-
-
-    </div>
+@include('layouts.prijemca_header')
 
 
 @include('layouts.vyhladavanie')
 
-    <div class="col-sm-10 ">
-        <div class="table">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Krsne meno</th>
-                    <th>Priezvisko</th>
-                    <th>Oddelenie</th>
-                </tr>
-                </thead>
-                <tbody>
-                {{--@foreach ($osoby as $osoba)--}}
-                    {{--<tr>--}}
-                        {{--<td>1</td>--}}
-                        {{--<td>$osoba->meno</td>--}}
-                        {{--<td>$osoba->priezvisko</td>--}}
-                        {{--<td>$osoba->oddelenie</td>--}}
-                    {{--</tr>--}}
-                {{--@endforeach--}}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+@include('layouts.admin_najdene_osoba')
 
 
 </div>

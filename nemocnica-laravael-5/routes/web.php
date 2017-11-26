@@ -78,6 +78,17 @@ Route::get('/pri_najdene', function (){
     return view('prijemca_najdene');
 });
 
+Route::get('/ses_reg_pac', function (){
+
+    return view('sestra_registracia_pacient');
+});
+
+Route::get('/dok_upravit_profil', function (){
+
+    return view('doktor_upravit_profil');
+});
+
+
 Route::post('/', function (Request $data){
 
     return view('', $data);
