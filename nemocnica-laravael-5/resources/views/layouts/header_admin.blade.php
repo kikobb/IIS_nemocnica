@@ -8,16 +8,16 @@
         <ul class="nav navbar-nav">
 
             <div class="dropdown">
-                <a href="vyhladavenie"><button class="dropbtn">Hľadať</button></a>
+                <a href="vyhladavanie_admin"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">
                 <button class="dropbtn">Registrovať</button>
                 <div class="dropdown-content">
-                    <a href="admin_registracia_zamestnanca">Zamestnanca</a>
-                    <a href="admin_registracia_oddelenie">Oddelenie</a>
-                    <a href="admin_registracia_izba">Izba</a>
-                    <a href="admin_registracia_liek">Liek</a>
+                    <a href="registerr">Zamestnanca</a>
+                    <a href="regOddelenie">Oddelenie</a>
+                    <a href="regIzba">Izba</a>
+                    <a href="regLiek">Liek</a>
                 </div>
             </div>
 

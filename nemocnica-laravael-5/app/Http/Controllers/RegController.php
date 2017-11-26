@@ -22,6 +22,27 @@ class RegController extends Controller
         return view('admin_registracia_zamestnanec');
     }
 
+    public function showRegistrationFormOddelenie()
+    {
+        //todo porob podobne funkcie aj na ine
+//        RegController::$current_view = 'admin_registracia_zamestnanec';
+        return view('admin_registracia_oddelenie');
+    }
+
+    public function showRegistrationFormIzba()
+    {
+        //todo porob podobne funkcie aj na ine
+//        RegController::$current_view = 'admin_registracia_zamestnanec';
+        return view('admin_registracia_izba');
+    }
+
+    public function showRegistrationFormLiek()
+    {
+        //todo porob podobne funkcie aj na ine
+//        RegController::$current_view = 'admin_registracia_zamestnanec';
+        return view('admin_registracia_liek');
+    }
+
     public function showRegistrationForm()
     {
         //todo porob podobne funkcie aj na ine

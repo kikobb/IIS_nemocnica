@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <div class="dropdown">
-                <button class="dropbtn">Hľadať</button>
+                <a href="vyhladavanie"><button class="dropbtn">Hľadať</button></a>
             </div>
         </ul>
 
@@ -19,6 +19,12 @@
                 <a href="#">Lieky</a>
             </div>
         </div>
+
+        <ul class="nav navbar-nav">
+            <div class="dropdown">
+                <a href="zmenit_heslo"><button class="dropbtn">Zmeniť heslo</button></a>
+            </div>
+        </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

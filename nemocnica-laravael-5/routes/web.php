@@ -39,6 +39,13 @@ Route::get('/tasks/{task}', function ($id){
 //experiment
 Route::get('/registerr', 'RegController@showRegistrationFormAdmin');
 
+Route::get('/regOddelenie', 'RegController@showRegistrationFormOddelenie');
+
+Route::get('/regIzba', 'RegController@showRegistrationFormIzba');
+
+Route::get('/regLiek', 'RegController@showRegistrationFormLiek');
+
+
 Route::post('/registerr', 'RegController@register');
 //Route::post('/registerr', function(){
 //    return view('login');
@@ -57,14 +64,27 @@ Route::get('/heslo', function (){
     return view('zabudnute_heslo');
 });
 
-Route::get('/admin_registracia_zamestnanec', function (){
-
-    return view('admin_registracia_zamestnanec');
-});
 
 Route::get('/doktor_hladanie', function (){
 
-    return view('doktor_vyhladavanie');
+    return view('vyhladavanie');
+});
+
+
+Route::get('/vyhladavanie_admin', function (){
+
+    return view('vyhladavanie_admin');
+});
+
+Route::get('/zmena_hesla', function (){
+
+    return view('zmena_hesla');
+});
+
+
+Route::get('/upravit_profil_admin', function (){
+
+    return view('upravit_profil_admin');
 });
 
 

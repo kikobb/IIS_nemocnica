@@ -7,23 +7,23 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <div class="dropdown">
-                <a href="doktor_vyhladavanie"><button class="dropbtn">Hľadať</button></a>
+                <a href="vyhladavanie"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Pridať pobyt</button></a>
+                <button class="dropbtn">Pridať pobyt</button>
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Pridať pacienta</button></a>
+                <button class="dropbtn">Pridať pacienta</button>
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Vytvoriť správu</button></a>
+                <button class="dropbtn">Vytvoriť správu</button>
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Upraviť profil</button></a>
+                <button class="dropbtn">Upraviť profil</button>
             </div>
         </ul>
 
