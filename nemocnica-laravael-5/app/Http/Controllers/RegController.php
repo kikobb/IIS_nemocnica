@@ -13,28 +13,17 @@ use Illuminate\Http\Request;
 
 class RegController extends Controller
 {
-    //use RegistersUsers;
-
     public function showRegistrationFormAdmin()
     {
         //todo porob podobne funkcie aj na ine
         return view('admin_registracia_zamestnanec');
-//        return view('auth.register');
     }
 
     public function showRegistrationForm()
     {
         //todo porob podobne funkcie aj na ine
-//        return view('admin_registracia_zamestnanec');
         return view('auth.register');
     }
-
-//    /**
-//     * Where to redirect users after registration.
-//     *
-//     * @var string
-//     */
-//    protected $redirectTo = '/home';
 
     protected function redirectTo()
     {
@@ -44,21 +33,11 @@ class RegController extends Controller
 
     public function register(Request $request)
     {
-        //$this->validator($request->all())->validate();
-//        $keys = array_keys($request);
-////        echo $request->;
-//        $messages = validator($request->all());
-
         if($this->validator($request->all())->fails()){
             return view('auth.register');//s datami naspat + co je zle
         }
         $this->create($request->all());
 
-
-//        event(new Registered($user = $this->create($request->all())));
-//        $this->guard()->login($user);
-//        return $this->registered($request, $user)
-//            ?: redirect($this->redirectPath());
     }
 
     /**
