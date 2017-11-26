@@ -37,13 +37,13 @@ Route::get('/tasks/{task}', function ($id){
 
 
 //experiment
-Route::get('/registerr', 'RegController@showAdmin')->name('user.register');
+Route::get('/registerr', 'RegController@showAdmin')->name('adminReg');
 
-Route::get('/regOddelenie', 'RegController@showOddelenie');
+Route::get('/regOddelenie', 'RegController@showOddelenie')->name('oddelenieReg');
 
-Route::get('/regIzba', 'RegController@showIzba');
+Route::get('/regIzba', 'RegController@showIzba')->name('izbaReg');
 
-Route::get('/regLiek', 'RegController@showLiek');
+Route::get('/regLiek', 'RegController@showLiek')->name('liekReg');
 
 
 Route::post('/registerr', 'RegController@register');
