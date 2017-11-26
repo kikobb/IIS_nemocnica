@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 
-@include('layouts.pacient_header')
+@include('layouts.header_pacient')
 
 
     <div class="col-sm-6 ">

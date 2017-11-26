@@ -13,13 +13,13 @@
 <body>
 <div class="container">
 
-     @include('layouts.admin_header')
+     @include('layouts.header_admin')
 
 
     <div class="col-sm-6 ">
         <h2>Registrácia - pacienta</h2>
 
-        <form method="POST" action="{{ route('register') }}" >
+        <form method="POST" action="/registerr" >
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -126,9 +126,10 @@
                 <input type="text" class="form-control" id="telefon" placeholder="+420955123456" name="telefon">
             </div>
 
-            <a href="#" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-user"></span> Registrovať
-            </a>
+            <!--<a href="#" class="btn btn-info btn-lg">
+                <span type="submit" class="glyphicon glyphicon-user"></span> Registrovať
+            </a>-->
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 

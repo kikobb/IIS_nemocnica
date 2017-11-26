@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 
-    @include('layouts.sestra_header')
+    @include('layouts.header_sestra')
 
 
    @include('layouts.registracia_pacient')

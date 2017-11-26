@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 
-    @include('layouts.doktor_header')
+    @include('layouts.header_doktor')
 
     @include('layouts.upravit_profil_zamestnanec')
 

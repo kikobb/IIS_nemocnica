@@ -37,6 +37,7 @@ class RegController extends Controller
             return view('auth.register');//s datami naspat + co je zle
         }
         $this->create($request->all());
+        return view('home');
 
     }
 
