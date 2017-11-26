@@ -62,10 +62,8 @@ class RegController extends Controller
         $validator = Validator::make($request, $this->rulesOsoby());
         if ($validator->fails()){
             $messages = $validator->messages();
-            return view('admin_registracia_zamestnanec')->with([
-                'err' => $messages,
-                'complaint' => $request,
-            ]);
+            //$messages
+            return view('admin_registracia_zamestnanec')->with($request)->witherrors($validator);
         }
 
         $this->createOsoba($request->all());
