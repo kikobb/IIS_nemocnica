@@ -11,7 +11,7 @@ use App\Pacient;
 use App\Prijemca;
 use App\Sestra;
 use App\User;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator;
 use Illuminate\Http\Request;
 
 class RegController extends Controller
@@ -57,8 +57,17 @@ class RegController extends Controller
 
     public function regOsoba(Request $request)
     {
+        //$request->validate($this->validator());
 
-        $request->validate($this->validator());
+        $validator = Validator::make($request, $this->rulesOsoby());
+        if ($validator->fails()){
+            $messages = $validator->messages();
+            return view('admin_registracia_zamestnanec')->with([
+                'err' => $messages,
+                'complaint' => $request,
+            ]);
+        }
+
         $this->createOsoba($request->all());
         return view('admin_uspesna_registracia_zamestnanca');
 
@@ -100,7 +109,7 @@ class RegController extends Controller
      * @param  array  $data
      * @return array
      */
-    private function validator()
+    private function rulesOsoby()
     {
         return [
             'email' => 'required|string|email|max:255|unique:users',
