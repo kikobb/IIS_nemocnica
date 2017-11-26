@@ -23,7 +23,7 @@
             {{ csrf_field() }}
 
             <div class="form-group">
-                <label for="nazov">Názov oddelenia:</label>
+                <label for="nazov">Názov oddelenia<span style="color:red;">*</span>:</label>
                 <input type="text" class="form-control" id="nazov" placeholder="Oddelenie" name="nazov" required>
                 @if ($errors->has('nazov'))
                     <span class="help-block">
@@ -44,6 +44,10 @@
 
 
             <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
+
+            <div class="form-group">
+                <span style="color:red;">*</span> - sú označené povinné údaje
+            </div>
         </form>
     </div>
 

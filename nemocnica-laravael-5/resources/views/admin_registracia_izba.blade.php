@@ -24,7 +24,7 @@
 
 
             <div class="form-group">
-                <label for="typ">Typ</label>
+                <label for="typ">Typ<span style="color:red;">*</span></label>
                 <select class="form-control" id="typ" name="typ" required>
                     <option>Ženy</option>
                     <option>Muži</option>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="form-group">
-                <label for="kapacita">Kapacita:</label>
+                <label for="kapacita">Kapacita<span style="color:red;">*</span>:</label>
                 <input type="number" class="form-control" id="kapacita" placeholder="1" name="kapacita" required>
             </div>
 
@@ -45,16 +45,20 @@
 
 
             <div class="form-group">
-                <label for="cislo">Oddelenie:</label>
+                <label for="cislo">Oddelenie<span style="color:red;">*</span>:</label>
                 <select class="form-control" id="oddelenie" name="oddelenie" required>
-                    @foreach ($oddelenia as $oddelenie)
-                        <option>"$oddelenie->nazov"</option>
-                    @endforeach
+                    {{--@foreach ($oddelenia as $oddelenie)--}}
+                        {{--<option>"$oddelenie->nazov"</option>--}}
+                    {{--@endforeach--}}
                 </select>
             </div>
 
 
             <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
+
+            <div class="form-group">
+                <span style="color:red;">*</span> - sú označené povinné údaje
+            </div>
         </form>
     </div>
 

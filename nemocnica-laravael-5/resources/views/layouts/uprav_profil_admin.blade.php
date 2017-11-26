@@ -60,7 +60,7 @@
         </div>
 
         <a href="#" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-user"></span> Uložiť
+            <span class="glyphicon glyphicon-save"></span> Uložiť zmeny
         </a>
 
         <a href="zmena_hesla" class="btn btn-info btn-lg">

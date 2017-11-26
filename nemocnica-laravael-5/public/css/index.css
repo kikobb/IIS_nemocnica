@@ -77,6 +77,7 @@ li{
 .btn-lg{
     background-color: #367cc6;
     border: transparent;
+    margin: 5px;
 }
 
 .btn-lg:hover{

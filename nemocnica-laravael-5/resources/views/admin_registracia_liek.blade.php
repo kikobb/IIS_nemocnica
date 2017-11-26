@@ -22,12 +22,12 @@
             {{ csrf_field() }}
 
             <div class="form-group">
-                <label for="nazov">Názov lieku:</label>
+                <label for="nazov">Názov lieku<span style="color:red;">*</span>:</label>
                 <input type="text" class="form-control" id="nazov" placeholder="Názov" name="nazov" required>
             </div>
 
             <div class="form-group">
-                <label for="ucinna_latka">Účinná látka:</label>
+                <label for="ucinna_latka">Účinná látka:<span style="color:red;">*</span></label>
                 <input type="text" class="form-control" id="ucinna_latka" placeholder="Účinná látka" name="ucinna_latka" required>
             </div>
 
@@ -38,6 +38,11 @@
 
 
             <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
+
+            <div class="form-group">
+                <span style="color:red;">*</span> - sú označené povinné údaje
+            </div>
+
         </form>
     </div>
 

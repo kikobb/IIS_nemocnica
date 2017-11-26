@@ -23,7 +23,7 @@
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name">Meno:</label>
+                <label for="name">Meno<span style="color:red;">*</span>:</label>
                 <input type="text" class="form-control" id="name" placeholder="Meno" value="{{ ((isset($name) ) ? $name : old('name')) }}" name="name" required autofocus>
                 @if ($errors->has('name'))
                     <span class="help-block">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('priezvisko') ? ' has-error' : '' }}">
-                <label for="priezvisko">Priezvisko:</label>
+                <label for="priezvisko">Priezvisko<span style="color:red;">*</span>:</label>
                 <input type="text" class="form-control" id="priezvisko" placeholder="Priezvisko" value="{{ ((isset($priezvisko) ) ? $priezvisko : old('priezvisko')) }}" name="priezvisko" required autofocus>
                 @if ($errors->has('priezvisko'))
                     <span class="help-block">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password">Heslo:</label>
+                <label for="password">Heslo<span style="color:red;">*</span>:</label>
                 <input type="password" class="form-control" id="password" placeholder="Heslo" name="password" required>
                 @if ($errors->has('password'))
                     <span class="help-block">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="email">Email:</label>
+                <label for="email">Email<span style="color:red;">*</span>:</label>
                 <input type="email" class="form-control" id="email" placeholder="Email" value="{{ ((isset($email) ) ? $email : old('email')) }}" name="email" required>
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('rodne_cislo') ? ' has-error' : '' }}">
-                <label for="rodne_cislo">Rodné číslo:</label>
+                <label for="rodne_cislo">Rodné číslo<span style="color:red;">*</span>:</label>
                 <input type="text" class="form-control" id="rodne_cislo" placeholder="Rodné číslo" value="{{((isset($rodne_cislo) ) ? $rodne_cislo :  old('rodne_cislo')) }}" name="rodne_cislo" required>
                 @if ($errors->has('rodne_cislo'))
                     <span class="help-block">
@@ -74,7 +74,7 @@
 
 
             <div class="form-group">
-                <label for="pozicia">Pozícia</label>
+                <label for="pozicia">Pozícia<span style="color:red;">*</span></label>
                 <select class="form-control" id="pozicia" name="pozicia" required>
                     <option>Doktor</option>
                     <option>Sestricka</option>
@@ -143,7 +143,7 @@
             </div>
 
             <div class="form-group">
-                <label for="uvazok">Úväzok</label>
+                <label for="uvazok">Úväzok<span style="color:red;">*</span></label>
                 <select class="form-control" id="uvazok" name="uvazok" required>
                     <option>Plný</option>
                     <option>Polovičný</option>
@@ -162,6 +162,10 @@
             </div>
 
             <button type="submit" class="btn btn-info btn-lg"><span type="submit" class="glyphicon glyphicon-user"></span>Registrovať</button>
+
+            <div class="form-group">
+                <span style="color:red;">*</span> - sú označené povinné údaje
+            </div>
         </form>
     </div>
 
