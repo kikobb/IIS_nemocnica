@@ -29,7 +29,7 @@ class Osoba extends Model
         $osoba = new Osoba();
         $osoba->user_id = $user_id;
         if (array_key_exists('pozicia', $fillers)){
-            $osoba->typ_ulohy_id = Typ_ulohy::findId($fillers['pozicia']);
+            $osoba->typ_ulohy_id = Typ_ulohy::getIdFromName($fillers['pozicia']);
         }
         if (array_key_exists('name', $fillers)){
             $osoba->meno = $fillers['name'];

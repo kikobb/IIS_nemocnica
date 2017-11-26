@@ -37,19 +37,19 @@ Route::get('/tasks/{task}', function ($id){
 
 
 //experiment
-Route::get('/regAdmin', 'RegController@showAdmin')->name('adminReg');
+Route::get('/zamestnanecReg', 'RegController@showZamestnanec')->name('zamestnanecReg');
 
-Route::get('/regOddelenie', 'RegController@showOddelenie')->name('oddelenieReg');
+Route::get('/oddelenieReg', 'RegController@showOddelenie')->name('oddelenieReg');
 
-Route::get('/regIzba', 'RegController@showIzba')->name('izbaReg');
+Route::get('/izbaReg', 'RegController@showIzba')->name('izbaReg');
 
-Route::get('/regLiek', 'RegController@showLiek')->name('liekReg');
+Route::get('/liekReg', 'RegController@showLiek')->name('liekReg');
 
 
-Route::post('/regAdmin', 'RegController@registerOsoba');
-Route::post('/regOddelenie', 'RegController@registerOddelenie');
-Route::post('/regIzba', 'RegController@registerIzba');
-Route::post('/regLiek', 'RegController@registerLiek');
+Route::post('/zamestnanecReg', 'RegController@regOsoba');
+Route::post('/oddelenieReg', 'RegController@regOddelenie');
+Route::post('/izbaReg', 'RegController@regIzba');
+Route::post('/liekReg', 'RegController@regLiek');
 
 //Route::post('/registerr', function(){
 //    return view('login');

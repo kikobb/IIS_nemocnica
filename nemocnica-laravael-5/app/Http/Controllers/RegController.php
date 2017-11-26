@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Doktor;
+use App\Izba;
+use App\Liek;
 use App\Oddelenie;
 use App\Osoba;
 use App\Pacient;
@@ -16,7 +18,7 @@ class RegController extends Controller
 {
 
 
-    public function showAdmin()
+    public function showZamestnanec()
     {
         return view('admin_registracia_zamestnanec');
     }
@@ -36,16 +38,16 @@ class RegController extends Controller
         return view('admin_registracia_liek');
     }
 
-    public function show()
-    {
-        return view('auth.register')->with([
-            'users' => User::all
-            (),
-            'arr' => [
-                'asd' => 'asfd'
-            ]
-        ]);
-    }
+//    public function show()
+//    {
+//        return view('auth.register')->with([
+//            'users' => User::all
+//            (),
+//            'arr' => [
+//                'asd' => 'asfd'
+//            ]
+//        ]);
+//    }
 
     protected function redirectTo()
     {
@@ -53,7 +55,7 @@ class RegController extends Controller
         return '/home';
     }
 
-    public function registerOsoba(Request $request)
+    public function regOsoba(Request $request)
     {
         $request->validate($this->rulesOsoba());
         $this->createOsoba($request->all());
@@ -61,18 +63,19 @@ class RegController extends Controller
 
     }
 
-    public function registerOddelenie(Request $request){
+    public function regOddelenie(Request $request){
         $request->validate($this->rulesOddelenie());
         $this->createOddelenie($request->all());
     }
 
-    public function registerIzba(Request $request){
+    public function regIzba(Request $request){
         $request->validate($this->rulesIzba());
         $this->createIzba($request->all());
     }
 
-    public function registerLiek(Request $request){
+    public function regLiek(Request $request){
         $request->validate($this->rulesLiek());
+        $this->createLiek($request->all());
     }
 
 //    public function filtruj(Request $request) {
@@ -104,7 +107,7 @@ class RegController extends Controller
 
             'name' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
-            'pozicia' => 'required|string|max:8',
+            'pozicia' => 'required|string|max:8|exist:typy_uloh,nazov',
             'rodne_cislo' => 'string|max:11|nullable',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
@@ -132,7 +135,7 @@ class RegController extends Controller
             'typ' => 'required|string|max:20',
             'kapacita' => 'required|integer|max:255',
             'cislo' => 'integer|max:65000',
-            'oddelenie' => 'required|string|max:8',
+            'oddelenie' => 'required|string|max:8|exist:oddelenia,nazov',
         ];
     }
 
@@ -183,10 +186,10 @@ class RegController extends Controller
     }
 
     private function createIzba(array $data){
-
+        Izba::create($data);
     }
 
     private function createLiek(array $data){
-
+        Liek::create($data);
     }
 }

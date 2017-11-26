@@ -20,6 +20,11 @@ class Oddelenie extends Model
         $oddelenie->save();
     }
 
+    public static function getIdFromName($name){
+        $pom = Oddelenie::where('nazov', $name)->first();
+        return $pom->id;
+    }
+
     public function doktori(){
         return $this->hasMany('App\Doktor');
     }

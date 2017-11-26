@@ -12,13 +12,8 @@ class Typ_ulohy extends Model
     //pri odstraneni timestampu z tabuliek
     public $timestamps = false;
 
-    public static function findId($str){
-//        foreach (self::all() as $item){
-//            if ($item->getName() == $str){
-//                return $item->id;
-//            }
-//        }
-        $pom = Typ_ulohy::where('nazov', $str)->first();
+    public static function getIdFromName($name){
+        $pom = Typ_ulohy::where('nazov', $name)->first();
         return $pom->id;
     }
 
