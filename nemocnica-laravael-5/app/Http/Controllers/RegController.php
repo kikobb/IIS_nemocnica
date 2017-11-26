@@ -40,7 +40,7 @@ class RegController extends Controller
 
 //    public function show()
 //    {
-//        return view('auth.register')->with([
+//        return view('register')->with([
 //            'users' => User::all
 //            (),
 //            'arr' => [
@@ -52,12 +52,13 @@ class RegController extends Controller
     protected function redirectTo()
     {
         //todo tuna cez if a $user = Auth::user(); zisti kto to zadava a tam ho vrat
-        return '/home';
+        return '/login1';
     }
 
     public function regOsoba(Request $request)
     {
-        $request->validate($this->rulesOsoba());
+
+        $request->validate($this->validator());
         $this->createOsoba($request->all());
         return view('admin_uspesna_registracia_zamestnanca');
 
@@ -90,7 +91,7 @@ class RegController extends Controller
     public function __construct()
     {
         //todo uprav na auth
-        $this->middleware('guest');
+        //$this->middleware('auth');
     }
 
     /**
@@ -99,22 +100,21 @@ class RegController extends Controller
      * @param  array  $data
      * @return array
      */
-    private function rulesOsoba()
+    private function validator()
     {
         return [
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6', //|confirmed
+            'password' => 'required|string|min:6',
 
             'name' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
-            'pozicia' => 'required|string|max:8|exist:typy_uloh,nazov',
+            'pozicia' => 'required|string|max:8|exists:typy_uloh,nazov',
             'rodne_cislo' => 'string|max:11|nullable',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
             'ulica_cislo_domu' => 'string|max:40|nullable',
             'stat' => 'string|max:40|nullable',
             'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
-
             'uvazok' => 'required|string|max:10',
             'cislo_uctu' => 'string|max:25|nullable',
             'telefon' => 'string|max:13|nullable',

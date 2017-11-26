@@ -34,5 +34,12 @@ class Typy_ulohSeeder extends Seeder {
         );
 
         DB::table('typy_uloh')->insert($item);
+
+        $item = array(
+            'id' => 5,
+            'nazov' => "admin"
+        );
+
+        DB::table('typy_uloh')->insert($item);
     }
 }

@@ -35,8 +35,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Osoba');
     }
 
-//    public function isAdmin() {
-//        return;
-//    }
+    public function isAdmin() {
+        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'admin');
+    }
 
 }
