@@ -68,7 +68,7 @@ class RegController extends Controller
         if ($validator->fails()){
             $messages = $validator->messages();
             //$messages
-            return view('admin_registracia_zamestnanec')->with($request)->witherrors($validator);
+            return view('admin_registracia_zamestnanec')->with(compact($request))->witherrors($validator);
         }
 
         $this->createOsoba($request->all());
