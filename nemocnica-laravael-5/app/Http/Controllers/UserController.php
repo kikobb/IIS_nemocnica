@@ -13,8 +13,8 @@ class UserController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('doktor')->except('create', 'show');
-        $this->middleware('sestricka')->only('create', 'show');
+        $this->middleware('doktor')->except('create', 'show', 'index');
+        $this->middleware('sestricka')->only('create', 'show')->except('index');
     }
 
     private function rules()
