@@ -81,19 +81,29 @@ class RegController extends Controller
         $validator = Validator::make($request->all(), $this->rulesOddelenie());
         if ($validator->fails()){
             $messages = $validator->messages();
-            return view('admin_registracia_izba')->with(['minuleHodnoty' => $request])->witherrors($validator);
+            return view('admin_registracia_oddelenie')->with(['minuleHodnoty' => $request])->witherrors($validator);
         }
 
         $this->createOddelenie($request->all());
     }
 
     public function regIzba(Request $request){
-        $request->validate($this->rulesIzba());
+        $validator = Validator::make($request->all(), $this->rulesIzba());
+        if ($validator->fails()){
+            $messages = $validator->messages();
+            return view('admin_registracia_izba')->with(['minuleHodnoty' => $request])->witherrors($validator);
+        }
+
         $this->createIzba($request->all());
     }
 
     public function regLiek(Request $request){
-        $request->validate($this->rulesLiek());
+        $validator = Validator::make($request->all(), $this->rulesLiek());
+        if ($validator->fails()){
+            $messages = $validator->messages();
+            return view('admin_registracia_liek')->with(['minuleHodnoty' => $request])->witherrors($validator);
+        }
+
         $this->createLiek($request->all());
     }
 
