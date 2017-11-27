@@ -153,7 +153,7 @@ class RegController extends Controller
             'typ' => 'required|string|max:20',
             'kapacita' => 'required|integer|max:255',
             'cislo' => 'integer|max:65000',
-            'oddelenie' => 'required|string|max:8|exist:oddelenia,nazov',
+            'oddelenie' => 'required|string|max:8|exists:oddelenia,nazov',
         ];
     }
 
