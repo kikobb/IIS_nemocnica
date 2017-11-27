@@ -68,7 +68,6 @@ class RegController extends Controller
         $validator = Validator::make($request->all(), $this->rulesOsoby());
         if ($validator->fails()){
             $messages = $validator->messages();
-            //$messages
             return view('admin_registracia_zamestnanec')->with(['minuleHodnoty' => $request])->witherrors($validator);
         }
 
@@ -78,7 +77,13 @@ class RegController extends Controller
     }
 
     public function regOddelenie(Request $request){
-        $request->validate($this->rulesOddelenie());
+
+        $validator = Validator::make($request->all(), $this->rulesOddelenie());
+        if ($validator->fails()){
+            $messages = $validator->messages();
+            return view('admin_registracia_izba')->with(['minuleHodnoty' => $request])->witherrors($validator);
+        }
+
         $this->createOddelenie($request->all());
     }
 
@@ -137,7 +142,7 @@ class RegController extends Controller
 
     private function rulesOddelenie(){
         return [
-            'nazov' => 'required|string|max:60',
+            'nazov' => 'required|string|max:60|unique:oddelenia,nazov',
             'poschodie' => 'required|integer',
         ];
     }
