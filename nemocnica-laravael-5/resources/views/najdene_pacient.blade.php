@@ -31,6 +31,7 @@
                     <th>Meno</th>
                     <th>Priezvisko</th>
                     <th>Rodné číslo</th>
+                    <th>Podrobnosti</th>
                 </tr>
                 </thead>
                 <tbody>

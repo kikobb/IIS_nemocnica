@@ -28,9 +28,9 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Meno</th>
-                    <th>Priezvisko</th>
-                    <th>Rodné číslo</th>
+                    <th>Názov</th>
+                    <th>Látka</th>
+                    <th>Kontraindikácia</th>
                 </tr>
                 </thead>
                 <tbody>

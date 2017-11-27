@@ -96,15 +96,9 @@ Route::get('/heslo', function (){
 });
 
 
-Route::get('/doktor_hladanie', function (){
+Route::get('/vyhladavanie', function (){
 
     return view('vyhladavanie');
-});
-
-
-Route::get('/vyhladavanie_admin', function (){
-
-    return view('vyhladavanie_admin');
 });
 
 Route::get('/zmena_hesla', function (){

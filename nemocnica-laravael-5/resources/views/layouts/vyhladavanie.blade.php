@@ -1,43 +1,60 @@
 <div class="col-sm-8 ">
     <h2>Vyhľadávanie</h2>
-    <select  id="dest_dropdown" name="source_dropdown">
-        <option value="">Vyberte</option>
-        <option value="osoba">Doktor</option>
-        <option value="osoba">Sestra</option>
-        <option value="osoba">Príjemca</option>
-        <option value="osoba">Pacient</option>
-        <option value="pobyt">Pobyt</option>
-        <option value="liek">Liek</option>
-        <option value="vysetrenie">Vyšetrenie</option>
-    </select>
+    <form method="POST" action="{{ route('zamestnanecReg') }}" >
+        {{ csrf_field() }}
 
-    <select disabled="disabled" id="source_dropdown" name="ource_dropdown">
-        <option class="label" value="">Vyberte</option>
-        <!-- Home Ware -->
-        <!--<option value="asd">asd</option>-->
-        <option rel="osoba" value="meno">Krsné meno</option>
-        <option rel="osoba" value="priezvisko">Priezvisko</option>
-        <option rel="osoba" value="oddelenie">Oddelenie</option>>
-        <!-- Education -->
-        <option rel="pobyt" value="datum_prichodu">Dátum príchodu</option>
-        <option rel="pobyt" value="datum_odchodu">Dátum odchodu</option>
-        <option rel="pobyt" value="oddelenie">Oddelenie</option>
-        <option rel="pobyt" value="pacient">Pacient</option>
-        <!-- Books -->
-        <option rel="liek" value="nazov">Názov</option>
-        <option rel="liek" value="latka">Účinná látka</option>
-        <option rel="liek" value="kontradikacia">Kontradikácia</option>
+        <div class="form-group">
+            <select  id="dest_dropdown" name="dest_dropdown" class="form-control">
+                <option value="">Vyberte</option>
+                <option value="osoba">Doktor</option>
+                <option value="osoba">Sestra</option>
+                <option value="osoba">Príjemca</option>
+                <option value="osoba">Pacient</option>
+                <option value="pobyt">Pobyt</option>
+                <option value="liek">Liek</option>
+                <option value="vysetrenie">Vyšetrenie</option>
+                <option value="oddelenie">Oddelenie</option>
+                <option value="izba">Izba</option>
+            </select>
+        </div>
 
-        <option rel="vysetrenie" value="typ">Typ</option>
-        <option rel="vysetrenie" value="cas">Dátum a čas</option>
-        <option rel="vysetrenie" value="oddelenie">Oddelenie</option>
-    </select>
+        <div class="form-group">
+            <select disabled="disabled" id="source_dropdown" name="source_dropdown" class="form-control">
+                <option class="label" value="">Vyberte</option>
 
-    <div class="input-group">
-        <input type="hidden" name="search_param" value="all" id="search_param">
-        <input type="text" class="form-control" name="x" placeholder="Search term...">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-        </span>
-    </div>
+                <option rel="osoba" value="meno">Krsné meno</option>
+                <option rel="osoba" value="priezvisko">Priezvisko</option>
+                <option rel="osoba" value="oddelenie">Oddelenie</option>>
+
+                <option rel="pobyt" value="datum_prichodu">Dátum príchodu</option>
+                <option rel="pobyt" value="datum_odchodu">Dátum odchodu</option>
+                <option rel="pobyt" value="oddelenie">Oddelenie</option>
+                <option rel="pobyt" value="pacient">Pacient</option>
+
+                <option rel="liek" value="nazov">Názov</option>
+                <option rel="liek" value="latka">Účinná látka</option>
+
+                <option rel="vysetrenie" value="typ">Typ</option>
+                <option rel="vysetrenie" value="cas">Dátum</option>
+                <option rel="vysetrenie" value="oddelenie">Oddelenie</option>
+
+                <option rel="oddelenie" value="nazov">Názov</option>
+                <option rel="oddelenie" value="poschodie">Poschodie</option>
+
+                <option rel="izba" value="typ">Typ</option>
+                <option rel="izba" value="kapacita">Kapacita</option>
+                <option rel="izba" value="cislo">Číslo</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            {{--<input type="hidden" name="search_param" value="all" id="search_param">--}}
+            <div class="form-group">
+                <input type="text" class="form-control" name="vyhladavanie" placeholder="Zadajte slovo na vyhľadávanie...">
+            </div>
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+    </form>
 </div>

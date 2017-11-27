@@ -14,7 +14,7 @@
 <body>
 <div class="container">
 
-    @include('layouts.header_doktor')
+    @include('layouts.header_admin')
 
     @include('layouts.vyhladavanie')
 
