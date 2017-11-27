@@ -16,7 +16,7 @@ class CreateOddeleniaTable extends Migration
         Schema::create('oddelenia', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('nazov', 60);
+            $table->string('nazov', 50);
             $table->smallInteger('poschodie');
             $table->timestamps();
         });

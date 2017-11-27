@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Oddelenie;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use App\Liek;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
-class LiekController extends Controller
+class OddelenieController extends Controller
 {
-    function __construct()
-    {
-        //$this->middleware('auth');
-        //$this->middleware('doktor')->except('show');
-        //$this->middleware('sestricka')->only('create', 'show');
-    }
-
     /**
      * @return array
      */
@@ -23,7 +16,7 @@ class LiekController extends Controller
     {
         return [
             'nazov' => 'required|max:50',
-            'ucinna_latka' => 'required|max:255'
+            'poschodie' => 'required|integer|max:255'
         ];
     }
 
@@ -34,9 +27,8 @@ class LiekController extends Controller
      */
     public function index()
     {
-        //vrata view s liekmi
-        return view('liek.index')->with([
-            'lieky' => Liek::all(),
+        return view('oddelenie.index')->with([
+            'Oddelenia' => Oddelenie::all(),
         ]);
     }
 
@@ -47,44 +39,38 @@ class LiekController extends Controller
      */
     public function create()
     {
-        return view('liek.createEdit')->with(['osoba' => Auth::user()]);
+        return view('oddelenie.createEdit')->with(['oddelenia' => Auth::user()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function store(Request $request)
     {
         $request->validate($this->rules());
-
-        /* @var Liek $liek */
+        /* @var Oddelenie $odd */
 //        dd($request);
-        $liek = Liek::create([
+        $odd = Oddelenie::create([
             'nazov' => $request['nazov'],
-            'ucinna_latka' => $request['ucinna_latka'],
+            'poschodie' => $request['ucinna_latka'],
         ]);
 
-        if ( $request->has('kontraindikacia') )
-            $liek->kontraindikacia = $request['kontraindikacia'];
-
-        $liek->save();
-
-        return $this->confirm($liek->id);
+        return $this->confirm($odd->id);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function show($id)
     {
-        return view('liek.show')->with([
-            "liek" => Liek::findOrFail($id),
+        return view('oddelenie.show')->with([
+             'oddelenie' => Oddelenie::findOrFail($id),
         ]);
     }
 
@@ -96,8 +82,8 @@ class LiekController extends Controller
      */
     public function confirm($id)
     {
-        return view('liek.confirm')->with([
-            "liek" => Liek::findOrFail($id),
+        return view('oddelenie.confirm')->with([
+            "oddelenie" => Oddelenie::findOrFail($id),
         ]);
     }
 
@@ -105,12 +91,12 @@ class LiekController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function edit($id)
     {
-        return view('liek.createEdit')->with([
-            'liek' => Liek::findOrFail($id),
+        return view('oddelenie.createEdit')->with([
+            'oddelenie' => Oddelenie::findOrFail($id)
         ]);
     }
 
@@ -125,17 +111,13 @@ class LiekController extends Controller
     {
         $request->validate($this->rules());
 
-        /* @var Liek $liek */
-        $liek = Liek::findOrFail($id);
-        $liek->nazov = $request['nazov'];
-        $liek->ucinna_latka = $request['ucinna_latka'];
+        /* @var Oddelenie $odd */
+        $odd = Oddelenie::findOrFail($id);
+        $odd->nazov = $request['nazov'];
+        $odd->poschodie = $request['poschodie'];
+        $odd->save();
 
-        if ( $request->has('kontraindikacia') )
-            $liek->kontraindikacia = $request['kontraindikacia'];
-
-        $liek->save();
-
-        return redirect()->route('liek.show');
+        return redirect()->route('oddelenie.show');
     }
 
     /**
@@ -146,7 +128,7 @@ class LiekController extends Controller
      */
     public function destroy($id)
     {
-        Liek::destroy($id);
+        Oddelenie::destroy($id);
         return back();
     }
 }
