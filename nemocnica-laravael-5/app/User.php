@@ -13,6 +13,10 @@ class User extends Authenticatable
         $instance->delete();
     }
 
+    public static function getUserById($id){
+        return User::where('id', $id)->first();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -31,12 +35,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    //väzba
     public function osoba() {
         return $this->hasOne('App\Osoba');
     }
 
+    public function getTyp_ulohy(){
+        $this->osoba()->first()->typ_ulohy()->first()->getName();
+    }
+
     public function isAdmin() {
         return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'admin');
+    }
+
+    public function isDoktor(){
+        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'doktor');
+    }
+
+    public function isSestra(){
+        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'sestra');
+    }
+
+    public function isPrijemca(){
+        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'prijemca');
+    }
+
+    public function isPacient(){
+        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'pacient');
     }
 
 }

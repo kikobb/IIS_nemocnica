@@ -36,21 +36,39 @@ Route::get('/tasks/{task}', function ($id){
 });
 
 
-//experiment
-//Route::group(['middleware' => ['auth', 'admin']], function () {
+//admin
+Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/zamestnanecReg', 'RegController@showZamestnanec')->name('zamestnanecReg');
-
     Route::get('/oddelenieReg', 'RegController@showOddelenie')->name('oddelenieReg');
-
     Route::get('/izbaReg', 'RegController@showIzba')->name('izbaReg');
-
     Route::get('/liekReg', 'RegController@showLiek')->name('liekReg');
-//});
 
-Route::post('/zamestnanecReg', 'RegController@regOsoba');
-Route::post('/oddelenieReg', 'RegController@regOddelenie');
-Route::post('/izbaReg', 'RegController@regIzba');
-Route::post('/liekReg', 'RegController@regLiek');
+    Route::post('/zamestnanecReg', 'RegController@regOsoba');
+    Route::post('/oddelenieReg', 'RegController@regOddelenie');
+    Route::post('/izbaReg', 'RegController@regIzba');
+    Route::post('/liekReg', 'RegController@regLiek');
+});
+
+//doktor
+Route::group(['middleware' => ['auth','doktor']], function (){
+
+});
+//doktor, sestra
+Route::group(['middleware' => ['auth','doktor']], function (){
+
+});
+//doktor, sestra, prijemca
+Route::group(['middleware' => ['auth','doktor']], function (){
+
+});
+//pacient
+Route::group(['middleware' => ['auth','doktor']], function (){
+
+});
+
+Route::get('/', 'LoginController@index');
+Route::post('/', 'LoginController@login')->name('home');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
 //Route::post('/registerr', function(){
 //    return view('login');
@@ -60,11 +78,11 @@ Route::post('/liekReg', 'RegController@regLiek');
 
 //moje pridane
 
-Route::get('/', function (){
-
-    return view('login');
-
-});
+//Route::get('/', function (){
+//
+//    return view('login');
+//
+//});
 
 
 Route::get('/login1', function (){
@@ -156,5 +174,5 @@ Route::get('/admin_uspesna_registracia_oddelenie', function (){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 

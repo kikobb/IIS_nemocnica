@@ -23,7 +23,7 @@
 
     <div class="col-sm-6 ">
         <h2>Prihlásenie </h2>
-        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+        <form class="form-horizontal" method="POST" action="{{ route('home') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
