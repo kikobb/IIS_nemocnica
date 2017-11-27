@@ -147,9 +147,9 @@ Route::get('/admin_uspesna_registracia_izba', function (){
     return view('admin_uspesna_registracia_izba');
 });
 
-Route::get('/admin_uspesna_registracia_oddelenie', function (){
+Route::get('/admin_uspesna_registracia_oddelenia', function (){
 
-    return view('admin_uspesna_registracia_oddelenie');
+    return view('admin_uspesna_registracia_oddelenia');
 });
 
 
