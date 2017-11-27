@@ -9,19 +9,17 @@
                 <tr>
                     <th>#</th>
                     <th>Názov</th>
-                    <th>Látka</th>
-                    <th>Kontraindikácia</th>
+                    <th>Poschodie</th>
                     <th>Úprava</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                @foreach ($lieky as $liek)
+                @foreach ($oddelenia as $oddelenie)
                 <tr>
                 <td>1</td>
-                <td>{{$liek->nazov}}</td>
-                <td>{{$liek->ucinna_latka}}</td>
-                <td>{{$liek->kontaindikacia}}</td>
+                <td>{{$oddelenie->nazov}}</td>
+                <td>{{$oddelenie->poschodie}}</td>
                 <td><span class="input-group-btn">
                 <a href="#"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                 </span>

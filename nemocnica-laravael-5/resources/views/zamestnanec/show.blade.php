@@ -7,17 +7,17 @@
 
         <div>
             <div class="col-md-5">Názov lieku:</div>
-            <div class="col-md-6"> {{$liek->nazov}}</div>
+            <div class="col-md-6"> {{$osoba->meno}}</div>
         </div>
 
         <div>
             <div class="col-md-5">Účinná látka:</div>
-            <div class="col-md-6">{{$liek->ucinna_latka}} </div>
+            <div class="col-md-6">{{$osoba->priezvisko}} </div>
         </div>
 
         <div>
             <div class="col-md-5">Kontraindikácia:</div>
-            <div class="col-md-6">{{$liek->kontaindikacia}} </div>
+            <div class="col-md-6">{{$osoba->email}} </div>
         </div>
     </div>
 @endsection
