@@ -23,17 +23,32 @@
 
             <div class="form-group">
                 <label for="nazov">Názov lieku<span style="color:red;">*</span>:</label>
-                <input type="text" class="form-control" id="nazov" placeholder="Názov" name="nazov" required>
+                <input type="text" class="form-control" id="nazov" placeholder="Názov" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('nazov') : '' )}}" name="nazov" required>
+                @if ($errors->has('nazov'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('nazov') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="ucinna_latka">Účinná látka:<span style="color:red;">*</span></label>
-                <input type="text" class="form-control" id="ucinna_latka" placeholder="Účinná látka" name="ucinna_latka" required>
+                <input type="text" class="form-control" id="ucinna_latka" placeholder="Účinná látka" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('ucinna_latka') : '' )}}" name="ucinna_latka" required>
+                @if ($errors->has('ucinna_latka'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('ucinna_latka') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="konraindikacia">Kontraindikácia:</label>
-                <input type="text" class="form-control" id="konraindikacia" placeholder="Vedľajsšie účinky" name="konraindikacia">
+                <input type="text" class="form-control" id="konraindikacia" placeholder="Vedľajsšie účinky" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('konraindikacia') : '' )}}" name="konraindikacia">
+                @if ($errors->has('konraindikacia'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('konraindikacia') }}</strong>
+                    </span>
+                @endif
             </div>
 
 

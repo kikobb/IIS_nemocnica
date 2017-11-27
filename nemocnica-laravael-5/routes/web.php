@@ -137,6 +137,21 @@ Route::get('/admin_uspesna_registracia_zamestnanca', function (){
     return view('admin_uspesna_registracia_zamestnanca');
 });
 
+Route::get('/admin_uspesna_registracia_liek', function (){
+
+    return view('admin_uspesna_registracia_liek');
+});
+
+Route::get('/admin_uspesna_registracia_izba', function (){
+
+    return view('admin_uspesna_registracia_izba');
+});
+
+Route::get('/admin_uspesna_registracia_oddelenie', function (){
+
+    return view('admin_uspesna_registracia_oddelenie');
+});
+
 
 
 Auth::routes();

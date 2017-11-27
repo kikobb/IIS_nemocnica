@@ -85,6 +85,7 @@ class RegController extends Controller
         }
 
         $this->createOddelenie($request->all());
+        return view('admin_uspesna_registracia_oddelenie');
     }
 
     public function regIzba(Request $request){
@@ -96,6 +97,7 @@ class RegController extends Controller
         }
 
         $this->createIzba($request->all());
+        return view('admin_uspesna_registracia_izba');
     }
 
     public function regLiek(Request $request){
@@ -106,6 +108,7 @@ class RegController extends Controller
         }
 
         $this->createLiek($request->all());
+        return view('admin_uspesna_registracia_liek');
     }
 
 //    public function filtruj(Request $request) {

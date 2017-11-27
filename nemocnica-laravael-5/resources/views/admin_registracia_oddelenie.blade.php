@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 <label for="nazov">Názov oddelenia<span style="color:red;">*</span>:</label>
-                <input type="text" class="form-control" id="nazov" placeholder="Oddelenie" name="nazov" required>
+                <input type="text" class="form-control" id="nazov" placeholder="Oddelenie" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('nazov') : '' )}}" name="nazov" required>
                 @if ($errors->has('nazov'))
                     <span class="help-block">
                         <strong>{{ $errors->first('nazov') }}</strong>
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="poschodie">Poschodie:</label>
-                <input type="number" class="form-control" id="poschodie" placeholder="1" name="poschodie">
+                <input type="number" class="form-control" id="poschodie" placeholder="1" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('poschodie') : '' )}}" name="poschodie">
                 @if ($errors->has('poschodie'))
                     <span class="help-block">
                         <strong>{{ $errors->first('poschodie') }}</strong>
