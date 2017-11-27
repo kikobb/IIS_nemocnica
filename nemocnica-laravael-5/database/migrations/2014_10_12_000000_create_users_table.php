@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             //osoba
-            $table->string('typ_ulohy');
+            $table->string('pozicia');
             $table->string('meno', 30);
             $table->string('priezvisko', 30);
             $table->string('rodne_cislo', 11)->nullable();
@@ -28,11 +28,11 @@ class CreateUsersTable extends Migration
             $table->string('stat', 20)->nullable();
             $table->date('datum_narodenia')->nullable();
             //doktor
-            $table->integer('oddelenie_doktor_id')->unsigned()->nullable();
-            $table->integer('oddelenie_sestra_id')->unsigned()->nullable();
-            $table->string('uvazok', 10);
+            $table->string('uvazok', 10)->nullable();
             $table->string('cislo_uctu', 25)->nullable();
             $table->string('telefon', 13)->nullable();
+            $table->integer('oddelenie_doktor_id')->unsigned()->nullable();
+            $table->integer('oddelenie_sestra_id')->unsigned()->nullable();
             //pacient
             $table->string('cislo_poistovne', 10)->nullable();
 

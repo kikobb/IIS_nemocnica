@@ -11,9 +11,7 @@ class DoktoriSeeder extends Seeder {
             'id' => 1,
             'osoba_id' => 17,
             'oddelenie_id' => 3,
-            'cislo_uctu' => 459800000015939,
-            'uvazok' => 'plny',
-            'telefon' => '+421903535896',
+            'cislo_uctu' => 459800000015939, 'uvazok' => 'plny', 'telefon' => '+421903535896',
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 

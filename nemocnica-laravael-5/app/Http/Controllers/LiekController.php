@@ -22,8 +22,8 @@ class LiekController extends Controller
     private function rules()
     {
         return [
-            'nazov' => 'required',
-            'ucinna_latka' => 'required'
+            'nazov' => 'required|max:50',
+            'ucinna_latka' => 'required|max:255'
         ];
     }
 

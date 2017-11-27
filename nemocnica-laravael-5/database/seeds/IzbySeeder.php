@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class IzbySeeder extends Seeder {
 
@@ -13,7 +14,7 @@ class IzbySeeder extends Seeder {
             'typ' => "muzi",
             'kapacita' => 4,
             'cislo' => 412,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 
@@ -24,7 +25,7 @@ class IzbySeeder extends Seeder {
             'typ' => "muzi",
             'kapacita' => 6,
             'cislo' => 123,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 
@@ -35,7 +36,7 @@ class IzbySeeder extends Seeder {
             'typ' => "zeny",
             'kapacita' => 2,
             'cislo' => 177,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 
@@ -46,7 +47,7 @@ class IzbySeeder extends Seeder {
             'typ' => "zeny",
             'kapacita' => 2,
             'cislo' => 100,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 
@@ -57,7 +58,7 @@ class IzbySeeder extends Seeder {
             'typ' => "zeny",
             'kapacita' => 2,
             'cislo' => 433,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 
@@ -68,7 +69,7 @@ class IzbySeeder extends Seeder {
             'typ' => "zeny",
             'kapacita' => 2,
             'cislo' => 443,
-            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 
         );
 

@@ -27,8 +27,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::resource('liek', 'LiekController');
-
 Route::get('liek/{id}/confirm', 'LiekController@confirm');
+
+Route::resource('users', 'UserController');
 
 //doktor
 Route::group(['middleware' => ['auth','doktor']], function (){
