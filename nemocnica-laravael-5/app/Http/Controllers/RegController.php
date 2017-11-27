@@ -81,9 +81,7 @@ class RegController extends Controller
         $validator = Validator::make($request->all(), $this->rulesOddelenie());
         if ($validator->fails()){
             $messages = $validator->messages();
-            $nazvyArr = Oddelenie::getAllNamesToArr();
-            return view('admin_registracia_oddelenie')->with(['minuleHodnoty' => $request,
-                                                                'oddelenia' => $nazvyArr])->witherrors($validator);
+            return view('admin_registracia_oddelenie')->with(['minuleHodnoty' => $request])->witherrors($validator);
         }
 
         $this->createOddelenie($request->all());
@@ -93,7 +91,8 @@ class RegController extends Controller
         $validator = Validator::make($request->all(), $this->rulesIzba());
         if ($validator->fails()){
             $messages = $validator->messages();
-            return view('admin_registracia_izba')->with(['minuleHodnoty' => $request])->witherrors($validator);
+            $nazvyArr = Oddelenie::getAllNamesToArr();
+            return view('admin_registracia_izba')->with(['oddelenia' => $nazvyArr, 'minuleHodnoty' => $request])->witherrors($validator);
         }
 
         $this->createIzba($request->all());

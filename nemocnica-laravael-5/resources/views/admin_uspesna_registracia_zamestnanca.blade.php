@@ -19,7 +19,7 @@
     <div class="col-sm-6 ">
         <h2>Úspešná registrácia</h2>
 
-        <a href="registerr" class="btn btn-info btn-lg">
+        <a href="zamestnanecReg" class="btn btn-info btn-lg">
             <span type="submit" class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
         </a>
 

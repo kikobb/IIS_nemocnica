@@ -17,7 +17,7 @@
 
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - izby</h2>
+        <h2>Úprava - izby</h2>
 
         <form method="POST" action="{{ route('register') }}" >
             {{ csrf_field() }}

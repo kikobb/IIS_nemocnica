@@ -21,12 +21,12 @@
 
         <div>
             <div class="col-md-5">Meno</div>
-            <div class="col-md-6">$pacient->meno </div>
+            <div class="col-md-6">$admin->meno </div>
         </div>
 
         <div>
             <div class="col-md-5">Priezvisko</div>
-            <div class="col-md-6">$pacient->priezvisko </div>
+            <div class="col-md-6">$admin->priezvisko </div>
         </div>
 
 
