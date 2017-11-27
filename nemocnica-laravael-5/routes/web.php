@@ -13,29 +13,6 @@
 
 use \Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/tasks', function (){
-    //$tasks = DB::table('tasks')->get();
-    $tasks = App\Task::all();
-
-
-});
-
-Route::get('/tasks/{task}', function ($id){
-
-    $task = DB::table('tasks')->find($id);
-
-    //$task = \Task::find($id);
-
-    //$task = \App\Task::incomplete()->find($id);
-
-    return view('tasks.show', compact('task'));
-});
-
-
 //admin
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/zamestnanecReg', 'RegController@showZamestnanec')->name('zamestnanecReg');
@@ -49,21 +26,30 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/liekReg', 'RegController@regLiek');
 });
 
+Route::resource('liek', 'LiekController');
+
 //doktor
 Route::group(['middleware' => ['auth','doktor']], function (){
-
+//    Route::get();
 });
 //doktor, sestra
-Route::group(['middleware' => ['auth','doktor']], function (){
+Route::group(['middleware' => ['auth','sestra']], function (){
 
 });
 //doktor, sestra, prijemca
-Route::group(['middleware' => ['auth','doktor']], function (){
+Route::group(['middleware' => ['auth','prijemca']], function (){
 
 });
 //pacient
-Route::group(['middleware' => ['auth','doktor']], function (){
+Route::group(['middleware' => ['auth','pacient']], function (){
 
+});
+//vsetci prihlaseny
+Route::group(['middleware' => 'auth'], function (){
+    //todo over ze ked sa da hladat tak to ide cez tuto routu
+    Route::get('/vyhladavanie', 'SearchController@index')->name('vyhladavaj');
+
+    Route::post('/vyhladavanie', 'SearchController@find')->name('najdi');
 });
 
 Route::get('/', 'LoginController@index');

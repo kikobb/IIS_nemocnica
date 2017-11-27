@@ -10,7 +10,7 @@ class Vysetrenie extends Model
     protected $table = 'vysetrenia';
 
     public function doktor(){
-        return $this->belongsTo('App\Doktor');
+        return $this->belongsTo(User::class, 'doktor_id', 'id');
     }
 
     public function oddelenie(){
@@ -18,7 +18,7 @@ class Vysetrenie extends Model
     }
 
     public function pacient(){
-        return $this->belongsTo('App\Pacient');
+        return $this->belongsTo(User::class, 'pacient_id', 'id');
     }
 
     public function podane_lieky(){

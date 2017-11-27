@@ -4,6 +4,9 @@ namespace App\Http;
 
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsDoktor;
+use App\Http\Middleware\IsPacient;
+use App\Http\Middleware\IsPrijemca;
+use App\Http\Middleware\IsSestra;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -23,6 +26,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrustProxies::class,
         IsAdmin::class,
         IsDoktor::class,
+        IsSestra::class,
+        IsPrijemca::class,
+        IsPacient::class,
     ];
 
     /**
@@ -63,5 +69,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => IsAdmin::class,
         'doktor' => IsDoktor::class,
+        'sestra' => IsSestra::class,
+        'prijemca' => IsPrijemca::class,
+        'pacient' => IsPacient::class,
     ];
 }

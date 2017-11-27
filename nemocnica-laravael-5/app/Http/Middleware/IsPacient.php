@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class IsPacient
 {
@@ -16,8 +16,10 @@ class IsPacient
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check() && !Auth::user()->isPacient() ) {
-            return redirect('/');
+        if ( Auth::check() ) {
+            if (!Auth::user()->isPacient() || !Auth::user()->isAdmin()) {
+                return redirect('/');
+            }
         }
         return $next($request);
     }

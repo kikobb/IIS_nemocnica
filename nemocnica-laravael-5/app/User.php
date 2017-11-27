@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -16,6 +17,7 @@ class User extends Authenticatable
     public static function getUserById($id){
         return User::where('id', $id)->first();
     }
+
 
     /**
      * The attributes that are mass assignable.
@@ -36,32 +38,34 @@ class User extends Authenticatable
     ];
 
     //väzba
-    public function osoba() {
-        return $this->hasOne('App\Osoba');
-    }
 
-    public function getTyp_ulohy(){
-        $this->osoba()->first()->typ_ulohy()->first()->getName();
-    }
 
     public function isAdmin() {
-        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'admin');
+        return ($this->typ_ulohy == 'admin');
     }
 
     public function isDoktor(){
-        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'doktor');
+        return ($this->typ_ulohy == 'doktor');
     }
 
     public function isSestra(){
-        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'sestra');
+        return ($this->typ_ulohy == 'sestra');
     }
 
     public function isPrijemca(){
-        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'prijemca');
+        return ($this->typ_ulohy == 'prijemca');
     }
 
     public function isPacient(){
-        return ($this->osoba()->first()->typ_ulohy()->first()->getName() == 'pacient');
+        return ($this->typ_ulohy == 'pacient');
     }
 
+    /**
+     * @param $query Builder
+     * @param $meno
+     */
+    public function scopeDoctorFilterByName($query, $meno)
+    {
+        $query->where('typ_ulohy', '=', 'doktor')->where('meno', 'like', '%'.$meno.'%');
+    }
 }

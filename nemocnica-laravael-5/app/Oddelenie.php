@@ -29,20 +29,24 @@ class Oddelenie extends Model
         return Oddelenie::pluck('nazov')->toArray();
     }
 
-    public function doktori(){
-        return $this->hasMany('App\Doktor');
+    public function doktori()
+    {
+        return $this->hasMany(User::class, 'oddelenie_doktor_id', 'id');
     }
 
-    public function sestry(){
-        return $this->hasMany('App\Sestra');
+    public function sestry()
+    {
+        return $this->hasMany(User::class, 'oddelenie_sestra_id', 'id');
     }
 
-    public function vysetrenia(){
-        return $this->hasMany('App\Vysetrenie');
+    public function vysetrenia()
+    {
+        return $this->hasMany(Vysetrenie::class);
     }
 
-    public function izby(){
-        return $this->hasMany('App\Izba');
+    public function izby()
+    {
+        return $this->hasMany(Izba::class);
     }
 
 }

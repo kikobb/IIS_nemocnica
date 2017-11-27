@@ -10,6 +10,48 @@ class Doktor extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'doktori';
 
+    /**
+     * @param string
+     * @return array of App\Osoba
+     */
+    public static function getDoktorsByMeno($meno){
+        $osoby = App\Osoba::where('meno', 'like', "%".$meno."%")->get();
+        foreach ($osoby as $osoba){
+            if ($osoba->Typ_ulohy()->first()->nazov == 'doktor'){
+                $result[] = $osoba;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * @param string
+     * @return array of App\Osoba
+     */
+    public static function getDoktorByPriezvisko($priezvisko){
+        $osoby = App\Osoba::where('priezvisko', $priezvisko)->get();
+        foreach ($osoby as $osoba){
+            if ($osoba->Typ_ulohy()->first()->nazov == 'doktor'){
+                $result[] = $osoba;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * @param string
+     * @return array of App\Osoba
+     */
+    public static function getDoktorByOddelenie($nazov){
+        $id_oddelenia = \App\Oddelenie::getIdFromName($nazov);
+        foreach ( self::all() as $doktor){
+            if ($doktor->oddelenie_id == $id_oddelenia){
+                $result[] = $doktor->osoba()->first();
+            }
+        }
+        return $result;
+    }
+
     public static function remove($instance){
         $instance->delete();
     }

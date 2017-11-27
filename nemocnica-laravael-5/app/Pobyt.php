@@ -10,19 +10,20 @@ class Pobyt extends Model
     protected $table = 'pobyty';
 
     public function doktor(){
-        return $this->belongsTo('App\Doktor');
+        return $this->belongsTo(User::class, 'doktor_id', 'id');
     }
 
     public function pacient(){
-        return $this->belongsTo('App\Pacient');
+        return $this->belongsTo(User::class, 'pacient_id', 'id');
     }
 
     public function prijemca(){
-        return $this->belongsTo('App\Prijemca');
+        return $this->belongsTo(User::class, 'prijemca_id', 'id');
     }
 
-    public function izba(){
-        return $this->belongsTo('App\Izba');
+    public function izba()
+    {
+        return $this->belongsTo(Izba::class);
     }
 
 }

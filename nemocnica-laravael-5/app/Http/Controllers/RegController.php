@@ -6,7 +6,6 @@ use App\Doktor;
 use App\Izba;
 use App\Liek;
 use App\Oddelenie;
-use App\Osoba;
 use App\Pacient;
 use App\Prijemca;
 use App\Sestra;
@@ -108,6 +107,18 @@ class RegController extends Controller
         }
 
         $this->createLiek($request->all());
+
+        /* @var Liek $liek */
+        $liek = Liek::create([
+            'nazov' => $request['nazov'],
+            'ucinna_latka' => $request['ucinna_latka'],
+        ]);
+
+        if ( $request->has('kontraindikacia') )
+            $liek->kontraindikacia = $request['kontraindikacia'];
+
+        $liek->save();
+
         return view('admin_uspesna_registracia_liek');
     }
 
@@ -115,16 +126,6 @@ class RegController extends Controller
 //        $request->current()->parameters();
 //    }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //todo uprav na auth
-        //$this->middleware('auth');
-    }
 
     /**
      * Get a validator for an incoming registration request.
