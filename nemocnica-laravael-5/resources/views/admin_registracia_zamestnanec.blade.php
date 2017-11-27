@@ -15,7 +15,6 @@
 
      @include('layouts.header_admin')
 
-{{--    {{ dump($errors) }}--}}
     <div class="col-sm-6 ">
         <h2>Registrácia - zamestnanca</h2>
 

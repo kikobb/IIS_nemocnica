@@ -22,7 +22,7 @@
             {{ csrf_field() }}
 
             <div class="form-group">
-                <label for="nazov">Názov lieku<span style="color:red;">*</span>:</label>
+                <label for="nazov">Názov lieku:</label>
                 <input type="text" class="form-control" id="nazov" placeholder="Názov" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('nazov') : '' )}}" name="nazov" required>
                 @if ($errors->has('nazov'))
                     <span class="help-block">

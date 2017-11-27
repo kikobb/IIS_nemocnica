@@ -1,37 +1,61 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
 
 @section('content')
 
-    @if( empty($liek) )
-        {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
-    @else
-        {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-        {{ Form::close() }}
+    <div class="col-sm-6 ">
+        <h2>Registrácia - lieku</h2>
 
-        {{ Form::model($liek, ['route' => ['liek.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
-    @endif
+        @if( empty($liek) )
+            {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
+        @else
+            {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::close() }}
 
-    <div class="form-group">
-        {{ Form::label('nazov', 'Nazov lieka', ['class' => 'form-control']) }}
-        {{ Form::text('nazov', old('nazov'), []) }}
-    </div>
-
-    <div class="form-group">
-        {{ Form::label('ucinna_latka', 'Ucinna latka', ['class' => 'form-control']) }}
-        {{ Form::text('ucinna_latka', old('ucinna_latka')) }}
-    </div>
-
-    <div class="form-group">
-        {{ Form::label('kontraindikacia', 'Kontraindikacia', ['class' => 'form-control']) }}
-        {{ Form::text('kontraindikacia', old('kontraindikacia')) }}
-    </div>
-
-    <div class="form-group">
-        {{ Form::submit('Ulozit') }}
-        @if( !empty($liek) )
-            <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
+            {{ Form::model($liek, ['route' => ['liek.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
-    </div>
 
-    {{ Form::close() }}
+        <div class="form-group">
+            {{ Form::label('nazov', 'Nazov*:', []) }}
+            {{ Form::text('nazov', old('nazov'),array('required' => 'required','placeholder'=>'Nazov lieku','class'=>'form-control')) }}
+            @if ($errors->has('nazov'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('nazov') }}</strong>
+                    </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('ucinna_latka', 'Účinná látka*:') }}
+            {{ Form::text('ucinna_latka', old('ucinna_latka'),array('placeholder'=>'Účinná látka lieku','class'=>'form-control')) }}
+            @if ($errors->has('ucinna_latka'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('ucinna_latka') }}</strong>
+                    </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('kontraindikacia', 'Kontraindikácia') }}
+            {{ Form::text('kontraindikacia', old('kontraindikacia'),array('placeholder'=>'Kontraindikácia lieku','class'=>'form-control')) }}
+            @if ($errors->has('konraindikacia'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('konraindikacia') }}</strong>
+                    </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+            @if( !empty($liek) )
+                <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <span >*</span> - sú označené povinné údaje
+        </div>
+
+        {{ Form::close() }}
+    </div>
 @endsection
