@@ -85,7 +85,7 @@ class RegController extends Controller
         }
 
         $this->createOddelenie($request->all());
-        return view('admin_uspesna_registracia_oddelenie');
+        return view('admin_uspesna_registracia_oddelenia');
     }
 
     public function regIzba(Request $request){
