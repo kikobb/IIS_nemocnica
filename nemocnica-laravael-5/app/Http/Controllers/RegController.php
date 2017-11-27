@@ -35,7 +35,8 @@ class RegController extends Controller
 
     public function showIzba()
     {
-        return view('admin_registracia_izba');
+        $nazvyArr = Oddelenie::getAllNamesToArr();
+        return view('admin_registracia_izba')->with(['oddlenia' => $nazvyArr]);
     }
 
     public function showLiek()

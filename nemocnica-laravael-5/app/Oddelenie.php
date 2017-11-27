@@ -25,6 +25,10 @@ class Oddelenie extends Model
         return $pom->id;
     }
 
+    public static function getAllNamesToArr(){
+        return Oddelenie::pluck('nazov')->toArray();
+    }
+
     public function doktori(){
         return $this->hasMany('App\Doktor');
     }
