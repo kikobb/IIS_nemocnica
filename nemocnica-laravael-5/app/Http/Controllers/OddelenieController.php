@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class OddelenieController extends Controller
 {
+
+    function __construct()
+    {
+//        $this->middleware('auth');
+//        $this->middleware('doktor')->except('create', 'show', 'index');
+//        $this->middleware('sestricka')->only('create', 'show')->except('index');
+    }
+
     /**
      * @return array
      */
@@ -39,7 +47,7 @@ class OddelenieController extends Controller
      */
     public function create()
     {
-        return view('oddelenie.createEdit')->with(['oddelenia' => Auth::user()]);
+        return view('oddelenie.createEdit')->with(['osoba' => Auth::user()]);
     }
 
     /**
@@ -117,7 +125,7 @@ class OddelenieController extends Controller
         $odd->poschodie = $request['poschodie'];
         $odd->save();
 
-        return redirect()->route('oddelenie.show');
+        return $this->confirm($odd->id);
     }
 
     /**

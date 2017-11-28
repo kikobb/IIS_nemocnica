@@ -17,7 +17,7 @@ class CreateIzbyTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('oddelenie_id');
 
-            $table->string('typ', 20)->default("neznamy");
+            $table->string('typ', 20);
             $table->unsignedSmallInteger('kapacita');
             $table->unsignedInteger('cislo');
             $table->timestamps();

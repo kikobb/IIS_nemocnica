@@ -11,9 +11,9 @@ class LiekController extends Controller
 {
     function __construct()
     {
-        //$this->middleware('auth');
-        //$this->middleware('doktor')->except('show');
-        //$this->middleware('sestricka')->only('create', 'show');
+//        $this->middleware('auth');
+//        $this->middleware('doktor')->except('create', 'show', 'index');
+//        $this->middleware('sestricka')->only('create', 'show')->except('index');
     }
 
     /**
@@ -135,7 +135,7 @@ class LiekController extends Controller
 
         $liek->save();
 
-        return redirect()->route('liek.show');
+        return $this->confirm($liek->id);
     }
 
     /**
