@@ -3,25 +3,25 @@
 
 @section('content')
     <div class="col-sm-6 ">
-        <h2> Údaje boli uložené</h2>
+        <h2> Vyšetrenie</h2>
 
         <div>
-            <div class="col-md-5">Názov oddelenia:</div>
-            <div class="col-md-6"> {{$oddelenie->nazov}}</div>
+            <div class="col-md-5">Typ vyšetrenia:</div>
+            <div class="col-md-5"> {{$vysetrenie->typ}}</div>
         </div>
 
         <div>
-            <div class="col-md-5">Účinná látka:</div>
-            <div class="col-md-6">{{$oddelenie->poschodie}} </div>
+            <div class="col-md-5">Dátum a čas:</div>
+            <div class="col-md-5">{{$vysetrenie->created_at}} </div>
         </div>
+
 
     </div>
 
     <div class="col-sm-6 " id="confirm">
 
-
         <a href="izba/create" class="btn btn-info btn-lg">
-            Ďalšia registrácia
+            Pridať liek
         </a>
 
         <a href="home_admin" class="btn btn-info btn-lg">

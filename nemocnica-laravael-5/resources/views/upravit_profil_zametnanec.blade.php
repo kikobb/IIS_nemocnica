@@ -15,7 +15,7 @@
 
     @include('layouts.header_doktor')
 
-    @include('layouts.upravit_profil_zamestnanec')
+    @include('stare.upravit_profil_zamestnanec')
 
 </div>
 

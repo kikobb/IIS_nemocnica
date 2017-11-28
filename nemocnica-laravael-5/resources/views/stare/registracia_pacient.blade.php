@@ -86,7 +86,7 @@
         </div>
 
         <div class="form-group">
-            <label for="datum_narodenia">Dátum Narodenia:</label>
+            <label for="datum_narodenia">Dátum narodenia:</label>
             <input class="form-control" type="date" id="datum_narodenia" placeholder=" 12.12.1975" name="datum_narodenia">
         </div>
 

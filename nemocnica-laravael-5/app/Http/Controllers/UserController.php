@@ -49,15 +49,15 @@ class UserController extends Controller
     {
         switch (Auth::user()->pozicia){
             case 'admin':
-                return view('home_admin')->with(['osoba' => Auth::user()]);
+                return view('home_admin')->with(['currUser' => Auth::user()]);
                 break;
             case 'doktor':
             case 'sestra':
             case 'prijemca':
-                return view('zamestnanec.index')->with(['osoba' => Auth::user()]);
+                return view('zamestnanec.index')->with(['currUser' => Auth::user()]);
                 break;
             case 'pacient':
-                return view('/home_pacient')->with(['osoba' => Auth::user()]);
+                return view('/home_pacient')->with(['currUser' => Auth::user()]);
                 break;
         }
     }
@@ -69,7 +69,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('zamestnanec.createEdit')->with(['currUser' => Auth::user()]);
+        return view('zamestnanec.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
+        ]);
     }
 
     /**

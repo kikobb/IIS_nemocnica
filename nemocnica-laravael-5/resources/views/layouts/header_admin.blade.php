@@ -5,7 +5,8 @@
     </div>
 
     <div class="container-fluid">
-        <ul class="nav navbar-nav">
+
+            {{ Form::open(['route' => 'logout', 'method' => 'post']) }}
 
             <div class="dropdown">
                 <a href="home_admin"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
@@ -30,10 +31,9 @@
             </div>
 
 
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        </ul>
+        <div class="dropdown" id="logout">
+            {{ Form::button('<span class="glyphicon glyphicon-log-out"></span> Odhlásiť',  array('class'=>'dropbtn','type'=>'submit','id'=>'logout')) }}
+        </div>
+        {{Form::close()}}
     </div>
 </div>

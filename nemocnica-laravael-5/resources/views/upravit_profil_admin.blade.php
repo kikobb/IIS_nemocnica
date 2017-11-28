@@ -15,7 +15,7 @@
 
     @include('layouts.header_admin')
 
-    @include('layouts.uprav_profil_admin')
+    @include('stare.uprav_profil_admin')
 
 </div>
 

@@ -29,8 +29,6 @@
             <div class="col-md-6">$admin->priezvisko </div>
         </div>
 
-
-        </form>
     </div>
 
 

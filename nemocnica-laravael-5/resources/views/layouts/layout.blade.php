@@ -16,21 +16,21 @@
 <body>
 <div class="container">
 
-    @include('layouts.header_admin')
-
-    {{--@if($currUser == 'doktor')--}}
-            {{--@include('layouts.header_doktor')--}}
-        {{--@elseif($currUser == 'sestra')--}}
-            {{--@include('layouts.header_sestra')--}}
-        {{--@elseif($currUser == 'prijemca')--}}
-            {{--@include('layouts.header_prijemca')--}}
-        {{--@elseif($currUser == 'pacient')--}}
-            {{--@include('layouts.header_pacient')--}}
-        {{--@elseif($currUser == 'admin')--}}
-            {{--@include('layouts.header_admin')--}}
-        {{--@else--}}
-            {{--@include('layouts.header_neprihlaseny')--}}
-    {{--@endif--}}
+    @if(@isset($currUser))
+        @if($currUser->pozicia == 'doktor')
+            @include('layouts.header_doktor')
+        @elseif($currUser->pozicia == 'sestra')
+            @include('layouts.header_sestra')
+        @elseif($currUser->pozicia == 'prijemca')
+            @include('layouts.header_prijemca')
+        @elseif($currUser->pozicia == 'pacient')
+            @include('layouts.header_pacient')
+        @elseif($currUser->pozicia == 'admin')
+            @include('layouts.header_admin')
+        @endif
+    @else
+        @include('layouts.header_neprihlaseny')
+    @endif
 
     @yield('content')
 

@@ -6,6 +6,8 @@
 
     <div class="container-fluid">
 
+        {{ Form::open(['route' => 'logout', 'method' => 'post']) }}
+
         <div class="dropdown">
             <a href="home_pacient"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
         </div>
@@ -27,9 +29,10 @@
             <a href="zmenit_heslo"><button class="dropbtn">Zmeniť heslo</button></a>
         </div>
 
+        <div class="dropdown" id="logout">
+            {{ Form::button('<span class="glyphicon glyphicon-log-out"></span> Odhlásiť',  array('class'=>'dropbtn','type'=>'submit','id'=>'logout')) }}
+        </div>
+        {{Form::close()}}
 
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-        </ul>
     </div>
 </div>

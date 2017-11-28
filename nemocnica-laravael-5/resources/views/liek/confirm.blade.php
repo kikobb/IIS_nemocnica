@@ -25,12 +25,12 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="liek/create" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
+        <a href="izba/create" class="btn btn-info btn-lg">
+            Ďalšia registrácia
         </a>
 
         <a href="home_admin" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-home"></span> Domov
+            Zmena údajov
         </a>
 
     </div>
