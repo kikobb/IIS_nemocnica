@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use \App\Oddelenie;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
-class UserController extends Controller
+class PacientController extends Controller
 {
-
     function __construct()
     {
 //        $this->middleware('auth');
@@ -25,17 +23,14 @@ class UserController extends Controller
             'password' => 'required|string|min:6',
             'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
-            'pozicia' => 'required|string|max:8',
+            'rodne_cislo' => 'required|string|max:11|unique:users',
 
-            'uvazok' => 'string|max:10',
-            'rodne_cislo' => 'string|max:11|nullable|unique:users',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
-            'ulica_cislo' => 'string|max:40|nullable',
+            'ulica_cislo_domu' => 'string|max:40|nullable',
             'stat' => 'string|max:40|nullable',
             'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
-            'cislo_uctu' => 'string|max:25|nullable',
-            'telefon' => 'string|max:13|nullable',
+            'cislo_poistovne' => 'string|max:10|nullable',
         ];
 
     }
@@ -47,20 +42,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //TODO hod to do loginu
-        switch (Auth::user()->pozicia){
-            case 'admin':
-                return view('home_admin')->with(['currUser' => Auth::user()]);
-                break;
-            case 'doktor':
-            case 'sestra':
-            case 'prijemca':
-                return view('zamestnanec.index')->with(['currUser' => Auth::user()]);
-                break;
-            case 'pacient':
-                return redirect()->action('PacientController@index');
-            break;
-        }
+        return view('pacient.index')->with(['currUser' => Auth::user()]);
     }
 
     /**
@@ -70,7 +52,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('zamestnanec.createEdit')->with([
+        return view('pacient.createEdit')->with([
             'currUser' => Auth::user(),
         ]);
     }
@@ -83,26 +65,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate($this->rules());
-        $user = new User();
-        if ( $request->has('email') )
-            $user->email = $request['email'];
-        if ( $request->has('password') )
-            $user->password = $request['password'];
-        if ( $request->has('pozicia') )
-            $user->pozicia = $request['pozicia'];
-        if ( $request->has('meno') )
-            $user->meno = $request['meno'];
-        if ( $request->has('priezvisko') )
-            $user->priezvisko = $request['priezvisko'];
-//        $user = User::create([
-//            'email' => $request['email'],
-//            'password' => bcrypt($request['password']),
-//            'pozicia' => $request['pozicia'],
-//            'meno' => $request['meno'],
-//            'priezvisko' => $request['priezvisko'],
-//        ]);
+
+        $user = User::create([
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'pozicia' => 'pacient',
+            'meno' => $request['meno'],
+            'priezvisko' => $request['priezvisko'],
+        ]);
         if ( $request->has('rodne_cislo') )
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
@@ -115,20 +86,8 @@ class UserController extends Controller
             $user->stat = $request['stat'];
         if ( $request->has('datum_narodenia') )
             $user->datum_narodenia = $request['datum_narodenia'];
-        if ( $request->has('uvazok') )
-            $user->uvazok = $request['uvazok'];
-        if ( $request->has('cislo_uctu') )
-            $user->cislo_uctu = $request['cislo_uctu'];
-        if ( $request->has('telelefon') )
-            $user->telelefon = $request['telelefon'];
-        if ( $request->has('oddelenie') ) {
-            $oddelenie = Oddelenie::where('nazov', $request['oddelenie'])->first();
-            if ($user->typ_ulohy === 'doktor'){
-                $user->oddelenie_doktor_id = $oddelenie->id;
-            }elseif ($user->typ_ulohy === 'sestra'){
-                $user->oddelenie_sestra_id = $oddelenie->id;
-            }
-        }
+        if ( $request->has('cislo_poistovne') )
+            $user->cislo_poistovne = $request['cislo_poistovne'];
         $user->save();
 
         return $this->confirm($user->id);
@@ -142,7 +101,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('zamestnanec.show')->with([
+        return view('pacient.show')->with([
             'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
@@ -156,7 +115,7 @@ class UserController extends Controller
      */
     public function confirm($id)
     {
-        return view('zamestnanec.confirm')->with([
+        return view('pacient.confirm')->with([
             'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
@@ -170,7 +129,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('zamestnanec.createEdit')->with([
+        return view('pacient.createEdit')->with([
             'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
@@ -207,20 +166,6 @@ class UserController extends Controller
             $user->stat = $request['stat'];
         if ( $request->has('datum_narodenia') )
             $user->datum_narodenia = $request['datum_narodenia'];
-        if ( $request->has('uvazok') )
-            $user->uvazok = $request['uvazok'];
-        if ( $request->has('cislo_uctu') )
-            $user->cislo_uctu = $request['cislo_uctu'];
-        if ( $request->has('telelefon') )
-            $user->telelefon = $request['telelefon'];
-        if ( $request->has('oddelenie') ) {
-            $oddelenie = Oddelenie::where('nazov', $request['oddelenie'])->first();
-            if ($user->typ_ulohy === 'doktor'){
-                $user->oddelenie_doktor_id = $oddelenie->id;
-            }elseif ($user->typ_ulohy === 'sestra'){
-                $user->oddelenie_sestra_id = $oddelenie->id;
-            }
-        }
         if ( $request->has('cislo_poistovne') )
             $user->cislo_poistovne = $request['cislo_poistovne'];
         $user->save();

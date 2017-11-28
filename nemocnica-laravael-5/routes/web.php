@@ -32,8 +32,8 @@ Route::get('liek/{id}/confirm', 'LiekController@confirm');
 Route::resource('zamestnanec', 'UserController');
 Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
 
-Route::resource('pacient', 'UserController');
-Route::get('pacient/{id}/confirm', 'UserController@confirm');
+Route::resource('pacient', 'PacientController');
+Route::get('pacient/{id}/confirm', 'PacientController@confirm');
 
 Route::resource('izba', 'IzbaController');
 Route::get('izba/{id}/confirm', 'IzbaController@confirm');
