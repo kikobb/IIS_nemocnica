@@ -6,8 +6,6 @@
 
     <div class="container-fluid">
 
-
-
             <div class="dropdown">
                 <a href="/zamestnanec"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
             </div>

@@ -5,14 +5,14 @@
     <div class="col-sm-6 ">
         <h2> Vyšetrenie</h2>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Typ vyšetrenia:</div>
-            <div class="col-md-5"> {{$vysetrenie->typ}}</div>
+            <div class="col-md-6"> {{$vysetrenie->typ}}</div>
         </div>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Dátum a čas:</div>
-            <div class="col-md-5">{{$vysetrenie->created_at}} </div>
+            <div class="col-md-6">{{$vysetrenie->created_at}} </div>
         </div>
 
 

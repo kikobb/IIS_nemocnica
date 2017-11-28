@@ -9,10 +9,10 @@
         @if( empty($zamestnanec) )
             {{ Form::open(['route' => 'zamestnanec.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['zamestnanec.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['zamestnanec.destroy', $zamestnanec->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($zamestnanec, ['route' => ['zamestnanec.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($zamestnanec, ['route' => ['zamestnanec.update', $zamestnanec->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -152,7 +152,7 @@
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-                @if( !empty($liek) )
+                @if( !empty($zamestnanec) )
                     <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
                 @endif
             </div>
