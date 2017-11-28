@@ -29,6 +29,11 @@ class Oddelenie extends Model
         return Oddelenie::pluck('nazov')->toArray();
     }
 
+    public function getName(){
+        return $this->name;
+    }
+
+    //vazby
     public function doktori()
     {
         return $this->hasMany(User::class, 'oddelenie_doktor_id', 'id');
@@ -48,5 +53,7 @@ class Oddelenie extends Model
     {
         return $this->hasMany(Izba::class);
     }
+
+
 
 }
