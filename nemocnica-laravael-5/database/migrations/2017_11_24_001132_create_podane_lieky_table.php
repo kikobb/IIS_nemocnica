@@ -18,8 +18,8 @@ class CreatePodaneLiekyTable extends Migration
             $table->unsignedInteger('liek_id');
             $table->unsignedInteger('vysetrenie_id');
 
-            $table->string('davkovanie_cas');
-            $table->string('davkovanie_mnozstvo');
+            $table->string('cas');
+            $table->string('mnozstvo');
             $table->timestamps();
         });
     }

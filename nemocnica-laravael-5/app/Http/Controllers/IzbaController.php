@@ -148,6 +148,7 @@ class IzbaController extends Controller
         $izba->kapacita = $request['kapacita'];
         $izba->cislo = $request['cislo'];
 
+        //TODO skontroluj ci sa to neda cez validate
         $odd_id = Oddelenie::getIdFromName($request['oddelenie']);
         //check ze ci exitstuje oddelenie
         if (is_numeric($odd_id)){

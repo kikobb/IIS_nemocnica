@@ -11,8 +11,8 @@ class Podane_liekySeeder extends Seeder {
             'id' => 1,
             'liek_id' => 1,
             'vysetrenie_id' => 5,
-            'davkovanie_cas' => "kazdych 12 hodin",
-            'davkovanie_mnozstvo' => "10ml",
+            'cas' => "kazdych 12 hodin",
+            'mnozstvo' => "10ml",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
@@ -21,8 +21,8 @@ class Podane_liekySeeder extends Seeder {
         $item = array(
             'liek_id' => 2,
             'vysetrenie_id' => 4,
-            'davkovanie_cas' => "kazde 3 hodiny",
-            'davkovanie_mnozstvo' => "5 kvapiek",
+            'cas' => "kazde 3 hodiny",
+            'mnozstvo' => "5 kvapiek",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
@@ -31,8 +31,8 @@ class Podane_liekySeeder extends Seeder {
         $item = array(
             'liek_id' => 1,
             'vysetrenie_id' => 3,
-            'davkovanie_cas' => "kazde 2 dni",
-            'davkovanie_mnozstvo' => "500mg na den",
+            'cas' => "kazde 2 dni",
+            'mnozstvo' => "500mg na den",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
@@ -41,8 +41,8 @@ class Podane_liekySeeder extends Seeder {
         $item = array(
             'liek_id' => 4,
             'vysetrenie_id' => 2,
-            'davkovanie_cas' => "kazdych 24 hodin",
-            'davkovanie_mnozstvo' => "injekcia",
+            'cas' => "kazdych 24 hodin",
+            'mnozstvo' => "injekcia",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
@@ -51,8 +51,8 @@ class Podane_liekySeeder extends Seeder {
         $item = array(
             'liek_id' => 3,
             'vysetrenie_id' => 1,
-            'davkovanie_cas' => "kazde 2 mesiace",
-            'davkovanie_mnozstvo' => "2 tablety",
+            'cas' => "kazde 2 mesiace",
+            'mnozstvo' => "2 tablety",
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
