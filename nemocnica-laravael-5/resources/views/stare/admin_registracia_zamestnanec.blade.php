@@ -104,11 +104,11 @@
             </div>
 
             <div class="form-group">
-                <label for="ulica_cislo_domu">Ulica a číslo domu:</label>
-                <input type="text" class="form-control" id="ulica_cislo_domu" placeholder=" Ulica a číslo domu" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('ulica_cislo_domu') : '' )}}" name="ulica_cislo_domu">
-                @if ($errors->has('ulica_cislo_domu'))
+                <label for="ulica_cislo">Ulica a číslo domu:</label>
+                <input type="text" class="form-control" id="ulica_cislo" placeholder=" Ulica a číslo domu" value="{{((isset($minuleHodnoty) ) ? $minuleHodnoty->input('ulica_cislo') : '' )}}" name="ulica_cislo">
+                @if ($errors->has('ulica_cislo'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('ulica_cislo_domu') }}</strong>
+                        <strong>{{ $errors->first('ulica_cislo') }}</strong>
                     </span>
                 @endif
             </div>

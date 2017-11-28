@@ -45,8 +45,8 @@
         </div>
 
         <div class="form-group">
-            <label for="ulica_cislo_domu">Ulica a číslo domu:</label>
-            <input type="text" class="form-control" id="ulica_cislo_domu" name="ulica_cislo_domu" value="{{((isset($ulica_cislo_domu) ) ? $ulica_cislo_domu :  '' )}}">
+            <label for="ulica_cislo">Ulica a číslo domu:</label>
+            <input type="text" class="form-control" id="ulica_cislo" name="ulica_cislo" value="{{((isset($ulica_cislo) ) ? $ulica_cislo :  '' )}}">
         </div>
 
         <div class="form-group">

@@ -37,7 +37,7 @@
 
         <div class="row">
             <div class="col-md-5">Ulica a číslo domu:</div>
-            <div class="col-md-6">{{$currUser->ulica_cislo_domu}} </div>
+            <div class="col-md-6">{{$currUser->ulica_cislo}} </div>
         </div>
 
         <div class="row">

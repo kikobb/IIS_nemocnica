@@ -99,11 +99,11 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('ulica_cislo_domu', 'Ulica a číslo domu:') }}
-                {{ Form::text('ulica_cislo_domu', old('ulica_cislo_domu'),array('required' => 'required','placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
-                @if ($errors->has('ulica_cislo_domu'))
+                {{ Form::label('ulica_cislo', 'Ulica a číslo domu:') }}
+                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('required' => 'required','placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
+                @if ($errors->has('ulica_cislo'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('ulica_cislo_domu') }}</strong>
+                        <strong>{{ $errors->first('ulica_cislo') }}</strong>
                     </span>
                 @endif
             </div>

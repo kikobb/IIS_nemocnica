@@ -42,7 +42,7 @@
 
             <div>
                 <div class="col-md-5">Ulica a číslo domu:</div>
-                <div class="col-md-6">{{$osoba->ulica_cislo_domu}} </div>
+                <div class="col-md-6">{{$osoba->ulica_cislo}} </div>
             </div>
             <div>
                 <div class="col-md-5">Štát:</div>

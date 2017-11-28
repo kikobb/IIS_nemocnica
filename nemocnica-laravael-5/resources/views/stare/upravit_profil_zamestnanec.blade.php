@@ -66,8 +66,8 @@
         </div>
 
         <div class="form-group">
-            <label for="ulica_cislo_domu">Ulica a číslo domu:</label>
-            <input type="text" class="form-control" id="ulica_cislo_domu" name="ulica_cislo_domu" value="Kvietkova 11">
+            <label for="ulica_cislo">Ulica a číslo domu:</label>
+            <input type="text" class="form-control" id="ulica_cislo" name="ulica_cislo" value="Kvietkova 11">
         </div>
 
         <div class="form-group">

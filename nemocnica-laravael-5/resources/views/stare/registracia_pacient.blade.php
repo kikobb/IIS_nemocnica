@@ -76,8 +76,8 @@
         </div>
 
         <div class="form-group">
-            <label for="ulica_cislo_domu">Ulica a číslo domu:</label>
-            <input type="text" class="form-control" id="ulica_cislo_domu" placeholder=" Ulica a číslo domu" name="ulica_cislo_domu">
+            <label for="ulica_cislo">Ulica a číslo domu:</label>
+            <input type="text" class="form-control" id="ulica_cislo" placeholder=" Ulica a číslo domu" name="ulica_cislo">
         </div>
 
         <div class="form-group">

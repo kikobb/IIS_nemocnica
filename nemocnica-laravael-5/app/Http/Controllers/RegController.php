@@ -145,7 +145,7 @@ class RegController extends Controller
             'rodne_cislo' => 'string|max:11|nullable',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
-            'ulica_cislo_domu' => 'string|max:40|nullable',
+            'ulica_cislo' => 'string|max:40|nullable',
             'stat' => 'string|max:40|nullable',
             'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
             'uvazok' => 'required|string|max:10',
