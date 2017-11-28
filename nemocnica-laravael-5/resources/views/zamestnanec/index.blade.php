@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col-md-5">Priezvisko:</div>
-            <div class="col-md-6"> {{$currUser->Priezvisko}}</div>
+            <div class="col-md-6"> {{$currUser->priezvisko}}</div>
         </div>
 
         <div class="row">

@@ -4,20 +4,20 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - lieku</h2>
+        <h2>Vyšetrenie</h2>
 
-        @if( empty($liek) )
-            {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
+        @if( empty($vysetrenie) )
+            {{ Form::open(['route' => 'vysetrenie.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['vysetrenie.destroy', $vysetrenie->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($liek, ['route' => ['liek.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($vysetrenie, ['route' => ['vysetrenie.update', $vysetrenie->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
         <div class="form-group">
-            {{ Form::label('nazov', 'Nazov*:', []) }}
-            {{ Form::text('nazov', old('nazov'),array('required' => 'required','placeholder'=>'Nazov lieku','class'=>'form-control')) }}
+            {{ Form::label('nazov', 'Doktor:') }}
+            {{ Form::text('nazov', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Nazov lieku','class'=>'form-control','disabled' => 'disabled')) }}
             @if ($errors->has('nazov'))
                 <span class="help-block">
                         <strong>{{ $errors->first('nazov') }}</strong>
@@ -26,11 +26,21 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('ucinna_latka', 'Účinná látka*:') }}
-            {{ Form::text('ucinna_latka', old('ucinna_latka'),array('placeholder'=>'Účinná látka lieku','class'=>'form-control')) }}
-            @if ($errors->has('ucinna_latka'))
+            {{ Form::label('typ', 'Doktor:') }}
+            {{ Form::text('typ', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Nazov lieku','class'=>'form-control','disabled' => 'disabled')) }}
+            @if ($errors->has('typ'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('ucinna_latka') }}</strong>
+                        <strong>{{ $errors->first('typ') }}</strong>
+                    </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('sprava', 'Účinná látka*:') }}
+            {{ Form::text('sprava', old('sprava'),array('placeholder'=>'Účinná látka lieku','class'=>'form-control')) }}
+            @if ($errors->has('sprava'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('sprava') }}</strong>
                     </span>
             @endif
         </div>
@@ -47,7 +57,7 @@
 
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-            @if( !empty($liek) )
+            @if( !empty($vysetrenie) )
                 <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
             @endif
         </div>

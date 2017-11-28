@@ -16,19 +16,19 @@
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Pridať pobyt</button>
+                <a href="/pobyt/create"><button class="dropbtn">Pridať pobyt</button></a>
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Pridať pacienta</button>
+                <a href="/pacient/create"><button class="dropbtn">Pridať pacienta</button></a>
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Vytvoriť správu</button>
+                <a href="/vysetrenie/create"><button class="dropbtn">Vytvoriť správu</button></a>
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Upraviť profil</button>
+                <a href="/zamestnanec/edit"><button class="dropbtn">Upraviť profil</button></a>
             </div>
 
         {{ Form::open(['route' => 'logout', 'method' => 'post']) }}

@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 {{ Form::label('pozicia', 'Pozícia* :') }}
-                {{ Form::select('Pozícia',array('Doktor' => 'Doktor', 'Sestrička' => 'Sestrička','Príjemca' => 'Príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
+                {{ Form::select('Pozícia',array('Doktor' => 'doktor', 'Sestrička' => 'sestra','Príjemca' => 'príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
             </div>
 
             <div class="form-group">
@@ -95,7 +95,7 @@
 
             <div class="form-group">
                 {{ Form::label('ulica_cislo', 'Ulica a číslo domu:') }}
-                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('required' => 'required','placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
+                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
                 @if ($errors->has('ulica_cislo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('ulica_cislo') }}</strong>
