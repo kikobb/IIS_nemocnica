@@ -65,7 +65,6 @@ class LiekController extends Controller
         $request->validate($this->rules());
 
         /* @var Liek $liek */
-//        dd($request);
         $liek = Liek::create([
             'nazov' => $request['nazov'],
             'ucinna_latka' => $request['ucinna_latka'],

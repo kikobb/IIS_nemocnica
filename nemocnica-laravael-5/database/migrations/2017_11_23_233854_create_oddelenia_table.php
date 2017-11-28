@@ -17,7 +17,7 @@ class CreateOddeleniaTable extends Migration
             $table->increments('id');
 
             $table->string('nazov', 50);
-            $table->smallInteger('poschodie');
+            $table->smallInteger('poschodie')->nullable();
             $table->timestamps();
         });
     }

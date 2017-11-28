@@ -24,9 +24,9 @@ class PodanyLiekController extends Controller
     {
         return [
             'liek' => 'required|string|max:60|exists:lieky,nazov',
-            'oddelenie' => 'required|string|max:60|exists:oddelenia,nazov',
-            'cas' => 'required|max:50',
-            'mnozstvo' => 'required|max:255'
+            'vysetrenie' => 'required|integer|exists:vysetrenia,id',
+            'cas' => 'required|string|max:50',
+            'mnozstvo' => 'required|string|max:255'
         ];
     }
 
@@ -67,17 +67,12 @@ class PodanyLiekController extends Controller
 
         /* @var Podany_liek $pliek */
         $pliek = Podany_liek::create([
+            'liek_id' => Liek::getIdFromName($request['liek']),
+            'vysetrenie_id' => $request['vysetrenie_id'],
             'cas' => $request['cas'],
             'mnozstvo' => $request['mnozstvo'],
         ]);
-
-        //Todo skontroluj ci to odchiti cez validate
-        if ($request->has('liek')){
-            $pliek->liek_id = Liek::getIdFromName($request['liek']);
-        }
-        if ($request->has('vysetrenie_id')){
-            $pliek->vysetrenie_id = $request['vysetrenie_id'];
-        }
+        //TODO mozno toto netreba
         $pliek->save();
 
         return $this->confirm($pliek->id);
@@ -140,14 +135,8 @@ class PodanyLiekController extends Controller
         $pliek = Podany_liek::findOrFail($id);
         $pliek->cas = $request['cas'];
         $pliek->nmozstvo = $request['mnozstvo'];
-
-        //Todo skontroluj ci to odchiti cez validate
-        if ($request->has('liek')){
-            $pliek->liek_id = Liek::getIdFromName($request['liek']);
-        }
-        if ($request->has('vysetrenie_id')){
-            $pliek->vysetrenie_id = $request['vysetrenie_id'];
-        }
+        $pliek->liek_id = Liek::getIdFromName($request['liek']);
+        $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->save();
 
         return $this->confirm($pliek->id);

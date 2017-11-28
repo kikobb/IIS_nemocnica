@@ -20,7 +20,7 @@ class CreateVysetreniaTable extends Migration
             $table->unsignedInteger('pacient_id');
 
             $table->string('typ', 100)->default("neznamy");
-            $table->time('cas');
+            $table->string('sprava', 2048)->nullable();
             $table->timestamps();
         });
     }

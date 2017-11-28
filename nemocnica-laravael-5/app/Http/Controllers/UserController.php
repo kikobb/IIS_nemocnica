@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use \App\Oddelenie;
 use Illuminate\Support\Facades\Auth;
@@ -22,12 +23,12 @@ class UserController extends Controller
         return [
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
-            'name' => 'required|string|max:30',
+            'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
             'pozicia' => 'required|string|max:8',
 
             'uvazok' => 'string|max:10',
-            'rodne_cislo' => 'string|max:11|nullable',
+            'rodne_cislo' => 'string|max:11|nullable|unique:users',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
             'ulica_cislo' => 'string|max:40|nullable',
@@ -35,7 +36,6 @@ class UserController extends Controller
             'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
             'cislo_uctu' => 'string|max:25|nullable',
             'telefon' => 'string|max:13|nullable',
-            'cislo_poistovne' => 'string|max:10|nullable',
         ];
 
     }
@@ -57,7 +57,7 @@ class UserController extends Controller
                 return view('zamestnanec.index')->with(['currUser' => Auth::user()]);
                 break;
             case 'pacient':
-                return view('/home_pacient')->with(['currUser' => Auth::user()]);
+//                return redirect()->route();
                 break;
         }
     }
@@ -78,19 +78,30 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function store(Request $request)
     {
-        $request->validate($this->rules());
 
-        $user = User::create([
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-            'pozicia' => $request['pozicia'],
-            'meno' => $request['meno'],
-            'priezvisko' => $request['priezvisko'],
-        ]);
+        $request->validate($this->rules());
+        $user = new User();
+        if ( $request->has('email') )
+            $user->email = $request['email'];
+        if ( $request->has('password') )
+            $user->password = $request['password'];
+        if ( $request->has('pozicia') )
+            $user->pozicia = $request['pozicia'];
+        if ( $request->has('meno') )
+            $user->meno = $request['meno'];
+        if ( $request->has('priezvisko') )
+            $user->priezvisko = $request['priezvisko'];
+//        $user = User::create([
+//            'email' => $request['email'],
+//            'password' => bcrypt($request['password']),
+//            'pozicia' => $request['pozicia'],
+//            'meno' => $request['meno'],
+//            'priezvisko' => $request['priezvisko'],
+//        ]);
         if ( $request->has('rodne_cislo') )
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
@@ -117,11 +128,10 @@ class UserController extends Controller
                 $user->oddelenie_sestra_id = $oddelenie->id;
             }
         }
-        if ( $request->has('cislo_poistovne') )
-            $user->cislo_poistovne = $request['cislo_poistovne'];
         $user->save();
 
-        return redirect()->route('zamestnanec.show', $user->id);
+        return $this->confirm($user->id);
+//        return redirect()->action('UserController@show', ['id' => $user->id]);
 //        return view('admin_uspesna_registracia_zamestnanca');
     }
 

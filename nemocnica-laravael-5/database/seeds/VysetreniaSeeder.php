@@ -12,7 +12,7 @@ class VysetreniaSeeder extends Seeder {
             'oddelenie_id' => 2,
             'pacient_id' => 1,
             'typ' => "preventivna prehliadka",
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            //'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);
@@ -22,7 +22,7 @@ class VysetreniaSeeder extends Seeder {
             'oddelenie_id' => 5,
             'pacient_id' => 4,
             'typ' => "preventivna prehliadka",
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            //'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);
@@ -32,7 +32,7 @@ class VysetreniaSeeder extends Seeder {
             'oddelenie_id' => 7,
             'pacient_id' => 2,
             'typ' => "preventivna prehliadka",
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            //'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);
@@ -42,7 +42,7 @@ class VysetreniaSeeder extends Seeder {
             'oddelenie_id' => 3,
             'pacient_id' => 2,
             'typ' => "rengen",
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            //'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);
@@ -52,7 +52,7 @@ class VysetreniaSeeder extends Seeder {
             'oddelenie_id' => 4,
             'pacient_id' => 3,
             'typ' => "rengen",
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+            //'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);

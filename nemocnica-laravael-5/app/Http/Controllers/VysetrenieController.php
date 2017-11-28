@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Oddelenie;
+use App\User;
+use App\Vysetrenie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class OddelenieController extends Controller
+class VysetrenieController extends Controller
 {
 
     function __construct()
@@ -24,31 +25,33 @@ class OddelenieController extends Controller
     {
         return [
             'nazov' => 'required|max:50',
-            'poschodie' => 'integer|max:255'
+            'ucinna_latka' => 'required|max:255'
         ];
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function index()
     {
-        return view('oddelenie.index')->with([
+        return view('vysetrenie.index')->with([
             'currUser' => Auth::user(),
-            'Oddelenia' => Oddelenie::all(),
+            //TODO zle, sprav aby sa nevracali vsetky ale len od prhlaseneho
+            //TODO doktora a to len poslednych x, sprav to aj ostatnych kontrolleroch
+            'vysetrenia' => Vysetrenie::all(),
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function create()
     {
-        return view('oddelenie.createEdit')->with([
+        return view('vysetrenia.create')->with([
             'currUser' => Auth::user(),
         ]);
     }
@@ -62,14 +65,22 @@ class OddelenieController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules());
-        /* @var Oddelenie $odd */
-//        dd($request);
-        $odd = Oddelenie::create([
-            'nazov' => $request['nazov'],
-            'poschodie' => $request['ucinna_latka'],
-        ]);
 
-        return $this->confirm($odd->id);
+        /* @var Vysetrenie $vis */
+        $vys = Vysetrenie::create([
+            'doktor_id' => \Auth::user()->id,
+            'oddelenie_id' => Oddelenie::getIdFromName($request['oddelenie']),
+            'pacient_id' => User::getUserByRodneCislo($request['rodne_cislo']),
+        ]);
+        if ($request->has('typ')){
+            $vys->typ = $request['typ'];
+        }
+        if ($request->has('sprava')){
+            $vys->sprava = $request['sprava'];
+        }
+        $vys->save();
+
+        return $this->confirm($this->id);
     }
 
     /**
@@ -80,9 +91,9 @@ class OddelenieController extends Controller
      */
     public function show($id)
     {
-        return view('oddelenie.show')->with([
+        return view('vysetrenie.show')->with([
             'currUser' => Auth::user(),
-             'oddelenie' => Oddelenie::findOrFail($id),
+            'vysetrenie' => Vysetrenie::findOrFail($id),
         ]);
     }
 
@@ -94,9 +105,9 @@ class OddelenieController extends Controller
      */
     public function confirm($id)
     {
-        return view('oddelenie.confirm')->with([
+        return view('vysetrenie.confirm')->with([
             'currUser' => Auth::user(),
-            "oddelenie" => Oddelenie::findOrFail($id),
+            'vysetrenie' => Vysetrenie::findOrFail($id),
         ]);
     }
 
@@ -108,9 +119,9 @@ class OddelenieController extends Controller
      */
     public function edit($id)
     {
-        return view('oddelenie.createEdit')->with([
+        return view('vysetrenie.createEdit')->with([
             'currUser' => Auth::user(),
-            'oddelenie' => Oddelenie::findOrFail($id)
+            'vysetrenie' => Vysetrenie::findOrFail($id),
         ]);
     }
 
@@ -125,13 +136,20 @@ class OddelenieController extends Controller
     {
         $request->validate($this->rules());
 
-        /* @var Oddelenie $odd */
-        $odd = Oddelenie::findOrFail($id);
-        $odd->nazov = $request['nazov'];
-        $odd->poschodie = $request['poschodie'];
-        $odd->save();
+        /* @var Vysetrenie $vis */
+        $vys = Vysetrenie::findOrFail($id);
+//        $vys->doktor_id => \Auth::user()->id,
+        $vys->oddelenie_id = Oddelenie::getIdFromName($request['oddelenie']);
+        $vys->pacient_id = User::getUserByRodneCislo($request['rodne_cislo']);
+        if ($request->has('typ')){
+            $vys->typ = $request['typ'];
+        }
+        if ($request->has('sprava')){
+            $vys->sprava = $request['sprava'];
+        }
+        $vys->save();
 
-        return $this->confirm($odd->id);
+        return $this->confirm($id);
     }
 
     /**
@@ -142,7 +160,7 @@ class OddelenieController extends Controller
      */
     public function destroy($id)
     {
-        Oddelenie::destroy($id);
+        Vysetrenie::destroy($id);
         return back();
     }
 }
