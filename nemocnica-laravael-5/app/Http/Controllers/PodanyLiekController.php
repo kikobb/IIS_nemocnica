@@ -38,7 +38,7 @@ class PodanyLiekController extends Controller
     public function index()
     {
         return view('podanyLiek.index')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'podane_lieky'  => Podany_liek::all(),
         ]);
     }
@@ -51,7 +51,7 @@ class PodanyLiekController extends Controller
     public function create()
     {
         return view('podanyLiek.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
         ]);
     }
 
@@ -92,7 +92,7 @@ class PodanyLiekController extends Controller
     public function show($id)
     {
         return view('podanyLiek.show')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
         ]);
     }
@@ -106,7 +106,7 @@ class PodanyLiekController extends Controller
     public function confirm($id)
     {
         return view('podanyLiek.confirm')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
         ]);
     }
@@ -120,7 +120,7 @@ class PodanyLiekController extends Controller
     public function edit($id)
     {
         return view('podanyLiek.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
         ]);
     }

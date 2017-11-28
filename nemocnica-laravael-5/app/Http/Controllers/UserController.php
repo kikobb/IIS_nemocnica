@@ -47,10 +47,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //main page
-        //dd(Auth::user());
         switch (Auth::user()->pozicia){
-            //admin
             case 'admin':
                 return view('home_admin')->with(['osoba' => Auth::user()]);
                 break;
@@ -63,7 +60,6 @@ class UserController extends Controller
                 return view('/home_pacient')->with(['osoba' => Auth::user()]);
                 break;
         }
-//        return view('zamestnanec.index')->with(['currUser' => User::all()->first()]);
     }
 
     /**
@@ -136,7 +132,7 @@ class UserController extends Controller
     public function show($id)
     {
         return view('zamestnanec.show')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }
@@ -150,7 +146,7 @@ class UserController extends Controller
     public function confirm($id)
     {
         return view('zamestnanec.confirm')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }
@@ -164,7 +160,7 @@ class UserController extends Controller
     public function edit($id)
     {
         return view('zamestnanec.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }

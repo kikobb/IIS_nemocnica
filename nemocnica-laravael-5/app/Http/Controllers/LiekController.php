@@ -37,7 +37,7 @@ class LiekController extends Controller
     {
         //vrata view s liekmi
         return view('liek.index')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'lieky' => Liek::all(),
         ]);
     }
@@ -50,7 +50,7 @@ class LiekController extends Controller
     public function create()
     {
         return view('liek.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
         ]);
     }
 
@@ -88,7 +88,7 @@ class LiekController extends Controller
     public function show($id)
     {
         return view('liek.show')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             "liek" => Liek::findOrFail($id),
         ]);
     }
@@ -102,7 +102,7 @@ class LiekController extends Controller
     public function confirm($id)
     {
         return view('liek.confirm')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             "liek" => Liek::findOrFail($id),
         ]);
     }
@@ -116,7 +116,7 @@ class LiekController extends Controller
     public function edit($id)
     {
         return view('liek.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
             'liek' => Liek::findOrFail($id),
         ]);
     }
