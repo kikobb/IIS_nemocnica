@@ -5,6 +5,8 @@
 
     <div class="col-sm-6 ">
         <h2>Prihlásenie </h2>
+
+        {{ Form::open(['route' => 'loginValidate', 'method' => 'post', 'class' => 'form']) }}
         <form class="form-horizontal">
 
             <div class="form-group">
@@ -44,7 +46,7 @@
                     </a>
                 </div>
             </div>
-
         </form>
+        {{Form::close()}}
     </div>
 @endsection

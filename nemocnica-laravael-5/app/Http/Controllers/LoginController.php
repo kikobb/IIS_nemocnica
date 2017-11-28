@@ -16,25 +16,26 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
-        $user = User::getUserById(Auth::user()->id);
-        //dd(get_class_methods(User));
-        switch ($user->osoba()->first()->typ_ulohy()->first()->getName()){
-            //admin
-            case 'admin':
-//                dd($user->osoba()->first()->typ_ulohy()->first()->getName());
-                return '/home_admin';
-                break;
-            case 'doktor':
-            case 'sestra':
-            case 'prijemca':
-                return '/home_zamestnanec';
-                break;
-            //pacient
-            case 'pacient':
-                return '/home_pacient';
-                break;
-        }
-        return '/home_admin';
+//        $user = User::getUserById(Auth::user()->id);
+//        //dd(get_class_methods(User));
+//        switch ($user->osoba()->first()->typ_ulohy()->first()->getName()){
+//            //admin
+//            case 'admin':
+////                dd($user->osoba()->first()->typ_ulohy()->first()->getName());
+//                return '/home_admin';
+//                break;
+//            case 'doktor':
+//            case 'sestra':
+//            case 'prijemca':
+//                return '/home_zamestnanec';
+//                break;
+//            //pacient
+//            case 'pacient':
+//                return '/home_pacient';
+//                break;
+//        }
+//        return '/home_admin';
+        return 'zamestnanec';
     }
 
     public function logout(Request $request)
@@ -53,7 +54,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login');
+        return view('prihlasenie.login');
     }
 
     /**

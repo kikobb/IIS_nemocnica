@@ -16,7 +16,7 @@ class CreateLiekyTable extends Migration
         Schema::create('lieky', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('nazov');
+            $table->string('nazov', 50);
             $table->string('ucinna_latka', 50);
             $table->string('kontraindikacia', 255)->nullable();
             $table->timestamps();

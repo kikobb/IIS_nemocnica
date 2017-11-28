@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function (){
 });
 
 Route::get('/', 'LoginController@index');
-Route::post('/', 'LoginController@login')->name('home');
+Route::post('/', 'LoginController@login')->name('loginValidate');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 //Route::post('/registerr', function(){

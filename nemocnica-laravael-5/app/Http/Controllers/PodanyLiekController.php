@@ -23,8 +23,10 @@ class PodanyLiekController extends Controller
     private function rules()
     {
         return [
-//            'nazov' => 'required|max:50',
-//            'ucinna_latka' => 'required|max:255'
+            'liek' => 'required|string|max:60|exists:lieky,nazov',
+            'oddelenie' => 'required|string|max:60|exists:oddelenia,nazov',
+            'cas' => 'required|max:50',
+            'mnozstvo' => 'required|max:255'
         ];
     }
 

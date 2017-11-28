@@ -48,22 +48,22 @@ class UserController extends Controller
     public function index()
     {
         //main page
-        //dd(get_class_methods(User));
-//        switch (Auth::user()->pozicia){
-//            //admin
-//            case 'admin':
-//                return view('home_admin')->with(['osoba' => Auth::user()]);
-//                break;
-//            case 'doktor':
-//            case 'sestra':
-//            case 'prijemca':
-//                return view('zamestnanec.index')->with(['osoba' => Auth::user()]);
-//                break;
-//            case 'pacient':
-//                return view('/home_pacient')->with(['osoba' => Auth::user()]);
-//                break;
-//        }
-        return view('zamestnanec.index')->with(['currUser' => User::all()->first()]);
+        //dd(Auth::user());
+        switch (Auth::user()->pozicia){
+            //admin
+            case 'admin':
+                return view('home_admin')->with(['osoba' => Auth::user()]);
+                break;
+            case 'doktor':
+            case 'sestra':
+            case 'prijemca':
+                return view('zamestnanec.index')->with(['osoba' => Auth::user()]);
+                break;
+            case 'pacient':
+                return view('/home_pacient')->with(['osoba' => Auth::user()]);
+                break;
+        }
+//        return view('zamestnanec.index')->with(['currUser' => User::all()->first()]);
     }
 
     /**
