@@ -70,7 +70,7 @@ class UserController extends Controller
     public function create()
     {
         return view('zamestnanec.createEdit')->with([
-            //-totodajprec-'currUser' => Auth::user(),
+            'currUser' => Auth::user(),
         ]);
     }
 

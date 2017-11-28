@@ -50,11 +50,11 @@
             <div class="col-md-5">Dátum narodenia:</div>
             <div class="col-md-6">{{$osoba->datum_narodenia}} </div>
         </div>
-
+    </div>
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="izba/create" class="btn btn-info btn-lg">
+        <a href="/izba/create" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 
@@ -63,5 +63,6 @@
         </a>
 
     </div>
+
 
 @endsection

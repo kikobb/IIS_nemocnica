@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="col-sm-6 ">
+    <div class="col-sm-8 ">
         <h2>Moje údaje</h2>
 
         <div class="row">

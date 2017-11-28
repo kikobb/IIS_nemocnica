@@ -5,19 +5,19 @@
     <div class="col-sm-6 ">
         <h2> Údaje boli uložené</h2>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Názov lieku:</div>
             <div class="col-md-6"> {{$liek->nazov}}</div>
         </div>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Účinná látka:</div>
             <div class="col-md-6">{{$liek->ucinna_latka}} </div>
         </div>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Kontraindikácia:</div>
-            <div class="col-md-6"> @if($liek->kontraindikacia) {{$liek->kontraindikacia}} @else  @endif </div>
+            <div class="col-md-6">{{$liek->kontraindikacia}}</div>
         </div>
 
 

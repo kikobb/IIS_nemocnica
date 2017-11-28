@@ -20,8 +20,8 @@
             {{ Form::text('nazov', old('nazov'),array('required' => 'required','placeholder'=>'Nazov lieku','class'=>'form-control')) }}
             @if ($errors->has('nazov'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('nazov') }}</strong>
-                    </span>
+                    <strong>{{ $errors->first('nazov') }}</strong>
+                </span>
             @endif
         </div>
 

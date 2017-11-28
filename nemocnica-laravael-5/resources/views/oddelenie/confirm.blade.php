@@ -5,12 +5,12 @@
     <div class="col-sm-6 ">
         <h2> Údaje boli uložené</h2>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Názov oddelenia:</div>
             <div class="col-md-6"> {{$oddelenie->nazov}}</div>
         </div>
 
-        <div>
+        <div class="row">
             <div class="col-md-5">Účinná látka:</div>
             <div class="col-md-6">{{$oddelenie->poschodie}} </div>
         </div>
@@ -20,11 +20,11 @@
     <div class="col-sm-6 " id="confirm">
 
 
-        <a href="izba/create" class="btn btn-info btn-lg">
+        <a href="/oddelenie/create" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 
-        <a href="home_admin" class="btn btn-info btn-lg">
+        <a href="/zamestnanec" class="btn btn-info btn-lg">
             Zmena údajov
         </a>
 

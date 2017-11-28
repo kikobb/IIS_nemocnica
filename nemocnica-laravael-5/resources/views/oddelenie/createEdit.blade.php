@@ -34,7 +34,6 @@
                     </span>
             @endif
         </div>
-        c
 
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}

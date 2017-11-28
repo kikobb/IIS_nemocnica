@@ -21,7 +21,7 @@
     <div class="col-sm-6 " id="confirm">
 
         <a href="izba/create" class="btn btn-info btn-lg">
-            Pridať liek
+            Pridať vysetrenie
         </a>
 
         <a href="home_admin" class="btn btn-info btn-lg">
