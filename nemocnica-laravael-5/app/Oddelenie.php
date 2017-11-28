@@ -30,7 +30,7 @@ class Oddelenie extends Model
     }
 
     public function getName(){
-        return $this->name;
+        return $this->nazov;
     }
 
     //vazby
