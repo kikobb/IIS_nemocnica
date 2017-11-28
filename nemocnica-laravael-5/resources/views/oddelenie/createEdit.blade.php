@@ -16,7 +16,7 @@
         @endif
 
         <div class="form-group">
-            {{ Form::label('nazov', 'Názov*:', []) }}
+            {{ Form::label('nazov', 'Názov*:') }}
             {{ Form::text('nazov', old('nazov'),array('required' => 'required','placeholder'=>'Názov oddelenia','class'=>'form-control')) }}
             @if ($errors->has('nazov'))
                 <span class="help-block">
