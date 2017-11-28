@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Liek;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +37,7 @@ class LiekController extends Controller
     {
         //vrata view s liekmi
         return view('liek.index')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'lieky' => Liek::all(),
         ]);
     }
@@ -47,7 +49,9 @@ class LiekController extends Controller
      */
     public function create()
     {
-        return view('liek.createEdit')->with(['osoba' => Auth::user()]);
+        return view('liek.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
+        ]);
     }
 
     /**
@@ -84,6 +88,7 @@ class LiekController extends Controller
     public function show($id)
     {
         return view('liek.show')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "liek" => Liek::findOrFail($id),
         ]);
     }
@@ -97,6 +102,7 @@ class LiekController extends Controller
     public function confirm($id)
     {
         return view('liek.confirm')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "liek" => Liek::findOrFail($id),
         ]);
     }
@@ -110,6 +116,7 @@ class LiekController extends Controller
     public function edit($id)
     {
         return view('liek.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'liek' => Liek::findOrFail($id),
         ]);
     }
@@ -119,7 +126,7 @@ class LiekController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function update(Request $request, $id)
     {

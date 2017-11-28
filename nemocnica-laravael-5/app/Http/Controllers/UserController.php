@@ -63,7 +63,7 @@ class UserController extends Controller
 //                return view('/home_pacient')->with(['osoba' => Auth::user()]);
 //                break;
 //        }
-        return view('zamestnanec.index')->with(['osoba' => User::all()->first()]);
+        return view('zamestnanec.index')->with(['currUser' => User::all()->first()]);
     }
 
     /**
@@ -73,7 +73,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('zamestnanec.createEdit')->with(['osoba' => Auth::user()]);
+        return view('zamestnanec.createEdit')->with(['currUser' => Auth::user()]);
     }
 
     /**
@@ -136,6 +136,7 @@ class UserController extends Controller
     public function show($id)
     {
         return view('zamestnanec.show')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }
@@ -149,6 +150,7 @@ class UserController extends Controller
     public function confirm($id)
     {
         return view('zamestnanec.confirm')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }
@@ -162,6 +164,7 @@ class UserController extends Controller
     public function edit($id)
     {
         return view('zamestnanec.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
         ]);
     }

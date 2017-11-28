@@ -6,6 +6,7 @@ use App\Izba;
 use App\Oddelenie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IzbaController extends Controller
 {
@@ -37,6 +38,7 @@ class IzbaController extends Controller
     public function index()
     {
         return view('izba.index')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'izby' => Izba::all(),
         ]);
     }
@@ -49,7 +51,8 @@ class IzbaController extends Controller
     public function create()
     {
         return view('izba.createEdit')->with([
-            'osoba' => \Auth::user()
+            //-totodajprec-'currUser' => Auth::user(),
+            'oddelenia' => Oddelenie::getAllNamesToArr(),
         ]);
     }
 
@@ -95,6 +98,7 @@ class IzbaController extends Controller
     public function show($id)
     {
         return view('izba.show')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'izba' => Izba::findOrFail($id),
         ]);
     }
@@ -108,6 +112,7 @@ class IzbaController extends Controller
     public function confirm($id)
     {
         return view('izba.confirm')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "izba" => Izba::findOrFail($id),
         ]);
     }
@@ -121,6 +126,7 @@ class IzbaController extends Controller
     public function edit($id)
     {
         return view('izba.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'izba'  => Izba::findOrFail($id),
         ]);
     }
@@ -149,6 +155,7 @@ class IzbaController extends Controller
         }else{
             //ak nie tak vrat nastavene udaje na zadanie este raz
             return view('izba.createEdit')->with([
+                //-totodajprec-'currUser' => Auth::user(),
                 'izba' => $izba,
             ]);
         }

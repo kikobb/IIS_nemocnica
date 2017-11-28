@@ -36,6 +36,7 @@ class OddelenieController extends Controller
     public function index()
     {
         return view('oddelenie.index')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'Oddelenia' => Oddelenie::all(),
         ]);
     }
@@ -47,7 +48,9 @@ class OddelenieController extends Controller
      */
     public function create()
     {
-        return view('oddelenie.createEdit')->with(['osoba' => Auth::user()]);
+        return view('oddelenie.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
+        ]);
     }
 
     /**
@@ -78,6 +81,7 @@ class OddelenieController extends Controller
     public function show($id)
     {
         return view('oddelenie.show')->with([
+            //-totodajprec-'currUser' => Auth::user(),
              'oddelenie' => Oddelenie::findOrFail($id),
         ]);
     }
@@ -91,6 +95,7 @@ class OddelenieController extends Controller
     public function confirm($id)
     {
         return view('oddelenie.confirm')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             "oddelenie" => Oddelenie::findOrFail($id),
         ]);
     }
@@ -104,6 +109,7 @@ class OddelenieController extends Controller
     public function edit($id)
     {
         return view('oddelenie.createEdit')->with([
+            //-totodajprec-'currUser' => Auth::user(),
             'oddelenie' => Oddelenie::findOrFail($id)
         ]);
     }
@@ -113,7 +119,7 @@ class OddelenieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function update(Request $request, $id)
     {
