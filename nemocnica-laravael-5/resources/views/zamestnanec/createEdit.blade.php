@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 {{ Form::label('pozicia', 'Pozícia* :') }}
-                {{ Form::select('Pozícia',array('Doktor' => 'doktor', 'Sestrička' => 'sestra','Príjemca' => 'príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
+                {{ Form::select('pozicia',array('Doktor' => 'doktor', 'Sestrička' => 'sestra','Príjemca' => 'príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
             </div>
 
             <div class="form-group">
