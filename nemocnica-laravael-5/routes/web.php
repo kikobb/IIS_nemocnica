@@ -30,6 +30,13 @@ Route::resource('liek', 'LiekController');
 Route::get('liek/{id}/confirm', 'LiekController@confirm');
 
 Route::resource('zamestnanec', 'UserController');
+Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
+
+Route::resource('izba', 'IzbaController');
+Route::get('izba/{id}/confirm', 'IzbaController@confirm');
+
+Route::resource('oddelenie', 'OddelenieController');
+Route::get('oddelenie/{id}/confirm', 'OddelenieController@confirm');
 
 //doktor
 Route::group(['middleware' => ['auth','doktor']], function (){
