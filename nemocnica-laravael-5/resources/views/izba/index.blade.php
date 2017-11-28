@@ -8,22 +8,24 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Názov</th>
-                    <th>Látka</th>
-                    <th>Kontraindikácia</th>
+                    <th>Typ</th>
+                    <th>Kapacita</th>
+                    <th>Číslo</th>
+                    <th>Oddelenie</th>
                     <th>Úprava</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                @for ($i = 0; $i < count($lieky); $i++)
+                @for ($i = 0; $i < count($izby); $i++)
                 <tr>
                 <td >{{$i +1}}</td>
-                <td >{{$lieky[$i]->nazov}}</td>
-                <td >{{$lieky[$i]->ucinna_latka}}</td>
-                <td >{{$lieky[$i]->kontraindikacia}}</td>
+                <td >{{$izby[$i]->typ}}</td>
+                <td >{{$izby[$i]->kapacita}}</td>
+                <td >{{$izby[$i]->cislo}}</td>
+                <td >{{$izby[$i]->getMyOddelenie()}}</td>
                 <td ><span class="input-group-btn">
-                <a href="liek/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                <a href="izba/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                 </span>
                 </td>
                 </tr>

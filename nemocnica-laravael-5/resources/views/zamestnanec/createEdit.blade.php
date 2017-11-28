@@ -17,11 +17,11 @@
 
 
             <div class="form-group">
-                {{ Form::label('name', 'Meno*:') }}
-                {{ Form::text('name', old('name'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
-                @if ($errors->has('name'))
+                {{ Form::label('meno', 'Meno*:') }}
+                {{ Form::text('meno', old('meno'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
+                @if ($errors->has('meno'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
+                        <strong>{{ $errors->first('meno') }}</strong>
                     </span>
                 @endif
             </div>
@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 {{ Form::label('pozicia', 'Pozícia* :') }}
-                {{ Form::select('pozicia',array('Doktor' => 'Doktor', 'Sestrička' => 'Sestrička','Príjemca' => 'Príjemca'), old('pozicia'), array('class'=>'form-control'))}}
+                {{ Form::select('Pozícia',array('Doktor' => 'Doktor', 'Sestrička' => 'Sestrička','Príjemca' => 'Príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
             </div>
 
             <div class="form-group">
@@ -114,7 +114,7 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('datum_narodenia', 'Dátum Narodenia:') }}
+                {{ Form::label('datum_narodenia', 'Dátum narodenia:') }}
                 {{ Form::text('datum_narodenia', old('datum_narodenia'),array('class'=>'form-control')) }}
                 @if ($errors->has('datum_narodenia'))
                     <span class="help-block">
@@ -124,8 +124,8 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('cislo_uctu', 'Čislo účtu:') }}
-                {{ Form::text('cislo_uctu', old('cislo_uctu'),array('placeholder'=>'Čislo účtu','class'=>'form-control')) }}
+                {{ Form::label('cislo_uctu', 'Číslo účtu:') }}
+                {{ Form::text('cislo_uctu', old('cislo_uctu'),array('placeholder'=>'Číslo účtu','class'=>'form-control')) }}
                 @if ($errors->has('cislo_uctu'))
                     <span class="help-block">
                         <strong>{{ $errors->first('cislo_uctu') }}</strong>
@@ -134,8 +134,8 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('pozicia', 'Úväzok* :') }}
-                {{ Form::select('uvazok',array('Plný' => 'Plný', 'Polovičný' => 'Polovičný','Prax' => 'Prax'), old('uvazok'), array('class'=>'form-control'))}}
+                {{ Form::label('uvazok', 'Úväzok* :') }}
+                {{ Form::select('uvazok',array('Plný' => 'Plný', 'Polovičný' => 'Polovičný','Prax' => 'Prax'), old('uvazok'), array('class'=>'form-control','required' => 'required'))}}
 
             </div>
 

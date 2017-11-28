@@ -6,18 +6,23 @@
         <h2> Údaje boli uložené</h2>
 
         <div>
-            <div class="col-md-5">Názov lieku:</div>
-            <div class="col-md-6"> {{$liek->nazov}}</div>
+            <div class="col-md-5">Typ:</div>
+            <div class="col-md-6"> {{$izba->typ}}</div>
         </div>
 
         <div>
-            <div class="col-md-5">Účinná látka:</div>
-            <div class="col-md-6">{{$liek->ucinna_latka}} </div>
+            <div class="col-md-5">Kapacita:</div>
+            <div class="col-md-6">{{$izba->kapacita}} </div>
         </div>
 
         <div>
-            <div class="col-md-5">Kontraindikácia:</div>
-            <div class="col-md-6"> @if($liek->kontraindikacia) {{$liek->kontraindikacia}} @else  @endif </div>
+            <div class="col-md-5">Číslo:</div>
+            <div class="col-md-6">{{$izba->cislo}}</div>
+        </div>
+
+        <div>
+            <div class="col-md-5">Oddelenie:</div>
+            <div class="col-md-6">{{$izba->oddelenie}}</div>
         </div>
 
 
@@ -25,7 +30,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="liek/create" class="btn btn-info btn-lg">
+        <a href="izba/create" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
         </a>
 

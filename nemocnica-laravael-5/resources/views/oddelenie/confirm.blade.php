@@ -15,15 +15,18 @@
             <div class="col-md-6">{{$oddelenie->poschodie}} </div>
         </div>
 
+    </div>
+
+    <div class="col-sm-6 " id="confirm">
+
 
             <a href="liek/create" class="btn btn-info btn-lg">
-                <span type="submit" class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
+                <span class="glyphicon glyphicon-repeat"></span> Ďalšia registrácia
             </a>
 
             <a href="home_admin" class="btn btn-info btn-lg">
-                <span type="submit" class="glyphicon glyphicon-home"></span> Domov
+                <span  class="glyphicon glyphicon-home"></span> Domov
             </a>
-        </div>
 
     </div>
 @endsection

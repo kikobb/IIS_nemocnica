@@ -15,17 +15,17 @@
                 </thead>
                 <tbody>
 
-                @foreach ($oddelenia as $oddelenie)
+                @for ($i = 0; $i < count($oddelenia); $i++)
                 <tr>
-                <td>1</td>
-                <td>{{$oddelenie->nazov}}</td>
-                <td>{{$oddelenie->poschodie}}</td>
+                    <td>{{$i +1}}</td>
+                <td>{{$oddelenia[$i]->nazov}}</td>
+                <td>{{$oddelenia[$i]->poschodie}}</td>
                 <td><span class="input-group-btn">
-                <a href="#"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                <a href="oddelenie/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                 </span>
                 </td>
                 </tr>
-                @endforeach
+                @endfor
                 </tbody>
             </table>
         </div>
