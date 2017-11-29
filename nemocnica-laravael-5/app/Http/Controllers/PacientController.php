@@ -16,14 +16,21 @@ class PacientController extends Controller
 //        $this->middleware('sestricka')->only('create', 'show')->except('index');
     }
 
+    private function uniqueRules(){
+        return [
+            'email' => 'unique:users',
+            'rodne_cislo' => 'unique:users',
+        ];
+    }
+
     private function rules()
     {
         return [
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
             'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
-            'rodne_cislo' => 'required|string|max:11|unique:users',
+            'rodne_cislo' => 'required|string|max:11',
 
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
@@ -68,6 +75,7 @@ class PacientController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules());
+        $request->validate($this->uniqueRules());
 
         $user = User::create([
             'email' => $request['email'],

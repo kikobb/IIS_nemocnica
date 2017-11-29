@@ -18,17 +18,24 @@ class UserController extends Controller
 //        $this->middleware('sestricka')->only('create', 'show')->except('index');
     }
 
+    private function uniqueRules(){
+        return [
+            'email' => 'unique:users',
+            'rodne_cislo' => 'unique:users'
+        ];
+    }
+
     private function rules()
     {
         return [
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
             'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
             'pozicia' => 'required|string|max:8',
 
             'uvazok' => 'string|max:10',
-            'rodne_cislo' => 'string|max:11|nullable|unique:users',
+            'rodne_cislo' => 'string|max:11|nullable',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
             'ulica_cislo' => 'string|max:40|nullable',
@@ -84,6 +91,7 @@ class UserController extends Controller
     {
 
         $request->validate($this->rules());
+        $request->validate($this->uniqueRules());
         $user = new User();
         $user->email = $request['email'];
         $user->password = bcrypt($request['password']);
