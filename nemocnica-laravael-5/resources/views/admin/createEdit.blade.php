@@ -4,15 +4,15 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Zamestnanec</h2>
+        <h2>Admin</h2>
 
         @if( empty($osoba) )
-            {{ Form::open(['route' => 'zamestnanec.store', 'method' => 'post', 'class' => 'form']) }}
+            {{ Form::open(['route' => 'admin.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['zamestnanec.destroy', $osoba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['admin.destroy', $osoba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($osoba, ['route' => ['zamestnanec.update', $osoba->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($osoba, ['route' => ['admin.update', $osoba->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -38,14 +38,8 @@
             </div>
 
             <div class="form-group">
-                @if(empty($osoba))
-                    {{ Form::label('password', 'Heslo*:') }}
-                    {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
-                @else
-                    {{ Form::label('password', 'Heslo:') }}
-                    {{ Form::password('password',array('placeholder'=>' Heslo','class'=>'form-control')) }}
-                @endif
-
+                {{ Form::label('password', 'Heslo*:') }}
+                {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
                 @if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
@@ -64,8 +58,8 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('rodne_cislo', 'Rodné číslo*:') }}
-                {{ Form::text('rodne_cislo', old('rodne_cislo'),array('required' => 'required autofocus','placeholder'=>'Rodné číslo','class'=>'form-control')) }}
+                {{ Form::label('rodne_cislo', 'Rodné číslo:') }}
+                {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'Rodné číslo','class'=>'form-control')) }}
                 @if ($errors->has('rodne_cislo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('rodne_cislo') }}</strong>
@@ -73,11 +67,6 @@
                 @endif
             </div>
 
-
-            <div class="form-group">
-                {{ Form::label('pozicia', 'Pozícia* :') }}
-                {{ Form::select('pozicia',array('doktor' => 'Doktor', 'sestra' => 'Sestra','prijemca' => 'Príjemca'), old('pozicia'), array('class'=>'form-control','required' => 'required'))}}
-            </div>
 
             <div class="form-group">
                 {{ Form::label('mesto', 'Mesto:') }}
@@ -101,7 +90,7 @@
 
             <div class="form-group">
                 {{ Form::label('ulica_cislo', 'Ulica a číslo domu:') }}
-                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
+                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('required' => 'required','placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
                 @if ($errors->has('ulica_cislo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('ulica_cislo') }}</strong>
@@ -129,42 +118,16 @@
                 @endif
             </div>
 
-            <div class="form-group">
-                {{ Form::label('cislo_uctu', 'Číslo účtu:') }}
-                {{ Form::text('cislo_uctu', old('cislo_uctu'),array('placeholder'=>'Číslo účtu','class'=>'form-control')) }}
-                @if ($errors->has('cislo_uctu'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('cislo_uctu') }}</strong>
-                    </span>
-                @endif
-            </div>
-
-            <div class="form-group">
-                {{ Form::label('uvazok', 'Úväzok* :') }}
-                {{ Form::select('uvazok',array('Plný' => 'Plný', 'Polovičný' => 'Polovičný','Prax' => 'Prax'), old('uvazok'), array('class'=>'form-control','required' => 'required'))}}
-
-            </div>
-
-            <div class="form-group">
-                {{ Form::label('telefon', 'Telefón:') }}
-                {{ Form::text('telefon', old('telefon'),array('placeholder'=>'+420955123456','class'=>'form-control')) }}
-                @if ($errors->has('telefon'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('telefon') }}</strong>
-
-                    </span>
-                @endif
-            </div>
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-                @if( !empty($osoba) )
-                    <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
+                @if( !empty($admin) )
+                    <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span>Delete</a>
                 @endif
             </div>
 
             <div class="form-group">
-                * - sú označené povinné údaje
+                <span>*</span> - sú označené povinné údaje
             </div>
 
         {{ Form::close() }}

@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - lieku</h2>
+        <h2>Izba</h2>
 
         @if( empty($izba) )
             {{ Form::open(['route' => 'izba.store', 'method' => 'post', 'class' => 'form']) }}
@@ -42,7 +42,7 @@
 
         <div class="form-group">
             {{ Form::label('oddelenie', 'Oddelenie*:') }}
-            {{ Form::select('typ',$oddelenia, old('oddelenie'), array('class'=>'form-control','required' => 'required'))}}
+            {{ Form::select('oddelenie',$oddelenia, old('oddelenie'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
         <div class="form-group">

@@ -5,7 +5,6 @@
     <div class="col-sm-6 ">
         <h2> Údaje boli uložené</h2>
 
-
         <div class="row">
             <div class="col-md-5">Meno:</div>
             <div class="col-md-6"> {{$osoba->meno}}</div>
@@ -70,7 +69,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="/izba/create" class="btn btn-info btn-lg">
+        <a href="/zamestnanec/create" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

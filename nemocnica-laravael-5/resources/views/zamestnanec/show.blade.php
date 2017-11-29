@@ -2,8 +2,10 @@
 
 
 @section('content')
+
     <div class="col-sm-6 ">
         <h2> Zamestnanec</h2>
+
 
         <div class="row">
             <div class="col-md-5">Meno:</div>
@@ -66,7 +68,7 @@
         </div>
 
         <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
-            zmena
+            Zmena údajov
         </a>
 
     </div>
