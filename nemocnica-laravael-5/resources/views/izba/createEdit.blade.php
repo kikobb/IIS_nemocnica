@@ -41,8 +41,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('oddelenie', 'Oddelenie*:') }}
-            {{ Form::select('oddelenie',$oddelenia, old('oddelenie'), array('class'=>'form-control','required' => 'required'))}}
+            {{ Form::label('oddelenie_id', 'Oddelenie*:') }}
+            {{ Form::select('oddelenie_id',$oddelenia, old('oddelenie_id'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
         <div class="form-group">
