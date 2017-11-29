@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 {{ Form::label('meno', 'Meno*:') }}
-                {{ Form::text('meno', Input::old('meno'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
+                {{ Form::text('meno', old('meno'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
                 @if ($errors->has('meno'))
                     <span class="help-block">
                         <strong>{{ $errors->first('meno') }}</strong>
