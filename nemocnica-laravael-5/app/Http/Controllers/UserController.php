@@ -21,7 +21,8 @@ class UserController extends Controller
     private function uniqueRules(){
         return [
             'email' => 'unique:users',
-            'rodne_cislo' => 'unique:users'
+            'rodne_cislo' => 'unique:users',
+            'password' => 'required|string|min:6',
         ];
     }
 
@@ -29,7 +30,7 @@ class UserController extends Controller
     {
         return [
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6',
+            'password' => 'string|min:6',
             'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
             'pozicia' => 'required|string|max:8',
@@ -192,11 +193,12 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         //povinne
         $user->email = $request['email'];
-        $user->password = bcrypt($request['password']);
         $user->pozicia = $request['pozicia'];
         $user->meno = $request['meno'];
         $user->priezvisko = $request['priezvisko'];
         //nepovinne
+        if ($request->has('password'))
+            $user->password = bcrypt($request['password']);
         if ( $request->has('rodne_cislo') )
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
