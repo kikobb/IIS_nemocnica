@@ -74,6 +74,12 @@ class PacientController extends Controller
             'meno' => $request['meno'],
             'priezvisko' => $request['priezvisko'],
         ]);
+        //TODO to co je zkomentovane je nehrada za konstruktor
+//        $user->email = $request['email'];
+//        $user->password = bcrypt($request['password']);
+//        $user->pozicia = $request['pozicia'];
+//        $user->meno = $request['meno'];
+//        $user->priezvisko = $request['priezvisko'];
         if ( $request->has('rodne_cislo') )
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )

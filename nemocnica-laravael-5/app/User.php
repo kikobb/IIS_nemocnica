@@ -22,6 +22,10 @@ class User extends Authenticatable
         return User::where('rodne_cislo', $rcislo)->first();
     }
 
+    public static function getAllDoctors(){
+        return User::where('pozicia', 'doktor')->get();
+    }
+
 
     /**
      * The attributes that are mass assignable.

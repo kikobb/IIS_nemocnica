@@ -47,7 +47,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        //TODO hod to do loginu
         switch (Auth::user()->pozicia){
             case 'admin':
                 return view('home_admin')->with(['currUser' => Auth::user()]);
@@ -86,16 +85,11 @@ class UserController extends Controller
 
         $request->validate($this->rules());
         $user = new User();
-        if ( $request->has('email') )
-            $user->email = $request['email'];
-        if ( $request->has('password') )
-            $user->password = $request['password'];
-        if ( $request->has('pozicia') )
-            $user->pozicia = $request['pozicia'];
-        if ( $request->has('meno') )
-            $user->meno = $request['meno'];
-        if ( $request->has('priezvisko') )
-            $user->priezvisko = $request['priezvisko'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['password']);
+        $user->pozicia = $request['pozicia'];
+        $user->meno = $request['meno'];
+        $user->priezvisko = $request['priezvisko'];
 //        $user = User::create([
 //            'email' => $request['email'],
 //            'password' => bcrypt($request['password']),
@@ -144,7 +138,7 @@ class UserController extends Controller
     {
         return view('zamestnanec.show')->with([
             'currUser' => Auth::user(),
-            "osoba" => User::findOrFail($id),
+            'osoba' => User::findOrFail($id),
         ]);
     }
 
@@ -172,7 +166,7 @@ class UserController extends Controller
     {
         return view('zamestnanec.createEdit')->with([
             'currUser' => Auth::user(),
-            "osoba" => User::findOrFail($id),
+            'osoba' => User::findOrFail($id),
         ]);
     }
 

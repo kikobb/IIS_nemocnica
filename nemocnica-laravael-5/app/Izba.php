@@ -27,6 +27,11 @@ class Izba extends Model
 //        $izba->save();
 //    }
 
+    public static function getIzbaByNumber($nmbr){
+        $pom = Izba::where('cislo', $nmbr)->first();
+        return $pom->id;
+    }
+
     public function getMyOddelenie(){
         return $this->oddelenie()->first()->getName();
     }
