@@ -7,6 +7,7 @@ use App\User;
 use App\Vysetrenie;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VysetrenieController extends Controller
 {
@@ -51,7 +52,7 @@ class VysetrenieController extends Controller
      */
     public function create()
     {
-        return view('vysetrenia.create')->with([
+        return view('vysetrenie.createEdit')->with([
             'currUser' => Auth::user(),
         ]);
     }
