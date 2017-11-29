@@ -41,8 +41,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index')->with(['
-            currUser' => Auth::user(),
+        return view('admin.index')->with([
+            'currUser' => Auth::user(),
         ]);
     }
 
@@ -85,8 +85,8 @@ class AdminController extends Controller
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
             $user->mesto = $request['mesto'];
-        if ( $request->has('pcs') )
-            $user->pcs = $request['pcs'];
+        if ( $request->has('psc') )
+            $user->psc = $request['psc'];
         if ( $request->has('ulica_cislo') )
             $user->ulica_cislo = $request['ulica_cislo'];
         if ( $request->has('stat') )
@@ -128,7 +128,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.confirm')->with([
+        return view('admin.createEdit')->with([
             'currUser' => Auth::user(),
             'osoba' => User::findOrFail($id),
         ]);
@@ -157,8 +157,8 @@ class AdminController extends Controller
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
             $user->mesto = $request['mesto'];
-        if ( $request->has('pcs') )
-            $user->pcs = $request['pcs'];
+        if ( $request->has('psc') )
+            $user->psc = $request['psc'];
         if ( $request->has('ulica_cislo') )
             $user->ulica_cislo = $request['ulica_cislo'];
         if ( $request->has('stat') )

@@ -101,8 +101,8 @@ class UserController extends Controller
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
             $user->mesto = $request['mesto'];
-        if ( $request->has('pcs') )
-            $user->pcs = $request['pcs'];
+        if ( $request->has('psc') )
+            $user->psc = $request['psc'];
         if ( $request->has('ulica_cislo') )
             $user->ulica_cislo = $request['ulica_cislo'];
         if ( $request->has('stat') )
@@ -113,8 +113,8 @@ class UserController extends Controller
             $user->uvazok = $request['uvazok'];
         if ( $request->has('cislo_uctu') )
             $user->cislo_uctu = $request['cislo_uctu'];
-        if ( $request->has('telelefon') )
-            $user->telelefon = $request['telelefon'];
+        if ( $request->has('telefon') )
+            $user->telefon = $request['telefon'];
         if ( $request->has('oddelenie') ) {
             $oddelenie = Oddelenie::where('nazov', $request['oddelenie'])->first();
             if ($user->typ_ulohy === 'doktor'){
@@ -193,8 +193,8 @@ class UserController extends Controller
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
             $user->mesto = $request['mesto'];
-        if ( $request->has('pcs') )
-            $user->pcs = $request['pcs'];
+        if ( $request->has('psc') )
+            $user->psc = $request['psc'];
         if ( $request->has('ulica_cislo') )
             $user->ulica_cislo = $request['ulica_cislo'];
         if ( $request->has('stat') )
@@ -205,8 +205,8 @@ class UserController extends Controller
             $user->uvazok = $request['uvazok'];
         if ( $request->has('cislo_uctu') )
             $user->cislo_uctu = $request['cislo_uctu'];
-        if ( $request->has('telelefon') )
-            $user->telelefon = $request['telelefon'];
+        if ( $request->has('telefon') )
+            $user->telefon = $request['telefon'];
         if ( $request->has('oddelenie') ) {
             $oddelenie = Oddelenie::where('nazov', $request['oddelenie'])->first();
             if ($user->typ_ulohy === 'doktor'){
