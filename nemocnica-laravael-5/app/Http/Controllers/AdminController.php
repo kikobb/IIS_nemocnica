@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-class PacientController extends Controller
+class AdminController extends Controller
 {
     function __construct()
     {
@@ -22,15 +22,14 @@ class PacientController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
             'meno' => 'required|string|max:30',
-            'priezvisko' => 'required|string|max:30',
             'rodne_cislo' => 'required|string|max:11|unique:users',
 
+            'priezvisko' => 'nullable|string|max:30',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',
             'ulica_cislo_domu' => 'string|max:40|nullable',
             'stat' => 'string|max:40|nullable',
             'datum_narodenia' => 'date|date_format:Y-m-d|nullable',
-            'cislo_poistovne' => 'string|max:10|nullable',
         ];
 
     }
@@ -38,24 +37,24 @@ class PacientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function index()
     {
-        return view('pacient.index')->with([
-            'currUser' => Auth::user(),
+        return view('admin.index')->with(['
+            currUser' => Auth::user(),
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function create()
     {
-        return view('pacient.createEdit')->with([
-            'currUser' => Auth::user(),
+        return view('admin.createEdit')->with(['
+            currUser' => Auth::user(),
         ]);
     }
 
@@ -94,8 +93,6 @@ class PacientController extends Controller
             $user->stat = $request['stat'];
         if ( $request->has('datum_narodenia') )
             $user->datum_narodenia = $request['datum_narodenia'];
-        if ( $request->has('cislo_poistovne') )
-            $user->cislo_poistovne = $request['cislo_poistovne'];
         $user->save();
 
         return $this->confirm($user->id);
@@ -105,25 +102,19 @@ class PacientController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function show($id)
     {
-        return view('pacient.show')->with([
+        return view('admin.show')->with([
             'currUser' => Auth::user(),
-            "osoba" => User::findOrFail($id),
+            'osoba' => User::findOrFail($id),
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
-     */
     public function confirm($id)
     {
-        return view('pacient.confirm')->with([
+        return view('admin.confirm')->with([
             'currUser' => Auth::user(),
             'osoba' => User::findOrFail($id),
         ]);
@@ -133,11 +124,11 @@ class PacientController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function edit($id)
     {
-        return view('pacient.createEdit')->with([
+        return view('admin.confirm')->with([
             'currUser' => Auth::user(),
             'osoba' => User::findOrFail($id),
         ]);
@@ -148,7 +139,7 @@ class PacientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function update(Request $request, $id)
     {
@@ -174,8 +165,7 @@ class PacientController extends Controller
             $user->stat = $request['stat'];
         if ( $request->has('datum_narodenia') )
             $user->datum_narodenia = $request['datum_narodenia'];
-        if ( $request->has('cislo_poistovne') )
-            $user->cislo_poistovne = $request['cislo_poistovne'];
+
         $user->save();
         return $this->confirm($id);
     }

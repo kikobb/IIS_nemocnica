@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         switch (Auth::user()->pozicia){
             case 'admin':
-                return view('home_admin')->with(['currUser' => Auth::user()]);
+                return redirect()->action('AdminController@index');
                 break;
             case 'doktor':
             case 'sestra':

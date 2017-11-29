@@ -17,6 +17,10 @@ Route::get('/', 'LoginController@index');
 Route::post('/', 'LoginController@login')->name('loginValidate');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
+//admin
+Route::resource('admin', 'AdminController');
+Route::get('admin/{id}/confirm', 'AdminController@confirm');
+
 //zamestnanec
 Route::resource('zamestnanec', 'UserController');
 Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
