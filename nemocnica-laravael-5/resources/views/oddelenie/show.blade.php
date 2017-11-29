@@ -11,8 +11,8 @@
         </div>
 
         <div class="row">
-            <div class="col-md-5">Účinná látka:</div>
-            <div class="col-md-5">{{$oddelenie->Poschodie}} </div>
+            <div class="col-md-5">Poschodie:</div>
+            <div class="col-md-5">{{$oddelenie->poschodie}} </div>
         </div>
 
     </div>

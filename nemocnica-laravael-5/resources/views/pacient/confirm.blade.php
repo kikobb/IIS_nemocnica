@@ -54,11 +54,11 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="/izba/create" class="btn btn-info btn-lg">
+        <a href="/zamestnanec/create" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 
-        <a href="home_admin" class="btn btn-info btn-lg">
+        <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
             Zmena údajov
         </a>
 

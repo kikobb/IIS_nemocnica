@@ -25,7 +25,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="/admin/index"><button class="dropbtn">Upraviť profil</button></a>
+                <a href="{{ route('admin.edit', $currUser->id) }}"><button class="dropbtn">Upraviť profil</button></a>
             </div>
 
         {{ Form::open(['route' => 'logout', 'method' => 'post']) }}

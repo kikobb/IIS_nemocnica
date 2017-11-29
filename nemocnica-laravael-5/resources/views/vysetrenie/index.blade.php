@@ -3,34 +3,33 @@
 @section('content')
 
     <div class="col-sm-10 ">
-        <div class="table">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Názov</th>
-                    <th>Látka</th>
-                    <th>Kontraindikácia</th>
-                    <th>Úprava</th>
-                </tr>
-                </thead>
-                <tbody>
+        <h2> Vyšetrenie</h2>
 
-                @for ($i = 0; $i < count($lieky); $i++)
-                <tr>
-                <td >{{$i +1}}</td>
-                <td >{{$lieky[$i]->nazov}}</td>
-                <td >{{$lieky[$i]->ucinna_latka}}</td>
-                <td >{{$lieky[$i]->kontraindikacia}}</td>
-                <td ><span class="input-group-btn">
-                <a href="liek/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
-                </span>
-                </td>
-                </tr>
-                @endfor
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-md-5">Doktor:</div>
+            <div class="col-md-6">{{$vysetrenie->doktor}} </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-5">Oddelenie:</div>
+            <div class="col-md-6">{{$vysetrenie->oddelenie}} </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">Typ vyšetrenia:</div>
+            <div class="col-md-6"> {{$vysetrenie->typ}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">Dátum a čas:</div>
+            <div class="col-md-6">{{$vysetrenie->created_at}} </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">Správa:</div>
+            <div class="col-md-6">{{$vysetrenie->sprava}} </div>
+        </div>
+
     </div>
 
 @endsection

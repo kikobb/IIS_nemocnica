@@ -34,7 +34,7 @@
             Ďalšia registrácia
         </a>
 
-        <a href="home_admin" class="btn btn-info btn-lg">
+        <a href="{{ route('izba.edit', $izba->id) }}" class="btn btn-info btn-lg">
             Zmena údajov
         </a>
 

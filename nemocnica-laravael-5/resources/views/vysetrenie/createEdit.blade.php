@@ -16,18 +16,29 @@
         @endif
 
         <div class="form-group">
-            {{ Form::label('nazov', 'Doktor:') }}
-            {{ Form::text('nazov', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Nazov lieku','class'=>'form-control','disabled' => 'disabled')) }}
-            @if ($errors->has('nazov'))
+            {{ Form::label('doktor', 'Doktor*:') }}
+            {{ Form::text('doktor', $currUser->priezvisko,array('class'=>'form-control','required' => 'required', 'disabled' => 'disabled')) }}
+            @if ($errors->has('doktor'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('nazov') }}</strong>
-                    </span>
+                        <strong>{{ $errors->first('doktor') }}</strong>
+                </span>
             @endif
         </div>
 
         <div class="form-group">
-            {{ Form::label('typ', 'Doktor:') }}
-            {{ Form::text('typ', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Nazov lieku','class'=>'form-control','disabled' => 'disabled')) }}
+            {{ Form::label('pacient', 'Rodné číslo pacienta*:') }}
+            {{ Form::text('pacient', old('pacient'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
+            @if ($errors->has('pacient'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('pacient') }}</strong>
+                </span>
+            @endif
+        </div>
+
+
+        <div class="form-group">
+            {{ Form::label('typ', 'Typ vyšetrenia:') }}
+            {{ Form::text('typ', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Typ vyšetrenia','class'=>'form-control')) }}
             @if ($errors->has('typ'))
                 <span class="help-block">
                         <strong>{{ $errors->first('typ') }}</strong>
@@ -35,22 +46,13 @@
             @endif
         </div>
 
+
         <div class="form-group">
-            {{ Form::label('sprava', 'Účinná látka*:') }}
-            {{ Form::text('sprava', old('sprava'),array('placeholder'=>'Účinná látka lieku','class'=>'form-control')) }}
+            {{ Form::label('sprava', 'Správa') }}
+            {{ Form::text('sprava', old('sprava'),array('placeholder'=>'Správa','class'=>'form-control')) }}
             @if ($errors->has('sprava'))
                 <span class="help-block">
                         <strong>{{ $errors->first('sprava') }}</strong>
-                    </span>
-            @endif
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('kontraindikacia', 'Kontraindikácia') }}
-            {{ Form::text('kontraindikacia', old('kontraindikacia'),array('placeholder'=>'Kontraindikácia lieku','class'=>'form-control')) }}
-            @if ($errors->has('konraindikacia'))
-                <span class="help-block">
-                        <strong>{{ $errors->first('konraindikacia') }}</strong>
                     </span>
             @endif
         </div>

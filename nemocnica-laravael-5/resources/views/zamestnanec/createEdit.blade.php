@@ -6,13 +6,13 @@
     <div class="col-sm-6 ">
         <h2>Zamestnanec</h2>
 
-        @if( empty($zamestnanec) )
+        @if( empty($osoba) )
             {{ Form::open(['route' => 'zamestnanec.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['zamestnanec.destroy', $zamestnanec->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['zamestnanec.destroy', $osoba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($zamestnanec, ['route' => ['zamestnanec.update', $zamestnanec->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($osoba, ['route' => ['zamestnanec.update', $osoba->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -152,13 +152,13 @@
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-                @if( !empty($zamestnanec) )
+                @if( !empty($osoba) )
                     <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
                 @endif
             </div>
 
             <div class="form-group">
-                <span style="color:red;">*</span> - sú označené povinné údaje
+                * - sú označené povinné údaje
             </div>
 
         {{ Form::close() }}

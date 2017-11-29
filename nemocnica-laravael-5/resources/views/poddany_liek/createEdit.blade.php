@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Liek</h2>
+        <h2>Registrácia - lieku</h2>
 
         @if( empty($liek) )
             {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}

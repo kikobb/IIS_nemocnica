@@ -7,22 +7,27 @@
 
         <div class="row">
             <div class="col-md-5">Doktor:</div>
-            <div class="col-md-5">{{$vysetrenie->getDoktor}} </div>
+            <div class="col-md-6">{{$vysetrenie->doktor}} </div>
         </div>
 
         <div class="row">
-            <div class="col-md-5">Pacient:</div>
-            <div class="col-md-5">{{$vysetrenie->getPacient}} </div>
+            <div class="col-md-5">Oddelenie:</div>
+            <div class="col-md-6">{{$vysetrenie->oddelenie}} </div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Typ vyšetrenia:</div>
-            <div class="col-md-5"> {{$vysetrenie->typ}}</div>
+            <div class="col-md-6"> {{$vysetrenie->typ}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Dátum a čas:</div>
-            <div class="col-md-5">{{$vysetrenie->created_at}} </div>
+            <div class="col-md-6">{{$vysetrenie->created_at}} </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">Správa:</div>
+            <div class="col-md-6">{{$vysetrenie->sprava}} </div>
         </div>
 
         <div class="table">
