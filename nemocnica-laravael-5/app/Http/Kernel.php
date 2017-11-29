@@ -2,11 +2,19 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\AdminPersonal;
+use App\Http\Middleware\AdminPersonalNoIndexCheck;
+use App\Http\Middleware\Doktor;
+use App\Http\Middleware\DoktorSestra;
+use App\Http\Middleware\DoktorSestraPrijemca;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsDoktor;
 use App\Http\Middleware\IsPacient;
 use App\Http\Middleware\IsPrijemca;
 use App\Http\Middleware\IsSestra;
+use App\Http\Middleware\PersonalPacient;
+use App\Http\Middleware\PersonalPacientNoIndexCheck;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -24,11 +32,15 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        IsAdmin::class,
-        IsDoktor::class,
-        IsSestra::class,
-        IsPrijemca::class,
-        IsPacient::class,
+        PersonalPacient::class,
+        Doktor::class,
+        DoktorSestra::class,
+        DoktorSestraPrijemca::class,
+        Admin::class,
+        AdminPersonal::class,
+        AdminPersonalNoIndexCheck::class,
+        PersonalPacientNoIndexCheck::class,
+
     ];
 
     /**
@@ -67,10 +79,13 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'admin' => IsAdmin::class,
-        'doktor' => IsDoktor::class,
-        'sestra' => IsSestra::class,
-        'prijemca' => IsPrijemca::class,
-        'pacient' => IsPacient::class,
+        'personalPacient' => PersonalPacient::class,
+        'personal' => DoktorSestraPrijemca::class,
+        'doktor' => Doktor::class,
+        'doktorSestra' => DoktorSestra::class,
+        'admin' => Admin::class,
+        'adminPersonal' => AdminPersonal::class,
+        'admPersNoIndChck' => AdminPersonalNoIndexCheck::class,
+        'persPacientNoIndChck' => PersonalPacientNoIndexCheck::class,
     ];
 }

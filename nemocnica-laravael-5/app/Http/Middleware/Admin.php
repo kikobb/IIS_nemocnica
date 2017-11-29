@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsDoktor
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class IsDoktor
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check() && !Auth::user()->isDoktor() ) {
-            return redirect('/');
+        if ( Auth::check() && !Auth::user()->isAdmin() ) {
+            return redirect('/zamestnanec');
         }
         return $next($request);
     }

@@ -13,9 +13,10 @@ class UserController extends Controller
 
     function __construct()
     {
-//        $this->middleware('auth');
-//        $this->middleware('doktor')->except('create', 'show', 'index');
-//        $this->middleware('sestricka')->only('create', 'show')->except('index');
+        $this->middleware('auth');
+        $this->middleware('admin')->except('index', 'show');
+        $this->middleware('adminPersonal')->only('show');
+        //index musi byt pre vsetkych prihlasenych lebo on rozhadzuje do patricnych routov
     }
 
     private function uniqueRules(){
@@ -30,12 +31,12 @@ class UserController extends Controller
     {
         return [
             'email' => 'required|string|email|max:255',
-            'password' => 'string|min:6',
+            'password' => 'nullable|string|min:6',
             'meno' => 'required|string|max:30',
             'priezvisko' => 'required|string|max:30',
             'pozicia' => 'required|string|max:8',
 
-            'uvazok' => 'string|max:10',
+            'uvazok' => 'string|max:10|nullable',
             'rodne_cislo' => 'string|max:11|nullable',
             'mesto' => 'string|max:40|nullable',
             'psc' => 'string|max:5|nullable',

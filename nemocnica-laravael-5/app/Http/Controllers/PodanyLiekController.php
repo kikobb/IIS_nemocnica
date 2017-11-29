@@ -12,9 +12,10 @@ class PodanyLiekController extends Controller
 {
     function __construct()
     {
-//        $this->middleware('auth');
-//        $this->middleware('doktor')->except('create', 'show', 'index');
-//        $this->middleware('sestricka')->only('create', 'show')->except('index');
+        $this->middleware('auth');
+        $this->middleware('doktor')->except('index', 'show');
+        $this->middleware('doktorSestra')->only('index');
+        //show pre vsetkych aby si aj pacient mohol pozret
     }
 
     /**

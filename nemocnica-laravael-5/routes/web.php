@@ -27,7 +27,7 @@ Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
 
 //pacient
 Route::resource('pacient', 'PacientController');
-Route::get('pacient/{id}/confirm', 'PacientController@confirm');
+Route::get('pacient/{id}/confirm', 'PacientController@confirm')->name('pac');
 
 //pobyt
 Route::resource('pobyt', 'PobytController');

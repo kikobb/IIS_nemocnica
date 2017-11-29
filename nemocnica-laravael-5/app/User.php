@@ -49,23 +49,23 @@ class User extends Authenticatable
 
 
     public function isAdmin() {
-        return ($this->typ_ulohy == 'admin');
+        return ($this->pozicia == 'admin');
     }
 
     public function isDoktor(){
-        return ($this->typ_ulohy == 'doktor');
+        return ($this->pozicia == 'doktor');
     }
 
     public function isSestra(){
-        return ($this->typ_ulohy == 'sestra');
+        return ($this->pozicia == 'sestra');
     }
 
     public function isPrijemca(){
-        return ($this->typ_ulohy == 'prijemca');
+        return ($this->pozicia == 'prijemca');
     }
 
     public function isPacient(){
-        return ($this->typ_ulohy == 'pacient');
+        return ($this->pozicia == 'pacient');
     }
 
     /**
@@ -74,6 +74,6 @@ class User extends Authenticatable
      */
     public function scopeDoctorFilterByName($query, $meno)
     {
-        $query->where('typ_ulohy', '=', 'doktor')->where('meno', 'like', '%'.$meno.'%');
+        $query->where('pozicia', '=', 'doktor')->where('meno', 'like', '%'.$meno.'%');
     }
 }

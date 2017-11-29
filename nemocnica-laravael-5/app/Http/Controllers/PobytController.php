@@ -13,10 +13,8 @@ class PobytController extends Controller
 {
     function __construct()
     {
-        //TODO pobyty moze vytvarat iba prijemca
-//        $this->middleware('auth');
-//        $this->middleware('doktor')->except('create', 'show', 'index');
-//        $this->middleware('sestricka')->only('create', 'show')->except('index');
+        $this->middleware('auth');
+        $this->middleware('personal');
     }
 
     private function rules()

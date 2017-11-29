@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsPrijemca
+class DoktorSestraPrijemca
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class IsPrijemca
     {
         if ( Auth::check() ) {
             if (!Auth::user()->isDoktor() && !Auth::user()->isSestra() && !Auth::user()->isPrijemca())
-                return redirect('/');
+                return redirect('/zamestnanec');
         }
         return $next($request);
     }

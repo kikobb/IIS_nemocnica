@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsSestra
+class AdminPersonalNoIndexCheck
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class IsSestra
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check() ) {
-            if (!Auth::user()->isDoktor() && !Auth::user()->isSestra())
-                return redirect('/');
-        }
+        if ( Auth::check() )
+            if (!Auth::user()->isAdmin() &&!Auth::user()->isDoktor() &&
+                !Auth::user()->isSestra() && !Auth::user()->isPrijemca()){
+                    return redirect('/zamestnanec');
+            }
         return $next($request);
     }
 }

@@ -11,9 +11,9 @@ class PacientController extends Controller
 {
     function __construct()
     {
-//        $this->middleware('auth');
-//        $this->middleware('doktor')->except('create', 'show', 'index');
-//        $this->middleware('sestricka')->only('create', 'show')->except('index');
+        $this->middleware('auth');
+        $this->middleware('personal')->except('index', 'show');
+        $this->middleware('personalPacient')->only('index', 'show');
     }
 
     private function uniqueRules(){
