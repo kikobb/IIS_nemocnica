@@ -37,7 +37,7 @@ class OddelenieController extends Controller
     {
         return view('oddelenie.index')->with([
             'currUser' => Auth::user(),
-            'Oddelenia' => Oddelenie::all(),
+            'oddelenia' => Oddelenie::all(),
         ]);
     }
 
