@@ -25,7 +25,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="/upravit_profil_admin"><button class="dropbtn">Upraviť profil</button></a>
+                <a href="/admin/index"><button class="dropbtn">Upraviť profil</button></a>
             </div>
 
         {{ Form::open(['route' => 'logout', 'method' => 'post']) }}

@@ -74,9 +74,10 @@
             Ďalšia registrácia
         </a>
 
-        <a href="/zamestnanec" class="btn btn-info btn-lg">
-            Zmena údajov
+        <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
+            zmena
         </a>
+
     </div>
 
 @endsection

@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - zamestnanca</h2>
+        <h2>Zamestnanec</h2>
 
         @if( empty($zamestnanec) )
             {{ Form::open(['route' => 'zamestnanec.store', 'method' => 'post', 'class' => 'form']) }}
@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 {{ Form::label('meno', 'Meno*:') }}
-                {{ Form::text('meno', old('meno'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
+                {{ Form::text('meno', Input::old('meno'),array('required' => 'required autofocus','placeholder'=>'Krsné meno','class'=>'form-control')) }}
                 @if ($errors->has('meno'))
                     <span class="help-block">
                         <strong>{{ $errors->first('meno') }}</strong>
@@ -115,7 +115,7 @@
 
             <div class="form-group">
                 {{ Form::label('datum_narodenia', 'Dátum narodenia:') }}
-                {{ Form::text('datum_narodenia', old('datum_narodenia'),array('class'=>'form-control')) }}
+                {{ Form::date('datum_narodenia', old('datum_narodenia'),array('class'=>'form-control')) }}
                 @if ($errors->has('datum_narodenia'))
                     <span class="help-block">
                         <strong>{{ $errors->first('datum_narodenia') }}</strong>

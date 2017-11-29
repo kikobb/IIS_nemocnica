@@ -28,7 +28,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="/zamestnanec/edit"><button class="dropbtn">Upraviť profil</button></a>
+                <a href="/upravit_profil_zamestnanec"><button class="dropbtn">Upraviť profil</button></a>
             </div>
 
         {{ Form::open(['route' => 'logout', 'method' => 'post']) }}
