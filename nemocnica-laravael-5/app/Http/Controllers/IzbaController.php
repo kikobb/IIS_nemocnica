@@ -25,8 +25,8 @@ class IzbaController extends Controller
         return [
             'typ' => 'required|string|max:20',
             'kapacita' => 'required|integer|max:255',
-            'oddelenie' => 'required|string|max:60|exists:oddelenia,nazov',
-            'cislo' => 'integer|max:65000',
+            'oddelenie_id' => 'required|integer',
+            'cislo' => 'integer|max:65000|nullable',
         ];
     }
 
@@ -65,7 +65,7 @@ class IzbaController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules());
-
+        dd('tu som');
         /* @var Izba $izba */
         $izba = Izba::create([
             'typ' => $request['typ'],
@@ -73,16 +73,8 @@ class IzbaController extends Controller
             'cislo' => $request['cislo'],
         ]);
 
-        $odd_id = Oddelenie::getIdFromName($request['oddelenie']);
-        //check ze ci exitstuje oddelenie
-        if (is_numeric($odd_id)){
-            $izba->oddelenie_id = $odd_id;
-        }else{
-            //ak nie tak vrat nastavene udaje na zadanie este raz
-            return view('izba.createEdit')->with([
-                'izba' => $izba,
-            ]);
-        }
+        //pozor +1 lebo vo frontende sa vracia hodnota od 0 ale v tabulke sa indexuje od 1
+        $izba->oddelenie_id = $request['oddelenie']+1;
         $izba->save();
 
         return $this->confirm($izba->id);
@@ -148,18 +140,8 @@ class IzbaController extends Controller
         $izba->kapacita = $request['kapacita'];
         $izba->cislo = $request['cislo'];
 
-        //TODO skontroluj ci sa to neda cez validate
-        $odd_id = Oddelenie::getIdFromName($request['oddelenie']);
-        //check ze ci exitstuje oddelenie
-        if (is_numeric($odd_id)){
-            $izba->oddelenie_id = $odd_id;
-        }else{
-            //ak nie tak vrat nastavene udaje na zadanie este raz
-            return view('izba.createEdit')->with([
-                'currUser' => Auth::user(),
-                'izba' => $izba,
-            ]);
-        }
+        //pozor +1 lebo vo frontende sa vracia hodnota od 0 ale v tabulke sa indexuje od 1
+        $izba->oddelenie_id = $request['oddelenie']+1;
         $izba->save();
 
         return $this->confirm($izba->id);
