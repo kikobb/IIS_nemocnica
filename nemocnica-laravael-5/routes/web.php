@@ -54,6 +54,10 @@ Route::resource('liek', 'LiekController');
 Route::get('liek/{id}/confirm', 'LiekController@confirm');
 
 
+//vyhladavanie
+Route::resource('vyhladavanie', 'VyhladavanieController');
+
+
 
 //nepouzivane
 
