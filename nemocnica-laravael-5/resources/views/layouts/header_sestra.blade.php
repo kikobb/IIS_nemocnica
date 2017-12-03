@@ -8,19 +8,19 @@
         <ul class="nav navbar-nav">
 
             <div class="dropdown">
-                <a href="/zamestnanec"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
+                <a href="{{ route('zamestnanec') }}"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/vyhladavanie"><button class="dropbtn">Hľadať</button></a>
+                <a href="{{ route('vyhladavanie') }}"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/pobyt/create"><button class="dropbtn">Pridať pobyt</button></a>
+                <a href="{{ route('pobyt.create') }}"><button class="dropbtn">Pridať pobyt</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/pacient/create"><button class="dropbtn">Pridať pacienta</button></a>
+                <a href="{{ route('pacient.create') }}"><button class="dropbtn">Pridať pacienta</button></a>
             </div>
 
 

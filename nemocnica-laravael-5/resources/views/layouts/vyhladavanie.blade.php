@@ -1,7 +1,6 @@
 <div class="col-sm-8 ">
     <h2>Vyhľadávanie</h2>
-    <form method="POST" action="{{ route('zamestnanecReg') }}" >
-        {{ csrf_field() }}
+    <form method="POST" action="{{ route('vyhladavanie.create') }}" >
 
         <div class="form-group">
             <select  id="dest_dropdown" name="dest_dropdown" class="form-control">

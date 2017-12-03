@@ -60,7 +60,7 @@
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @if( !empty($vysetrenie) )
-                <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
+                <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger">Delete</a>
             @endif
         </div>
 

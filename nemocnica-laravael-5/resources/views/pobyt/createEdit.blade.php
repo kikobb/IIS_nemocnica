@@ -27,8 +27,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('doktor', 'Doktor*:') }}
-            {{ Form::select('doktor',$doktori, old('doktor'), array('class'=>'form-control','required' => 'required'))}}
+            {{ Form::label('doktor_poradie', 'Doktor*:') }}
+            {{ Form::select('doktor_poradie',$doktori, old('doktor_poradie'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
 
@@ -70,6 +70,13 @@
                 <span class="help-block">
                         <strong>{{ $errors->first('izba') }}</strong>
                 </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+            @if( !empty($liek) )
+                <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
             @endif
         </div>
 

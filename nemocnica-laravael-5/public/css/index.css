@@ -80,6 +80,15 @@ li{
     margin: 5px;
 }
 
+.btn-danger{
+    padding: 10px 16px;
+    margin: 5px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    border: transparent;
+}
+
 .btn-lg:hover{
     background-color: rgba(45, 103, 165, 0.6);
     border: transparent;
