@@ -20,7 +20,7 @@ class PobytController extends Controller
     private function rules()
     {
         return [
-            'doktor_id' => 'required|integer|exists:users,id',
+            'doktor_poradie' => 'required|integer',
             'rodne_cislo' => 'required|string|exists:users,rodne_cislo',
             'cislo_izby' => 'required|integer|exists:izby,cislo',
             'datum_prichodu' => 'required|max:50',
@@ -66,15 +66,12 @@ class PobytController extends Controller
 
         /* @var Pobyt $pobyt */
         $pobyt = Pobyt::create([
-            'doktor_id' => $request['doktor_id'],
             'pacient_id' => User::getUserByRodneCislo($request['rodne_cislo'])->id,
             'prijemca_id' => Auth::user()->id,
             'izba_id' => Izba::getIzbaByNumber($request['cislo_izby']),
             'datum_prichodu' => $request['datum_prichodu'],
         ]);
-//        if ($request->has('datum_odchodu')){
-//            $pobyt->datum_odchodu = $request['datum_odchodu'];
-//        }
+        $pobyt->doktor_id = User::getAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
 
         return $this->confirm($pobyt->id);
@@ -144,6 +141,7 @@ class PobytController extends Controller
         if ($request->has('datum_odchodu')){
             $pobyt->datum_odchodu = $request['datum_odchodu'];
         }
+        $pobyt->doktor_id = User::getAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
 
         return $this->confirm($pobyt->id);
