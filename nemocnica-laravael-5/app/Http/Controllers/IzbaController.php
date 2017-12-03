@@ -13,8 +13,8 @@ class IzbaController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except('index', 'show');
-        $this->middleware('persPacientNoIndChck')->only('index', 'show');
+        $this->middleware('admin')->except('index');
+        $this->middleware('persPacientNoIndChck')->only('index');
     }
 
     /**
