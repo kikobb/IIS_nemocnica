@@ -67,9 +67,8 @@ class IzbaController extends Controller
         $request->validate($this->rules());
         /* @var Izba $izba */
         $izba = new Izba();
-
         $izba->typ = $request['typ'];
-        $izba->kapacia = $request['kapacita'];
+        $izba->kapacita = $request['kapacita'];
         $izba->cislo = $request['cislo'];
         //pozor +1 lebo vo frontende sa vracia hodnota od 0 ale v tabulke sa indexuje od 1
         $izba->oddelenie_id = $request['oddelenie']+1;
