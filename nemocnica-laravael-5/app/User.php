@@ -22,8 +22,25 @@ class User extends Authenticatable
         return User::where('rodne_cislo', $rcislo)->first();
     }
 
-    public static function getAllDoctors(){
-        return User::where('pozicia', 'doktor')->get();
+//    public static function getAllDoctors(){
+//        return User::where('pozicia', 'doktor');
+//    }
+
+    public function scopeGetAllUsersByPozicia($query, $poz){
+        return $query->where('pozicia', '=', $poz);
+    }
+
+
+    public function scopeGetAllNamesToArr($query){
+        return $query->pluck('meno')->toArray();
+    }
+    /**
+     * @param $query Builder
+     * @param $meno
+     */
+    public function scopeDoctorFilterByName($query, $meno)
+    {
+        $query->where('pozicia', '=', 'doktor')->where('meno', 'like', '%'.$meno.'%');
     }
 
 
@@ -68,12 +85,4 @@ class User extends Authenticatable
         return ($this->pozicia == 'pacient');
     }
 
-    /**
-     * @param $query Builder
-     * @param $meno
-     */
-    public function scopeDoctorFilterByName($query, $meno)
-    {
-        $query->where('pozicia', '=', 'doktor')->where('meno', 'like', '%'.$meno.'%');
-    }
 }
