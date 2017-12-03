@@ -50,7 +50,7 @@ class PobytController extends Controller
     {
         return view('pobyt.createEdit')->with([
             'currUser' => Auth::user(),
-            'doktori' => User::getAllDoctors(),
+            'doktori' => User::getAllUsersByPozicia('doktor')->getAllNamesToArr(),
         ]);
     }
 
