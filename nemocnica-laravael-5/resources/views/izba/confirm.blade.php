@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-md-5">Oddelenie:</div>
-            <div class="col-md-6">{{$izba->getMyOddelenie}}</div>
+            <div class="col-md-6">{{$izba->getMyOddelenie()}}</div>
         </div>
 
 
@@ -30,7 +30,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="izba/create" class="btn btn-info btn-lg">
+        <a href="{{ route('izba.create') }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

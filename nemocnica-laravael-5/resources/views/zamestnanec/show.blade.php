@@ -67,9 +67,15 @@
             <div class="col-md-6">{{$osoba->telefon}} </div>
         </div>
 
-        <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
-            Zmena údajov
-        </a>
+
+        @if($currUser->pozicia == 'admin')
+            <div class="col-sm-6 " id="confirm">
+                <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
+                    Zmena údajov
+                </a>
+
+            </div>
+        @endif
 
     </div>
 @endsection

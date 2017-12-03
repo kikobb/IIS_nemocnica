@@ -11,6 +11,11 @@
         </div>
 
         <div class="row">
+            <div class="col-md-5">Pacient:</div>
+            <div class="col-md-6">{{$vysetrenie->doktor}} </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-5">Oddelenie:</div>
             <div class="col-md-6">{{$vysetrenie->oddelenie}} </div>
         </div>

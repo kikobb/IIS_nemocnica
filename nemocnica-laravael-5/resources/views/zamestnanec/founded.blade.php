@@ -11,7 +11,7 @@
                     <th>#</th>
                     <th>Meno</th>
                     <th>Priezvisko</th>
-                    <th>Rodné číslo</th>
+                    <th>Oddelenie</th>
                     @if($currUser->pozicia == 'admin')
                         <th>Úprava</th>
                     @endif
@@ -19,15 +19,15 @@
                 </thead>
                 <tbody>
 
-                @for ($i = 0; $i < count($pacienti); $i++)
+                @for ($i = 0; $i < count($osoby); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$pacienti[$i]->meno}}</td>
-                        <td >{{$pacienti[$i]->priezvisko}}</td>
-                        <td >{{$pacienti[$i]->rodne_cislo}}</td>
+                        <td >{{$osoby[$i]->meno}}</td>
+                        <td >{{$osoby[$i]->priezvisko}}</td>
+                        <td >{{$osoby[$i]->getOddelenie}}</td>
                         @if($currUser->pozicia == 'admin')
                             <td ><span class="input-group-btn">
-                                <a href="{{ route('izba.edit', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                                <a href="{{ route('zamestnanec.show', $osoby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                                 </span>
                             </td>
                         @endif

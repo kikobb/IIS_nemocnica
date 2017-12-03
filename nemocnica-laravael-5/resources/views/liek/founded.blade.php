@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('layouts.vyhladavanie')
+
     <div class="col-sm-10 ">
         <div class="table">
             <table class="table table-striped">
@@ -11,9 +13,7 @@
                     <th>Názov</th>
                     <th>Látka</th>
                     <th>Kontraindikácia</th>
-                    @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
-                    @endif
+                    <th>Zobraziť</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,12 +24,7 @@
                         <td >{{$lieky[$i]->nazov}}</td>
                         <td >{{$lieky[$i]->ucinna_latka}}</td>
                         <td >{{$lieky[$i]->kontraindikacia}}</td>
-                        @if($currUser->pozicia == 'admin')
-                            <td ><span class="input-group-btn">
-                                    <a href="{{ route('liek.edit', $lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
-                                </span>
-                            </td>
-                        @endif
+                        <td ><span class="input-group-btn"><a href="{{ route('liek.show', $lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>></span></td>
                     </tr>
                 @endfor
                 </tbody>

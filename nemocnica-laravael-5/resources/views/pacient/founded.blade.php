@@ -12,8 +12,8 @@
                     <th>Meno</th>
                     <th>Priezvisko</th>
                     <th>Rodné číslo</th>
-                    @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
+                    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+                        <th>Zobraziť</th>
                     @endif
                 </tr>
                 </thead>
@@ -25,9 +25,9 @@
                         <td >{{$pacienti[$i]->meno}}</td>
                         <td >{{$pacienti[$i]->priezvisko}}</td>
                         <td >{{$pacienti[$i]->rodne_cislo}}</td>
-                        @if($currUser->pozicia == 'admin')
+                        @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
                             <td ><span class="input-group-btn">
-                                <a href="{{ route('izba.edit', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                                <a href="{{ route('pacient.show', $pacienti[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                                 </span>
                             </td>
                         @endif

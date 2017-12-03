@@ -1,6 +1,6 @@
 <div class="col-sm-8 ">
     <h2>Vyhľadávanie</h2>
-    <form method="POST" action="{{ route('vyhladavanie.create') }}" >
+    <form method="POST" action="{{ route('vyhladavanie.store') }}" >
 
         <div class="form-group">
             <select  id="dest_dropdown" name="dest_dropdown" class="form-control">
@@ -8,12 +8,16 @@
                 <option value="osoba">Doktor</option>
                 <option value="osoba">Sestra</option>
                 <option value="osoba">Príjemca</option>
-                <option value="osoba">Pacient</option>
-                <option value="pobyt">Pobyt</option>
                 <option value="liek">Liek</option>
-                <option value="vysetrenie">Vyšetrenie</option>
                 <option value="oddelenie">Oddelenie</option>
                 <option value="izba">Izba</option>
+                @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+                    <option value="osoba">Pacient</option>
+                    <option value="pobyt">Pobyt</option>
+                    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
+                    <option value="vysetrenie">Vyšetrenie</option>
+                    @endif
+                @endif
             </select>
         </div>
 

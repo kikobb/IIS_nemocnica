@@ -7,12 +7,17 @@
 
         <div class="row">
             <div class="col-md-5">Doktor:</div>
-            <div class="col-md-6">{{$vysetrenie->doktor}} </div>
+            <div class="col-md-6">{{$vysetrenie->getDoktor}} </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">Pacient:</div>
+            <div class="col-md-6">{{$vysetrenie->getPacient}} </div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Oddelenie:</div>
-            <div class="col-md-6">{{$vysetrenie->oddelenie}} </div>
+            <div class="col-md-6">{{$vysetrenie->getOddelenie}} </div>
         </div>
 
         <div class="row">
@@ -36,19 +41,32 @@
                 <tr>
                     <th>#</th>
                     <th>Podanné lieky</th>
+                    <th>Dávkovanie</th>
+                    <th>Čas podávania</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                @for ($i = 0; $i < count($vysetrenie); $i++)
+                @for ($i = 0; $i < count($podanne_lieky); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$vysetrenie->nazov}}</td>
+                        <td >{{$podanne_lieky}}</td>
+                        <td >{{$podanne_lieky->mnozstvo}}</td>
+                        <td >{{$podanne_lieky->cas}}</td>
                     </tr>
                 @endfor
                 </tbody>
             </table>
         </div>
+
+
+        @if($currUser->pozicia == 'doktor')
+            <div class="col-sm-6 " id="confirm">
+                <a href="{{ route('vysetrenie.edit', $vysetrenie->id) }}" class="btn btn-info btn-lg">
+                    Zmena údajov
+                </a>
+            </div>
+        @endif
 
     </div>
 @endsection

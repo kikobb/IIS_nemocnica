@@ -1,73 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Zmena hesla</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="/css/index.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+@extends('layouts.layout')
 
-<body>
-<div class="container">
 
-    @include('layouts.header_doktor')
-
+@section('content')
     <div class="col-sm-6 ">
         <h2>Zmena hesla</h2>
-        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-            {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="email">Emailová adresa:</label>
-                <input type="email" class="form-control" id="email" placeholder=" Email" name="email"  value="{{ old('email') }}" required autofocus>
 
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
+        {{ Form::open(['route' => 'logout', 'method' => 'post', 'class' => 'form']) }}
+
+
+
+        <div class="form-group">
+            {{ Form::label('password_old', 'Staré heslo*:') }}
+            {{ Form::password('password_old',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
+            @if ($errors->has('password_old'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('password_old') }}</strong>
+                </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('password_new', 'Nové heslo*:') }}
+            {{ Form::password('password_new',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
+            @if ($errors->has('password_new'))
+                <span class="help-block">
+                        <strong>{{ $errors->first('password_new') }}</strong>
                     </span>
-                @endif
+            @endif
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-8">
+            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Zmeniť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             </div>
+        </div>
 
+        <div class="form-group">
+            * - sú označené povinné údaje
+        </div>
 
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password">Staré heslo:</label>
-                <input type="password" class="form-control" id="password" placeholder=" Heslo" name="password" required>
-
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password">Nové heslo:</label>
-                <input type="password" class="form-control" id="password" placeholder="Heslo" name="password" required>
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-8">
-                    <button type="submit" class="btn btn-info btn-lg">
-                        <span class="glyphicon glyphicon-save"></span> Zmeniť
-                    </button>
-                </div>
-            </div>
-
-        </form>
     </div>
 
-</div>
-
-@include('layouts.footer')
-
-</body>
-</html>
+@endsection

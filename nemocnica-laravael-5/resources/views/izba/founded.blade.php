@@ -14,9 +14,7 @@
                     <th>Kapacita</th>
                     <th>Číslo</th>
                     <th>Oddelenie</th>
-                    @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
-                    @endif
+                    <th>Zobraziť</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,12 +26,7 @@
                         <td >{{$izby[$i]->kapacita}}</td>
                         <td >{{$izby[$i]->cislo}}</td>
                         <td >{{$izby[$i]->getMyOddelenie()}}</td>
-                        @if($currUser->pozicia == 'admin')
-                            <td ><span class="input-group-btn">
-                                <a href="{{ route('izba.edit', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
-                                </span>
-                            </td>
-                        @endif
+                        <td ><span class="input-group-btn"><a href="{{ route('izba.show', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>></span></td>
                     </tr>
                 @endfor
                 </tbody>

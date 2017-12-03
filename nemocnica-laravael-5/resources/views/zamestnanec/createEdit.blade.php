@@ -41,9 +41,6 @@
                 @if(empty($osoba))
                     {{ Form::label('password', 'Heslo*:') }}
                     {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
-                @else
-                    {{ Form::label('password', 'Heslo:') }}
-                    {{ Form::password('password',array('placeholder'=>' Heslo','class'=>'form-control')) }}
                 @endif
 
                 @if ($errors->has('password'))
@@ -158,9 +155,15 @@
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+
                 @if( !empty($osoba) )
+                    <a href="{{ route('zmena_hesla', $osoba->id) }}" class="btn btn-info btn-lg">
+                        Zmena hesla
+                    </a>
+
                     <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger pull-right">Delete</a>
                 @endif
+
             </div>
 
             <div class="form-group">

@@ -52,17 +52,19 @@
         </div>
     </div>
 
-    <div class="col-sm-6 " id="confirm">
 
-        <a href="/zamestnanec/create" class="btn btn-info btn-lg">
-            Ďalšia registrácia
-        </a>
+    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+        <div class="col-sm-6 " id="confirm">
 
-        <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
-            Zmena údajov
-        </a>
+            <a href="/zamestnanec/create" class="btn btn-info btn-lg">
+                Ďalšia registrácia
+            </a>
 
-    </div>
+            <a href="{{ route('zamestnanec.edit', $osoba->id) }}" class="btn btn-info btn-lg">
+                Zmena údajov
+            </a>
 
+        </div>
+    @endif
 
 @endsection

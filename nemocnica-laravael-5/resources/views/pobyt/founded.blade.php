@@ -10,27 +10,33 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Typ</th>
-                    <th>Kapacita</th>
-                    <th>Číslo</th>
+                    <th>Pacient</th>
+                    <th>Doktor</th>
+                    <th>Prijemca</th>
+                    <th>Dátum príchodu</th>
+                    <th>Dátum odchodu</th>
+                    <th>Izba</th>
                     <th>Oddelenie</th>
-                    @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
+                    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+                        <th>Zobraziť</th>
                     @endif
                 </tr>
                 </thead>
                 <tbody>
 
-                @for ($i = 0; $i < count($izby); $i++)
+                @for ($i = 0; $i < count($pobyty); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$izby[$i]->typ}}</td>
-                        <td >{{$izby[$i]->kapacita}}</td>
-                        <td >{{$izby[$i]->cislo}}</td>
-                        <td >{{$izby[$i]->getMyOddelenie()}}</td>
-                        @if($currUser->pozicia == 'admin')
+                        <td >{{$pobyty[$i]->getPacient}}</td>
+                        <td >{{$pobyty[$i]->getDoktor}}</td>
+                        <td >{{$pobyty[$i]->getPrijemca}}</td>
+                        <td >{{$pobyty[$i]->datum_prichodu}}</td>
+                        <td >{{$pobyty[$i]->datum_odchodu}}</td>
+                        <td >{{$pobyty[$i]->getIzba}}</td>
+                        <td >{{$pobyty[$i]->getOddelenie}}</td>
+                        @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
                             <td ><span class="input-group-btn">
-                                <a href="{{ route('izba.edit', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                                <a href="{{ route('pobyt.show', $pobyty[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                                 </span>
                             </td>
                         @endif

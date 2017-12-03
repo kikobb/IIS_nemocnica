@@ -9,10 +9,10 @@
         @if( empty($pacient) )
             {{ Form::open(['route' => 'pacient.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['pacient.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['pacient.destroy', $pacient->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($pacient, ['route' => ['pacient.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($pacient, ['route' => ['pacient.update', $pacient->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -38,8 +38,10 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('password', 'Heslo*:') }}
-                {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
+                @if(empty($osoba))
+                    {{ Form::label('password', 'Heslo*:') }}
+                    {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
+                @endif
                 @if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
@@ -131,7 +133,7 @@
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-                @if( !empty($liek) )
+                @if( !empty($pacient) )
                     <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
                 @endif
             </div>

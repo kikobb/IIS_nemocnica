@@ -69,7 +69,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="/zamestnanec/create" class="btn btn-info btn-lg">
+        <a href="{{ route('zamestnanec.create', $osoba->id) }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

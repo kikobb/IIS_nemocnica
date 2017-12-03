@@ -25,7 +25,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="liek/create" class="btn btn-info btn-lg">
+        <a href="{{ route('liek.create') }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

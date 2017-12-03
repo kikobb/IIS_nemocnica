@@ -7,17 +7,17 @@
 
         <div class="row">
             <div class="col-md-5">Pacient:</div>
-            <div class="col-md-6"> {{$pobyt->pacient}}</div>
+            <div class="col-md-6"> {{$pobyt->getPacient}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Doktor:</div>
-            <div class="col-md-6"> {{$pobyt->doktor}}</div>
+            <div class="col-md-6"> {{$pobyt->getDoktor}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Príjemca:</div>
-            <div class="col-md-6"> {{$pobyt->prijemca}}</div>
+            <div class="col-md-6"> {{$pobyt->getPrijemca}}</div>
         </div>
 
         <div class="row">
@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col-md-5">Izba:</div>
-            <div class="col-md-6">{{$pobyt->izba}}</div>
+            <div class="col-md-6">{{$pobyt->getIzba}}</div>
         </div>
 
         <div class="row">
@@ -40,4 +40,14 @@
             <div class="col-md-6">{{$pobyt->getOddelenie}}</div>
         </div>
     </div>
+
+    @if$currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+        <div class="col-sm-6 " id="confirm">
+            <a href="{{ route('pobyt.edit', $pobyt->id) }}" class="btn btn-info btn-lg">
+                Zmena údajov
+            </a>
+
+        </div>
+    @endif
+
 @endsection

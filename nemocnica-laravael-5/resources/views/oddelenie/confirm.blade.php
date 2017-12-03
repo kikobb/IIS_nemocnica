@@ -20,7 +20,7 @@
     <div class="col-sm-6 " id="confirm">
 
 
-        <a href="oddelenie/create" class="btn btn-info btn-lg">
+        <a href="{{ route('oddelenie.create', $oddelenie->id) }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

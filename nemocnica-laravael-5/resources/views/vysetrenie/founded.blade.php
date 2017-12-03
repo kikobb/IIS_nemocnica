@@ -10,27 +10,30 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Typ</th>
-                    <th>Kapacita</th>
-                    <th>Číslo</th>
+                    <th>Doktor</th>
+                    <th>Pacient</th>
                     <th>Oddelenie</th>
-                    @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
+                    <th>Typ vyšetrenia</th>
+                    <th>Dátum a čas</th>
+                    <th>Doktor</th>
+                    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
+                        <th>Zobraziť</th>
                     @endif
                 </tr>
                 </thead>
                 <tbody>
 
-                @for ($i = 0; $i < count($izby); $i++)
+                @for ($i = 0; $i < count($vysetrenia); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$izby[$i]->typ}}</td>
-                        <td >{{$izby[$i]->kapacita}}</td>
-                        <td >{{$izby[$i]->cislo}}</td>
-                        <td >{{$izby[$i]->getMyOddelenie()}}</td>
-                        @if($currUser->pozicia == 'admin')
+                        <td >{{$vysetrenia[$i]->getDoktor}}</td>
+                        <td >{{$vysetrenia[$i]->getPacient}}</td>
+                        <td >{{$vysetrenia[$i]->getOddelenie}}</td>
+                        <td >{{$vysetrenia[$i]->typ}}</td>
+                        <td >{{$vysetrenia[$i]->created_at}}</td>
+                        @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
                             <td ><span class="input-group-btn">
-                                <a href="{{ route('izba.edit', $izby[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                                <a href="{{ route('vysetrenie.show', $vysetrenia[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                                 </span>
                             </td>
                         @endif

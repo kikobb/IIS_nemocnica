@@ -50,9 +50,14 @@
 
     <div class="col-sm-6 " id="confirm">
 
+        <a href="{{ route('admin.create') }}" class="btn btn-info btn-lg">
+            Ďalšia registrácia
+        </a>
+
         <a href="{{ route('admin.edit', $osoba->id) }}" class="btn btn-info btn-lg">
             Zmena údajov
         </a>
+
 
     </div>
 
