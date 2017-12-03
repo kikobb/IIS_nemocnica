@@ -119,6 +119,7 @@ class PobytController extends Controller
         return view('pobyt.createEdit')->with([
             'currUser' => Auth::user(),
             'pobyt' => Pobyt::findOrFail($id),
+            'doktori' => getFullNamesOnPoziciaToArr('doktor'),
         ]);
     }
 
