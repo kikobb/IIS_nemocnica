@@ -22,18 +22,19 @@ class User extends Authenticatable
         return User::where('rodne_cislo', $rcislo)->first();
     }
 
-//    public static function getAllDoctors(){
-//        return User::where('pozicia', 'doktor');
-//    }
+    public static function getFullNamesOnPoziciaToArr($poz){
+        $users = User::where('pozicia', '=', $poz)->get();
+        $result = Array();
+        foreach ($users as $user){
+            $result[] = $user->priezvisko." ".$user->meno;
+        }
+        return $result;
+    }
 
     public function scopeGetAllUsersByPozicia($query, $poz){
         return $query->where('pozicia', '=', $poz);
     }
 
-
-    public function scopeGetAllNamesToArr($query){
-        return $query->pluck('meno')->toArray();
-    }
     /**
      * @param $query Builder
      * @param $meno
