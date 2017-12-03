@@ -117,6 +117,7 @@ class IzbaController extends Controller
         return view('izba.createEdit')->with([
             'currUser' => Auth::user(),
             'izba'  => Izba::findOrFail($id),
+            'oddelenia' => Oddelenie::getAllNamesToArr(),
         ]);
     }
 
