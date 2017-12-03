@@ -21,7 +21,7 @@ class CreatePobytyTable extends Migration
             $table->unsignedInteger('izba_id');
 
             $table->date('datum_prichodu');
-            $table->date('datum_odchodu');
+            $table->date('datum_odchodu')->nullable();
             $table->timestamps();
         });
     }

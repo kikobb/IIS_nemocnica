@@ -7,18 +7,18 @@
         <h2>Pobyt</h2>
 
         @if( empty($liek) )
-            {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
+            {{ Form::open(['route' => 'pobyt.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['pobyt.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($liek, ['route' => ['liek.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($liek, ['route' => ['pobyt.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
         <div class="form-group">
-            {{ Form::label('pacient', 'Pacient rodné číslo*:') }}
-            {{ Form::text('pacient', old('pacient'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
+            {{ Form::label('rodne_cislo', 'Pacient rodné číslo*:') }}
+            {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
             @if ($errors->has('pacient'))
                 <span class="help-block">
                         <strong>{{ $errors->first('pacient') }}</strong>
@@ -64,11 +64,11 @@
 
 
         <div class="form-group">
-            {{ Form::label('izba', 'Číslo izby:') }}
-            {{ Form::number('izba', old('izba'),array('placeholder'=>'1','class'=>'form-control')) }}
-            @if ($errors->has('izba'))
+            {{ Form::label('cislo_izby', 'Číslo izby:') }}
+            {{ Form::number('cislo_izby', old('cislo_izby'),array('placeholder'=>'1','class'=>'form-control')) }}
+            @if ($errors->has('cislo_izby'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('izba') }}</strong>
+                        <strong>{{ $errors->first('cislo_izby') }}</strong>
                 </span>
             @endif
         </div>
