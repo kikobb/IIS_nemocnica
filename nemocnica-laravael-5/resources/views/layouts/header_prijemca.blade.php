@@ -12,7 +12,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="/vyhladavanie"><button class="dropbtn">Hľadať</button></a>
+                <a href="/vyhladavanie/index"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">

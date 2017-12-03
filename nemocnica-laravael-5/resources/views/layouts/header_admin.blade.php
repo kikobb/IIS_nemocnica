@@ -12,7 +12,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="{{ route('vyhladavanie') }}"><button class="dropbtn">Hľadať</button></a>
+                <a href="{{ route('vyhladavanie.index') }}"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">
