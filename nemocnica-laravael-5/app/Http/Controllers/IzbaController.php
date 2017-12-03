@@ -66,12 +66,11 @@ class IzbaController extends Controller
     {
         $request->validate($this->rules());
         /* @var Izba $izba */
-        $izba = Izba::create([
-            'typ' => $request['typ'],
-            'kapacita' => $request['kapacita'],
-            'cislo' => $request['cislo'],
-        ]);
+        $izba = new Izba();
 
+        $izba->typ = $request['typ'];
+        $izba->kapacia = $request['kapacita'];
+        $izba->cislo = $request['cislo'];
         //pozor +1 lebo vo frontende sa vracia hodnota od 0 ale v tabulke sa indexuje od 1
         $izba->oddelenie_id = $request['oddelenie']+1;
         $izba->save();
