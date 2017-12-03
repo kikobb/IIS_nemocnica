@@ -50,7 +50,7 @@ class PobytController extends Controller
     {
         return view('pobyt.createEdit')->with([
             'currUser' => Auth::user(),
-            'doktori' => getFullNamesOnPoziciaToArr('doktor'),
+            'doktori' => User::getFullNamesOnPoziciaToArr('doktor'),
         ]);
     }
 
@@ -119,7 +119,7 @@ class PobytController extends Controller
         return view('pobyt.createEdit')->with([
             'currUser' => Auth::user(),
             'pobyt' => Pobyt::findOrFail($id),
-            'doktori' => getFullNamesOnPoziciaToArr('doktor'),
+            'doktori' => User::getFullNamesOnPoziciaToArr('doktor'),
         ]);
     }
 
