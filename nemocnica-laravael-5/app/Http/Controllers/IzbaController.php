@@ -65,7 +65,6 @@ class IzbaController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules());
-        dd('tu som');
         /* @var Izba $izba */
         $izba = Izba::create([
             'typ' => $request['typ'],
