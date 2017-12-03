@@ -26,7 +26,7 @@ class IzbaController extends Controller
             'typ' => 'required|string|max:20',
             'kapacita' => 'required|integer|max:255',
             'oddelenie_id' => 'required|integer',
-            'cislo' => 'integer|max:65000|nullable',
+            'cislo' => 'required|integer|max:65000|unique:izby,cislo',
         ];
     }
 
