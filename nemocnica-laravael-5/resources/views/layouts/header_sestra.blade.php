@@ -16,16 +16,16 @@
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Pridať pobyt</button></a>
+                <a href="/pobyt/create"><button class="dropbtn">Pridať pobyt</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Pridať pacienta</button></a>
+                <a href="/pacient/create"><button class="dropbtn">Pridať pacienta</button></a>
             </div>
 
 
             <div class="dropdown">
-                <a href="#"><button class="dropbtn">Upraviť profil</button></a>
+                <a href="{{ route('zamestnanec.edit', $currUser->id) }}"><button class="dropbtn">Upraviť profil</button></a>
             </div>
         </ul>
 

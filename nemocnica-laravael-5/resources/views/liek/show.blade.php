@@ -19,5 +19,9 @@
             <div class="col-md-5">Kontraindikácia:</div>
             <div class="col-md-5">{{$liek->kontaindikacia}} </div>
         </div>
+
+        <a href="{{ route('liek.edit', $liek->id) }}" class="btn btn-info btn-lg">
+            Zmena údajov
+        </a>
     </div>
 @endsection

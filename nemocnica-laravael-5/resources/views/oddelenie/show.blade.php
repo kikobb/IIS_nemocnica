@@ -15,5 +15,9 @@
             <div class="col-md-5">{{$oddelenie->poschodie}} </div>
         </div>
 
+        <a href="{{ route('oddelenie.edit', $oddelenie->id) }}" class="btn btn-info btn-lg">
+            Zmena údajov
+        </a>
+
     </div>
 @endsection

@@ -11,7 +11,6 @@
                     <th>Názov</th>
                     <th>Látka</th>
                     <th>Kontraindikácia</th>
-                    <th>Úprava</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,10 +21,6 @@
                 <td >{{$lieky[$i]->nazov}}</td>
                 <td >{{$lieky[$i]->ucinna_latka}}</td>
                 <td >{{$lieky[$i]->kontraindikacia}}</td>
-                <td ><span class="input-group-btn">
-                <a href="liek/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
-                </span>
-                </td>
                 </tr>
                 @endfor
                 </tbody>

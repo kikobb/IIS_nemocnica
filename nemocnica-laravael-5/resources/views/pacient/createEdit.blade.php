@@ -120,7 +120,7 @@
 
             <div class="form-group">
                 {{ Form::label('datum_narodenia', 'Dátum narodenia:') }}
-                {{ Form::text('datum_narodenia', old('datum_narodenia'),array('class'=>'form-control')) }}
+                {{ Form::date('datum_narodenia', old('datum_narodenia'),array('class'=>'form-control')) }}
                 @if ($errors->has('datum_narodenia'))
                     <span class="help-block">
                         <strong>{{ $errors->first('datum_narodenia') }}</strong>

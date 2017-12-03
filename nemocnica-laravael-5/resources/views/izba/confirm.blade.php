@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-md-5">Oddelenie:</div>
-            <div class="col-md-6">{{$izba->oddelenie}}</div>
+            <div class="col-md-6">{{$izba->getMyOddelenie}}</div>
         </div>
 
 

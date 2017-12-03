@@ -7,29 +7,30 @@
     <div class="container-fluid">
 
 
-            <div class="dropdown">
-                <a href="/zamestnanec"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
+            <div class = "dropdown">
+                <a href="{{ route('zamestnanec.index') }}"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/vyhladavanie"><button class="dropbtn">Hľadať</button></a>
+                {{--<a href="{{ route('vyhladavanie') }}"><button class="dropbtn">Hľadať</button></a>--}}
             </div>
 
             <div class="dropdown">
-                <a href="/pobyt/create"><button class="dropbtn">Pridať pobyt</button></a>
+                <a href="{{ route('pobyt.create') }}"><button class="dropbtn">Pridať pobyt</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/pacient/create"><button class="dropbtn">Pridať pacienta</button></a>
+                <a href="{{ route('pacient.create') }}"><button class="dropbtn">Pridať pacienta</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/vysetrenie/create"><button class="dropbtn">Vytvoriť správu</button></a>
+                <a href="{{ route('vysetrenie.create') }}"><button class="dropbtn">Vytvoriť správu</button></a>
             </div>
 
             <div class="dropdown">
                 <a href="{{ route('zamestnanec.edit', $currUser->id) }}"><button class="dropbtn">Upraviť profil</button></a>
             </div>
+
 
         {{ Form::open(['route' => 'logout', 'method' => 'post']) }}
         <div class="dropdown" id="logout">

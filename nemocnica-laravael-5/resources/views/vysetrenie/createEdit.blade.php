@@ -17,7 +17,7 @@
 
         <div class="form-group">
             {{ Form::label('doktor', 'Doktor*:') }}
-            {{ Form::text('doktor', $currUser->priezvisko,array('class'=>'form-control','required' => 'required', 'disabled' => 'disabled')) }}
+            {{ Form::text('doktor', "" . $currUser->priezvisko . " " . $currUser->meno,array('class'=>'form-control','required' => 'required', 'disabled' => 'disabled')) }}
             @if ($errors->has('doktor'))
                 <span class="help-block">
                         <strong>{{ $errors->first('doktor') }}</strong>
@@ -38,7 +38,7 @@
 
         <div class="form-group">
             {{ Form::label('typ', 'Typ vyšetrenia:') }}
-            {{ Form::text('typ', $currUser->meno && $currUser->priezvisko,array('placeholder'=>'Typ vyšetrenia','class'=>'form-control')) }}
+            {{ Form::text('typ', old('typ'),array('placeholder'=>'Typ vyšetrenia','class'=>'form-control')) }}
             @if ($errors->has('typ'))
                 <span class="help-block">
                         <strong>{{ $errors->first('typ') }}</strong>

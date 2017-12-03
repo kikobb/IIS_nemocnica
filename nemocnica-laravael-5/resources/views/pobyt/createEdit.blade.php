@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="col-sm-6 ">
-        <h2>Registrácia - lieku</h2>
+        <h2>Pobyt</h2>
 
         @if( empty($liek) )
             {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
@@ -34,7 +34,7 @@
 
         <div class="form-group">
             {{ Form::label('prijemca', 'Príjemca*:') }}
-            {{ Form::text('prijemca', $currUser->priezvisko && $currUser->meno,array('class'=>'form-control','required' => 'required', 'disabled' => 'disabled')) }}
+            {{ Form::text('prijemca', "" . $currUser->priezvisko . " " . $currUser->meno,array('class'=>'form-control','required' => 'required', 'disabled' => 'disabled')) }}
             @if ($errors->has('prijemca'))
                 <span class="help-block">
                         <strong>{{ $errors->first('prijemca') }}</strong>

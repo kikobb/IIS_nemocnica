@@ -12,7 +12,6 @@
                     <th>Kapacita</th>
                     <th>Číslo</th>
                     <th>Oddelenie</th>
-                    <th>Úprava</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,10 +23,6 @@
                 <td >{{$izby[$i]->kapacita}}</td>
                 <td >{{$izby[$i]->cislo}}</td>
                 <td >{{$izby[$i]->getMyOddelenie()}}</td>
-                <td ><span class="input-group-btn">
-                <a href="izba/show"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
-                </span>
-                </td>
                 </tr>
                 @endfor
                 </tbody>
