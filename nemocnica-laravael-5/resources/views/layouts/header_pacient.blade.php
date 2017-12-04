@@ -26,7 +26,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="zmenit_heslo"><button class="dropbtn">Zmeniť heslo</button></a>
+                <a href="{{ route('pacient.editHeslo', $currUser->id) }}"><button class="dropbtn">Zmeniť heslo</button></a>
             </div>
         </div>
 

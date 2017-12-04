@@ -6,13 +6,16 @@
         <h2>Zmena hesla</h2>
 
 
-        {{ Form::open(['route' => 'logout', 'method' => 'post', 'class' => 'form']) }}
+        {{ Form::open(['route' => 'admin.updateHeslo', 'method' => 'post', 'class' => 'form']) }}
 
 
 
         <div class="form-group">
             {{ Form::label('password_old', 'Staré heslo*:') }}
             {{ Form::password('password_old',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
+            @if($fail)
+                <h3>Zle zadané heslo</h3>
+            @endif
             @if ($errors->has('password_old'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password_old') }}</strong>

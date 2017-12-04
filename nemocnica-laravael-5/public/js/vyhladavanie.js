@@ -6,7 +6,7 @@ function changeInfos(primaryValue) {
     let departmentValues = ['nazov','poschodie'];
     let patientValues = ['meno', 'priezvisko', 'rodne_cislo'];
     let stayValues = ['datum_prichodu','datum_odchodu','oddelenie','pacient'];
-    let examinationValues = ['typ','cas','oddelenie'];
+    let examinationValues = ['typ','cas'];
     let arr = doctorNurseValues;
     switch (primaryValue) {
         case 'doktor':
@@ -19,7 +19,7 @@ function changeInfos(primaryValue) {
         case 'liek':
             arr = medicineValues;
             break;
-        case 'prijemca':
+        case 'príjemca':
             arr = recipientValues;
             break;
         case 'oddelenie':
@@ -45,24 +45,22 @@ function changeInfos(primaryValue) {
             } else {
                 $(this).css('display', 'none');
             }
+            $(this).val('vyberte');
         }
     });
 }
 
 $(function() {
+    //$('input[placeholder], textarea[placeholder]').placeholder();
     changeInfos('doktor');
 
     $('#primary_selector').change(function() {
         let val = $(this).val();
         if(val != '') {
-           // $(this).val('vyberte');
             changeInfos(val);
         }
     })
-
-
 });
-
 
 let logoutUrl = '/';
 
@@ -78,5 +76,7 @@ $(function() {
         else
             setTimeout(refresh, 10000);
     }
+
     setTimeout(refresh, 10000);
 });
+
