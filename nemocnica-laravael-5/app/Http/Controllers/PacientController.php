@@ -14,7 +14,6 @@ class PacientController extends Controller
         $this->middleware('auth');
         $this->middleware('personal')->except('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
         $this->middleware('personalPacient')->only('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
-        //todo dorob spraven povolena na prid funkcie
     }
 
     private function uniqueRules(){
