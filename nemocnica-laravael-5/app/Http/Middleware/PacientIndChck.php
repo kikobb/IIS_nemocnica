@@ -29,8 +29,6 @@ public function handle($request, Closure $next)
             }
 
         }
-        dd('adf');
         return $next($request);
-//        dd(Auth::check());
     }
 }
