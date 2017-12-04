@@ -13,6 +13,14 @@ class Pobyt extends Model
         return $this->doktor()->get();
     }
 
+    public function getPrijemca(){
+        return $this->prijemca()->get();
+    }
+
+    public function getIzba(){
+        return $this->izba()->get();
+    }
+
     public function doktor(){
         return $this->belongsTo(User::class, 'doktor_id', 'id');
     }
