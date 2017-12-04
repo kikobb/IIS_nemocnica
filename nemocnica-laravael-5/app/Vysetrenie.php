@@ -10,15 +10,19 @@ class Vysetrenie extends Model
     protected $table = 'vysetrenia';
 
     public function getDoktor(){
-        $this->doktor()->first();
+        return $this->doktor()->first();
+    }
+
+    public function  getOddelenie(){
+        return $this->oddelenie()->first();
     }
 
     public function getPacient(){
-        $this->pacient()->first();
+        return $this->pacient()->first();
     }
 
     public function getPodaneLiekyArr(){
-        $this->podane_lieky()->get()->toArray();
+        return $this->podane_lieky()->get()->toArray();
     }
 
     public function doktor(){
@@ -26,7 +30,7 @@ class Vysetrenie extends Model
     }
 
     public function oddelenie(){
-        return $this->belongsTo('App\Oddelenie');
+        return $this->belongsTo(Oddelenie::class);
     }
 
     public function pacient(){
@@ -34,7 +38,7 @@ class Vysetrenie extends Model
     }
 
     public function podane_lieky(){
-        return $this->hasMany('App\Podany_liek');
+        return $this->hasMany(Podany_liek::class, 'vysetrenie_id', 'id');
     }
 
 }

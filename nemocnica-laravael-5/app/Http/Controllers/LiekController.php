@@ -14,7 +14,6 @@ class LiekController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('admin')->except('index', 'show');
-        $this->middleware('admPersNoIndChck')->only('inde', 'show');
     }
 
     /**

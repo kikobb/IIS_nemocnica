@@ -28,6 +28,10 @@ Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
 //pacient
 Route::resource('pacient', 'PacientController');
 Route::get('pacient/{id}/confirm', 'PacientController@confirm')->name('pac');
+Route::get('pacient/{id}/vysetrenia', 'PacientController@vysetrenia')->name('pacient_vysetrenia');
+Route::get('pacient/{id}/pobyty', 'PacientController@pobyty')->name('pacient_pobyty');
+Route::get('pacient/{id}/lieky', 'PacientController@lieky')->name('pacient_lieky');
+
 
 //pobyt
 Route::resource('pobyt', 'PobytController');

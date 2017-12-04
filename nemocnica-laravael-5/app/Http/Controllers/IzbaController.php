@@ -14,7 +14,6 @@ class IzbaController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('admin')->except('index');
-        $this->middleware('persPacientNoIndChck')->only('index');
     }
 
     /**

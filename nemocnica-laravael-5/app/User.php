@@ -35,6 +35,30 @@ class User extends Authenticatable
         return $query->where('pozicia', '=', $poz);
     }
 
+    /** vracia pole podanych likov pre pacienta inak prazdne pole */
+    public function getPacientVsetkyPodaneLieky(){
+        $arr = Array();
+        if ($this->pozicia != 'pacient') {
+            return $arr;
+        }
+
+        foreach ($this->vysetrenie()->get() as $vysetrenie) {
+            $arr = array_merge($arr, $vysetrenie->getPodaneLiekyArr());
+        }
+
+        return $arr;
+    }
+
+    public function getVysetrenia(){
+        return $this->vysetrenie()->get();
+    }
+
+    public function getPobyty(){
+        return $this->pobyt()->get();
+    }
+
+
+
     /**
      * @param $query Builder
      * @param $meno
@@ -84,6 +108,46 @@ class User extends Authenticatable
 
     public function isPacient(){
         return ($this->pozicia == 'pacient');
+    }
+
+
+    public function pobyt(){
+        switch ($this->pozicia){
+            case 'doktor':
+                return $this->hasMany(Pobyt::class, 'doktor_id', 'id');
+                break;
+            case 'prijemca':
+                return $this->hasMany(Pobyt::class, 'prijemca_id', 'id');
+                break;
+            case 'pacient':
+                return $this->hasMany(Pobyt::class, 'pacient_id', 'id');
+                break;
+            default : return null;
+        }
+    }
+
+    public function vysetrenie(){
+        switch ($this->pozicia){
+            case 'doktor':
+                return $this->hasMany(Vysetrenie::class, 'doktor_id', 'id');
+                break;
+            case 'pacient':
+                return $this->hasMany(Vysetrenie::class, 'pacient_id', 'id');
+                break;
+            default : return null;
+        }
+    }
+
+    public function oddelenie(){
+        switch ($this->pozicia){
+            case 'doktor':
+                return $this->belongsTo(Oddelenie::class, 'oddelenie_doktor_id', 'id');
+                break;
+            case 'sestra':
+                return $this->belongsTo(Oddelenie::class, 'oddelenie_doktor_id', 'id');
+                break;
+            default: return null;
+        }
     }
 
 }

@@ -14,7 +14,7 @@ class PodanyLiekController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('doktor')->except('index', 'show');
-        $this->middleware('doktorSestra')->only('index');
+        $this->middleware('doktorSestra')->only('show');
         //show pre vsetkych aby si aj pacient mohol pozret
     }
 

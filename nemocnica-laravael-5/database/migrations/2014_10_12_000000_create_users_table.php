@@ -27,12 +27,13 @@ class CreateUsersTable extends Migration
             $table->string('ulica_cislo', 40)->nullable();
             $table->string('stat', 20)->nullable();
             $table->date('datum_narodenia')->nullable();
-            //doktor
+            //doktor, sestra, prijemca
             $table->string('uvazok', 10)->nullable();
             $table->string('cislo_uctu', 25)->nullable();
             $table->string('telefon', 13)->nullable();
             $table->integer('oddelenie_doktor_id')->unsigned()->nullable();
             $table->integer('oddelenie_sestra_id')->unsigned()->nullable();
+
             //pacient
             $table->string('cislo_poistovne', 10)->nullable();
 

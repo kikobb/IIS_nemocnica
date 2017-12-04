@@ -17,11 +17,14 @@ class AdminPersonal
     public function handle($request, Closure $next)
     {
         if ( Auth::check() )
+            //ak niesi admin
             if (!Auth::user()->isAdmin()){
-                $url = $request->getUri();
-                $id = substr($url, strrpos($url, '/') + 1);
+                $segments = explode('/', $request->getUri());
+                $id_1 = $segments[count($segments) - 1];    //pre url: xxx/cislo
+                $id_2 = $segments[count($segments) - 2];    //pre url: xxx/cislo/edit
+                //ak niesi ani doktor ani sestra ani prijemca alebo ak sa chces pozret na stranku ktora sa ta netyka
                 if (!Auth::user()->isDoktor() && !Auth::user()->isSestra() && !Auth::user()->isPrijemca() ||
-                    (is_numeric($id) && $id != Auth::user()->id)) {
+                    (is_numeric($id_1) && $id_1 != Auth::user()->id) || (is_numeric($id_2) && $id_2 != Auth::user()->id)) {
                     return redirect('/zamestnanec');
                 }
             }

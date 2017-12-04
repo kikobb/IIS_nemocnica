@@ -14,6 +14,7 @@ class PacientController extends Controller
         $this->middleware('auth');
         $this->middleware('personal')->except('index', 'show');
         $this->middleware('personalPacient')->only('index', 'show');
+        //todo dorob spraven povolena na prid funkcie
     }
 
     private function uniqueRules(){
@@ -135,6 +136,48 @@ class PacientController extends Controller
         return view('pacient.confirm')->with([
             'currUser' => Auth::user(),
             'osoba' => User::findOrFail($id),
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function vysetrenia($id)
+    {
+        return view('pacient.zobraz_vysetrenia')->with([
+            'currUser' => Auth::user(),
+            'vysetrenia' => User::findOrFail($id)->getVysetrenia(),
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function pobyty($id)
+    {
+        return view('pacient.zobrazit_pobyty')->with([
+            'currUser' => Auth::user(),
+            'pobyty' => User::findOrFail($id)->getPobyty(),
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function lieky($id)
+    {
+        return view('pacient.zobrazit_lieky')->with([
+            'currUser' => Auth::user(),
+            'podane_lieky' => User::findOrFail($id)->getPacientVsetkyPodaneLieky(),
         ]);
     }
 
