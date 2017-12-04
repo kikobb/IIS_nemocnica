@@ -50,10 +50,12 @@ class PodanyLiekController extends Controller
      *
      * @return View
      */
-    public function create()
+    public function create($id)
     {
         return view('podanyLiek.createEdit')->with([
             'currUser' => Auth::user(),
+            'lieky' => Liek::getAllLiekyToArr(),
+            'vysetrenie_id' => $id,
         ]);
     }
 
@@ -63,18 +65,17 @@ class PodanyLiekController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return View
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate($this->rules());
 
         /* @var Podany_liek $pliek */
-        $pliek = Podany_liek::create([
-            'liek_id' => Liek::getIdFromName($request['liek']),
-            'vysetrenie_id' => $request['vysetrenie_id'],
-            'cas' => $request['cas'],
-            'mnozstvo' => $request['mnozstvo'],
-        ]);
-        //TODO mozno toto netreba
+        $pliek = new Podany_liek();
+         $pliek->liek_id = $request['liek_id'];
+//         $pliek->vysetrenie_id = $request['vysetrenie_id'];
+        $pliek->vysetrenie_id = $id;
+         $pliek->cas = $request['cas'];
+         $pliek->mnozstvo = $request['mnozstvo'];
         $pliek->save();
 
         return $this->confirm($pliek->id);
@@ -105,6 +106,7 @@ class PodanyLiekController extends Controller
         return view('podanyLiek.confirm')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
+            'lieky' => Liek::getAllLiekyToArr(),
         ]);
     }
 
@@ -119,6 +121,7 @@ class PodanyLiekController extends Controller
         return view('podanyLiek.createEdit')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
+            'lieky' => Liek::getAllLiekyToArr(),
         ]);
     }
 
@@ -137,7 +140,7 @@ class PodanyLiekController extends Controller
         $pliek = Podany_liek::findOrFail($id);
         $pliek->cas = $request['cas'];
         $pliek->nmozstvo = $request['mnozstvo'];
-        $pliek->liek_id = Liek::getIdFromName($request['liek']);
+        $pliek->liek_id = $request['liek_id'];
         $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->save();
 
