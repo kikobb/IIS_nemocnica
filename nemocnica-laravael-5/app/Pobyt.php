@@ -9,6 +9,10 @@ class Pobyt extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'pobyty';
 
+    public function getDoktor(){
+        return $this->doktor()->get();
+    }
+
     public function doktor(){
         return $this->belongsTo(User::class, 'doktor_id', 'id');
     }
