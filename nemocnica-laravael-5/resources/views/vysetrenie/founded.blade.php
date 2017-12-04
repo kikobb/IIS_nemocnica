@@ -26,9 +26,9 @@
                 @for ($i = 0; $i < count($vysetrenia); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$vysetrenia[$i]->getDoktor}}</td>
-                        <td >{{$vysetrenia[$i]->getPacient}}</td>
-                        <td >{{$vysetrenia[$i]->getOddelenie}}</td>
+                        <td >{{''.$vysetrenia[$i]->getDoktor()->priezvisko.' '.$vysetrenia[$i]->getDoktor()->meno}}</td>
+                        <td >{{''.$vysetrenia[$i]->getPacient()->priezvisko.' '.$vysetrenia[$i]->getPacient()->meno}}</td>
+                        <td >{{$vysetrenia[$i]->getOddelenie()->nazov}}</td>
                         <td >{{$vysetrenia[$i]->typ}}</td>
                         <td >{{$vysetrenia[$i]->created_at}}</td>
                         @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')

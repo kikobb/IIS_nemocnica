@@ -23,7 +23,7 @@
                      'izba' => 'Izba',
                      'pacient' => 'Pacient',
                      'pobyt' => 'Pobyt',
-                    'vyšetrenie' => 'Vyšetrenie'),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
+                    'vysetrenie' => 'Vyšetrenie'),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
              @endif
 
              @if($currUser->pozicia == 'pacient' || $currUser->pozicia == 'admin')
