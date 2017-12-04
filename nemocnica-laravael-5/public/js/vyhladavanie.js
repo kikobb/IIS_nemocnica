@@ -51,14 +51,15 @@ function changeInfos(primaryValue) {
 
 $(function() {
     //$('input[placeholder], textarea[placeholder]').placeholder();
-    changeInfos('doktor');
+    let val = $('#primary_selector').val();
+    changeInfos(val);
 
     $('#primary_selector').change(function() {
-        let val = $(this).val();
+        val = $(this).val();
         if(val != '') {
             changeInfos(val);
         }
-        $('#secondary_selector').val("");;
+        $('#secondary_selector').val("");
     })
 });
 
