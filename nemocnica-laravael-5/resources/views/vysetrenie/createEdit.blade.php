@@ -26,11 +26,11 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('pacient', 'Rodné číslo pacienta*:') }}
-            {{ Form::text('pacient', old('pacient'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
-            @if ($errors->has('pacient'))
+            {{ Form::label('rodne_cislo', 'Rodné číslo pacienta*:') }}
+            {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
+            @if ($errors->has('rodne_cislo'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('pacient') }}</strong>
+                        <strong>{{ $errors->first('rodne_cislo') }}</strong>
                 </span>
             @endif
         </div>
@@ -44,6 +44,11 @@
                         <strong>{{ $errors->first('typ') }}</strong>
                     </span>
             @endif
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('oddelenie_id', 'Oddelenie*:') }}
+            {{ Form::select('oddelenie_id',$oddelenia, old('oddelenie_id'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
 
