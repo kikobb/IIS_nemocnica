@@ -11,7 +11,7 @@
              'oddelenie' => 'Oddelenie',
              'izba' => 'Izba',
              'pacient' => 'Pacient',
-             'pobyt' => 'Pobyt'),old('dest_dropdown'), array('class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+             'pobyt' => 'Pobyt'),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
              @endif
 
              @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
@@ -23,7 +23,7 @@
                      'izba' => 'Izba',
                      'pacient' => 'Pacient',
                      'pobyt' => 'Pobyt',
-                    'vyšetrenie' => 'Vyšetrenie'),old('dest_dropdown'), array('class'=>'form-control','placeholder'=>'Vyberte','required' => 'required'))}}
+                    'vyšetrenie' => 'Vyšetrenie'),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte','required' => 'required'))}}
              @endif
 
              @if($currUser->pozicia == 'pacient' || $currUser->pozicia == 'admin')
@@ -32,7 +32,7 @@
                  'príjemca' => 'Príjemca',
                  'liek' => 'Liek',
                  'oddelenie' => 'Oddelenie',
-                 'izba' => 'Izba',),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                 'izba' => 'Izba',),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
              @endif
         </div>
 
@@ -50,13 +50,13 @@
                 'cas' => 'Dátum',
                 'poschodie' => 'Poschodie',
                 'kapacita' => 'Kapacita',
-                'cislo' => 'Číslo',),old('cat_2'), array('id'=>'secondary_selector', 'class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                'cislo' => 'Číslo',),old('dest_dropdown'), array('id'=>'secondary_selector', 'class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
         </div>
 
 
-
         <div class="input-group">
-             <div class="form-group">
+            {{--<input type="hidden" name="search_param" value="all" id="search_param">--}}
+            <div class="form-group">
                 {{ Form::text('vyhladavanie', old('vyhladavanie'),array('placeholder'=>'Zadajte slovo na vyhľadávanie...','class'=>'form-control')) }}
             </div>
                 <span class="input-group-btn">
