@@ -15,6 +15,12 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    private function plainPasswordRules(){
+        return [
+            'password_new' => 'required|string|min:6',
+        ];
+    }
+
     private function uniqueRules(){
         return [
             'email' => 'unique:users',
@@ -125,6 +131,33 @@ class AdminController extends Controller
         return view('admin.confirm')->with([
             'currUser' => Auth::user(),
             'osoba' => User::findOrFail($id),
+        ]);
+    }
+
+    public function editHeslo($id){
+        return view('pacient.zmena_hesla')->with([
+            'currUser' => Auth::user(),
+            'fail' => false,
+        ]);
+    }
+
+    /**
+     * Change specific reource
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function updateHeslo(Request $request, $id){
+        $request->validate($this->plainPasswordRules());
+        $user = User::findOrFail($id);
+        $hashPass = bcrypt($request['password_new']);
+//
+        $user->password = $hashPass;
+        $user->save();
+//
+        return view('uspesna_zmena_hesla')->with([
+            'currUser' => Auth::user(),
         ]);
     }
 

@@ -195,14 +195,6 @@ class PacientController extends Controller
         ]);
     }
 
-    private function editHesloFail($id){
-        dump('fail');
-        return view('pacient.zmena_hesla')->with([
-            'currUser' => Auth::user(),
-            'fail' => true,
-        ]);
-    }
-
     /**
      * Change specific reource
      *

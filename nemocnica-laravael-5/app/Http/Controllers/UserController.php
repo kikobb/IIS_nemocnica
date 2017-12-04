@@ -49,6 +49,12 @@ class UserController extends Controller
 
     }
 
+    private function plainPasswordRules(){
+        return [
+            'password_new' => 'required|string|min:6',
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -163,6 +169,33 @@ class UserController extends Controller
         return view('zamestnanec.confirm')->with([
             'currUser' => Auth::user(),
             "osoba" => User::findOrFail($id),
+        ]);
+    }
+
+    public function editHeslo($id){
+        return view('pacient.zmena_hesla')->with([
+            'currUser' => Auth::user(),
+            'fail' => false,
+        ]);
+    }
+
+    /**
+     * Change specific reource
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function updateHeslo(Request $request, $id){
+        $request->validate($this->plainPasswordRules());
+        $user = User::findOrFail($id);
+        $hashPass = bcrypt($request['password_new']);
+//
+        $user->password = $hashPass;
+        $user->save();
+//
+        return view('uspesna_zmena_hesla')->with([
+            'currUser' => Auth::user(),
         ]);
     }
 
