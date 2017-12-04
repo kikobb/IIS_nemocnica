@@ -23,45 +23,44 @@ class VyhladavanieController extends Controller
 
     private function findPersonal(Request $request){
         //vybre users len s patricnou rolou
-        $ret = User::findAllUsersByPozicia($request['cat_1']);
+        $pom = User::findAllUsersByPozicia($request['cat_1']);
         if ($request['cat_2'] == 'meno')
-            $ret = $ret->findUsersByMeno($request['vyhladavanie']);
+            $ret = $pom->findUsersByMeno($request['vyhladavanie']);
         if ($request['cat_2'] == 'priezvisko') {
-            $ret = $ret->findUsersByPriezvisko($request['vyhladavanie']);
+            $ret = $pom->findUsersByPriezvisko($request['vyhladavanie']);
         }
         //iab pri doktoroch a sestrach
         if ($request['cat_1'] == 'doktor') {
             if ($request['cat_2'] == 'oddelenie') {
-                $ret = $ret->findDoktorByOddelenie($request['vyhladavanie']);
+                $ret = $pom->findDoktorByOddelenie($request['vyhladavanie']);
             }
         }elseif ($request['cat_1'] == 'sestra'){
             if ($request['cat_2'] == 'oddelenie') {
-                $ret = $ret->findSestraByOddelenie($request['vyhladavanie']);
+                $ret = $pom->findSestraByOddelenie($request['vyhladavanie']);
             }
         }
 
         return view('zamestnanec.founded')->with([
             'currUser' => Auth::user(),
-            'osoby' => $ret->get(),
+            'osoby' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
     private function findPacient(Request $request) {
         //vybre users len s patricnou rolou
-        $ret = User::findAllUsersByPozicia($request['cat_1']);
+        $pom = User::findAllUsersByPozicia($request['cat_1']);
 
         if ($request['cat_2'] == 'meno')
-            $ret = $ret->findUsersByMeno($request['vyhladavanie']);
+            $ret = $pom->findUsersByMeno($request['vyhladavanie']);
         if ($request['cat_2'] == 'priezvisko') {
-            $ret = $ret->findUsersByPriezvisko($request['vyhladavanie']);
+            $ret = $pom->findUsersByPriezvisko($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'rodne_cislo') {
-            $ret = $ret->findPacientByRodneCislo($request['vyhladavanie']);
+            $ret = $pom->findPacientByRodneCislo($request['vyhladavanie']);
         }
-
-        return view('zamestnanec.founded')->with([
+        return view('pacient.founded')->with([
             'currUser' => Auth::user(),
-            'osoby' => $ret->get(),
+            'pacienti' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
@@ -74,7 +73,7 @@ class VyhladavanieController extends Controller
         }
         return view('liek.founded')->with([
             'currUser' => Auth::user(),
-            'lieky' => $ret->get(),
+            'lieky' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
@@ -89,7 +88,7 @@ class VyhladavanieController extends Controller
 
         return view('oddelenie.founded')->with([
             'currUser' => Auth::user(),
-            'oddelenia' => $ret->get(),
+            'oddelenia' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
@@ -106,7 +105,7 @@ class VyhladavanieController extends Controller
 
         return view('izba.founded')->with([
             'currUser' => Auth::user(),
-            'izby' => $ret->get(),
+            'izby' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
@@ -124,10 +123,9 @@ class VyhladavanieController extends Controller
             $ret = User::getUserByRodneCislo($request['vyhladavanie'])->getPobyty();
         }
 
-//        dd($ret);
         return view('pobyt.founded')->with([
             'currUser' => Auth::user(),
-            'pobyty' => $ret,
+            'pobyty' => (!isset($ret) || $ret == null)? null : $ret,
         ]);
     }
 
@@ -188,7 +186,7 @@ class VyhladavanieController extends Controller
             case 'pobyt':
                 return $this->findPobyt($request);
                 break;
-            case 'vysetrenie':
+            case 'vyšetrenie':
                 return $this->findVysetrenie($request);
                 break;
         }

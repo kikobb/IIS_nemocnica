@@ -22,7 +22,7 @@ class Oddelenie extends Model
 
     public static function getIdFromName($name){
         $pom = Oddelenie::where('nazov', $name)->first();
-        return $pom->id;
+        return ($pom != null) ? $pom->id : 0;       //0 by sa nemala vyskitovat v databaze
     }
 
     public static function getAllNamesToArr(){
@@ -39,6 +39,10 @@ class Oddelenie extends Model
 
     public static function getPobytyByOddelenie($oddelenie){
         $pobyty = Array();
+        //zly nazov
+        if (Oddelenie::getOddelenieByNazov($oddelenie)->first() == null)
+            return $pobyty;
+
         foreach (Oddelenie::getOddelenieByNazov($oddelenie)->first()->izby()->get() as $izba){
            $pobyty = array_merge($pobyty, $izba->getPobytyOnIzbaToArr());
         }
