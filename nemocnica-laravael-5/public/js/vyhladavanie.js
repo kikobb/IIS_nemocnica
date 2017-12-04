@@ -62,32 +62,19 @@ $(function() {
 
 });
 
-// Set timeout variables.
-var timoutNow = 300; // Timeout in 15 mins would be 900000.
-var logoutUrl = 'login.blade.php'; // URL to logout page.
+let logoutUrl = '/';
 
-var timeoutTimer;
-
-// Start timers.
-function StartTimers() {
-    let idleTime = 0;
-    $(document).ready(function () {
-        //Increment the idle time counter every minute.
-        let idleInterval = setInterval(timerIncrement, 6000); // 1 minute
-
-        //Zero the idle timer on mouse movement.
-        $(this).mousemove(function (e) {
-            idleTime = 0;
-        });
-        $(this).keypress(function (e) {
-            idleTime = 0;
-        });
+$(function() {
+    let time = new Date().getTime();
+    $(document.body).bind("mousemove keypress", function(e) {
+        time = new Date().getTime();
     });
 
-    function timerIncrement() {
-        idleTime = idleTime + 1;
-        if (idleTime > 1) { // 20 minutes
-            window.location.reload();
-        }
+    function refresh() {
+        if(new Date().getTime() - time >= 60000*15)
+            window.location = logoutUrl;
+        else
+            setTimeout(refresh, 10000);
     }
-}
+    setTimeout(refresh, 10000);
+});
