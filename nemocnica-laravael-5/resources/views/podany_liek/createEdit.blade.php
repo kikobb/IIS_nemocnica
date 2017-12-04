@@ -48,8 +48,9 @@
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @if( !empty($podanny_liek) )
-                <a href="{{ route('podanny_liek.destroy', $podanny_liek->id) }}" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Zmazať</a>
-            @endif
+                {{ Form::open(['method' => 'DELETE', 'route' => ['podanny_liek.destroy', $podanny_liek->id],'class' => 'hidden', ]) }}
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
+                {{ Form::close() }}@endif
         </div>
 
         <div class="form-group">

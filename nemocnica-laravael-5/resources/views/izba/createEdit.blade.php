@@ -48,7 +48,9 @@
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @if( !empty($izba) )
-                <a href="{{ route('izba.destroy', $izba->id) }}" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Zmazať</a>
+                {{ Form::open(['method' => 'DELETE', 'route' => ['izba.destroy', $izba->id],'class' => 'hidden', ]) }}
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
+                {{ Form::close() }}
             @endif
         </div>
 

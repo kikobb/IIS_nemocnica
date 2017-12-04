@@ -161,9 +161,9 @@
                         Zmena hesla
                     </a>
 
-                    @if( !empty($izba) )
-                        <a href="{{ route('zamestnanec.destroy', $osoba->id) }}" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Zmazať</a>
-                    @endif
+                    {{ Form::open(['method' => 'DELETE', 'route' => ['zamestnanec.destroy', $osoba->id],'class' => 'hidden', ]) }}
+                    {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
+                    {{ Form::close() }}
                 @endif
 
             </div>

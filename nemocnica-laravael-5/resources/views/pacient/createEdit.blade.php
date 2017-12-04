@@ -135,7 +135,7 @@
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
                 @if( !empty($pacient) )
                     {{ Form::open(['method' => 'DELETE', 'route' => ['pacient.destroy', $pacient->id],'class' => 'hidden', ]) }}
-                    {{ Form::button('<span class="<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
+                    {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
                     {{ Form::close() }}
                 @endif
             </div>
