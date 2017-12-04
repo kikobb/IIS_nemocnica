@@ -25,8 +25,6 @@ class PodanyLiekController extends Controller
     private function rules()
     {
         return [
-            'liek' => 'required|string|max:60|exists:lieky,nazov',
-            'vysetrenie' => 'required|integer|exists:vysetrenia,id',
             'cas' => 'required|string|max:50',
             'mnozstvo' => 'required|string|max:255'
         ];
