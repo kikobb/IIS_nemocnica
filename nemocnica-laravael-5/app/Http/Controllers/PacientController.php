@@ -47,7 +47,6 @@ class PacientController extends Controller
 
     private function plainPasswordRules(){
         return [
-            'password_old' => 'required|string',
             'password_new' => 'required|string|min:6',
         ];
     }
@@ -215,26 +214,26 @@ class PacientController extends Controller
         $request->validate($this->plainPasswordRules());
         $user = User::findOrFail($id);
         $hashPass = bcrypt($request['password_new']);
-        if ($user->password === $hashPass || $user->password !== bcrypt($request['password_old'])){
-            dump('input old new: '.$request['password_old']. ', ' . $request['password_new']);
-            dump('hash current old new: ');
-            dump($user->password);
-            dump(bcrypt($request['password_old']));
-            dump($hashPass);
-            dump('asd');
-            dump('dvakrat rovnaka hodnota');
-            dump(bcrypt('5'));
-            dump(bcrypt('5'));
-            return view('uspesna_zmena_hesla')->with([
-                'currUsr' => Auth::user(),
-            ]);
-        }
+//        if ($user->password === $hashPass || $user->password !== bcrypt($request['password_old'])){
+//            dump('input old new: '.$request['password_old']. ', ' . $request['password_new']);
+//            dump('hash current old new: ');
+//            dump($user->password);
+//            dump(bcrypt($request['password_old']));
+//            dump($hashPass);
+//            dump('asd');
+//            dump('dvakrat rovnaka hodnota');
+//            dump(bcrypt('5'));
+//            dump(bcrypt('5'));
+//            return view('uspesna_zmena_hesla')->with([
+//                'currUsr' => Auth::user(),
+//            ]);
+//        }
         $user->password = $hashPass;
         $user->save();
-        dump(Auth::check());
-        dd(Auth::user());
+//        dump(Auth::check());
+//        dd(Auth::user());
         return view('uspesna_zmena_hesla')->with([
-            'currUsr' => Auth::user(),
+            'currUser' => Auth::user(),
         ]);
     }
 
