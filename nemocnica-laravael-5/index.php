@@ -1,0 +1,1 @@
+<?php header( 'Location: /resources/views/prihlasenie/login.blade.php' ) ;  ?>
