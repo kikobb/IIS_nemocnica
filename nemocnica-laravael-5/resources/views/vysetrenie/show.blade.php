@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-md-5">Oddelenie:</div>
-            <div class="col-md-6">{{$vysetrenie->getOddelenie()->nazov}} </div>
+            <div class="col-md-6">{{$vysetrenie->first()->getOddelenie()->nazov}} </div>
         </div>
 
         <div class="row">
