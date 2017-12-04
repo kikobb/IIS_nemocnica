@@ -50,7 +50,20 @@ class PodanyLiekController extends Controller
      *
      * @return View
      */
-    public function create($id)
+    public function create()
+    {
+//        return view('podanyLiek.createEdit')->with([
+//            'currUser' => Auth::user(),
+//            'lieky' => Liek::getAllLiekyToArr(),
+//        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return View
+     */
+    public function createCustom($id)
     {
         return view('podanyLiek.createEdit')->with([
             'currUser' => Auth::user(),
@@ -65,20 +78,42 @@ class PodanyLiekController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return View
      */
-    public function store(Request $request, $id)
+    public function storeCustom(Request $request, $id)
     {
         $request->validate($this->rules());
 
         /* @var Podany_liek $pliek */
         $pliek = new Podany_liek();
-         $pliek->liek_id = $request['liek_id'];
+        $pliek->liek_id = $request['liek_id'];
 //         $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->vysetrenie_id = $id;
-         $pliek->cas = $request['cas'];
-         $pliek->mnozstvo = $request['mnozstvo'];
+        $pliek->cas = $request['cas'];
+        $pliek->mnozstvo = $request['mnozstvo'];
         $pliek->save();
 
         return $this->confirm($pliek->id);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return View
+     */
+    public function store(Request $request)
+    {
+//        $request->validate($this->rules());
+//
+//        /* @var Podany_liek $pliek */
+//        $pliek = new Podany_liek();
+//         $pliek->liek_id = $request['liek_id'];
+//         $pliek->vysetrenie_id = $request['vysetrenie_id'];
+////        $pliek->vysetrenie_id = $id;
+//         $pliek->cas = $request['cas'];
+//         $pliek->mnozstvo = $request['mnozstvo'];
+//        $pliek->save();
+//
+//        return $this->confirm($pliek->id);
     }
 
     /**

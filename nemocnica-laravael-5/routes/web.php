@@ -63,6 +63,8 @@ Route::get('vysetrenie/{id}/confirm', 'VysetrenieController@confirm');
 //podanyLiek
 Route::resource('podanyLiek', 'PodanyLiekController');
 Route::get('podanyLiek/{id}/confirm', 'PodanyLiekController@confirm');
+Route::get('podanyLiek/{id}/create', 'PodanyLiekController@createCustom')->name('create_podany_liek');
+Route::get('podanyLiek/{id}/store', 'PodanyLiekController@storeCustom')->name('store_podany_liek');
 
 //liek
 Route::resource('liek', 'LiekController');
