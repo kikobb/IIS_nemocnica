@@ -30,7 +30,7 @@ class VyhladavanieController extends Controller
 //        dd($ret->get());
         return view('zamestnanec.founded')->with([
             'currUser' => Auth::user(),
-            'osoby' => $ret->get()->toArray(),
+            'osoby' => $ret->get(),
         ]);
     }
 
