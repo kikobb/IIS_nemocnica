@@ -241,6 +241,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }

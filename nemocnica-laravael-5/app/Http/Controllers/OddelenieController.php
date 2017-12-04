@@ -142,6 +142,8 @@ class OddelenieController extends Controller
     public function destroy($id)
     {
         Oddelenie::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }

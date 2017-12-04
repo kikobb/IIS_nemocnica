@@ -248,7 +248,7 @@ class PacientController extends Controller
     {
         return view('pacient.createEdit')->with([
             'currUser' => Auth::user(),
-            'osoba' => User::findOrFail($id),
+            'pacient' => User::findOrFail($id),
         ]);
     }
 
@@ -266,7 +266,7 @@ class PacientController extends Controller
         $user = User::findOrFail($id);
         //povinne
         $user->email = $request['email'];
-        $user->pozicia = $request['pozicia'];
+
         $user->meno = $request['meno'];
         $user->priezvisko = $request['priezvisko'];
         //nepovinne
@@ -299,6 +299,8 @@ class PacientController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }

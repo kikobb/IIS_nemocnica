@@ -183,11 +183,13 @@ class AdminController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Support\Facades\View
      */
     public function destroy($id)
     {
         User::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }

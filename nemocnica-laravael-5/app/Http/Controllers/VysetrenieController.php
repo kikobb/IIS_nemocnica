@@ -56,6 +56,7 @@ class VysetrenieController extends Controller
     {
         return view('vysetrenie.createEdit')->with([
             'currUser' => Auth::user(),
+            'oddelenia' => Oddelenie::getAllNamesToArr(),
         ]);
     }
 
@@ -67,14 +68,12 @@ class VysetrenieController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->rules());
-
         /* @var Vysetrenie $vis */
-        $vys = Vysetrenie::create([
-            'doktor_id' => \Auth::user()->id,
-            'oddelenie_id' => Oddelenie::getIdFromName($request['oddelenie']),
-            'pacient_id' => User::getUserByRodneCislo($request['rodne_cislo']),
-        ]);
+        $vys = new Vysetrenie();
+        $vys->doktor_id = Auth::user()->id;
+        $vys->oddelenie_id = $request['oddelenie_id'];
+        $vys->pacient_id = User::getUserByRodneCislo($request['rodne_cislo'])->id;
+
         if ($request->has('typ')){
             $vys->typ = $request['typ'];
         }
@@ -83,7 +82,7 @@ class VysetrenieController extends Controller
         }
         $vys->save();
 
-        return $this->confirm($this->id);
+        return $this->confirm($vys->id);
     }
 
     /**
@@ -125,6 +124,7 @@ class VysetrenieController extends Controller
         return view('vysetrenie.createEdit')->with([
             'currUser' => Auth::user(),
             'vysetrenie' => Vysetrenie::findOrFail($id),
+            'oddelenia' => Oddelenie::getAllNamesToArr(),
         ]);
     }
 
@@ -142,7 +142,7 @@ class VysetrenieController extends Controller
         /* @var Vysetrenie $vis */
         $vys = Vysetrenie::findOrFail($id);
 //        $vys->doktor_id => \Auth::user()->id,
-        $vys->oddelenie_id = Oddelenie::getIdFromName($request['oddelenie']);
+        $vys->oddelenie_id = $request['oddelenie_id']; //dostanes id
         $vys->pacient_id = User::getUserByRodneCislo($request['rodne_cislo']);
         if ($request->has('typ')){
             $vys->typ = $request['typ'];
@@ -164,6 +164,8 @@ class VysetrenieController extends Controller
     public function destroy($id)
     {
         Vysetrenie::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }

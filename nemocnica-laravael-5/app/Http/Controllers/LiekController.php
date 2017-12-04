@@ -152,6 +152,8 @@ class LiekController extends Controller
     public function destroy($id)
     {
         Liek::destroy($id);
-        return back();
+        return view('uspesne_vymazane')->with([
+            'currUser' => Auth::user(),
+        ]);
     }
 }
