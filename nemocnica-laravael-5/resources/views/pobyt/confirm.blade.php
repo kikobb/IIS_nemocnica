@@ -7,17 +7,17 @@
 
         <div class="row">
             <div class="col-md-5">Pacient:</div>
-            <div class="col-md-6"> {{$pobyt->pacient}}</div>
+            <div class="col-md-6"> {{''.$pobyt->getPacient()->priezvisko.' '.$pobyt->getPacient()->meno}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Doktor:</div>
-            <div class="col-md-6"> {{$pobyt->doktor}}</div>
+            <div class="col-md-6"> {{''.$pobyt->getDoktor()->priezvisko.' '.$pobyt->getDoktor()->meno}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Príjemca:</div>
-            <div class="col-md-6"> {{$pobyt->prijemca}}</div>
+            <div class="col-md-6"> {{''.$pobyt->getPrijemca()->priezvisko.' '.$pobyt->getPrijemca()->meno}}</div>
         </div>
 
         <div class="row">
@@ -32,16 +32,15 @@
 
         <div class="row">
             <div class="col-md-5">Izba:</div>
-            <div class="col-md-6">{{$pobyt->izba}}</div>
+            <div class="col-md-6">{{$pobyt->getIzba()->cislo}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Oddelenie:</div>
-            <div class="col-md-6">{{$pobyt->getOddelenie}}</div>
+            <div class="col-md-6">{{$pobyt->getIzba()->getMyOddelenie()}}</div>
         </div>
-
-
     </div>
+
 
     <div class="col-sm-6 " id="confirm">
 
