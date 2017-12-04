@@ -13,7 +13,7 @@
                     <th>Priezvisko</th>
                     <th>Oddelenie</th>
                     @if($currUser->pozicia == 'admin')
-                        <th>Úprava</th>
+                        <th>Zobraziť</th>
                     @endif
                 </tr>
                 </thead>

@@ -9,19 +9,19 @@
 
         <div class="col-md-10">
             <div class="dropdown">
-                <a href="/zamestnanec"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
+                <a href="{{ route('zamestnanec.index') }}"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
             </div>
 
             <div class="dropdown">
-                <a href="/vyhladavanie/index"><button class="dropbtn">Hľadať</button></a>
+                <a href="{{ route('vyhladavanie.index') }}"><button class="dropbtn">Hľadať</button></a>
             </div>
 
             <div class="dropdown">
                 <button class="dropbtn">Zobraziť</button>
                 <div class="dropdown-content">
-                    <a href="#">Vyšetrenia</a>
-                    <a href="#">Pobyty</a>
-                    <a href="#">Lieky</a>
+                    <a href="{{ route('pacient_vysetrenia', $currUser->id) }}">Vyšetrenia</a>
+                    <a href="{{ route('pacient_pobyty', $currUser->id) }}">Pobyty</a>
+                    <a href="{{ route('pacient_pobyty', $currUser->id) }}">Lieky</a>
                 </div>
             </div>
 

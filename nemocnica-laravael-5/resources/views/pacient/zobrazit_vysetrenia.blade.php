@@ -12,9 +12,7 @@
                     <th>Oddelenie</th>
                     <th>Typ vyšetrenia</th>
                     <th>Dátum a čas</th>
-                    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
-                        <th>Zobraziť</th>
-                    @endif
+                    <th>Zobraziť</th>
                 </tr>
                 </thead>
                 <tbody>
