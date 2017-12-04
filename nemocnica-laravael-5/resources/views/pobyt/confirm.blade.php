@@ -44,7 +44,7 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="pobyt/create" class="btn btn-info btn-lg">
+        <a href="{{ route('pobyt.create') }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 

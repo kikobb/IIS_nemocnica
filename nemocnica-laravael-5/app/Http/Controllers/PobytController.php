@@ -15,7 +15,7 @@ class PobytController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('personal')->except('show');
-        $this->middleware('parsonalPacient')->only('show');
+        $this->middleware('personalPacient')->only('show');
     }
 
     private function rules()

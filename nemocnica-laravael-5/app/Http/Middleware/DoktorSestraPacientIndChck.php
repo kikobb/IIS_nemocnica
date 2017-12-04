@@ -30,7 +30,7 @@ class DoktorSestraPacientIndChck
             }
             return redirect('/');
         }
-//        dd(Auth::check());
+//        dd(Auth::user());
         return $next($request);
     }
 }

@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    @if$currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
+    @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra' || $currUser->pozicia == 'prijemca')
         <div class="col-sm-6 " id="confirm">
 
 
