@@ -11,7 +11,7 @@
              'oddelenie' => 'Oddelenie',
              'izba' => 'Izba',
              'pacient' => 'Pacient',
-             'pobyt' => 'Pobyt'),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+             'pobyt' => 'Pobyt'),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte si z možností'))}}
              @endif
 
              @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
@@ -23,7 +23,7 @@
                      'izba' => 'Izba',
                      'pacient' => 'Pacient',
                      'pobyt' => 'Pobyt',
-                    'vyšetrenie' => 'Vyšetrenie'),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte','required' => 'required'))}}
+                    'vyšetrenie' => 'Vyšetrenie'),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
              @endif
 
              @if($currUser->pozicia == 'pacient' || $currUser->pozicia == 'admin')
@@ -32,7 +32,7 @@
                  'príjemca' => 'Príjemca',
                  'liek' => 'Liek',
                  'oddelenie' => 'Oddelenie',
-                 'izba' => 'Izba',),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                 'izba' => 'Izba',),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
              @endif
         </div>
 
@@ -50,7 +50,7 @@
                 'cas' => 'Dátum',
                 'poschodie' => 'Poschodie',
                 'kapacita' => 'Kapacita',
-                'cislo' => 'Číslo',),old('dest_dropdown'), array('id'=>'secondary_selector', 'class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                'cislo' => 'Číslo',),old('cat_2'), array('id'=>'secondary_selector', 'class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
         </div>
 
 

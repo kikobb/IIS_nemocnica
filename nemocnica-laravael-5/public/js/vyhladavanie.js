@@ -45,7 +45,6 @@ function changeInfos(primaryValue) {
             } else {
                 $(this).css('display', 'none');
             }
-            $(this).val('vyberte');
         }
     });
 }
@@ -59,6 +58,7 @@ $(function() {
         if(val != '') {
             changeInfos(val);
         }
+        $('#secondary_selector').val("");;
     })
 });
 
