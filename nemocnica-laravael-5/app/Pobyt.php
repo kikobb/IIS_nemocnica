@@ -10,16 +10,17 @@ class Pobyt extends Model
     protected $table = 'pobyty';
 
     public function getDoktor(){
-        return $this->doktor()->get();
+        return $this->doktor()->first();
     }
 
     public function getPrijemca(){
-        return $this->prijemca()->get();
+        return $this->prijemca()->first();
     }
 
     public function getIzba(){
-        return $this->izba()->get();
+        return $this->izba()->first();
     }
+
 
     public function doktor(){
         return $this->belongsTo(User::class, 'doktor_id', 'id');
