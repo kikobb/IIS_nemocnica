@@ -17,14 +17,13 @@ class VyhladavanieController extends Controller
 
     function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
 //        $this->middleware('admin')->except('index', 'show');
     }
 
     private function findPersonal(Request $request){
         //vybre users len s patricnou rolou
         $ret = User::findAllUsersByPozicia($request['cat_1']);
-
         if ($request['cat_2'] == 'meno')
             $ret = $ret->findUsersByMeno($request['vyhladavanie']);
         if ($request['cat_2'] == 'priezvisko') {
@@ -67,14 +66,13 @@ class VyhladavanieController extends Controller
     }
 
     private function findLiek(Request $request){//nazov ucinna latka
-        if ($request['car_2'] == 'nazov'){
-            $ret = Liek::getLiekyByNazov($request['vyhladanie']);
+        if ($request['cat_2'] == 'nazov'){
+            $ret = Liek::getLiekyByNazov($request['vyhladavanie']);
         }
-        if ($request['cat_2'] == 'ucinna_latka'){
-            $ret = Liek::getLiekyByUcinnaLatka($request['vyhladanie']);
+        if ($request['cat_2'] == 'latka'){
+            $ret = Liek::getLiekyByUcinnaLatka($request['vyhladavanie']);
         }
-
-        return view('liek.foundet')->with([
+        return view('liek.founded')->with([
             'currUser' => Auth::user(),
             'lieky' => $ret->get(),
         ]);
@@ -82,13 +80,14 @@ class VyhladavanieController extends Controller
 
     private function findOddelenie(Request $request){//nazov poschodie
         if ($request['cat_2'] == 'nazov') {
-            $ret = Oddelenie::getOddelenieByNazov($request['vyhladanie']);
-        }
-        if ($request['cat_2'] == 'poschodie') {
-            $ret = Oddelenie::getOddeleniaByPOschodie($request['vyhladanie']);
+            $ret = Oddelenie::getOddelenieByNazov($request['vyhladavanie']);
         }
 
-        return view([
+        if ($request['cat_2'] == 'poschodie') {
+            $ret = Oddelenie::getOddeleniaByPOschodie($request['vyhladavanie']);
+        }
+
+        return view('oddelenie.founded')->with([
             'currUser' => Auth::user(),
             'oddelenia' => $ret->get(),
         ]);
@@ -96,16 +95,16 @@ class VyhladavanieController extends Controller
 
     private function findIzba(Request $request){//typ kapacita cislo
         if ($request['cat_2'] == 'typ') {
-            $ret = Izba::getIzbaByTYp($request['vyhladanie']);
+            $ret = Izba::getIzbaByTYp($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'kapacita') {
-            $ret = Izba::getIzbyByKapacita($request['vyhladanie']);
+            $ret = Izba::getIzbyByKapacita($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'cislo') {
-            $ret = Izba::getIzbaByNumber($request['vyhladanie']);
+            $ret = Izba::getIzbaByNumber($request['vyhladavanie']);
         }
 
-        return view([
+        return view('izba.founded')->with([
             'currUser' => Auth::user(),
             'izby' => $ret->get(),
         ]);
@@ -113,19 +112,20 @@ class VyhladavanieController extends Controller
 
     private function findPobyt(Request $request){//od do oddelenie pacient rod c
         if ($request['cat_2'] == 'datum_prichodu'){
-            $ret = Pobyt::getPobytyByDatumPrichodu($request['vyhladanie']);
+            $ret = Pobyt::getPobytyByDatumPrichodu($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'datum_odchodu'){
-            $ret = Pobyt::getPobytyByDatumOdchodu($request['vyhladanie']);
+            $ret = Pobyt::getPobytyByDatumOdchodu($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'oddelenie') {
-            $ret = Oddelenie::getPobytyByOddelenie($request['vyhladanie']);
+            $ret = Oddelenie::getPobytyByOddelenie($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'rodne_cislo'){
-            $ret = User::getUserByRodneCislo($request['vyhaldanie'])->getPobyty();
+            $ret = User::getUserByRodneCislo($request['vyhladavanie'])->getPobyty();
         }
 
-        return view('pobyt.foundet')->with([
+//        dd($ret);
+        return view('pobyt.founded')->with([
             'currUser' => Auth::user(),
             'pobyty' => $ret,
         ]);
@@ -133,13 +133,13 @@ class VyhladavanieController extends Controller
 
     private function findVysetrenie(Request $request){//typ datum oddelenie
         if ($request['cat_2'] == 'typ') {
-            $ret = Vysetrenie::getVysetreniaByTyp($request['vyhladanie']);
+            $ret = Vysetrenie::getVysetreniaByTyp($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'datum') {
-            $ret = Vysetrenie::getVysetreniaByDatum($request['vyhladanie']);
+            $ret = Vysetrenie::getVysetreniaByDatum($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'oddelenie') {
-            $ret = Vysetrenie::getVysetrenieByOddelenie($request['vyhladanie']);
+            $ret = Vysetrenie::getVysetrenieByOddelenie($request['vyhladavanie']);
         }
 
         return view('vysetrenie.founded')->where([

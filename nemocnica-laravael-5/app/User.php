@@ -48,7 +48,7 @@ class User extends Authenticatable
         return $query->where('oddelenie_doktor_id', '=', Oddelenie::getIdFromName($oddelenie));
     }
 
-    public function scopeFindSestaByOddelenie($query, $oddelenie){
+    public function scopeFindSestraByOddelenie($query, $oddelenie){
         return $query->where('oddelenie_sestra_id', '=', Oddelenie::getIdFromName($oddelenie));
     }
 
@@ -169,7 +169,7 @@ class User extends Authenticatable
                 return $this->belongsTo(Oddelenie::class, 'oddelenie_doktor_id', 'id');
                 break;
             case 'sestra':
-                return $this->belongsTo(Oddelenie::class, 'oddelenie_doktor_id', 'id');
+                return $this->belongsTo(Oddelenie::class, 'oddelenie_sestra_id', 'id');
                 break;
             default: return null;
         }

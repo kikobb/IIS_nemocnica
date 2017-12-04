@@ -34,6 +34,10 @@ class Pobyt extends Model
         return $this->izba()->first();
     }
 
+    public function getMyOddelenie(){
+        return $this->izba()->first()->getMyOddelenie();
+    }
+
 
     public function doktor(){
         return $this->belongsTo(User::class, 'doktor_id', 'id');
