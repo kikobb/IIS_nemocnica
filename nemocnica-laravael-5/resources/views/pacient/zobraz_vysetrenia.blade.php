@@ -20,8 +20,8 @@
                 @for ($i = 0; $i < count($vysetrenia); $i++)
                     <tr>
                         <td >{{$i +1}}</td>
-                        <td >{{$vysetrenia[$i]->getDoktor}}</td>
-                        <td >{{$vysetrenia[$i]->getOddelenie}}</td>
+                        <td >{{$vysetrenia[$i]->getDoktor()}}</td>
+                        <td >{{$vysetrenia[$i]->getOddelenie()}}</td>
                         <td >{{$vysetrenia[$i]->typ}}</td>
                         <td >{{$vysetrenia[$i]->created_at}}</td>
                         <td ><span class="input-group-btn"><a href="{{ route('vysetrenie.show', $vysetrenia[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>></span></td>

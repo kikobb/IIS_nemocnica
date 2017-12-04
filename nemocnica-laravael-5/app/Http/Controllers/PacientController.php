@@ -12,8 +12,8 @@ class PacientController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('personal')->except('index', 'show');
-        $this->middleware('personalPacient')->only('index', 'show');
+        $this->middleware('personal')->except('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
+        $this->middleware('personalPacient')->only('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
         //todo dorob spraven povolena na prid funkcie
     }
 
@@ -161,7 +161,7 @@ class PacientController extends Controller
      */
     public function pobyty($id)
     {
-        return view('pacient.zobrazit_pobyty')->with([
+        return view('pacient.zobraz_pobyty')->with([
             'currUser' => Auth::user(),
             'pobyty' => User::findOrFail($id)->getPobyty(),
         ]);
@@ -175,7 +175,7 @@ class PacientController extends Controller
      */
     public function lieky($id)
     {
-        return view('pacient.zobrazit_lieky')->with([
+        return view('pacient.zobraz_lieky')->with([
             'currUser' => Auth::user(),
             'podane_lieky' => User::findOrFail($id)->getPacientVsetkyPodaneLieky(),
         ]);
