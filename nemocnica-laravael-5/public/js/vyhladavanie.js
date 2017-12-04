@@ -55,12 +55,14 @@ $(function() {
     $('#primary_selector').change(function() {
         let val = $(this).val();
         if(val != '') {
+           // $(this).val('vyberte');
             changeInfos(val);
         }
     })
 
 
 });
+
 
 let logoutUrl = '/';
 

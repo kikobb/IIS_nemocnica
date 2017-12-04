@@ -16,7 +16,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="{{ route('pobyt.edit') }}"><button class="dropbtn">Pridať pobyt</button></a>
+                <a href="{{ route('pobyt.create') }}"><button class="dropbtn">Pridať pobyt</button></a>
             </div>
 
             <div class="dropdown">
@@ -35,7 +35,6 @@
             </div>
             {{Form::close()}}
         </div>
-1
 
     </div>
 
