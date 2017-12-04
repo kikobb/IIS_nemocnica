@@ -6,6 +6,7 @@ use App\Liek;
 use App\Podany_liek;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 
 
 class PodanyLiekController extends Controller
