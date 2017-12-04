@@ -21,8 +21,14 @@ class Vysetrenie extends Model
         return $this->pacient()->first();
     }
 
-    public function getPodaneLiekyArr(){
-        return $this->podane_lieky()->get()->toArray();
+    public function getPodaneLieky(){
+//        return $this->podane_lieky()->get();
+        $arr = Array();
+
+        foreach ($this->podane_lieky()->get() as $podany_liek) {
+            $arr[] = $podany_liek;
+        }
+        return $arr;
     }
 
     public function doktor(){

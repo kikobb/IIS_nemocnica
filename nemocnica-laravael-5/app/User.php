@@ -53,16 +53,16 @@ class User extends Authenticatable
 
     /** vracia pole podanych likov pre pacienta inak prazdne pole */
     public function getPacientVsetkyPodaneLieky(){
-        $arr = Array();
+        $podaneLieky = Array();
         if ($this->pozicia != 'pacient') {
-            return $arr;
+            return $podaneLieky;
         }
 
         foreach ($this->vysetrenie()->get() as $vysetrenie) {
-            $arr = array_merge($arr, $vysetrenie->getPodaneLiekyArr());
+            $podaneLieky = array_merge($podaneLieky, $vysetrenie->getPodaneLieky());
         }
 
-        return $arr;
+        return $podaneLieky;
     }
 
     public function getVysetrenia(){

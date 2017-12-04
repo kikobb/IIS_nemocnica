@@ -18,7 +18,6 @@ class VyhladavanieController extends Controller
 
     private function findDoktor(Request $request){
         $ret = User::first();
-//        dump($ret);
         if ($request['cat_2'] == 'meno')
             $ret = $ret->findUsersByMeno($request['vyhladavanie']);
         if ($request['cat_2'] == 'priezvisko') {
@@ -27,7 +26,7 @@ class VyhladavanieController extends Controller
         if ($request['cat_2'] == 'oddelenie') {
             $ret = $ret->findDoktorByOddelenie($request['vyhladavanie']);
         }
-//        dd($ret->get());
+        
         return view('zamestnanec.founded')->with([
             'currUser' => Auth::user(),
             'osoby' => $ret->get(),
