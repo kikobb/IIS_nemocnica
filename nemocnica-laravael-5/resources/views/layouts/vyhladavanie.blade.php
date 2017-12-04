@@ -32,7 +32,7 @@
                  'príjemca' => 'Príjemca',
                  'liek' => 'Liek',
                  'oddelenie' => 'Oddelenie',
-                 'izba' => 'Izba',),old('dest_dropdown'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                 'izba' => 'Izba',),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
              @endif
         </div>
 
@@ -50,7 +50,7 @@
                 'cas' => 'Dátum',
                 'poschodie' => 'Poschodie',
                 'kapacita' => 'Kapacita',
-                'cislo' => 'Číslo',),old('dest_dropdown'), array('id'=>'secondary_selector', 'class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
+                'cislo' => 'Číslo',),old('cat_2'), array('id'=>'secondary_selector', 'class'=>'form-control','required' => 'required','placeholder'=>'Vyberte'))}}
         </div>
 
 

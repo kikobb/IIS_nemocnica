@@ -8,7 +8,7 @@
 
         <div class="col-md-10">
             <div class="dropdown">
-                <a href="{{ route('zamestnanec.index' }}"><button class="dropbtn"><span type="submit" class="glyphicon glyphicon-home"></span> Domov</button></a>
+                <a href="{{ route('zamestnanec.index') }}"><button class="dropbtn"><span class="glyphicon glyphicon-home"></span> Domov</button></a>
             </div>
 
             <div class="dropdown">
