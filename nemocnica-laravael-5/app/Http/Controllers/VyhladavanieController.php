@@ -120,7 +120,9 @@ class VyhladavanieController extends Controller
             $ret = Oddelenie::getPobytyByOddelenie($request['vyhladavanie']);
         }
         if ($request['cat_2'] == 'rodne_cislo'){
-            $ret = User::getUserByRodneCislo($request['vyhladavanie'])->getPobyty();
+            $ret = User::getUserByRodneCislo($request['vyhladavanie']);
+            if ($ret != null)
+                $ret = $ret->getPobyty();
         }
 
         return view('pobyt.founded')->with([
@@ -140,9 +142,9 @@ class VyhladavanieController extends Controller
             $ret = Vysetrenie::getVysetrenieByOddelenie($request['vyhladavanie']);
         }
 
-        return view('vysetrenie.founded')->where([
+        return view('vysetrenie.founded')->with([
             'currUser' => Auth::user(),
-            'vysetrenia' => $ret,
+            'vysetrenia' => (!isset($ret) || $ret == null)? null : $ret->get(),
         ]);
     }
 
@@ -186,7 +188,7 @@ class VyhladavanieController extends Controller
             case 'pobyt':
                 return $this->findPobyt($request);
                 break;
-            case 'vyšetrenie':
+            case 'vysetrenie':
                 return $this->findVysetrenie($request);
                 break;
         }
