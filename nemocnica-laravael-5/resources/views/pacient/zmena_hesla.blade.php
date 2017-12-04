@@ -6,7 +6,7 @@
         <h2>Zmena hesla</h2>
 
 
-        {{ Form::open(['route' => 'pacient.updateHeslo', 'method' => 'post', 'class' => 'form']) }}
+        {{ Form::open(['route' => 'pacient.updateHeslo', $currUser->id, 'method' => 'post', 'class' => 'form']) }}
 
 
 
