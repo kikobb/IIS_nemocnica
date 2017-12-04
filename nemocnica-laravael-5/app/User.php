@@ -31,7 +31,8 @@ class User extends Authenticatable
         return $result;
     }
 
-    public static function scopeFindAllUsersByPozicia($query, $poz){
+
+    public function scopeFindAllUsersByPozicia($query, $poz){
         return $query->where('pozicia', '=', $poz);
     }
 
@@ -43,12 +44,16 @@ class User extends Authenticatable
         return $query->where('priezvisko', '=', $priezvisko);
     }
 
-    public static function scopeFindDoktorByOddelenie($query, $oddelenie){
+    public function scopeFindDoktorByOddelenie($query, $oddelenie){
         return $query->where('oddelenie_doktor_id', '=', $oddelenie);
     }
 
-    public static function scopeFindSestaByOddelenie($query, $oddelenie){
+    public function scopeFindSestaByOddelenie($query, $oddelenie){
         return $query->where('oddelenie_sestra_id', '=', $oddelenie);
+    }
+
+    public function scopeFindPacientByRodneCislo($query, $rodne_cislo){
+        return $query->where('rodne_cislo', '=', $rodne_cislo);
     }
 
     /** vracia pole podanych likov pre pacienta inak prazdne pole */

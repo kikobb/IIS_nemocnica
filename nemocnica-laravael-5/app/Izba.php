@@ -27,9 +27,30 @@ class Izba extends Model
 //        $izba->save();
 //    }
 
-    public static function getIzbaByNumber($nmbr){
+    public static function getIzbaIdByNumber($nmbr){
         $pom = Izba::where('cislo', $nmbr)->first();
         return $pom->id;
+    }
+
+    public static function getIzbaByNumber($numbr) {
+        return Izba::where('cislo', '=', $numbr);
+    }
+
+    public static function getIzbyByKapacita($kap) {
+        return Izba::where('kapacita', '=', $kap);
+    }
+
+    public static function getIzbaByTyp($typ) {
+        return Izba::where('typ', '=', $typ);
+    }
+
+
+    public function getPobytyOnIzbaToArr(){
+        $arr = Array();
+        foreach($this->pobyty()->get() as $pobyt){
+            $arr[] = $pobyt;
+        }
+        return $arr;
     }
 
     public function getMyOddelenie(){

@@ -9,12 +9,25 @@ class Pobyt extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'pobyty';
 
+    public static function getPobytyByDatumPrichodu($datum){
+        return Pobyt::where('datum_prichodu', '=', $datum);
+    }
+
+    public static function getPobytyByDatumOdchodu($datum){
+        return Pobyt::where('datum_odchodu', '=', $datum);
+    }
+
+
     public function getDoktor(){
         return $this->doktor()->first();
     }
 
     public function getPrijemca(){
         return $this->prijemca()->first();
+    }
+
+    public function getPacient(){
+        return $this->pacient()->first();
     }
 
     public function getIzba(){

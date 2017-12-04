@@ -68,7 +68,7 @@ class PobytController extends Controller
         $pobyt = new Pobyt();
         $pobyt->pacient_id = User::getUserByRodneCislo($request['rodne_cislo'])->id;
         $pobyt->prijemca_id = Auth::user()->id;
-        $pobyt->izba_id = Izba::getIzbaByNumber($request['cislo_izby']);
+        $pobyt->izba_id = Izba::getIzbaIdByNumber($request['cislo_izby']);
         $pobyt->datum_prichodu = $request['datum_prichodu'];
         $pobyt->doktor_id = User::getAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
@@ -134,7 +134,7 @@ class PobytController extends Controller
         $pobyt->doktor_id = $request['doktor_id'];
         $pobyt->pacient_id = User::getUserByRodneCislo($request['rodne_cislo'])->id;
         $pobyt->prijemca_id = Auth::user()->id;
-        $pobyt->izba_id = Izba::getIzbaByNumber($request['cislo_izby']);
+        $pobyt->izba_id = Izba::getIzbaIdByNumber($request['cislo_izby']);
         $pobyt->datum_prichodu = $request['datum_prichodu'];
         if ($request->has('datum_odchodu')){
             $pobyt->datum_odchodu = $request['datum_odchodu'];

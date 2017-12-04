@@ -29,6 +29,23 @@ class Oddelenie extends Model
         return Oddelenie::pluck('nazov')->toArray();
     }
 
+    public static function getOddelenieByNazov($nazov) {
+        return Oddelenie::where('nazov', '=', $nazov);
+    }
+
+    public static function getOddeleniaByPoschodie($poschodie) {
+        return Oddelenie::where('poschodie', '=', $poschodie);
+    }
+
+    public static function getPobytyByOddelenie($oddelenie){
+        $pobyty = Array();
+        foreach (Oddelenie::getOddelenieByNazov($oddelenie)->first()->izby()->get() as $izba){
+           $pobyty = array_merge($pobyty, $izba->getPobytyOnIzbaToArr());
+        }
+        return $pobyty;
+    }
+
+
     public function getName(){
         return $this->nazov;
     }

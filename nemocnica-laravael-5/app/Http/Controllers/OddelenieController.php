@@ -22,7 +22,7 @@ class OddelenieController extends Controller
     private function rules()
     {
         return [
-            'nazov' => 'required|max:50',
+            'nazov' => 'required|max:50|unique:oddelenia,naozov',
             'poschodie' => 'integer|max:255'
         ];
     }

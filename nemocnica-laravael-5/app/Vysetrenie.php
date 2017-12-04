@@ -9,6 +9,19 @@ class Vysetrenie extends Model
     //definovanie tabulky spojenej s modelom (implicitne k nazvu sa prida s a vyhlada tabulka)
     protected $table = 'vysetrenia';
 
+    public static function getVysetreniaByTyp($typ){
+        return Vysetrenie::where('typ', '=', $typ);
+    }
+
+    public static function getVysetreniaByDatum($datum){
+        return Vysetrenie::where('created_at', '=', $datum);
+    }
+
+    public static function getVysetrenieByOddelenie($oddelenie){
+        return Vysetrenie::where('oddelenie_id', '=', Oddelenie::getOddelenieByNazov($oddelenie));
+    }
+
+
     public function getDoktor(){
         return $this->doktor()->first();
     }
@@ -21,10 +34,8 @@ class Vysetrenie extends Model
         return $this->pacient()->first();
     }
 
-    public function getPodaneLieky(){
-//        return $this->podane_lieky()->get();
+    public function getPodaneLiekyOnVysetrenieToArr(){
         $arr = Array();
-
         foreach ($this->podane_lieky()->get() as $podany_liek) {
             $arr[] = $podany_liek;
         }

@@ -18,6 +18,14 @@ class Liek extends Model
         return $pom->id;
     }
 
+    public static function getLiekyByNazov($nazov){
+        return Liek::where('nazov', $nazov);
+    }
+
+    public static function getLiekyByUcinnaLatka($ucinnaLatka) {
+        return Liek::where('ucinna_latka', '=', $ucinnaLatka);
+    }
+
     public function podane_lieky(){
         return $this->hasMany('App\Podany_liek');
     }
