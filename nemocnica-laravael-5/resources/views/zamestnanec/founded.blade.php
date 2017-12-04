@@ -12,9 +12,11 @@
                     <th>#</th>
                     <th>Meno</th>
                     <th>Priezvisko</th>
-                    @if($osoby[1]->pozicia != 'prijemca')
-                        <th>Oddelenie</th>
-                    @endif
+                    @isset($osoby[0])
+                        @if($osoby[0]->pozicia != 'prijemca')
+                            <th>Oddelenie</th>
+                        @endif
+                    @endisset
                     @if($currUser->pozicia == 'admin')
                         <th>Zobraziť</th>
                     @endif

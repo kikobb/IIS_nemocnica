@@ -19,7 +19,7 @@ function changeInfos(primaryValue) {
         case 'liek':
             arr = medicineValues;
             break;
-        case 'príjemca':
+        case 'prijemca':
             arr = recipientValues;
             break;
         case 'oddelenie':
@@ -62,7 +62,7 @@ $(function() {
     })
 });
 
-let logoutUrl = '/';
+let logoutUrl = '/logout';
 
 $(function() {
     let time = new Date().getTime();

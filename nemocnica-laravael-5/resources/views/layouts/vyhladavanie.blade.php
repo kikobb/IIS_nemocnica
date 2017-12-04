@@ -6,7 +6,7 @@
             @if($currUser->pozicia == 'prijemca')
             {{ Form::select('cat_1',array('doktor' => 'Doktor',
              'sestra' => 'Sestra',
-             'príjemca' => 'Príjemca',
+             'prijemca' => 'Príjemca',
              'liek' => 'Liek',
              'oddelenie' => 'Oddelenie',
              'izba' => 'Izba',
@@ -17,7 +17,7 @@
              @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
                     {{ Form::select('cat_1',array('doktor' => 'Doktor',
                      'sestra' => 'Sestra',
-                     'príjemca' => 'Príjemca',
+                     'prijemca' => 'Príjemca',
                      'liek' => 'Liek',
                      'oddelenie' => 'Oddelenie',
                      'izba' => 'Izba',
@@ -29,7 +29,7 @@
              @if($currUser->pozicia == 'pacient' || $currUser->pozicia == 'admin')
                  {{ Form::select('cat_1',array('doktor' => 'Doktor',
                  'sestra' => 'Sestra',
-                 'príjemca' => 'Príjemca',
+                 'prijemca' => 'Príjemca',
                  'liek' => 'Liek',
                  'oddelenie' => 'Oddelenie',
                  'izba' => 'Izba',),old('cat_1'), array('id'=>'primary_selector','class'=>'form-control','placeholder'=>'Vyberte si z možností','required' => 'required'))}}
