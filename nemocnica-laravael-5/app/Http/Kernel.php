@@ -44,7 +44,7 @@ class Kernel extends HttpKernel
         AdminPersonalNoIndexCheck::class,
         PersonalPacientNoIndexCheck::class,
         DoktorSestraPacientIndChck::class,
-        PacientIndChck::class,
+//        PacientIndChck::class,
 
     ];
 
@@ -93,6 +93,6 @@ class Kernel extends HttpKernel
         'admPersNoIndChck' => AdminPersonalNoIndexCheck::class,
         'persPacientNoIndChck' => PersonalPacientNoIndexCheck::class,
         'doktorSestraPacientIndChck' => DoktorSestraPacientIndChck::class,
-        'pacientIndChck' => PacientIndChck::class,
+//        'pacientIndChck' => PacientIndChck::class,
     ];
 }

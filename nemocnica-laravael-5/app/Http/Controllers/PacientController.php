@@ -15,7 +15,7 @@ class PacientController extends Controller
         $this->middleware('personal')->except('index', 'show', 'vysetrenia', 'pobyty',
                                                 'lieky', 'editHeslo', 'updateHeslo');
         $this->middleware('personalPacient')->only('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
-        $this->middleware('pacientIndChck')->only('editHeslo', 'updateHeslo');
+//        $this->middleware('pacientIndChck')->only('editHeslo', 'updateHeslo');
     }
 
     private function uniqueRules(){
