@@ -65,7 +65,7 @@ class PodanyLiekController extends Controller
      */
     public function createCustom($id)
     {
-        return view('podanyLiek.createEdit')->with([
+        return view('podany_liek.createEdit')->with([
             'currUser' => Auth::user(),
             'lieky' => Liek::getAllLiekyToArr(),
             'vysetrenie_id' => $id,
@@ -124,7 +124,7 @@ class PodanyLiekController extends Controller
      */
     public function show($id)
     {
-        return view('podanyLiek.show')->with([
+        return view('podany_liek.show')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
         ]);
@@ -138,7 +138,7 @@ class PodanyLiekController extends Controller
      */
     public function confirm($id)
     {
-        return view('podanyLiek.confirm')->with([
+        return view('podany_liek.confirm')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
             'lieky' => Liek::getAllLiekyToArr(),
@@ -153,7 +153,7 @@ class PodanyLiekController extends Controller
      */
     public function edit($id)
     {
-        return view('podanyLiek.createEdit')->with([
+        return view('podany_liek.createEdit')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
             'lieky' => Liek::getAllLiekyToArr(),
