@@ -35,29 +35,34 @@
             <div class="col-md-6">{{$vysetrenie->sprava}} </div>
         </div>
 
-        {{--<div class="table">--}}
-            {{--<table class="table table-striped">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-                    {{--<th>#</th>--}}
-                    {{--<th>Podanné lieky</th>--}}
-                    {{--<th>Dávkovanie</th>--}}
-                    {{--<th>Čas podávania</th>--}}
-                {{--</tr>--}}
-                {{--</thead>--}}
-                {{--<tbody>--}}
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Názov</th>
+                    <th>Čas dávkovania </th>
+                    <th>Množstvo dávkovania</th>
+                    <th>Zobraziť</th>
+                </tr>
+                </thead>
+                <tbody>
 
-                {{--@for ($i = 0; $i < count($podanne_lieky); $i++)--}}
-                    {{--<tr>--}}
-                        {{--<td >{{$i +1}}</td>--}}
-                        {{--<td >{{$podanne_lieky}}</td>--}}
-                        {{--<td >{{$podanne_lieky->mnozstvo}}</td>--}}
-                        {{--<td >{{$podanne_lieky->cas}}</td>--}}
-                    {{--</tr>--}}
-                {{--@endfor--}}
-                {{--</tbody>--}}
-            {{--</table>--}}
-        {{--</div>--}}
+                @for ($i = 0; $i < count($podane_lieky); $i++)
+                    <tr>
+                        <td >{{$i +1}}</td>
+                        <td >{{$podane_lieky[$i]->nazov}}</td>
+                        <td >{{$podane_lieky[$i]->cas}}</td>
+                        <td >{{$podane_lieky[$i]->mnozstvo}}</td>
+                        <td ><span class="input-group-btn">
+                <a href="{{ route('podany_liek.edit', $podane_lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                </span>
+                        </td>
+                    </tr>
+                @endfor
+                </tbody>
+            </table>
+        </div>
 
 
         @if($currUser->pozicia == 'doktor')

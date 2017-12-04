@@ -43,7 +43,7 @@
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @if( !empty($podany_liek) )
-                {{ Form::open(['method' => 'DELETE', 'route' => ['podanyLiek.destroy', $podanny_liek->id],'class' => 'hidden', ]) }}
+                {{ Form::open(['method' => 'DELETE', 'route' => ['podanyLiek.destroy', $podany_liek->id],'class' => 'hidden', ]) }}
                 {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
                 {{ Form::close() }}@endif
         </div>
