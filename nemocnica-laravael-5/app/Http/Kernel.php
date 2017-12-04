@@ -15,6 +15,7 @@ use App\Http\Middleware\IsDoktor;
 use App\Http\Middleware\IsPacient;
 use App\Http\Middleware\IsPrijemca;
 use App\Http\Middleware\IsSestra;
+use App\Http\Middleware\PacientIndChck;
 use App\Http\Middleware\PersonalPacient;
 use App\Http\Middleware\PersonalPacientNoIndexCheck;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -43,6 +44,7 @@ class Kernel extends HttpKernel
         AdminPersonalNoIndexCheck::class,
         PersonalPacientNoIndexCheck::class,
         DoktorSestraPacientIndChck::class,
+        PacientIndChck::class,
 
     ];
 
@@ -91,5 +93,6 @@ class Kernel extends HttpKernel
         'admPersNoIndChck' => AdminPersonalNoIndexCheck::class,
         'persPacientNoIndChck' => PersonalPacientNoIndexCheck::class,
         'doktorSestraPacientIndChck' => DoktorSestraPacientIndChck::class,
+        'pacientIndChck' => PacientIndChck::class,
     ];
 }

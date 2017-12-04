@@ -12,8 +12,10 @@ class PacientController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('personal')->except('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
+        $this->middleware('personal')->except('index', 'show', 'vysetrenia', 'pobyty',
+                                                'lieky', 'editHeslo', 'updateHeslo');
         $this->middleware('personalPacient')->only('index', 'show', 'vysetrenia', 'pobyty', 'lieky');
+        $this->middleware('pacientIndChck')->only('editHeslo', 'updateHeslo');
     }
 
     private function uniqueRules(){
@@ -41,6 +43,13 @@ class PacientController extends Controller
             'cislo_poistovne' => 'string|max:10|nullable',
         ];
 
+    }
+
+    private function plainPasswordRules(){
+        return [
+            'password_old' => 'required|string',
+            'password_new' => 'required|string|min:6',
+        ];
     }
 
     /**
@@ -177,6 +186,42 @@ class PacientController extends Controller
         return view('pacient.zobraz_lieky')->with([
             'currUser' => Auth::user(),
             'podane_lieky' => User::findOrFail($id)->getPacientVsetkyPodaneLieky(),
+        ]);
+    }
+
+    public function editHeslo($id){
+        return view('pacient.zmena_hesla')->with([
+            'currUser' => Auth::user(),
+            'fail' => false,
+        ]);
+    }
+
+    private function editHesloFail($id){
+        dump('fail');
+        return view('pacient.zmena_hesla')->with([
+            'currUser' => Auth::user(),
+            'fail' => true,
+        ]);
+    }
+
+    /**
+     * Change specific reource
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function updateHeslo(Request $request, $id){
+        $request->validate($this->plainPasswordRules());
+        $user = User::findOrFail($id);
+        $hashPass = bcrypt($request['password_new']);
+        if ($user->password === $hashPass || $user->password !== bcrypt($request['password_old'])){
+            return $this->editHesloFail($id);
+        }
+        $user->password = $hashPass;
+        $user->save();
+        return view('uspesna_zmena_hesla')->with([
+            'currUsr' => Auth::user(),
         ]);
     }
 

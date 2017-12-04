@@ -20,10 +20,18 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 //admin
 Route::resource('admin', 'AdminController');
 Route::get('admin/{id}/confirm', 'AdminController@confirm');
+Route::get('admin/{id}/zmenaHesla, AdminController@zmenaHesla');
+//admin - zmena hesla
+Route::get('admin/{id}/editHeslo', 'AdminController@editHeslo');
+Route::post('admin/{id}/updateHeslo', 'AdminController@updateHeslo');
 
 //zamestnanec
 Route::resource('zamestnanec', 'UserController');
 Route::get('zamestnanec/{id}/confirm', 'UserController@confirm');
+Route::get('zamestnanec/{id}/zmenaHesla, UserController@zmenaHesla')->name('zamestnanec');
+//zamestnanec - zmena heslo
+Route::get('zamestnanec/{id}/editHeslo', 'UserController@editHeslo');
+Route::post('zamestnanec/{id}/updateHeslo', 'UserController@updateHeslo');
 
 //pacient
 Route::resource('pacient', 'PacientController');
@@ -31,6 +39,9 @@ Route::get('pacient/{id}/confirm', 'PacientController@confirm')->name('pac');
 Route::get('pacient/{id}/vysetrenia', 'PacientController@vysetrenia')->name('pacient_vysetrenia');
 Route::get('pacient/{id}/pobyty', 'PacientController@pobyty')->name('pacient_pobyty');
 Route::get('pacient/{id}/lieky', 'PacientController@lieky')->name('pacient_lieky');
+//pacient - zmena hesla
+Route::get('pacient/{id}/editHeslo', 'PacientController@editHeslo')->name('pacient.editHeslo');
+Route::post('pacient/{id}/updateHeslo', 'PacientController@updateHeslo')->name('pacient.updateHeslo');;
 
 
 //pobyt

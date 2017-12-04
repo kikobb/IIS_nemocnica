@@ -45,11 +45,11 @@ class User extends Authenticatable
     }
 
     public function scopeFindDoktorByOddelenie($query, $oddelenie){
-        return $query->where('oddelenie_doktor_id', '=', $oddelenie);
+        return $query->where('oddelenie_doktor_id', '=', Oddelenie::getIdFromName($oddelenie));
     }
 
     public function scopeFindSestaByOddelenie($query, $oddelenie){
-        return $query->where('oddelenie_sestra_id', '=', $oddelenie);
+        return $query->where('oddelenie_sestra_id', '=', Oddelenie::getIdFromName($oddelenie));
     }
 
     public function scopeFindPacientByRodneCislo($query, $rodne_cislo){
@@ -76,6 +76,10 @@ class User extends Authenticatable
 
     public function getPobyty(){
         return $this->pobyt()->get();
+    }
+
+    public function getMyOddelenie(){
+        return $this->oddelenie()->first()->getName();
     }
 
 
