@@ -128,7 +128,7 @@
                         Zmena hesla
                     </a>
 
-                    <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+                    <a href="{{ route('admin.destroy', $osoba->id) }}" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Zmazať</a>
                 @endif
             </div>
 

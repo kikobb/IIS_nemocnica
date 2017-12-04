@@ -6,13 +6,13 @@
     <div class="col-sm-6 ">
         <h2>Pobyt</h2>
 
-        @if( empty($liek) )
+        @if( empty($pobyt) )
             {{ Form::open(['route' => 'pobyt.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['pobyt.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['pobyt.destroy', $pobyt->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($liek, ['route' => ['pobyt.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($pobyt, ['route' => ['pobyt.update', $pobyt->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -75,8 +75,8 @@
 
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-            @if( !empty($liek) )
-                <a href="#" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Delete</a>
+            @if( !empty($pobyt) )
+                <a href="{{ route('pobyt.destroy', $pobyt->id) }}" onclick="$('deleteForm').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Zmazať</a>
             @endif
         </div>
 
