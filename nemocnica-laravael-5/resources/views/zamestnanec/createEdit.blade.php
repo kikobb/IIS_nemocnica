@@ -157,7 +157,7 @@
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
 
                 @if( !empty($osoba) )
-                    <a href="{{ route('zamestnanec_editHeslo', $osoba->id) }}" class="btn btn-info btn-lg">
+                    <a href="{{ route('zamestnanec_edit_heslo', $osoba->id) }}" class="btn btn-info btn-lg">
                         Zmena hesla
                     </a>
 
