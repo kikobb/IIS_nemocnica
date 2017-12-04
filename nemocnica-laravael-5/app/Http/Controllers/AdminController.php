@@ -135,7 +135,7 @@ class AdminController extends Controller
     }
 
     public function editHeslo($id){
-        return view('pacient.zmena_hesla')->with([
+        return view('admin.zmena_hesla')->with([
             'currUser' => Auth::user(),
             'fail' => false,
         ]);
