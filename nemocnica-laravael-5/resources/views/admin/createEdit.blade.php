@@ -124,7 +124,7 @@
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
                 @if( !empty($osoba) )
-                    <a href="{{ route('admin.editHeslo', $osoba->id) }}" class="btn btn-info btn-lg">
+                    <a href="{{ route('admin_editHeslo', $osoba->id) }}" class="btn btn-info btn-lg">
                         Zmena hesla
                     </a>
 
