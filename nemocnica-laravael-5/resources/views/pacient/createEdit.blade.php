@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group">
-                @if(empty($osoba))
+                @if(empty($pacient))
                     {{ Form::label('password', 'Heslo*:') }}
                     {{ Form::password('password',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
                 @endif

@@ -4,7 +4,7 @@
 
     @include('layouts.vyhladavanie')
 
-    <div class="col-sm-10 ">
+    <div class="col-sm-10 " id="founded">
         <div class="table">
             <table class="table table-striped">
                 <thead>
