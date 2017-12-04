@@ -18,10 +18,15 @@ class PersonalPacient
     {
         if ( Auth::check() )
             if (!Auth::user()->isDoktor() && !Auth::user()->isSestra() && !Auth::user()->isPrijemca()) {
-                $url = $request->getUri();
-                $id = substr($url, strrpos($url, '/') + 1);
-                if (!Auth::user()->isPacient() || (is_numeric($id) && $id != Auth::user()->id))
+                $segments = explode('/', $request->getUri());
+                $id_1 = $segments[count($segments) - 1];    //pre url: xxx/cislo
+                $id_2 = $segments[count($segments) - 2];    //pre url: xxx/cislo/edit alebo xxx/cislo/(vysetrenia/lieky/...)
+                //ak niesi ani doktor ani sestra ani prijemca alebo ak si pacient a sa chces pozret na stranku ktora sa ta netyka
+                if (!Auth::user()->isDoktor() && !Auth::user()->isSestra() && !Auth::user()->isPrijemca() ||
+                        (Auth::user()->isPacient() && (is_numeric($id_1) && $id_1 != Auth::user()->id) ||
+                            (is_numeric($id_2) && $id_2 != Auth::user()->id))) {
                     return redirect('/zamestnanec');
+                }
             }
         return $next($request);
     }

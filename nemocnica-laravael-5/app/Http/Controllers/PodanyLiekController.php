@@ -14,7 +14,7 @@ class PodanyLiekController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('doktor')->except('index', 'show');
-        $this->middleware('doktorSestra')->only('show');
+        $this->middleware('doktorSestraPacientIndChck')->only('show');
         //show pre vsetkych aby si aj pacient mohol pozret
     }
 
@@ -38,10 +38,11 @@ class PodanyLiekController extends Controller
      */
     public function index()
     {
-        return view('podanyLiek.index')->with([
-            'currUser' => Auth::user(),
-            'podane_lieky'  => Podany_liek::all(),
-        ]);
+//        return view('podanyLiek.index')->with([
+//            'currUser' => Auth::user(),
+//            'podane_lieky'  => Podany_liek::all(),
+//        ]);
+        return back();
     }
 
     /**

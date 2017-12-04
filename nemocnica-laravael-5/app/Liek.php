@@ -18,7 +18,6 @@ class Liek extends Model
         return $pom->id;
     }
 
-
     public function podane_lieky(){
         return $this->hasMany('App\Podany_liek');
     }

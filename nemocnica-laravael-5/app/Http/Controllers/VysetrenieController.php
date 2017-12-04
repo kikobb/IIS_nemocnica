@@ -15,8 +15,8 @@ class VysetrenieController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('doktor')->except('index', 'show');
-        $this->middleware('doktorSestra')->only('index', 'show');
+        $this->middleware('doktor')->except('show');
+        $this->middleware('doktorSestraPacientIndChck')->only('show');
     }
 
     /**
@@ -37,12 +37,14 @@ class VysetrenieController extends Controller
      */
     public function index()
     {
-        return view('vysetrenie.index')->with([
-            'currUser' => Auth::user(),
-            //TODO zle, sprav aby sa nevracali vsetky ale len od prhlaseneho
-            //TODO doktora a to len poslednych x, sprav to aj ostatnych kontrolleroch
-            'vysetrenia' => Vysetrenie::all(),
-        ]);
+//        //Todo daj cely index prec
+//        return view('vysetrenie.index')->with([
+//            'currUser' => Auth::user(),
+//            //TODO zle, sprav aby sa nevracali vsetky ale len od prhlaseneho
+//            //TODO doktora a to len poslednych x, sprav to aj ostatnych kontrolleroch
+//            'vysetrenia' => Vysetrenie::all(),
+//        ]);
+        return back();
     }
 
     /**

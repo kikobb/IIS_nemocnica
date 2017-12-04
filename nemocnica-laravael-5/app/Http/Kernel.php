@@ -7,6 +7,8 @@ use App\Http\Middleware\AdminPersonal;
 use App\Http\Middleware\AdminPersonalNoIndexCheck;
 use App\Http\Middleware\Doktor;
 use App\Http\Middleware\DoktorSestra;
+use App\Http\Middleware\DoktorSestraPacientIndChck;
+use App\Http\Middleware\DoktorSestraPacintIndCHck;
 use App\Http\Middleware\DoktorSestraPrijemca;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsDoktor;
@@ -40,6 +42,7 @@ class Kernel extends HttpKernel
         AdminPersonal::class,
         AdminPersonalNoIndexCheck::class,
         PersonalPacientNoIndexCheck::class,
+        DoktorSestraPacientIndChck::class,
 
     ];
 
@@ -87,5 +90,6 @@ class Kernel extends HttpKernel
         'adminPersonalIndChck' => AdminPersonal::class,
         'admPersNoIndChck' => AdminPersonalNoIndexCheck::class,
         'persPacientNoIndChck' => PersonalPacientNoIndexCheck::class,
+        'doktorSestraPacientIndChck' => DoktorSestraPacientIndChck::class,
     ];
 }

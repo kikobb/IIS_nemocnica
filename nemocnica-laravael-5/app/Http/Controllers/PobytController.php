@@ -14,7 +14,8 @@ class PobytController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('personal');
+        $this->middleware('personal')->except('show');
+        $this->middleware('parsonalPacient')->only('show');
     }
 
     private function rules()
