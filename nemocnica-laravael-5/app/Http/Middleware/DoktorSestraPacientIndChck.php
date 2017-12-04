@@ -16,9 +16,9 @@ class DoktorSestraPacientIndChck
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check() )
+        if ( Auth::check() ) {
             //ak niesi admin
-            if (!Auth::user()->isAdmin()){
+            if (!Auth::user()->isAdmin()) {
                 $segments = explode('/', $request->getUri());
                 $id_1 = $segments[count($segments) - 1];    //pre url: xxx/cislo
 //                $id_2 = $segments[count($segments) - 2];    //pre url: xxx/cislo/edit
@@ -28,6 +28,9 @@ class DoktorSestraPacientIndChck
                     return redirect('/zamestnanec');
                 }
             }
+            return redirect('/');
+        }
+//        dd(Auth::check());
         return $next($request);
     }
 }

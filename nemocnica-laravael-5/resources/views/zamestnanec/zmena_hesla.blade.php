@@ -11,16 +11,6 @@
 
 
         <div class="form-group">
-            {{ Form::label('password_old', 'Staré heslo*:') }}
-            {{ Form::password('password_old',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
-            @if ($errors->has('password_old'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password_old') }}</strong>
-                </span>
-            @endif
-        </div>
-
-        <div class="form-group">
             {{ Form::label('password_new', 'Nové heslo*:') }}
             {{ Form::password('password_new',array('required' => 'required','placeholder'=>' Heslo','class'=>'form-control')) }}
             @if ($errors->has('password_new'))

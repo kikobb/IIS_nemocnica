@@ -54,13 +54,14 @@
 
         <div class="form-group">
             {{ Form::label('sprava', 'Správa') }}
-            {{ Form::text('sprava', old('sprava'),array('placeholder'=>'Správa','class'=>'form-control')) }}
+            {{ Form::textarea('sprava', old('sprava'),array('placeholder'=>'Správa','class'=>'form-control')) }}
             @if ($errors->has('sprava'))
                 <span class="help-block">
                         <strong>{{ $errors->first('sprava') }}</strong>
                     </span>
             @endif
         </div>
+
 
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
@@ -75,5 +76,9 @@
         </div>
 
         {{ Form::close() }}
+
     </div>
+
+    {{--@include('podany_liek.createEdit')--}}
+
 @endsection
