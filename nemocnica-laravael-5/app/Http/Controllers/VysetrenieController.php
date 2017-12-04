@@ -96,6 +96,7 @@ class VysetrenieController extends Controller
         return view('vysetrenie.show')->with([
             'currUser' => Auth::user(),
             'vysetrenie' => Vysetrenie::findOrFail($id),
+            'podane_lieky' => Vysetrenie::findOrFail($id)->getPodaneLiekyOnVysetrenieToArr(),
         ]);
     }
 
