@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include('layouts.vyhladavanie')
 
     <div class="col-sm-10 ">
         <h2>Pobyt</h2>
