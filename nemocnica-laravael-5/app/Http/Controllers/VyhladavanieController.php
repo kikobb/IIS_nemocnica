@@ -16,8 +16,10 @@ class VyhladavanieController extends Controller
 //        $this->middleware('admin')->except('index', 'show');
     }
 
-    private function findDoktor(Request $request){
-        $ret = User::first();
+    private function findPersonal(Request $request){
+        //vybre users len s patricnou rolou
+        $ret = User::findAllUsersByPozicia($request['cat_1']);
+
         if ($request['cat_2'] == 'meno')
             $ret = $ret->findUsersByMeno($request['vyhladavanie']);
         if ($request['cat_2'] == 'priezvisko') {
@@ -26,19 +28,11 @@ class VyhladavanieController extends Controller
         if ($request['cat_2'] == 'oddelenie') {
             $ret = $ret->findDoktorByOddelenie($request['vyhladavanie']);
         }
-        
+
         return view('zamestnanec.founded')->with([
             'currUser' => Auth::user(),
             'osoby' => $ret->get(),
         ]);
-    }
-
-    private function findSestra(Request $request){
-
-    }
-
-    private function findPrijemca(Request $request){
-
     }
 
     private function findLiek(Request $request){
@@ -75,13 +69,9 @@ class VyhladavanieController extends Controller
     {
         switch ($request['cat_1']){
             case 'doktor':
-                return $this->findDoktor($request);
-                break;
             case 'sestra':
-                return $this->findSestra($request);
-                break;
             case 'prijemca':
-                return $this->findPrijemca($request);
+                return $this->findPersonal($request);
                 break;
             case 'liek':
                 return $this->findLiek($request);
