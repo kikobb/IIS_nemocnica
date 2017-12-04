@@ -30,7 +30,7 @@
                         <td >{{$poddane_lieky[$i]->pacient}}</td>
                         @if($currUser->pozicia == 'doktor' || $currUser->pozicia == 'sestra')
                             <td ><span class="input-group-btn">
-                                <a href="{{ route('poddany_liek.show', $poddane_lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                                <a href="{{ route('podany_liek', $poddane_lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                                 </span>
                             </td>
                         @endif

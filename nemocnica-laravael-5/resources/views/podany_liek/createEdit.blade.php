@@ -7,12 +7,12 @@
         <h2>Podanny liek</h2>
 
         @if( empty($podanny_liek) )
-            {{ Form::open(['route' => 'poddany_liek.store', 'method' => 'post', 'class' => 'form']) }}
+            {{ Form::open(['route' => 'podany_liek.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['poddany_liek.destroy', $podanny_liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['podany_liek.destroy', $podanny_liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
             {{ Form::close() }}
 
-            {{ Form::model($podanny_liek, ['route' => ['poddany_liek.update', $podanny_liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($podanny_liek, ['route' => ['podany_liek.update', $podanny_liek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
         <div class="form-group">

@@ -4,7 +4,7 @@
 
 
     <div class="col-sm-10 ">
-        <h2>Pobyt</h2>
+        <h2>Pobyty</h2>
         <div class="table">
             <table class="table table-striped">
                 <thead>

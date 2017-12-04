@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="col-sm-10 ">
+        <h2>Vysetrenia</h2>
         <div class="table">
             <table class="table table-striped">
                 <thead>

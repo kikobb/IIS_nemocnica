@@ -21,7 +21,7 @@
                 <div class="dropdown-content">
                     <a href="{{ route('pacient_vysetrenia', $currUser->id) }}">Vyšetrenia</a>
                     <a href="{{ route('pacient_pobyty', $currUser->id) }}">Pobyty</a>
-                    <a href="{{ route('pacient_pobyty', $currUser->id) }}">Lieky</a>
+                    <a href="{{ route('pacient_lieky', $currUser->id) }}">Lieky</a>
                 </div>
             </div>
 
