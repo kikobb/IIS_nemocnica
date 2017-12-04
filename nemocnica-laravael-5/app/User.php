@@ -31,8 +31,24 @@ class User extends Authenticatable
         return $result;
     }
 
-    public function scopeGetAllUsersByPozicia($query, $poz){
+    public static function scopeFindAllUsersByPozicia($query, $poz){
         return $query->where('pozicia', '=', $poz);
+    }
+
+    public function scopeFindUsersByMeno($query, $meno){
+        return $query->where('meno', '=', $meno);
+    }
+
+    public function scopeFindUsersByPriezvisko($query, $priezvisko){
+        return $query->where('priezvisko', '=', $priezvisko);
+    }
+
+    public static function scopeFindDoktorByOddelenie($query, $oddelenie){
+        return $query->where('oddelenie_doktor_id', '=', $oddelenie);
+    }
+
+    public static function scopeFindSestaByOddelenie($query, $oddelenie){
+        return $query->where('oddelenie_sestra_id', '=', $oddelenie);
     }
 
     /** vracia pole podanych likov pre pacienta inak prazdne pole */
