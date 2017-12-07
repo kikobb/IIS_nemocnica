@@ -71,5 +71,21 @@ class PobytySeeder extends Seeder {
         );
 
         DB::table('pobyty')->insert($item);
+        
+//uprava --
+        $item = array(
+            'id' => 6,
+            'doktor_id' => 23,
+            'pacient_id' => 26,
+            'prijemca_id' => 25,
+            'izba_id' => 1,
+            'datum_prichodu' => \Carbon\Carbon::parse('2015-08-31'),
+            'datum_odchodu' => \Carbon\Carbon::parse('2015-09-28'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('pobyty')->insert($item);
+        
+        
     }
 }
