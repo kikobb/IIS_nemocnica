@@ -61,8 +61,9 @@ class VysetreniaSeeder extends Seeder {
         $item = array(
             'doktor_id' => 23,
             'oddelenie_id' => 2,
-            'pacient_id' => 3,
-            'typ' => "rengen",
+            'pacient_id' => 26,
+            'typ' => "lobotomia",
+            'sprava' => 'pacient sa ukludnil', 
             //todo cekni ci to nespadne
             'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
