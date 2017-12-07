@@ -37,6 +37,16 @@ class Podane_liekySeeder extends Seeder {
         );
 
         DB::table('podane_lieky')->insert($item);
+//uprava --
+         $item = array(
+            'liek_id' => 4,
+            'vysetrenie_id' => 6,
+            'cas' => "kazde 2 hodiny",
+            'mnozstvo' => "500mg jedna davka",
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('podane_lieky')->insert($item);
 
         $item = array(
             'liek_id' => 4,
