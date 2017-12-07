@@ -363,6 +363,104 @@ class UsersSeeder extends Seeder {
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
-        DB::table('users')->insert($item);
+        DB::table('users')->insert($item) $cislo++;
+       
+//pridane __
+        $item = array(
+            'id' => $cislo,// 22,
+            'email' => 'admin@email.com',
+            'password' => bcrypt("admin"),
+            'rodne_cislo' => '9857233343',
+            'pozicia' => 'admin', 'cislo_poistovne' => '723D975297',
+            'meno' => 'Admin',
+            'priezvisko' => 'Adminovsky',
+            'mesto' => 'Zvolen',
+            'psc' => '96001',
+            'ulica_cislo' => 'Abrahamova 7',
+            'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('users')->insert($item); $cislo++;
+        
+        $item = array(
+            'id' => $cislo,// 23,
+            'email' => 'doktor@email.com',
+            'password' => bcrypt("doktor"),
+            'rodne_cislo' => '9857233342',
+            'pozicia' => 'doktor',
+            'meno' => 'Doktorko',
+            'priezvisko' => 'Doktorovsky',
+            'mesto' => 'Zvolen',
+            'psc' => '96001',
+            'ulica_cislo' => 'Abrahamova 7',
+            'uvazok' => 'plny',
+            'cislo_uctu' => '5402 1366 9144 7283',
+            'telefon' => '+421904446628',
+            'oddelenie_doktor_id' => '2', //chirurgia
+            
+            'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('users')->insert($item); $cislo++;
+
+        $item = array(
+            'id' => $cislo,// 24,
+            'email' => 'sestra@email.com',
+            'password' => bcrypt('sestra'),
+            'rodne_cislo' => '9857233342',
+            'pozicia' => 'sestra', 'cislo_poistovne' => '723D975297',
+            'meno' => 'Sestricka',
+            'priezvisko' => 'Sestrovska',
+            'mesto' => 'Zvolen',
+            'psc' => '96001',
+            'ulica_cislo' => 'Abrahamova 7',
+            'uvazok' => 'plny',
+            'cislo_uctu' => '7634 1366 9564 5673',
+            'telefon' => '+421904462628',
+            'oddelenie_sestra_id' => '2'    //chirurgia
+            'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('users')->insert($item); $cislo++;
+        
+        $item = array(
+            'id' => $cislo,// 25,
+            'email' => 'prijemca@email.com',
+            'password' => bcrypt('prijemca'),
+            'rodne_cislo' => '9857233342',
+            'pozicia' => 'prijemca', 'cislo_poistovne' => '723D975297',
+            'meno' => 'Prijemca',
+            'priezvisko' => 'Prijemcovsky',
+            'mesto' => 'Zvolen',
+            'psc' => '96001',
+            'ulica_cislo' => 'Abrahamova 7',
+            'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('users')->insert($item); $cislo++;
+
+        
+        $item = array(
+            'id' => $cislo,// 26,
+            'email' => 'pacient@email.com',
+            'password' => bcrypt('pacient'),
+            'rodne_cislo' => '9857233342',
+            'pozicia' => 'pacient', 'cislo_poistovne' => '723D975297',
+            'meno' => 'Pacient',
+            'priezvisko' => 'Pacientovsky',
+            'mesto' => 'Zvolen',
+            'psc' => '96001',
+            'ulica_cislo' => 'Abrahamova 7',
+            'cislo_poistovne' => '723D975299'
+            'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
+            'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+        
+        DB::table('users')->insert($item); $cislo++;
+//pridane __
     }
 }
