@@ -56,5 +56,17 @@ class VysetreniaSeeder extends Seeder {
         );
 
         DB::table('vysetrenia')->insert($item);
+        
+//uprava __        
+        $item = array(
+            'doktor_id' => 23,
+            'oddelenie_id' => 2,
+            'pacient_id' => 3,
+            'typ' => "rengen",
+            //todo cekni ci to nespadne
+            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
+        );
+
+        DB::table('vysetrenia')->insert($item);
     }
 }
