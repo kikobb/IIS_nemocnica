@@ -363,7 +363,7 @@ class UsersSeeder extends Seeder {
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
-        DB::table('users')->insert($item) $cislo++;
+        DB::table('users')->insert($item); $cislo++;
        
 //pridane __
         $item = array(
@@ -419,7 +419,7 @@ class UsersSeeder extends Seeder {
             'uvazok' => 'plny',
             'cislo_uctu' => '7634 1366 9564 5673',
             'telefon' => '+421904462628',
-            'oddelenie_sestra_id' => '2'    //chirurgia
+            'oddelenie_sestra_id' => '2',    //chirurgia
             'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
@@ -455,12 +455,12 @@ class UsersSeeder extends Seeder {
             'mesto' => 'Zvolen',
             'psc' => '96001',
             'ulica_cislo' => 'Abrahamova 7',
-            'cislo_poistovne' => '723D975299'
+            'cislo_poistovne' => '723D975299',
             'datum_narodenia' => \Carbon\Carbon::parse('2017-03-26'),
             'created_at' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
         
-        DB::table('users')->insert($item); $cislo++;
+        DB::table('users')->insert($item);
 //pridane __
     }
 }

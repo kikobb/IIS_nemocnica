@@ -65,7 +65,6 @@ class VysetreniaSeeder extends Seeder {
             'typ' => "lobotomia",
             'sprava' => 'pacient sa ukludnil', 
             //todo cekni ci to nespadne
-            'cas' => \carbon\Carbon::now()->format('Y-m-d H:i:s')
         );
 
         DB::table('vysetrenia')->insert($item);
