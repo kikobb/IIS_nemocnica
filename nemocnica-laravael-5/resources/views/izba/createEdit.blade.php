@@ -9,9 +9,6 @@
         @if( empty($izba) )
             {{ Form::open(['route' => 'izba.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['izba.destroy', $izba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-            {{ Form::close() }}
-
             {{ Form::model($izba, ['route' => ['izba.update', $izba->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
@@ -45,19 +42,38 @@
             {{ Form::select('oddelenie_id',$oddelenia, old('oddelenie_id'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
+
         <div class="form-group">
-            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @if( !empty($izba) )
-                {{ Form::open(['method' => 'DELETE', 'route' => ['izba.destroy', $izba->id],'class' => 'hidden', ]) }}
-                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
-                {{ Form::close() }}
+                {{ Form::button('<span class="glyphicon glyphicon-save"></span> Zmeniť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+
+                @else
+                    {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
             @endif
         </div>
+
+
+
+        @if( !empty($izba) )
+            <div class="form-group">
+                {{--{{ Form::open(['route' => ['izba.destroy', $izba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}--}}
+
+                {{--{{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}--}}
+                {{--{{ Form::close() }}--}}
+
+                <a href="{{ route('izba.destroy', $izba->id) }}" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>Zmena údajov
+                </a>
+            </div>
+        @endif
+
+
 
         <div class="form-group">
             <span >*</span> - sú označené povinné údaje
         </div>
-
         {{ Form::close() }}
+
+
     </div>
 @endsection
