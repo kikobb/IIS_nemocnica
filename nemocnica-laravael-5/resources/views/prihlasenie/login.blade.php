@@ -10,7 +10,7 @@
         <form class="form-horizontal">
 
             <div class="form-group">
-                {{ Form::label('email', 'Emailová adresa:') }}
+                {{ Form::label('email', 'Emailová adresa - new:') }}
                 {{ Form::email('email', old('email'),array('required' => 'required autofocus','placeholder'=>' janko@gmail.com','class'=>'form-control')) }}
                 @if ($errors->has('email'))
                     <span class="help-block">
