@@ -29,6 +29,16 @@ class IzbaController extends Controller
         ];
     }
 
+    private function editRule()
+    {
+        return[
+            'typ' => 'required|string|max:20',
+            'kapacita' => 'required|integer|max:255',
+            'oddelenie_id' => 'required|integer',
+            'cislo' => 'required|integer|max:65000',
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -129,10 +139,14 @@ class IzbaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate($this->rules());
+        $izba = Izba::findOrFail($id);
+        if ($izba->cislo == $request['cislo']) {
+            $request->validate($this->editRule());
+        }else{
+            $request->validate($this->rules());
+        }
 
         /* @var Izba $izba */
-        $izba = Izba::findOrFail($id);
         $izba->typ = $request['typ'];
         $izba->kapacita = $request['kapacita'];
         $izba->cislo = $request['cislo'];
