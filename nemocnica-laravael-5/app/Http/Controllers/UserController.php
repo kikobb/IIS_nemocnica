@@ -14,8 +14,8 @@ class UserController extends Controller
     function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except('index', 'show', 'edit', 'editHeslo', 'updateHeslo');
-        $this->middleware('adminPersonalIndChck')->only('show', 'edit', 'editHeslo', 'updateHeslo');
+//        $this->middleware('adminPersonalIndChck')->only('show', 'edit', 'editHeslo', 'updateHeslo');
+//        $this->middleware('admin')->except('index', 'show', 'edit', 'editHeslo', 'updateHeslo');
         //index musi byt pre vsetkych prihlasenych lebo on rozhadzuje do patricnych routov
     }
 

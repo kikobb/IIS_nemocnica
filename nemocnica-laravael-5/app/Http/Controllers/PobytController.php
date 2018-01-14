@@ -70,7 +70,8 @@ class PobytController extends Controller
         $pobyt->prijemca_id = Auth::user()->id;
         $pobyt->izba_id = Izba::getIzbaIdByNumber($request['cislo_izby']);
         $pobyt->datum_prichodu = $request['datum_prichodu'];
-        $pobyt->doktor_id = User::getAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
+//        dd($request['doktor_poradie']);
+        $pobyt->doktor_id = User::findAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
         return $this->confirm($pobyt->id);
     }
