@@ -137,9 +137,10 @@ class PodanyLiekController extends Controller
      */
     public function confirm($id)
     {
+        dd(Podany_liek::findOrFail($id));
         return view('podany_liek.confirm')->with([
             'currUser' => Auth::user(),
-            'podany_liek' => Podany_liek::findOrFail($id),
+            'podanyLiek' => Podany_liek::findOrFail($id),
             'lieky' => Liek::getAllLiekyToArr(),
         ]);
     }
