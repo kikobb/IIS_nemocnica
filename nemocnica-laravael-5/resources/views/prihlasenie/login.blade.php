@@ -42,7 +42,7 @@
                 <div class="col-md-8">
                     {{ Form::button('<span class="glyphicon glyphicon-log-in"></span> Prihlásiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
 
-                    <a href="{{ route('prihlasenie.zabudnute_heslo') }}" class="btn btn-link">
+                    <a class="btn btn-link" href="prihlasenie.zabudnute_heslo">
                         Zabudli ste heslo?
                     </a>
                 </div>
