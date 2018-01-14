@@ -26,7 +26,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="{{ route('pacient_editHeslo', $currUser->id) }}"><button class="dropbtn">Zmeniť heslo</button></a>
+                <a href="{{ route('pacient_edit_heslo', $currUser->id) }}"><button class="dropbtn">Zmeniť heslo</button></a>
             </div>
         </div>
 

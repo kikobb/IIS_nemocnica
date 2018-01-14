@@ -64,7 +64,7 @@ class User extends Authenticatable
         }
 
         foreach ($this->vysetrenie()->get() as $vysetrenie) {
-            $podaneLieky = array_merge($podaneLieky, $vysetrenie->getPodaneLieky());
+            $podaneLieky = array_merge($podaneLieky, $vysetrenie->getPodaneLiekyOnVysetrenieToArr());
         }
 
         return $podaneLieky;

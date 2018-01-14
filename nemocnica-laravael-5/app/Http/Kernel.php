@@ -8,13 +8,7 @@ use App\Http\Middleware\AdminPersonalNoIndexCheck;
 use App\Http\Middleware\Doktor;
 use App\Http\Middleware\DoktorSestra;
 use App\Http\Middleware\DoktorSestraPacientIndChck;
-use App\Http\Middleware\DoktorSestraPacintIndCHck;
 use App\Http\Middleware\DoktorSestraPrijemca;
-use App\Http\Middleware\IsAdmin;
-use App\Http\Middleware\IsDoktor;
-use App\Http\Middleware\IsPacient;
-use App\Http\Middleware\IsPrijemca;
-use App\Http\Middleware\IsSestra;
 use App\Http\Middleware\PacientIndChck;
 use App\Http\Middleware\PersonalPacient;
 use App\Http\Middleware\PersonalPacientNoIndexCheck;
@@ -35,16 +29,15 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
-        PersonalPacient::class,
-        Doktor::class,
-        DoktorSestra::class,
-        DoktorSestraPrijemca::class,
-        Admin::class,
-        AdminPersonal::class,
-        AdminPersonalNoIndexCheck::class,
-        PersonalPacientNoIndexCheck::class,
-        DoktorSestraPacientIndChck::class,
-//        PacientIndChck::class,
+        \App\Http\Middleware\PersonalPacient::class,
+        \App\Http\Middleware\Doktor::class,
+        \App\Http\Middleware\DoktorSestra::class,
+        \App\Http\Middleware\DoktorSestraPrijemca::class,
+        \App\Http\Middleware\Admin::class,
+        \App\Http\Middleware\AdminPersonal::class,
+        \App\Http\Middleware\AdminPersonalNoIndexCheck::class,
+        \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
+        \App\Http\Middleware\DoktorSestraPacientIndChck::class,
 
     ];
 
@@ -84,15 +77,14 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'personalPacient' => PersonalPacient::class,
-        'personal' => DoktorSestraPrijemca::class,
-        'doktor' => Doktor::class,
-        'doktorSestra' => DoktorSestra::class,
-        'admin' => Admin::class,
-        'adminPersonalIndChck' => AdminPersonal::class,
-        'admPersNoIndChck' => AdminPersonalNoIndexCheck::class,
-        'persPacientNoIndChck' => PersonalPacientNoIndexCheck::class,
-        'doktorSestraPacientIndChck' => DoktorSestraPacientIndChck::class,
-//        'pacientIndChck' => PacientIndChck::class,
+        'personalPacient' => \App\Http\Middleware\PersonalPacient::class,
+        'personal' => \App\Http\Middleware\DoktorSestraPrijemca::class,
+        'doktor' => \App\Http\Middleware\Doktor::class,
+        'doktorSestra' => \App\Http\Middleware\DoktorSestra::class,
+        'admin' => \App\Http\Middleware\Admin::class,
+        'adminPersonalIndChck' => \App\Http\Middleware\AdminPersonal::class,
+        'admPersNoIndChck' => \App\Http\Middleware\AdminPersonalNoIndexCheck::class,
+        'persPacientNoIndChck' => \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
+        'doktorSestraPacientIndChck' => \App\Http\Middleware\DoktorSestraPacientIndChck::class,
     ];
 }

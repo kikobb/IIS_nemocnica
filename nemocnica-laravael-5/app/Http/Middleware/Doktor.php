@@ -16,6 +16,7 @@ class Doktor
      */
     public function handle($request, Closure $next)
     {
+
         if ( Auth::check() && !Auth::user()->isDoktor() ) {
             return redirect('/zamestnanec');
         }
