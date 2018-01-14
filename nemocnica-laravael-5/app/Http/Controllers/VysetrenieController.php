@@ -16,7 +16,7 @@ class VysetrenieController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('doktor')->except('show');
-        $this->middleware('doktorSestraPacientIndChck')->only('show');
+//        $this->middleware('doktorSestraPacientIndChck')->only('show');
     }
 
     /**
@@ -37,6 +37,7 @@ class VysetrenieController extends Controller
      */
     public function index()
     {
+        dd("tutok");
 //        //Todo daj cely index prec
 //        return view('vysetrenie.index')->with([
 //            'currUser' => Auth::user(),

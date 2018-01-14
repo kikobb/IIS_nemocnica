@@ -86,19 +86,21 @@ class PacientController extends Controller
         $request->validate($this->rules());
         $request->validate($this->uniqueRules());
 
-        $user = User::create([
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-            'pozicia' => 'pacient',
-            'meno' => $request['meno'],
-            'priezvisko' => $request['priezvisko'],
-        ]);
+//        $user = User::create([
+//            'email' => $request['email'],
+//            'password' => bcrypt($request['password']),
+//            'pozicia' => 'pacient',
+//            'meno' => $request['meno'],
+//            'priezvisko' => $request['priezvisko'],
+//        ]);
         //TODO to co je zkomentovane je nehrada za konstruktor
-//        $user->email = $request['email'];
-//        $user->password = bcrypt($request['password']);
-//        $user->pozicia = $request['pozicia'];
-//        $user->meno = $request['meno'];
-//        $user->priezvisko = $request['priezvisko'];
+        $user = new User();
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['password']);
+        $user->pozicia = (is_null($request['pozicia']) ?  "pacient" : $request['pozicia']);
+        $user->meno = $request['meno'];
+        $user->priezvisko = $request['priezvisko'];
+
         if ( $request->has('rodne_cislo') )
             $user->rodne_cislo = $request['rodne_cislo'];
         if ( $request->has('mesto') )
