@@ -6,7 +6,6 @@
     <div class="col-sm-6 ">
         <h2>Pobyt</h2>
 
-        {{dd("ABCD")}}
         @if( empty($pobyt) )
             {{ Form::open(['route' => 'pobyt.store', 'method' => 'post', 'class' => 'form']) }}
         @else

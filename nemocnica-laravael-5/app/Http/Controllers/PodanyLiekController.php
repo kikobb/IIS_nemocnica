@@ -137,7 +137,6 @@ class PodanyLiekController extends Controller
      */
     public function confirm($id)
     {
-        dd(Podany_liek::findOrFail($id));
         return view('podany_liek.confirm')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
@@ -174,9 +173,9 @@ class PodanyLiekController extends Controller
         /* @var Podany_liek $pliek */
         $pliek = Podany_liek::findOrFail($id);
         $pliek->cas = $request['cas'];
-        $pliek->nmozstvo = $request['mnozstvo'];
+        $pliek->mnozstvo = $request['mnozstvo'];
         $pliek->liek_id = $request['liek_id'];
-        $pliek->vysetrenie_id = $request['vysetrenie_id'];
+//        $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->save();
 
         return $this->confirm($pliek->id);

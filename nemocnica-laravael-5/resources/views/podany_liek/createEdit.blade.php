@@ -6,9 +6,11 @@
     <div class="col-sm-6 ">
         <h2>Pridať liek</h2>
 
+
         @if( empty($podanyLiek) )
-            {{ Form::open(['route' => ['store_podany_liek',$podanyLiek->vysetrenie_id], 'method' => 'post', 'class' => 'form']) }}
+            {{ Form::open(['route' => ['store_podany_liek', $vysetrenie_id], 'method' => 'post', 'class' => 'form']) }}
         @else
+{{--            {{dd($podanyLiek)}}--}}
             {{ Form::model($podanyLiek, ['route' => ['podanyLiek.update', $podanyLiek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
