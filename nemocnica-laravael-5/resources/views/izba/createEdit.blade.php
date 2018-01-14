@@ -40,7 +40,7 @@
 
         <div class="form-group">
             {{ Form::label('oddelenie_id', 'Oddelenie*:') }}
-            {{ Form::select('oddelenie_id',$oddelenia, old('oddelenie_id'), array('class'=>'form-control','required' => 'required'))}}
+            {{ Form::select('oddelenie_id',$oddelenia, old('oddelenie_id')-1, array('class'=>'form-control','required' => 'required'))}}
         </div>
 
 

@@ -99,7 +99,7 @@
 
             <div class="form-group">
                 {{ Form::label('ulica_cislo', 'Ulica a číslo domu:') }}
-                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('required' => 'required','placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
+                {{ Form::text('ulica_cislo', old('ulica_cislo'),array('placeholder'=>'Ulica a číslo domu','class'=>'form-control')) }}
                 @if ($errors->has('ulica_cislo'))
                     <span class="help-block">
                         <strong>{{ $errors->first('ulica_cislo') }}</strong>
