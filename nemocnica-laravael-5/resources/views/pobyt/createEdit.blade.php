@@ -16,9 +16,9 @@
         <div class="form-group">
             {{ Form::label('rodne_cislo', 'Pacient rodné číslo*:') }}
             {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
-            @if ($errors->has('pacient'))
+            @if ($errors->has('rodne_cislo'))
                 <span class="help-block">
-                        <strong>{{ $errors->first('pacient') }}</strong>
+                        <strong>{{ $errors->first('rodne_cislo') }}</strong>
                 </span>
             @endif
         </div>
