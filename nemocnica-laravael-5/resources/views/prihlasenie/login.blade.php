@@ -10,7 +10,7 @@
         <form class="form-horizontal">
 
             <div class="form-group">
-                {{ Form::label('email', 'Emailová adresa - new:') }}
+                {{ Form::label('email', 'Emailová adresa:') }}
                 {{ Form::email('email', old('email'),array('required' => 'required autofocus','placeholder'=>' janko@gmail.com','class'=>'form-control')) }}
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -41,6 +41,7 @@
             <div class="form-group">
                 <div class="col-md-8">
                     {{ Form::button('<span class="glyphicon glyphicon-log-in"></span> Prihlásiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+
                     <a class="btn btn-link" href="prihlasenie.zabudnute_heslo">
                         Zabudli ste heslo?
                     </a>

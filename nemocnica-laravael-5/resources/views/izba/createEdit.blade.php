@@ -6,6 +6,7 @@
     <div class="col-sm-6 ">
         <h2>Izba</h2>
 
+
         @if( empty($izba) )
             {{ Form::open(['route' => 'izba.store', 'method' => 'post', 'class' => 'form']) }}
         @else
@@ -44,27 +45,17 @@
 
 
         <div class="form-group">
-            @if( !empty($izba) )
-                {{ Form::button('<span class="glyphicon glyphicon-save"></span> Zmeniť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-
-                @else
-                    {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-            @endif
+            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
         </div>
-
+        {{ Form::close() }}
 
 
         @if( !empty($izba) )
+            {{ Form::open(['route' => ['izba.destroy', $izba->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
             <div class="form-group">
-                {{--{{ Form::open(['route' => ['izba.destroy', $izba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}--}}
-
-                {{--{{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}--}}
-                {{--{{ Form::close() }}--}}
-
-                <a href="{{ route('izba.destroy', $izba->id) }}" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-trash"></span>Zmena údajov
-                </a>
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
             </div>
+            {{ Form::close() }}
         @endif
 
 
@@ -72,7 +63,7 @@
         <div class="form-group">
             <span >*</span> - sú označené povinné údaje
         </div>
-        {{ Form::close() }}
+
 
 
     </div>

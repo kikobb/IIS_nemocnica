@@ -9,9 +9,6 @@
         @if( empty($liek) )
             {{ Form::open(['route' => 'liek.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-            {{ Form::close() }}
-
             {{ Form::model($liek, ['route' => ['liek.update', $liek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
@@ -47,17 +44,23 @@
 
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-            @if( !empty($liek) )
-                {{ Form::open(['method' => 'DELETE', 'route' => ['liek.destroy', $liek->id],'class' => 'hidden', ]) }}
-                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
-                {{ Form::close() }}
-            @endif
         </div>
+        {{ Form::close() }}
+
+
+        @if( !empty($liek) )
+            {{ Form::open(['route' => ['liek.destroy', $liek->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
+            <div class="form-group">
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
+            </div>
+            {{ Form::close() }}
+        @endif
+
+
 
         <div class="form-group">
             <span >*</span> - sú označené povinné údaje
         </div>
 
-        {{ Form::close() }}
     </div>
 @endsection
