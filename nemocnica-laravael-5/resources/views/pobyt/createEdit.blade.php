@@ -12,6 +12,7 @@
             {{ Form::model($pobyt, ['route' => ['pobyt.update', $pobyt->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
+
         <div class="form-group">
             {{ Form::label('rodne_cislo', 'Pacient rodné číslo*:') }}
             {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
@@ -24,11 +25,7 @@
 
         <div class="form-group">
             {{ Form::label('doktor_poradie', 'Doktor*:') }}
-            @if( empty($pobyt) )
-                {{ Form::select('doktor_poradie', old('doktor_poradie'), array('class'=>'form-control','required' => 'required'))}}
-            @else
-                {{ Form::select('doktor_poradie', "".$pobyt->getDoktor()->priezvisko."".$pobyt->getDoktor()->meno, array('class'=>'form-control','required' => 'required'))}}
-            @endif
+            {{ Form::select('doktor_poradie',$doktori, old('doktor_poradie'), array('class'=>'form-control','required' => 'required'))}}
         </div>
 
 
