@@ -63,7 +63,7 @@ class PobytController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate($this->rules());
+        $request->validate($this->rules());
         /* @var Pobyt $pobyt */
         $pobyt = new Pobyt();
         $pobyt->pacient_id = User::getUserByRodneCislo($request['rodne_cislo'])->id;
@@ -140,7 +140,7 @@ class PobytController extends Controller
         if ($request->has('datum_odchodu')){
             $pobyt->datum_odchodu = $request['datum_odchodu'];
         }
-        $pobyt->doktor_id = User::getAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
+        $pobyt->doktor_id = User::findAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
 
         return $this->confirm($pobyt->id);
