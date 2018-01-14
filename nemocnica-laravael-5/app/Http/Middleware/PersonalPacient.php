@@ -19,6 +19,7 @@ class PersonalPacient
     {
         if ( Auth::check() )
             if (!Auth::user()->isDoktor() && !Auth::user()->isSestra() && !Auth::user()->isPrijemca()) {
+                dd($request->id);
                 $segments = explode('/', $request->getUri());
                 $id_1 = $segments[count($segments) - 1];    //pre url: xxx/cislo
                 $id_2 = $segments[count($segments) - 2];    //pre url: xxx/cislo/edit alebo xxx/cislo/(vysetrenia/lieky/...)

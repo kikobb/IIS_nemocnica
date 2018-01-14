@@ -36,8 +36,8 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\Admin::class,
         \App\Http\Middleware\AdminPersonal::class,
         \App\Http\Middleware\AdminPersonalNoIndexCheck::class,
-        \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
         \App\Http\Middleware\DoktorSestraPacientIndChck::class,
+        \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
 
     ];
 
@@ -84,7 +84,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'adminPersonalIndChck' => \App\Http\Middleware\AdminPersonal::class,
         'admPersNoIndChck' => \App\Http\Middleware\AdminPersonalNoIndexCheck::class,
-        'persPacientNoIndChck' => \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
         'doktorSestraPacientIndChck' => \App\Http\Middleware\DoktorSestraPacientIndChck::class,
+        'persPacientNoIndChck' => \App\Http\Middleware\PersonalPacientNoIndexCheck::class,
     ];
 }

@@ -5,6 +5,7 @@
     <div class="col-sm-6 ">
         <h2> Údaje boli uložené</h2>
 
+
         <div class="row">
             <div class="col-md-5">Pacient:</div>
             <div class="col-md-6"> {{''.$pobyt->getPacient()->priezvisko.' '.$pobyt->getPacient()->meno}}</div>

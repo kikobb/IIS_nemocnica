@@ -24,13 +24,10 @@ public function handle($request, Closure $next)
             $id_2 = $segments[count($segments) - 2];    //pre url: xxx/cislo/edit
             dump($id_2);
             if (!Auth::user()->isPacient() || (is_numeric($id_2) && $id_2 != Auth::user()->id)) {
-                dd('tuna');
                 return redirect('/zamestnanec');
             }
 
         }
-//        dd('adf');
         return $next($request);
-//        dd(Auth::check());
     }
 }
