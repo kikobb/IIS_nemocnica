@@ -8,17 +8,17 @@
 
         <div class="row">
             <div class="col-md-5">Názov lieku:</div>
-            <div class="col-md-6"> {{$podany_liek->getNazov()}}</div>
+            <div class="col-md-6"> {{$podanyLiek->getNazov()}}</div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Čas podávania:</div>
-            <div class="col-md-6">{{$podany_liek->getCas()}} </div>
+            <div class="col-md-6">{{$podanyLiek->getCas()}} </div>
         </div>
 
         <div class="row">
             <div class="col-md-5">Kontraindikácia:</div>
-            <div class="col-md-6">{{$podany_liek->getMnozstvo()}}</div>
+            <div class="col-md-6">{{$podanyLiek->getMnozstvo()}}</div>
         </div>
 
 

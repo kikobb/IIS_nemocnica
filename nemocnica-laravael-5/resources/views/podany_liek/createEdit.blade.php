@@ -6,10 +6,10 @@
     <div class="col-sm-6 ">
         <h2>Pridať liek</h2>
 
-        @if( empty($podany_liek) )
-            {{ Form::open(['route' => ['store_podany_liek',$vysetrenie_id], 'method' => 'post', 'class' => 'form']) }}
+        @if( empty($podanyLiek) )
+            {{ Form::open(['route' => ['store_podany_liek',$podanyLiek->vysetrenie_id], 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::model($podany_liek, ['route' => ['podanyLiek.update', $podany_liek->id], 'method' => 'patch', 'class' => 'form']) }}
+            {{ Form::model($podanyLiek, ['route' => ['podanyLiek.update', $podanyLiek->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
         <div class="form-group">
@@ -45,7 +45,7 @@
 
 
         @if( !empty($podany_liek) )
-            {{ Form::open(['route' => ['podanyLiek.destroy', $podany_liek->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
+            {{ Form::open(['route' => ['podanyLiek.destroy', $podanyLiek->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
             </div>
