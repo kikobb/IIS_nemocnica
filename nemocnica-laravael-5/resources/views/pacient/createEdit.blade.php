@@ -9,10 +9,7 @@
         @if( empty($pacient) )
             {{ Form::open(['route' => 'pacient.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['pacient.destroy', $pacient->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-            {{ Form::close() }}
-
-            {{ Form::model($pacient, ['route' => ['pacient.update', $pacient->id], 'method' => 'patch', 'class' => 'form']) }}
+              {{ Form::model($pacient, ['route' => ['pacient.update', $pacient->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
 
@@ -131,19 +128,25 @@
             </div>
 
 
-            <div class="form-group">
-                {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-                @if( !empty($pacient) )
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['pacient.destroy', $pacient->id],'class' => 'hidden', ]) }}
-                    {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
-                    {{ Form::close() }}
-                @endif
-            </div>
+        <div class="form-group">
+            {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
+        </div>
 
+        {{ Form::close() }}
+
+
+        @if( !empty($pacient) )
+            {{ Form::open(['route' => ['pacient.destroy', $pacient->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
             <div class="form-group">
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
+            </div>
+            {{ Form::close() }}
+        @endif
+
+
+        <div class="form-group">
                 <span>*</span> - sú označené povinné údaje
             </div>
 
-        {{ Form::close() }}
     </div>
 @endsection

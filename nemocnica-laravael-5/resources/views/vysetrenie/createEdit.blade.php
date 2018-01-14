@@ -9,9 +9,6 @@
         @if( empty($vysetrenie) )
             {{ Form::open(['route' => 'vysetrenie.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['vysetrenie.destroy', $vysetrenie->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-            {{ Form::close() }}
-
             {{ Form::model($vysetrenie, ['route' => ['vysetrenie.update', $vysetrenie->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
@@ -62,20 +59,25 @@
             @endif
         </div>
 
-
         <div class="form-group">
             {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-            @if( !empty($vysetrenie) )
-                {{ Form::open(['method' => 'DELETE', 'route' => ['vysetrenie.destroy', $vysetrenie->id],'class' => 'hidden', ]) }}
-                {{ Form::button('<span class="<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
-                {{ Form::close() }} @endif
         </div>
+        {{ Form::close() }}
+
+
+        @if( !empty($vysetrenie) )
+            {{ Form::open(['route' => ['vysetrenie.destroy', $vysetrenie->id], 'method' => 'delete', 'id' => 'deleteForm']) }}
+            <div class="form-group">
+                {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
+            </div>
+            {{ Form::close() }}
+        @endif
+
 
         <div class="form-group">
             <span >*</span> - sú označené povinné údaje
         </div>
 
-        {{ Form::close() }}
 
     </div>
 

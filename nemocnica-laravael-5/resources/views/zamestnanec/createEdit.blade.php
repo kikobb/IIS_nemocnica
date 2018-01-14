@@ -9,9 +9,6 @@
         @if( empty($osoba) )
             {{ Form::open(['route' => 'zamestnanec.store', 'method' => 'post', 'class' => 'form']) }}
         @else
-            {{ Form::open(['route' => ['zamestnanec.destroy', $osoba->id], 'method' => 'delete', 'class' => 'hidden', 'id' => 'deleteForm']) }}
-            {{ Form::close() }}
-
             {{ Form::model($osoba, ['route' => ['zamestnanec.update', $osoba->id], 'method' => 'patch', 'class' => 'form']) }}
         @endif
 
@@ -155,23 +152,28 @@
 
             <div class="form-group">
                 {{ Form::button('<span class="glyphicon glyphicon-save"></span> Uložiť',  array('class'=>'btn btn-info btn-lg','type'=>'submit')) }}
-
                 @if( !empty($osoba) )
                     <a href="{{ route('zamestnanec_edit_heslo', $osoba->id) }}" class="btn btn-info btn-lg">
                         Zmena hesla
                     </a>
 
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['zamestnanec.destroy', $osoba->id],'class' => 'hidden', ]) }}
-                    {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', ['class' => 'btn btn-danger','type'=>'submit']) }}
-                    {{ Form::close() }}
                 @endif
 
             </div>
+            {{ Form::close() }}
+
+
+            @if( !empty($osoba) )
+                {{ Form::open(['route' => ['zamestnanec.destroy', $osoba->id], 'method' => 'delete','id' => 'deleteForm']) }}
+                <div class="form-group">
+                    {{ Form::button('<span class="glyphicon glyphicon-trash"></span> Zmazať', array('class' => 'btn btn-danger','type'=>'submit') )}}
+                </div>
+                {{ Form::close() }}
+            @endif
 
             <div class="form-group">
                 * - sú označené povinné údaje
             </div>
 
-        {{ Form::close() }}
     </div>
 @endsection
