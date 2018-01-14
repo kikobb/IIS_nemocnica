@@ -152,7 +152,7 @@ class IzbaController extends Controller
         $izba->cislo = $request['cislo'];
 
         //pozor +1 lebo vo frontende sa vracia hodnota od 0 ale v tabulke sa indexuje od 1
-        $izba->oddelenie_id = $request['oddelenie']+1;
+        $izba->oddelenie_id = $request['oddelenie_id']+1;
         $izba->save();
 
         return $this->confirm($izba->id);
