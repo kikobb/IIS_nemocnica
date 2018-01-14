@@ -139,7 +139,7 @@ class PodanyLiekController extends Controller
     {
         return view('podany_liek.confirm')->with([
             'currUser' => Auth::user(),
-            'podanyLiek' => Podany_liek::findOrFail($id),
+            'podany_liek' => Podany_liek::findOrFail($id),
             'lieky' => Liek::getAllLiekyToArr(),
         ]);
     }
