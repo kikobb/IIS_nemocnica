@@ -25,11 +25,11 @@
 
     <div class="col-sm-6 " id="confirm">
 
-        <a href="{{ route('podany_liek.create', $podany_liek->id) }}" class="btn btn-info btn-lg">
+        <a href="{{ route('podanyLiek.create_podany_liek', $podany_liek->id) }}" class="btn btn-info btn-lg">
             Ďalšia registrácia
         </a>
 
-        <a href="{{ route('podany_liek.edit', $podany_liek->id) }}" class="btn btn-info btn-lg">
+        <a href="{{ route('podanyLiek.edit', $podany_liek->id) }}" class="btn btn-info btn-lg">
             Zmena údajov
         </a>
 
