@@ -17,6 +17,10 @@ class Pobyt extends Model
         return Pobyt::where('datum_odchodu', '=', $datum);
     }
 
+    public static function getPobytById($id){
+        return Pobyt::where('id', '=', $id)->first();
+    }
+
 
     public function getDoktor(){
         return $this->doktor()->first();
