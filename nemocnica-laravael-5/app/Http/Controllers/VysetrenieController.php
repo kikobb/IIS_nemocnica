@@ -25,8 +25,8 @@ class VysetrenieController extends Controller
     private function rules()
     {
         return [
-            'nazov' => 'required|max:50',
-            'ucinna_latka' => 'required|max:255'
+            'typ' => 'required|max:50',
+            'sprava' => 'required|max:255'
         ];
     }
 
@@ -141,12 +141,11 @@ class VysetrenieController extends Controller
     {
         $request->validate($this->rules());
 
-        dump(Vysetrenie::findOrFail($id));
         /* @var Vysetrenie $vis */
         $vys = Vysetrenie::findOrFail($id);
 //        $vys->doktor_id => \Auth::user()->id,
         $vys->oddelenie_id = $request['oddelenie_id']; //dostanes id
-        $vys->pacient_id = User::getUserByRodneCislo($request['rodne_cislo']);
+        $vys->pacient_id = User::getUserByRodneCislo($request['rodne_cislo'])->id;
         if ($request->has('typ')){
             $vys->typ = $request['typ'];
         }
@@ -154,7 +153,6 @@ class VysetrenieController extends Controller
             $vys->sprava = $request['sprava'];
         }
         $vys->save();
-        dd($vys);
         return $this->confirm($id);
     }
 

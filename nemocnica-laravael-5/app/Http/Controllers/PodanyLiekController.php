@@ -83,7 +83,7 @@ class PodanyLiekController extends Controller
 
         /* @var Podany_liek $pliek */
         $pliek = new Podany_liek();
-        $pliek->liek_id = $request['liek_id'];
+        $pliek->liek_id = $request['liek_id']+1;    // lebo v db sa indexuje od 1 a z FE sa posiela poradie od 0
 //         $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->vysetrenie_id = $id;
         $pliek->cas = $request['cas'];
@@ -137,6 +137,7 @@ class PodanyLiekController extends Controller
      */
     public function confirm($id)
     {
+//        dd(Podany_liek::findOrFail($id));
         return view('podany_liek.confirm')->with([
             'currUser' => Auth::user(),
             'podanyLiek' => Podany_liek::findOrFail($id),
@@ -174,7 +175,7 @@ class PodanyLiekController extends Controller
         $pliek = Podany_liek::findOrFail($id);
         $pliek->cas = $request['cas'];
         $pliek->mnozstvo = $request['mnozstvo'];
-        $pliek->liek_id = $request['liek_id'];
+        $pliek->liek_id = $request['liek_id'] +1;   //indexacia v db od 1 a fe od 0
 //        $pliek->vysetrenie_id = $request['vysetrenie_id'];
         $pliek->save();
 
