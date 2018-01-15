@@ -52,11 +52,11 @@
                     @for ($i = 0; $i < count($podane_lieky); $i++)
                         <tr>
                             <td >{{$i +1}}</td>
-                            <td >{{$podane_lieky[$i]->nazov}}</td>
+                            <td >{{$podane_lieky[$i]->getNazov()}}</td>
                             <td >{{$podane_lieky[$i]->cas}}</td>
                             <td >{{$podane_lieky[$i]->mnozstvo}}</td>
                             <td ><span class="input-group-btn">
-                    <a href="{{ route('podany_liek.edit', $podane_lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
+                    <a href="{{ route('podanyLiek.edit', $podane_lieky[$i]->id) }}"><button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-pencil"></span></button></a>>
                     </span>
                             </td>
                         </tr>
