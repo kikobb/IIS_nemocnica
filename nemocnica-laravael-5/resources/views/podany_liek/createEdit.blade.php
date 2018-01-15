@@ -16,7 +16,7 @@
 
         <div class="form-group">
                 {{ Form::label('liek_id', 'Nazov lieku*:') }}
-                {{ Form::select('liek_id',$lieky, old('liek_id'), array('placeholder'=>'Nazov lieku','class'=>'form-control','required' => 'required'))}}
+                {{ Form::select('liek_id',$lieky, old('liek_id')-1, array('placeholder'=>'Nazov lieku','class'=>'form-control','required' => 'required'))}}
         </div>
 
         <div class="form-group">
