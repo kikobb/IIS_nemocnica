@@ -70,7 +70,7 @@ class PobytController extends Controller
         $pobyt->prijemca_id = Auth::user()->id;
         $pobyt->izba_id = Izba::getIzbaIdByNumber($request['cislo_izby']);
         $pobyt->datum_prichodu = $request['datum_prichodu'];
-//        dd($request['doktor_poradie']);
+        $pobyt->datum_odchodu = $request['datum_odchodu'];
         $pobyt->doktor_id = User::findAllUsersByPozicia('doktor')->get()[$request['doktor_poradie']]->id;
         $pobyt->save();
         return $this->confirm($pobyt->id);
@@ -112,6 +112,7 @@ class PobytController extends Controller
      */
     public function edit($id)
     {
+//        dd(Pobyt::findOrFail($id));
         return view('pobyt.createEdit')->with([
             'currUser' => Auth::user(),
             'pobyt' => Pobyt::findOrFail($id),

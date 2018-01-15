@@ -15,7 +15,7 @@
 
         <div class="form-group">
             {{ Form::label('rodne_cislo', 'Pacient rodné číslo*:') }}
-            {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
+            {{ Form::text('rodne_cislo', (empty($pobyt))? old('rodne_cislo') : "".$pobyt->getPacient()->rodne_cislo, array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
             @if ($errors->has('rodne_cislo'))
                 <span class="help-block">
                         <strong>{{ $errors->first('rodne_cislo') }}</strong>
@@ -23,9 +23,19 @@
             @endif
         </div>
 
+        <?php $doktor_index = 0 ?>
+        @if( !empty($pobyt) )
+            @foreach ($doktori as $doc)
+                @if ($doc == "".$pobyt->getDoktor()->priezvisko." ".$pobyt->getDoktor()->meno)
+                    @break
+                @endif
+                    <?php ++$doktor_index ?>
+            @endforeach
+        @endif
+
         <div class="form-group">
             {{ Form::label('doktor_poradie', 'Doktor*:') }}
-            {{ Form::select('doktor_poradie',$doktori, old('doktor_poradie'), array('class'=>'form-control','required' => 'required'))}}
+            {{ Form::select('doktor_poradie', $doktori, $doktor_index, array('class'=>'form-control','required' => 'required'))}}
         </div>
 
 
@@ -62,7 +72,7 @@
 
         <div class="form-group">
             {{ Form::label('cislo_izby', 'Číslo izby*:') }}
-            {{ Form::number('cislo_izby', old('cislo_izby'),array('placeholder'=>'1','class'=>'form-control','required' => 'required')) }}
+            {{ Form::number('cislo_izby', (empty($pobyt)) ? old('cislo_izby') : $pobyt->getIzba()->cislo,array('placeholder'=>'1','class'=>'form-control','required' => 'required')) }}
             @if ($errors->has('cislo_izby'))
                 <span class="help-block">
                         <strong>{{ $errors->first('cislo_izby') }}</strong>
