@@ -6,7 +6,7 @@ function changeInfos(primaryValue) {
     let departmentValues = ['nazov','poschodie'];
     let patientValues = ['meno', 'priezvisko', 'rodne_cislo'];
     let stayValues = ['datum_prichodu','datum_odchodu','oddelenie','rodne_cislo'];
-    let examinationValues = ['typ','cas'];
+    let examinationValues = ['rodne_cislo','typ','cas'];
     let arr = doctorNurseValues;
     switch (primaryValue) {
         case 'doktor':

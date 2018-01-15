@@ -24,7 +24,7 @@
 
         <div class="form-group">
             {{ Form::label('rodne_cislo', 'Rodné číslo pacienta*:') }}
-            {{ Form::text('rodne_cislo', old('rodne_cislo'),array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
+            {{ Form::text('rodne_cislo',(empty($vysetrenie))? old('rodne_cislo'): $vysetrenie->getPacient()->rodne_cislo,array('placeholder'=>'1234567890','class'=>'form-control','required' => 'required')) }}
             @if ($errors->has('rodne_cislo'))
                 <span class="help-block">
                         <strong>{{ $errors->first('rodne_cislo') }}</strong>
